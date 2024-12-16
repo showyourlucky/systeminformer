@@ -51,65 +51,65 @@ END
 
 IDD_PROCESSES DIALOGEX 0, 0, 255, 229
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Processes"
+CAPTION "进程"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "You can configure processes for which notifications are displayed. Wildcards can be used, and ordering is considered.",IDC_STATIC,7,7,241,19
+    LTEXT "您可以配置显示通知的进程。可以使用通配符，并且会考虑顺序。",IDC_STATIC,7,7,241,19
     LISTBOX         IDC_LIST,7,30,187,118,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
-    PUSHBUTTON      "Move up",IDC_MOVEUP,198,30,50,14
-    PUSHBUTTON      "Move down",IDC_MOVEDOWN,198,47,50,14
+    PUSHBUTTON "上移",IDC_MOVEUP,198,30,50,14
+    PUSHBUTTON "下移",IDC_MOVEDOWN,198,47,50,14
     EDITTEXT        IDC_TEXT,7,152,147,12,ES_AUTOHSCROLL
-    CONTROL         "Include",IDC_INCLUDE,"Button",BS_AUTORADIOBUTTON,163,153,39,10
-    CONTROL         "Exclude",IDC_EXCLUDE,"Button",BS_AUTORADIOBUTTON,207,153,41,10
-    PUSHBUTTON      "Add/Update",IDC_ADD,145,168,50,14
-    PUSHBUTTON      "Remove",IDC_REMOVE,198,168,50,14
-    LTEXT           "Examples:\nnote*.exe\nC:\\Windows\\system32\\cmd.exe\nC:\\Windows\\*",IDC_INFO,7,186,241,36
+    CONTROL "包含",IDC_INCLUDE,"Button",BS_AUTORADIOBUTTON,163,153,39,10
+    CONTROL "排除",IDC_EXCLUDE,"Button",BS_AUTORADIOBUTTON,207,153,41,10
+    PUSHBUTTON "添加/更新",IDC_ADD,145,168,50,14
+    PUSHBUTTON "移除",IDC_REMOVE,198,168,50,14
+    LTEXT "示例:\nnote*.exe\nC:\\Windows\\system32\\cmd.exe\nC:\\Windows\\*",IDC_INFO,7,186,241,36
 END
 
 IDD_SERVICES DIALOGEX 0, 0, 255, 229
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Services"
+CAPTION "服务"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "You can configure services for which notifications are displayed. Wildcards can be used, and ordering is considered.",IDC_STATIC,7,7,241,19
+    LTEXT "您可以配置显示通知的服务。可以使用通配符，并且会考虑顺序。",IDC_STATIC,7,7,241,19
     LISTBOX         IDC_LIST,7,30,187,118,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
-    PUSHBUTTON      "Move up",IDC_MOVEUP,198,30,50,14
-    PUSHBUTTON      "Move down",IDC_MOVEDOWN,198,47,50,14
+    PUSHBUTTON "上移",IDC_MOVEUP,198,30,50,14
+    PUSHBUTTON "下移",IDC_MOVEDOWN,198,47,50,14
     EDITTEXT        IDC_TEXT,7,152,147,12,ES_AUTOHSCROLL
-    CONTROL         "Include",IDC_INCLUDE,"Button",BS_AUTORADIOBUTTON,163,153,39,10
-    CONTROL         "Exclude",IDC_EXCLUDE,"Button",BS_AUTORADIOBUTTON,207,153,41,10
-    PUSHBUTTON      "Add/Update",IDC_ADD,145,168,50,14
-    PUSHBUTTON      "Remove",IDC_REMOVE,198,168,50,14
-    LTEXT           "Examples:\nWdi*\nseclogon",IDC_INFO,7,186,241,36
+    CONTROL "包含",IDC_INCLUDE,"Button",BS_AUTORADIOBUTTON,163,153,39,10
+    CONTROL "排除",IDC_EXCLUDE,"Button",BS_AUTORADIOBUTTON,207,153,41,10
+    PUSHBUTTON "添加/更新",IDC_ADD,145,168,50,14
+    PUSHBUTTON "移除",IDC_REMOVE,198,168,50,14
+    LTEXT "示例:\nWdi*\nseclogon",IDC_INFO,7,186,241,36
 END
 
 IDD_DEVICES DIALOGEX 0, 0, 255, 229
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Devices"
+CAPTION "设备"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    LTEXT           "You can configure devices for which notifications are displayed. Wildcards can be used, and ordering is considered.",IDC_STATIC,7,7,241,19
+    LTEXT "您可以配置显示通知的设备。可以使用通配符，并且会考虑顺序。",IDC_STATIC,7,7,241,19
     LISTBOX         IDC_LIST,7,30,187,118,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
-    PUSHBUTTON      "Move up",IDC_MOVEUP,198,30,50,14
-    PUSHBUTTON      "Move down",IDC_MOVEDOWN,198,47,50,14
+    PUSHBUTTON "上移",IDC_MOVEUP,198,30,50,14
+    PUSHBUTTON "下移",IDC_MOVEDOWN,198,47,50,14
     EDITTEXT        IDC_TEXT,7,152,147,12,ES_AUTOHSCROLL
-    CONTROL         "Include",IDC_INCLUDE,"Button",BS_AUTORADIOBUTTON,163,153,39,10
-    CONTROL         "Exclude",IDC_EXCLUDE,"Button",BS_AUTORADIOBUTTON,207,153,41,10
-    PUSHBUTTON      "Add/Update",IDC_ADD,145,168,50,14
-    PUSHBUTTON      "Remove",IDC_REMOVE,198,168,50,14
-    LTEXT           "Examples:\nUSB*\n*Keyboard*",IDC_INFO,7,186,241,36
+    CONTROL "包含",IDC_INCLUDE,"Button",BS_AUTORADIOBUTTON,163,153,39,10
+    CONTROL "排除",IDC_EXCLUDE,"Button",BS_AUTORADIOBUTTON,207,153,41,10
+    PUSHBUTTON "添加/更新",IDC_ADD,145,168,50,14
+    PUSHBUTTON "移除",IDC_REMOVE,198,168,50,14
+    LTEXT "示例:\nUSB*\n*Keyboard*",IDC_INFO,7,186,241,36
 END
 
 IDD_LOGGING DIALOGEX 0, 0, 255, 69
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Logging"
+CAPTION "日志记录"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    GROUPBOX        "File",IDC_INFO,7,7,241,53
-    LTEXT           "Log all events to this file (leave blank to disable this feature):",IDC_STATIC,13,18,196,8
+    GROUPBOX "文件",IDC_INFO,7,7,241,53
+    LTEXT "将所有事件记录到此文件（留空禁用此功能）：",IDC_STATIC,13,18,196,8
     EDITTEXT        IDC_LOGFILENAME,13,29,178,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "Browse...",IDC_BROWSE,194,28,50,14
-    LTEXT           "Changes will require a restart of System Informer.",IDC_STATIC,14,45,157,8
+    PUSHBUTTON "浏览...",IDC_BROWSE,194,28,50,14
+    LTEXT "更改将需要重启 System Informer。",IDC_STATIC,14,45,157,8
 END
 
 
