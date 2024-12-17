@@ -143,10 +143,14 @@ def replace_text_in_rc_file(rc_file_path, translated_dict, encoding):
         with open(rc_file_path, 'r', encoding='utf-8') as file:
             lines = file.readlines()
 
+        dictValves  = translated_dict.values()
+
         def replacer(match):
             control_type, original_text = match.groups()
             # 对于 RTEXT 类型，且内容为 "Static" 的不进行替换
             if control_type.upper() == 'RTEXT' and original_text == 'Static':
+                return match.group(0)
+            if original_text in dictValves:
                 return match.group(0)
             # 如果原文在翻译字典中，则进行替换
             translated_text = translated_dict.get(original_text)

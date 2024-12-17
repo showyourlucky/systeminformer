@@ -45,15 +45,7 @@ def replace_strings(c_file_path, translated_dict):
         with open(c_file_path, 'r', encoding='utf-8') as file:
             lines = file.readlines()
 
-        def replacer(match):
-            original_text = match.groups()
-            # 如果原文在翻译字典中，则进行替换
-            translated_text = translated_dict.get(original_text[0])
-            if translated_text:
-                return f'"{translated_text}"'
-            else:
-                return match.group(0)
-
+        dictValves  = translated_dict.values()
         # 使用列表推导式和 re.sub 进行替换
         regex = r'PhCreateEMenuItem\s*\([^,]+,\s*[^,]+,[^"]*"([^"]+)"'
         # new_lines = [pattern.sub(replacer, line) for line in lines]
@@ -62,6 +54,9 @@ def replace_strings(c_file_path, translated_dict):
             match = re.search(regex, line)
             if match:
                 text = match.group(1)
+                # 已翻译过的字段
+                if text in dictValves:
+                    continue
                 line = line.replace(f'"{text}"', f'"{translated_dict.get(text)}"')
             new_lines.append(line)
 
