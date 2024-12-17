@@ -878,9 +878,9 @@ INT_PTR CALLBACK PhpProcessHeapsDlgProc(
                 if (selectedCount != 0)
                 {
                     menu = PhCreateEMenu();
-                    //PhInsertEMenuItem(menu, PhCreateEMenuItem(selectedCount != 1 ? PH_EMENU_DISABLED : 0, 1, L"Destroy", NULL, NULL), ULONG_MAX);
+                    //PhInsertEMenuItem(menu, PhCreateEMenuItem(selectedCount != 1 ? PH_EMENU_DISABLED : 0, 1, L"销毁", NULL, NULL), ULONG_MAX);
                     //PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, USHRT_MAX, L"Copy\bCtrl+C", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, USHRT_MAX, L"复制(Ctrl+C)", NULL, NULL), ULONG_MAX);
                     PhInsertCopyListViewEMenuItem(menu, USHRT_MAX, context->ListViewHandle);
 
                     menuItem = PhShowEMenu(

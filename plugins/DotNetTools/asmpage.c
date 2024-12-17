@@ -550,13 +550,13 @@ VOID DotNetAsmShowContextMenu(
         return;
 
     menu = PhCreateEMenu();
-    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_CLR_INSPECT, L"&Inspect", NULL, NULL), ULONG_MAX);
-    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_CLR_INSPECTNATIVE, L"Inspect native image", NULL, NULL), ULONG_MAX);
+    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_CLR_INSPECT, L"检查", NULL, NULL), ULONG_MAX);
+    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_CLR_INSPECTNATIVE, L"检查原生镜像", NULL, NULL), ULONG_MAX);
     PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_CLR_OPENFILELOCATION, L"Open &file location", NULL, NULL), ULONG_MAX);
-    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_CLR_OPENNATIVELOCATION, L"Open native file location", NULL, NULL), ULONG_MAX);
+    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_CLR_OPENFILELOCATION, L"打开文件位置", NULL, NULL), ULONG_MAX);
+    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_CLR_OPENNATIVELOCATION, L"打开原生文件位置", NULL, NULL), ULONG_MAX);
     PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_CLR_COPY, L"&Copy", NULL, NULL), ULONG_MAX);
+    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_CLR_COPY, L"复制", NULL, NULL), ULONG_MAX);
     PhInsertCopyCellEMenuItem(menu, ID_CLR_COPY, Context->TreeNewHandle, ContextMenuEvent->Column);
     PhSetFlagsEMenuItem(menu, ID_CLR_INSPECT, PH_EMENU_DEFAULT, PH_EMENU_DEFAULT);
 
@@ -2021,11 +2021,11 @@ INT_PTR CALLBACK DotNetAsmPageDlgProc(
                     GetWindowRect(GetDlgItem(hwndDlg, IDC_OPTIONS), &rect);
 
                     menu = PhCreateEMenu();
-                    PhInsertEMenuItem(menu, dynamicItem = PhCreateEMenuItem(0, DN_ASM_MENU_HIDE_DYNAMIC_OPTION, L"Hide dynamic", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, nativeItem = PhCreateEMenuItem(0, DN_ASM_MENU_HIDE_NATIVE_OPTION, L"Hide native", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, dynamicItem = PhCreateEMenuItem(0, DN_ASM_MENU_HIDE_DYNAMIC_OPTION, L"隐藏动态", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, nativeItem = PhCreateEMenuItem(0, DN_ASM_MENU_HIDE_NATIVE_OPTION, L"隐藏原生", NULL, NULL), ULONG_MAX);
                     PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-                    PhInsertEMenuItem(menu, highlightDynamicItem = PhCreateEMenuItem(0, DN_ASM_MENU_HIGHLIGHT_DYNAMIC_OPTION, L"Highlight dynamic", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, highlightNativeItem = PhCreateEMenuItem(0, DN_ASM_MENU_HIGHLIGHT_NATIVE_OPTION, L"Highlight native", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, highlightDynamicItem = PhCreateEMenuItem(0, DN_ASM_MENU_HIGHLIGHT_DYNAMIC_OPTION, L"高亮动态", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, highlightNativeItem = PhCreateEMenuItem(0, DN_ASM_MENU_HIGHLIGHT_NATIVE_OPTION, L"高亮原生", NULL, NULL), ULONG_MAX);
 
                     if (context->HideDynamicModules)
                         dynamicItem->Flags |= PH_EMENU_CHECKED;

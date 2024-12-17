@@ -668,9 +668,9 @@ INT_PTR CALLBACK PvPeResourcesDlgProc(
             if (numberOfNodes != 0)
             {
                 menu = PhCreateEMenu();
-                PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"Save resource...", NULL, NULL), ULONG_MAX);
+                PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"保存资源...", NULL, NULL), ULONG_MAX);
                 PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-                PhInsertEMenuItem(menu, PhCreateEMenuItem(0, USHRT_MAX, L"Copy", NULL, NULL), ULONG_MAX);
+                PhInsertEMenuItem(menu, PhCreateEMenuItem(0, USHRT_MAX, L"复制", NULL, NULL), ULONG_MAX);
                 PhInsertCopyCellEMenuItem(menu, USHRT_MAX, context->TreeNewHandle, contextMenuEvent->Column);
 
                 selectedItem = PhShowEMenu(

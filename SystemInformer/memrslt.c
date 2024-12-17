@@ -461,10 +461,10 @@ INT_PTR CALLBACK PhpMemoryResultsDlgProc(
                     ULONG filterType = 0;
 
                     menu = PhCreateEMenu();
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_FILTER_CONTAINS, L"Contains...", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_FILTER_CONTAINS_CASEINSENSITIVE, L"Contains (case-insensitive)...", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_FILTER_REGEX, L"Regex...", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_FILTER_REGEX_CASEINSENSITIVE, L"Regex (case-insensitive)...", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_FILTER_CONTAINS, L"包含...", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_FILTER_CONTAINS_CASEINSENSITIVE, L"包含(不区分大小写)...", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_FILTER_REGEX, L"正则表达式...", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_FILTER_REGEX_CASEINSENSITIVE, L"正则表达式(不区分大小写)...", NULL, NULL), ULONG_MAX);
 
                     GetClientRect(GetDlgItem(hwndDlg, IDC_FILTER), &buttonRect);
                     point.x = 0;
@@ -630,9 +630,9 @@ INT_PTR CALLBACK PhpMemoryResultsDlgProc(
                         PPH_EMENU_ITEM selectedItem;
 
                         menu = PhCreateEMenu();
-                        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_MEMORY_READWRITEMEMORY, L"Read/Write memory", NULL, NULL), ULONG_MAX);
+                        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_MEMORY_READWRITEMEMORY, L"读/写内存", NULL, NULL), ULONG_MAX);
                         PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-                        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, IDC_COPY, L"Copy", NULL, NULL), ULONG_MAX);
+                        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, IDC_COPY, L"复制", NULL, NULL), ULONG_MAX);
                         PhInsertCopyListViewEMenuItem(menu, IDC_COPY, lvHandle);
 
                         GetCursorPos(&point);

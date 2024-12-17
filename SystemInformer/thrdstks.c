@@ -1335,21 +1335,21 @@ BOOLEAN NTAPI PhpThreadStacksTreeNewCallback(
             node = (PPH_THREAD_STACKS_NODE)contextMenuEvent->Node;
 
             menu = PhCreateEMenu();
-            PhInsertEMenuItem(menu, gotoProcess = PhCreateEMenuItem(0, 1, L"Go to process...", NULL, NULL), ULONG_MAX);
-            PhInsertEMenuItem(menu, gotoThread = PhCreateEMenuItem(0, 2, L"Go to thread...", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, gotoProcess = PhCreateEMenuItem(0, 1, L"转到进程...", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, gotoThread = PhCreateEMenuItem(0, 2, L"转到线程...", NULL, NULL), ULONG_MAX);
             PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-            PhInsertEMenuItem(menu, hideUserFrames = PhCreateEMenuItem(0, 3, L"Expand all", NULL, NULL), ULONG_MAX);
-            PhInsertEMenuItem(menu, hideUserFrames = PhCreateEMenuItem(0, 4, L"Collapse all", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, hideUserFrames = PhCreateEMenuItem(0, 3, L"全部展开", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, hideUserFrames = PhCreateEMenuItem(0, 4, L"全部折叠", NULL, NULL), ULONG_MAX);
             PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-            PhInsertEMenuItem(menu, hideUserFrames = PhCreateEMenuItem(0, 5, L"Hide user frames", NULL, NULL), ULONG_MAX);
-            PhInsertEMenuItem(menu, hideSystemFrames = PhCreateEMenuItem(0, 6, L"Hide system frames", NULL, NULL), ULONG_MAX);
-            PhInsertEMenuItem(menu, hideInlineFrames = PhCreateEMenuItem(0, 7, L"Hide inline frames", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, hideUserFrames = PhCreateEMenuItem(0, 5, L"隐藏用户帧", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, hideSystemFrames = PhCreateEMenuItem(0, 6, L"隐藏系统帧", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, hideInlineFrames = PhCreateEMenuItem(0, 7, L"隐藏内联帧", NULL, NULL), ULONG_MAX);
             PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-            PhInsertEMenuItem(menu, highlightUserFrames = PhCreateEMenuItem(0, 8, L"Highlight user frames", NULL, NULL), ULONG_MAX);
-            PhInsertEMenuItem(menu, highlightSystemFrames = PhCreateEMenuItem(0, 9, L"Highlight system frames", NULL, NULL), ULONG_MAX);
-            PhInsertEMenuItem(menu, highlightInlineFrames = PhCreateEMenuItem(0, 10, L"Highlight inline frames", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, highlightUserFrames = PhCreateEMenuItem(0, 8, L"高亮显示用户帧", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, highlightSystemFrames = PhCreateEMenuItem(0, 9, L"高亮显示系统帧", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, highlightInlineFrames = PhCreateEMenuItem(0, 10, L"高亮显示内联帧", NULL, NULL), ULONG_MAX);
             PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-            PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 100, L"Copy", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 100, L"复制", NULL, NULL), ULONG_MAX);
             PhInsertCopyCellEMenuItem(menu, 100, hwnd, contextMenuEvent->Column);
 
             if (node)

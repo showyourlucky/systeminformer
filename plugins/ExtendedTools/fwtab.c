@@ -1709,15 +1709,15 @@ VOID ShowFwContextMenu(
         PPH_EMENU_ITEM whoisMenu;
 
         menu = PhCreateEMenu();
-        PhInsertEMenuItem(menu, pingMenu = PhCreateEMenuItem(0, FW_ITEM_COMMAND_ID_PING, L"&Ping", NULL, NULL), ULONG_MAX);
-        PhInsertEMenuItem(menu, traceMenu = PhCreateEMenuItem(0, FW_ITEM_COMMAND_ID_TRACERT, L"&Traceroute", NULL, NULL), ULONG_MAX);
-        PhInsertEMenuItem(menu, whoisMenu = PhCreateEMenuItem(0, FW_ITEM_COMMAND_ID_WHOIS, L"&Whois", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(menu, pingMenu = PhCreateEMenuItem(0, FW_ITEM_COMMAND_ID_PING, L"Ping", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(menu, traceMenu = PhCreateEMenuItem(0, FW_ITEM_COMMAND_ID_TRACERT, L"路由追踪", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(menu, whoisMenu = PhCreateEMenuItem(0, FW_ITEM_COMMAND_ID_WHOIS, L"Whois", NULL, NULL), ULONG_MAX);
         PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, FW_ITEM_COMMAND_ID_OPENFILELOCATION, L"Open &file location\bEnter", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, FW_ITEM_COMMAND_ID_OPENFILELOCATION, L"打开文件位置(回车)", NULL, NULL), ULONG_MAX);
         PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, FW_ITEM_COMMAND_ID_INSPECT, L"&Inspect", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, FW_ITEM_COMMAND_ID_INSPECT, L"检查", NULL, NULL), ULONG_MAX);
         PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, FW_ITEM_COMMAND_ID_COPY, L"&Copy\bCtrl+C", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, FW_ITEM_COMMAND_ID_COPY, L"复制(Ctrl+C)", NULL, NULL), ULONG_MAX);
         InitializeFwMenu(menu, fwItems, numberOfFwItems);
         PhInsertCopyCellEMenuItem(menu, FW_ITEM_COMMAND_ID_COPY, TreeWindowHandle, ContextMenuEvent->Column);
         PhSetFlagsEMenuItem(menu, FW_ITEM_COMMAND_ID_OPENFILELOCATION, PH_EMENU_DEFAULT, PH_EMENU_DEFAULT);

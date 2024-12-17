@@ -711,11 +711,11 @@ INT_PTR CALLBACK EtpWsWatchDlgProc(
             fileNameWin32 = PhGetListViewItemText(context->ListViewHandle, lvItemIndex, 1);
 
             menu = PhCreateEMenu();
-            PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"&Inspect", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"检查", NULL, NULL), ULONG_MAX);
             PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-            PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 2, L"Open &file location", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 2, L"打开文件位置", NULL, NULL), ULONG_MAX);
             PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-            PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 3, L"&Copy", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 3, L"复制", NULL, NULL), ULONG_MAX);
             PhInsertCopyListViewEMenuItem(menu, 3, context->ListViewHandle);
             PhSetFlagsEMenuItem(menu, 1, PH_EMENU_DEFAULT, PH_EMENU_DEFAULT);
 

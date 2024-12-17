@@ -1053,19 +1053,19 @@ VOID PhpShowWmiProviderNodeContextMenu(
 
     if (PhGetIntegerSetting(L"WmiProviderEnableHiddenMenu"))
     {
-        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"&Suspend", NULL, NULL), ULONG_MAX);
-        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 2, L"Res&ume", NULL, NULL), ULONG_MAX);
-        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 3, L"Un&load", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"暂停", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 2, L"恢复", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 3, L"卸&载", NULL, NULL), ULONG_MAX);
         PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
     }
 
-    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 4, L"&Inspect", NULL, NULL), ULONG_MAX);
+    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 4, L"检查", NULL, NULL), ULONG_MAX);
     PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 5, L"S&tatistics", NULL, NULL), ULONG_MAX);
+    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 5, L"&统计", NULL, NULL), ULONG_MAX);
     PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 6, L"Open &file location", NULL, NULL), ULONG_MAX);
+    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 6, L"打开文件位置", NULL, NULL), ULONG_MAX);
     PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, IDC_COPY, L"&Copy", NULL, NULL), ULONG_MAX);
+    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, IDC_COPY, L"复制", NULL, NULL), ULONG_MAX);
     PhInsertCopyCellEMenuItem(menu, IDC_COPY, Context->TreeNewHandle, ContextMenuEvent->Column);
 
     selectedItem = PhShowEMenu(
@@ -1878,8 +1878,8 @@ INT_PTR CALLBACK PhpProcessWmiProvidersDlgProc(
 
                     GetWindowRect(GetDlgItem(hwndDlg, IDC_OPTIONS), &rect);
 
-                    namespaceMenuItem = PhCreateEMenuItem(0, PROCESS_WMI_TREE_MENU_ITEM_HIDE_DEFAULT_NAMESPACE, L"Hide default namespace", NULL, NULL);
-                    highlightNamespaceMenuItem = PhCreateEMenuItem(0, PROCESS_WMI_TREE_MENU_ITEM_HIGHLIGHT_DEFAULT_NAMESPACE, L"Highlight default namespace", NULL, NULL);
+                    namespaceMenuItem = PhCreateEMenuItem(0, PROCESS_WMI_TREE_MENU_ITEM_HIDE_DEFAULT_NAMESPACE, L"隐藏默认命名空间", NULL, NULL);
+                    highlightNamespaceMenuItem = PhCreateEMenuItem(0, PROCESS_WMI_TREE_MENU_ITEM_HIGHLIGHT_DEFAULT_NAMESPACE, L"高亮显示默认命名空间", NULL, NULL);
 
                     menu = PhCreateEMenu();
                     PhInsertEMenuItem(menu, namespaceMenuItem, ULONG_MAX);

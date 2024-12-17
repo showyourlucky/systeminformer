@@ -928,14 +928,14 @@ INT_PTR CALLBACK PvpSymbolsDlgProc(
 
                     GetWindowRect(GetDlgItem(hwndDlg, IDC_SETTINGS), &rect);
 
-                    writableMenuItem = PhCreateEMenuItem(0, PV_SYMBOL_TREE_MENU_ITEM_HIDE_WRITE, L"Hide writable", NULL, NULL);
-                    executableMenuItem = PhCreateEMenuItem(0, PV_SYMBOL_TREE_MENU_ITEM_HIDE_EXECUTE, L"Hide executable", NULL, NULL);
-                    codeMenuItem = PhCreateEMenuItem(0, PV_SYMBOL_TREE_MENU_ITEM_HIDE_CODE, L"Hide code", NULL, NULL);
-                    readMenuItem = PhCreateEMenuItem(0, PV_SYMBOL_TREE_MENU_ITEM_HIDE_READ, L"Hide readable", NULL, NULL);
-                    highlightWriteMenuItem = PhCreateEMenuItem(0, PV_SYMBOL_TREE_MENU_ITEM_HIGHLIGHT_WRITE, L"Highlight writable", NULL, NULL);
-                    highlightExecuteMenuItem = PhCreateEMenuItem(0, PV_SYMBOL_TREE_MENU_ITEM_HIGHLIGHT_EXECUTE, L"Highlight executable", NULL, NULL);
-                    highlightCodeMenuItem = PhCreateEMenuItem(0, PV_SYMBOL_TREE_MENU_ITEM_HIGHLIGHT_CODE, L"Highlight code", NULL, NULL);
-                    highlightReadMenuItem = PhCreateEMenuItem(0, PV_SYMBOL_TREE_MENU_ITEM_HIGHLIGHT_READ, L"Highlight readable", NULL, NULL);
+                    writableMenuItem = PhCreateEMenuItem(0, PV_SYMBOL_TREE_MENU_ITEM_HIDE_WRITE, L"隐藏可写", NULL, NULL);
+                    executableMenuItem = PhCreateEMenuItem(0, PV_SYMBOL_TREE_MENU_ITEM_HIDE_EXECUTE, L"隐藏可执行", NULL, NULL);
+                    codeMenuItem = PhCreateEMenuItem(0, PV_SYMBOL_TREE_MENU_ITEM_HIDE_CODE, L"隐藏代码", NULL, NULL);
+                    readMenuItem = PhCreateEMenuItem(0, PV_SYMBOL_TREE_MENU_ITEM_HIDE_READ, L"隐藏可读", NULL, NULL);
+                    highlightWriteMenuItem = PhCreateEMenuItem(0, PV_SYMBOL_TREE_MENU_ITEM_HIGHLIGHT_WRITE, L"高亮显示可写", NULL, NULL);
+                    highlightExecuteMenuItem = PhCreateEMenuItem(0, PV_SYMBOL_TREE_MENU_ITEM_HIGHLIGHT_EXECUTE, L"高亮显示可执行", NULL, NULL);
+                    highlightCodeMenuItem = PhCreateEMenuItem(0, PV_SYMBOL_TREE_MENU_ITEM_HIGHLIGHT_CODE, L"高亮显示代码", NULL, NULL);
+                    highlightReadMenuItem = PhCreateEMenuItem(0, PV_SYMBOL_TREE_MENU_ITEM_HIGHLIGHT_READ, L"高亮显示可读", NULL, NULL);
 
                     menu = PhCreateEMenu();
                     PhInsertEMenuItem(menu, writableMenuItem, ULONG_MAX);
@@ -1028,7 +1028,7 @@ INT_PTR CALLBACK PvpSymbolsDlgProc(
             if (numberOfNodes != 0)
             {
                 menu = PhCreateEMenu();
-                PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"Copy", NULL, NULL), ULONG_MAX);
+                PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"复制", NULL, NULL), ULONG_MAX);
                 PhInsertCopyCellEMenuItem(menu, 1, context->TreeNewHandle, contextMenuEvent->Column);
 
                 selectedItem = PhShowEMenu(

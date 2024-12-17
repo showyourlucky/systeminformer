@@ -200,9 +200,9 @@ INT_PTR CALLBACK PvpPeExtendedAttributesDlgProc(
                 if (numberOfItems != 0)
                 {
                     menu = PhCreateEMenu();
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"Delete", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"删除", NULL, NULL), ULONG_MAX);
                     PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, USHRT_MAX, L"&Copy", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, USHRT_MAX, L"复制", NULL, NULL), ULONG_MAX);
                     PvInsertCopyListViewEMenuItem(menu, USHRT_MAX, context->ListViewHandle);
 
                     item = PhShowEMenu(

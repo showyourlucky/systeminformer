@@ -685,12 +685,12 @@ VOID PhpShowEnvironmentNodeContextMenu(
     menu = PhCreateEMenu();
     if (!PhpHasSelectedEnvironmentGroupNode(nodes, numberOfNodes))
     {
-        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_ENV_EDIT, L"Edit", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_ENV_EDIT, L"编辑", NULL, NULL), ULONG_MAX);
         PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_ENV_DELETE, L"Delete", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_ENV_DELETE, L"删除", NULL, NULL), ULONG_MAX);
         PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
     }
-    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_ENV_COPY, L"&Copy", NULL, NULL), ULONG_MAX);
+    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_ENV_COPY, L"复制", NULL, NULL), ULONG_MAX);
     PhInsertCopyCellEMenuItem(menu, ID_ENV_COPY, Context->TreeNewHandle, ContextMenuEvent->Column);
 
     selectedItem = PhShowEMenu(
@@ -1464,15 +1464,15 @@ INT_PTR CALLBACK PhpProcessEnvironmentDlgProc(
 
                     GetWindowRect(GetDlgItem(hwndDlg, IDC_OPTIONS), &rect);
 
-                    processMenuItem = PhCreateEMenuItem(0, ENVIRONMENT_TREE_MENU_ITEM_HIDE_PROCESS_TYPE, L"Hide process", NULL, NULL);
-                    userMenuItem = PhCreateEMenuItem(0, ENVIRONMENT_TREE_MENU_ITEM_HIDE_USER_TYPE, L"Hide user", NULL, NULL);
-                    systemMenuItem = PhCreateEMenuItem(0, ENVIRONMENT_TREE_MENU_ITEM_HIDE_SYSTEM_TYPE, L"Hide system", NULL, NULL);
-                    cmdMenuItem = PhCreateEMenuItem(0, ENVIRONMENT_TREE_MENU_ITEM_HIDE_CMD_TYPE, L"Hide cmd", NULL, NULL);
-                    highlightProcessMenuItem = PhCreateEMenuItem(0, ENVIRONMENT_TREE_MENU_ITEM_HIGHLIGHT_PROCESS_TYPE, L"Highlight process", NULL, NULL);
-                    highlightUserMenuItem = PhCreateEMenuItem(0, ENVIRONMENT_TREE_MENU_ITEM_HIGHLIGHT_USER_TYPE, L"Highlight user", NULL, NULL);
-                    highlightSystemMenuItem = PhCreateEMenuItem(0, ENVIRONMENT_TREE_MENU_ITEM_HIGHLIGHT_SYSTEM_TYPE, L"Highlight system", NULL, NULL);
-                    highlightCmdMenuItem = PhCreateEMenuItem(0, ENVIRONMENT_TREE_MENU_ITEM_HIGHLIGHT_CMD_TYPE, L"Highlight cmd", NULL, NULL);
-                    newProcessMenuItem = PhCreateEMenuItem(0, ENVIRONMENT_TREE_MENU_ITEM_NEW_ENVIRONMENT_VARIABLE, L"New variable...", NULL, NULL);
+                    processMenuItem = PhCreateEMenuItem(0, ENVIRONMENT_TREE_MENU_ITEM_HIDE_PROCESS_TYPE, L"隐藏进程", NULL, NULL);
+                    userMenuItem = PhCreateEMenuItem(0, ENVIRONMENT_TREE_MENU_ITEM_HIDE_USER_TYPE, L"隐藏用户", NULL, NULL);
+                    systemMenuItem = PhCreateEMenuItem(0, ENVIRONMENT_TREE_MENU_ITEM_HIDE_SYSTEM_TYPE, L"隐藏系统", NULL, NULL);
+                    cmdMenuItem = PhCreateEMenuItem(0, ENVIRONMENT_TREE_MENU_ITEM_HIDE_CMD_TYPE, L"隐藏命令行", NULL, NULL);
+                    highlightProcessMenuItem = PhCreateEMenuItem(0, ENVIRONMENT_TREE_MENU_ITEM_HIGHLIGHT_PROCESS_TYPE, L"高亮进程", NULL, NULL);
+                    highlightUserMenuItem = PhCreateEMenuItem(0, ENVIRONMENT_TREE_MENU_ITEM_HIGHLIGHT_USER_TYPE, L"高亮用户", NULL, NULL);
+                    highlightSystemMenuItem = PhCreateEMenuItem(0, ENVIRONMENT_TREE_MENU_ITEM_HIGHLIGHT_SYSTEM_TYPE, L"高亮系统", NULL, NULL);
+                    highlightCmdMenuItem = PhCreateEMenuItem(0, ENVIRONMENT_TREE_MENU_ITEM_HIGHLIGHT_CMD_TYPE, L"高亮命令行", NULL, NULL);
+                    newProcessMenuItem = PhCreateEMenuItem(0, ENVIRONMENT_TREE_MENU_ITEM_NEW_ENVIRONMENT_VARIABLE, L"新建变量...", NULL, NULL);
 
                     menu = PhCreateEMenu();
                     PhInsertEMenuItem(menu, processMenuItem, ULONG_MAX);

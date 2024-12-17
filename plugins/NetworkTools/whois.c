@@ -1010,9 +1010,9 @@ INT_PTR CALLBACK WhoisDlgProc(
             point.y = GET_Y_LPARAM(lParam);
 
             menu = PhCreateEMenu();
-            PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 10, L"&Copy", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 10, L"复制", NULL, NULL), ULONG_MAX);
             PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-            PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 11, L"&Select all", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 11, L"全选", NULL, NULL), ULONG_MAX);
 
             memset(&range, 0, sizeof(CHARRANGE));
             SendMessage(context->RichEditHandle, EM_EXGETSEL, 0, (LPARAM)&range);

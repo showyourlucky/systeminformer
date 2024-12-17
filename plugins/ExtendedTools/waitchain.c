@@ -462,8 +462,8 @@ INT_PTR CALLBACK WaitChainDlgProc(
                     if (selectedNode = WtcGetSelectedWaitNode(&context->TreeContext))
                     {
                         menu = PhCreateEMenu();
-                        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_WCT_MENU_GOTOPROCESS, L"Go to Process...", NULL, NULL), ULONG_MAX);
-                        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_WCT_MENU_GOTOTHREAD, L"Go to Thread...", NULL, NULL), ULONG_MAX);
+                        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_WCT_MENU_GOTOPROCESS, L"转到进程...", NULL, NULL), ULONG_MAX);
+                        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_WCT_MENU_GOTOTHREAD, L"转到线程...", NULL, NULL), ULONG_MAX);
                         PhSetFlagsEMenuItem(menu, ID_WCT_MENU_PROPERTIES, PH_EMENU_DEFAULT, PH_EMENU_DEFAULT);
 
                         if (selectedNode->ThreadId > 0)

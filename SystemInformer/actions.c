@@ -919,7 +919,7 @@ PVOID PhUiCreateComputerBootDeviceMenu(
     PPH_EMENU_ITEM menuItem;
     PPH_LIST bootApplicationList;
 
-    menuItem = PhCreateEMenuItem(PH_EMENU_DISABLED, ID_COMPUTER_RESTARTBOOTDEVICE, L"Restart to boot application", NULL, NULL);
+    menuItem = PhCreateEMenuItem(PH_EMENU_DISABLED, ID_COMPUTER_RESTARTBOOTDEVICE, L"重启到引导程序", NULL, NULL);
 
     if (!PhGetOwnTokenAttributes().Elevated)
         return menuItem;
@@ -963,7 +963,7 @@ PVOID PhUiCreateComputerFirmwareDeviceMenu(
     PPH_EMENU_ITEM menuItem;
     PPH_LIST firmwareApplicationList;
 
-    menuItem = PhCreateEMenuItem(PH_EMENU_DISABLED, ID_COMPUTER_RESTARTFWDEVICE, L"Restart to firmware application", NULL, NULL);
+    menuItem = PhCreateEMenuItem(PH_EMENU_DISABLED, ID_COMPUTER_RESTARTFWDEVICE, L"重启到固件程序", NULL, NULL);
 
     if (!PhGetOwnTokenAttributes().Elevated)
         return menuItem;
@@ -1210,13 +1210,13 @@ VOID PhUiCreateSessionMenu(
         PhDereferenceObject(escapedMenuText);
         PhDereferenceObject(entry->UserName);
 
-        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_CONNECT, L"&Connect", NULL, NULL), ULONG_MAX);
-        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_DISCONNECT, L"&Disconnect", NULL, NULL), ULONG_MAX);
-        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_LOGOFF, L"&Logoff", NULL, NULL), ULONG_MAX);
-        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_REMOTECONTROL, L"Rem&ote control", NULL, NULL), ULONG_MAX);
-        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_SENDMESSAGE, L"Send &message...", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_CONNECT, L"连接", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_DISCONNECT, L"断开连接", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_LOGOFF, L"注销", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_REMOTECONTROL, L"远程控制", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_SENDMESSAGE, L"发送消息...", NULL, NULL), ULONG_MAX);
         PhInsertEMenuItem(userMenu, PhCreateEMenuSeparator(), ULONG_MAX);
-        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_PROPERTIES, L"P&roperties", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(userMenu, PhCreateEMenuItem(0, ID_USER_PROPERTIES, L"属性", NULL, NULL), ULONG_MAX);
         PhInsertEMenuItem(UsersMenuItem, userMenu, ULONG_MAX);
     }
 

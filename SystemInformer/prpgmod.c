@@ -111,12 +111,12 @@ VOID PhShowModuleContextMenu(
         PH_PLUGIN_MENU_INFORMATION menuInfo;
 
         menu = PhCreateEMenu();
-        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_MODULE_UNLOAD, L"&Unload\bDel", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_MODULE_UNLOAD, L"卸载(Del)", NULL, NULL), ULONG_MAX);
         PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_MODULE_OPENFILELOCATION, L"Open &file location\bCtrl+Enter", NULL, NULL), ULONG_MAX);
-        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_MODULE_PROPERTIES, L"P&roperties", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_MODULE_OPENFILELOCATION, L"打开文件位置(Ctrl+Enter)", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_MODULE_PROPERTIES, L"属性", NULL, NULL), ULONG_MAX);
         PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_MODULE_COPY, L"&Copy\bCtrl+C", NULL, NULL), ULONG_MAX);
+        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, ID_MODULE_COPY, L"复制(Ctrl+C)", NULL, NULL), ULONG_MAX);
         PhSetFlagsEMenuItem(menu, ID_MODULE_PROPERTIES, PH_EMENU_DEFAULT, PH_EMENU_DEFAULT);
         PhpInitializeModuleMenu(menu, ProcessItem->ProcessId, modules, numberOfModules);
         PhInsertCopyCellEMenuItem(menu, ID_MODULE_COPY, Context->ListContext.TreeNewHandle, ContextMenu->Column);
@@ -865,28 +865,28 @@ INT_PTR CALLBACK PhpProcessModulesDlgProc(
                     GetWindowRect(GetDlgItem(hwndDlg, IDC_FILTEROPTIONS), &rect);
 
                     menu = PhCreateEMenu();
-                    PhInsertEMenuItem(menu, dynamicItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_DYNAMIC_OPTION, L"Hide dynamic", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, mappedItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_MAPPED_OPTION, L"Hide mapped", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, staticItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_STATIC_OPTION, L"Hide static", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, verifiedItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_SIGNED_OPTION, L"Hide verified", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, systemItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_SYSTEM_OPTION, L"Hide system", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, coherencyItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_LOWIMAGECOHERENCY_OPTION, L"Hide low image coherency", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, knowndllsItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_IMAGEKNOWNDLL_OPTION, L"Hide knowndlls images", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, dynamicItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_DYNAMIC_OPTION, L"隐藏动态", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, mappedItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_MAPPED_OPTION, L"隐藏已映射", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, staticItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_STATIC_OPTION, L"隐藏静态", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, verifiedItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_SIGNED_OPTION, L"隐藏已验证", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, systemItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_SYSTEM_OPTION, L"隐藏系统", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, coherencyItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_LOWIMAGECOHERENCY_OPTION, L"隐藏低图像一致性", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, knowndllsItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_IMAGEKNOWNDLL_OPTION, L"隐藏已知 DLL 图像", NULL, NULL), ULONG_MAX);
                     PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-                    PhInsertEMenuItem(menu, dotnetItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_HIGHLIGHT_DOTNET_OPTION, L"Highlight .NET modules", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, immersiveItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_HIGHLIGHT_IMMERSIVE_OPTION, L"Highlight immersive modules", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, relocatedItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_HIGHLIGHT_RELOCATED_OPTION, L"Highlight relocated modules", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, untrustedItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_HIGHLIGHT_UNSIGNED_OPTION, L"Highlight untrusted modules", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, systemHighlightItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_HIGHLIGHT_SYSTEM_OPTION, L"Highlight system modules", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, coherencyHighlightItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_HIGHLIGHT_LOWIMAGECOHERENCY_OPTION, L"Highlight low image coherency", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, knowndllsHighlightItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_HIGHLIGHT_IMAGEKNOWNDLL, L"Highlight knowndlls images", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, dotnetItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_HIGHLIGHT_DOTNET_OPTION, L"高亮显示 .NET 模块", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, immersiveItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_HIGHLIGHT_IMMERSIVE_OPTION, L"高亮显示沉浸式模块", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, relocatedItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_HIGHLIGHT_RELOCATED_OPTION, L"高亮显示重定位模块", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, untrustedItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_HIGHLIGHT_UNSIGNED_OPTION, L"高亮显示不受信任的模块", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, systemHighlightItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_HIGHLIGHT_SYSTEM_OPTION, L"高亮显示系统模块", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, coherencyHighlightItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_HIGHLIGHT_LOWIMAGECOHERENCY_OPTION, L"高亮显示低图像一致性", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, knowndllsHighlightItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_HIGHLIGHT_IMAGEKNOWNDLL, L"高亮显示已知 DLL 图像", NULL, NULL), ULONG_MAX);
                     PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-                    PhInsertEMenuItem(menu, zeroPadItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_ZERO_PAD_ADDRESSES, L"Zero pad addresses", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, zeroPadItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_ZERO_PAD_ADDRESSES, L"零填充地址", NULL, NULL), ULONG_MAX);
                     PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, PH_MODULE_FLAGS_LOAD_MODULE_OPTION, L"Load module...", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, PH_MODULE_FLAGS_LOAD_MODULE_OPTION, L"加载模块...", NULL, NULL), ULONG_MAX);
                     //PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-                    //PhInsertEMenuItem(menu, stringsItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_MODULE_STRINGS_OPTION, L"Strings...", NULL, NULL), ULONG_MAX);
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, PH_MODULE_FLAGS_SAVE_OPTION, L"Save...", NULL, NULL), ULONG_MAX);
+                    //PhInsertEMenuItem(menu, stringsItem = PhCreateEMenuItem(0, PH_MODULE_FLAGS_MODULE_STRINGS_OPTION, L"字符串...", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, PH_MODULE_FLAGS_SAVE_OPTION, L"保存...", NULL, NULL), ULONG_MAX);
 
                     if (modulesContext->ListContext.HideDynamicModules)
                         dynamicItem->Flags |= PH_EMENU_CHECKED;

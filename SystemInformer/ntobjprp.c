@@ -709,10 +709,10 @@ INT_PTR CALLBACK PhpMappingsPageProc(
 
             if (info && info->ViewMapType == VIEW_MAP_TYPE_PROCESS)
             {
-                PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"&Go to process", NULL, NULL), ULONG_MAX);
+                PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"转到进程", NULL, NULL), ULONG_MAX);
                 PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
             }
-            PhInsertEMenuItem(menu, PhCreateEMenuItem(0, IDC_COPY, L"&Copy", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, PhCreateEMenuItem(0, IDC_COPY, L"复制", NULL, NULL), ULONG_MAX);
             PhInsertCopyListViewEMenuItem(menu, IDC_COPY, context->ListViewHandle);
 
             item = PhShowEMenu(

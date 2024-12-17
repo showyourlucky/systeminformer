@@ -302,7 +302,7 @@ INT_PTR CALLBACK DevicePropGeneralDlgProc(
                 if (numberOfItems != 0)
                 {
                     menu = PhCreateEMenu();
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, PHAPP_IDC_COPY, L"&Copy", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, PHAPP_IDC_COPY, L"复制", NULL, NULL), ULONG_MAX);
                     PhInsertCopyListViewEMenuItem(menu, PHAPP_IDC_COPY, context->GeneralListViewHandle);
 
                     item = PhShowEMenu(
@@ -347,10 +347,10 @@ INT_PTR CALLBACK DevicePropGeneralDlgProc(
             PPH_EMENU_ITEM selectedItem;
 
             menu = PhCreateEMenu();
-            PhInsertEMenuItem(menu, enable = PhCreateEMenuItem(0, 0, L"Enable", NULL, NULL), ULONG_MAX);
-            PhInsertEMenuItem(menu, disable = PhCreateEMenuItem(0, 1, L"Disable", NULL, NULL), ULONG_MAX);
-            PhInsertEMenuItem(menu, restart = PhCreateEMenuItem(0, 2, L"Restart", NULL, NULL), ULONG_MAX);
-            PhInsertEMenuItem(menu, uninstall = PhCreateEMenuItem(0, 3, L"Uninstall", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, enable = PhCreateEMenuItem(0, 0, L"启用", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, disable = PhCreateEMenuItem(0, 1, L"禁用", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, restart = PhCreateEMenuItem(0, 2, L"重启", NULL, NULL), ULONG_MAX);
+            PhInsertEMenuItem(menu, uninstall = PhCreateEMenuItem(0, 3, L"卸载", NULL, NULL), ULONG_MAX);
 
             if (!PhGetOwnTokenAttributes().Elevated)
             {
@@ -714,7 +714,7 @@ INT_PTR CALLBACK DevicePropPropertiesDlgProc(
                 if (numberOfItems != 0)
                 {
                     menu = PhCreateEMenu();
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, PHAPP_IDC_COPY, L"&Copy", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, PHAPP_IDC_COPY, L"复制", NULL, NULL), ULONG_MAX);
                     PhInsertCopyListViewEMenuItem(menu, PHAPP_IDC_COPY, context->PropsListViewHandle);
 
                     item = PhShowEMenu(
@@ -887,7 +887,7 @@ INT_PTR CALLBACK DevicePropInterfacesDlgProc(
                 if (numberOfItems != 0)
                 {
                     menu = PhCreateEMenu();
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, PHAPP_IDC_COPY, L"&Copy", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, PHAPP_IDC_COPY, L"复制", NULL, NULL), ULONG_MAX);
                     PhInsertCopyListViewEMenuItem(menu, PHAPP_IDC_COPY, context->InterfacesListViewHandle);
 
                     item = PhShowEMenu(

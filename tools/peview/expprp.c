@@ -512,7 +512,7 @@ INT_PTR CALLBACK PvPeExportsDlgProc(
             if (numberOfNodes != 0)
             {
                 menu = PhCreateEMenu();
-                PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"Copy", NULL, NULL), ULONG_MAX);
+                PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"复制", NULL, NULL), ULONG_MAX);
                 PhInsertCopyCellEMenuItem(menu, 1, context->TreeNewHandle, contextMenuEvent->Column);
 
                 selectedItem = PhShowEMenu(

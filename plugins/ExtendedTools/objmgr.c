@@ -1095,11 +1095,11 @@ INT_PTR CALLBACK WinObjDlgProc(
                 if (numberOfItems != 0)
                 {
                     menu = PhCreateEMenu();
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"Prope&rties", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"属性", NULL, NULL), ULONG_MAX);
                     PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 2, L"&Security", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 2, L"安全", NULL, NULL), ULONG_MAX);
                     PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 3, L"&Copy", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 3, L"复制", NULL, NULL), ULONG_MAX);
                     PhInsertCopyListViewEMenuItem(menu, 3, context->ListViewHandle);
 
                     PhSetFlagsEMenuItem(menu, 1, PH_EMENU_DISABLED, PH_EMENU_DISABLED);
@@ -1189,11 +1189,11 @@ INT_PTR CALLBACK WinObjDlgProc(
                     TreeView_SelectItem(context->TreeViewHandle, treeItem);
 
                     menu = PhCreateEMenu();
-                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"&Security", NULL, NULL), ULONG_MAX);
+                    PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"安全", NULL, NULL), ULONG_MAX);
                     //PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-                    //PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 2, L"Prope&rties", NULL, NULL), ULONG_MAX);
+                    //PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 2, L"属性", NULL, NULL), ULONG_MAX);
                     //PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-                    //PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 3, L"&Copy", NULL, NULL), ULONG_MAX);
+                    //PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 3, L"复制", NULL, NULL), ULONG_MAX);
                     //PhInsertCopyListViewEMenuItem(menu, 3, context->ListViewHandle);
 
                     item = PhShowEMenu(

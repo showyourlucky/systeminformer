@@ -202,7 +202,7 @@ VOID StatusBarShowMenu(
     GetCursorPos(&cursorPos);
 
     menu = PhCreateEMenu();
-    menuItem = PhCreateEMenuItem(0, COMMAND_ID_ENABLE_SEARCHBOX, L"Customize...", NULL, NULL);
+    menuItem = PhCreateEMenuItem(0, COMMAND_ID_ENABLE_SEARCHBOX, L"自定义...", NULL, NULL);
     PhInsertEMenuItem(menu, menuItem, ULONG_MAX);
 
     selectedItem = PhShowEMenu(

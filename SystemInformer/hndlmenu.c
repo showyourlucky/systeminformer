@@ -40,25 +40,25 @@ VOID PhInsertHandleObjectPropertiesEMenuItems(
         PhEqualString2(Info->TypeName, L"Mapped file", TRUE) || PhEqualString2(Info->TypeName, L"Mapped image", TRUE))
     {
         if (PhEqualString2(Info->TypeName, L"File", TRUE))
-            PhInsertEMenuItem(parentItem, PhCreateEMenuItem(0, ID_HANDLE_OBJECTPROPERTIES2, L"File propert&ies", NULL, NULL), indexInParent);
+            PhInsertEMenuItem(parentItem, PhCreateEMenuItem(0, ID_HANDLE_OBJECTPROPERTIES2, L"文件属性", NULL, NULL), indexInParent);
 
-        PhInsertEMenuItem(parentItem, PhCreateEMenuItem(0, ID_HANDLE_OBJECTPROPERTIES1, PhaAppendCtrlEnter(L"Open &file location", EnableShortcut), NULL, NULL), indexInParent);
+        PhInsertEMenuItem(parentItem, PhCreateEMenuItem(0, ID_HANDLE_OBJECTPROPERTIES1, PhaAppendCtrlEnter(L"打开文件位置", EnableShortcut), NULL, NULL), indexInParent);
     }
     else if (PhEqualString2(Info->TypeName, L"Key", TRUE))
     {
-        PhInsertEMenuItem(parentItem, PhCreateEMenuItem(0, ID_HANDLE_OBJECTPROPERTIES1, PhaAppendCtrlEnter(L"Open &key", EnableShortcut), NULL, NULL), indexInParent);
+        PhInsertEMenuItem(parentItem, PhCreateEMenuItem(0, ID_HANDLE_OBJECTPROPERTIES1, PhaAppendCtrlEnter(L"打开键", EnableShortcut), NULL, NULL), indexInParent);
     }
     else if (PhEqualString2(Info->TypeName, L"Process", TRUE))
     {
-        PhInsertEMenuItem(parentItem, PhCreateEMenuItem(0, ID_HANDLE_OBJECTPROPERTIES1, PhaAppendCtrlEnter(L"Process propert&ies", EnableShortcut), NULL, NULL), indexInParent);
+        PhInsertEMenuItem(parentItem, PhCreateEMenuItem(0, ID_HANDLE_OBJECTPROPERTIES1, PhaAppendCtrlEnter(L"进程属性", EnableShortcut), NULL, NULL), indexInParent);
     }
     else if (PhEqualString2(Info->TypeName, L"Section", TRUE))
     {
-        PhInsertEMenuItem(parentItem, PhCreateEMenuItem(0, ID_HANDLE_OBJECTPROPERTIES1, PhaAppendCtrlEnter(L"Read/Write &memory", EnableShortcut), NULL, NULL), indexInParent);
+        PhInsertEMenuItem(parentItem, PhCreateEMenuItem(0, ID_HANDLE_OBJECTPROPERTIES1, PhaAppendCtrlEnter(L"读/写内存", EnableShortcut), NULL, NULL), indexInParent);
     }
     else if (PhEqualString2(Info->TypeName, L"Thread", TRUE))
     {
-        PhInsertEMenuItem(parentItem, PhCreateEMenuItem(0, ID_HANDLE_OBJECTPROPERTIES1, PhaAppendCtrlEnter(L"Go to t&hread", EnableShortcut), NULL, NULL), indexInParent);
+        PhInsertEMenuItem(parentItem, PhCreateEMenuItem(0, ID_HANDLE_OBJECTPROPERTIES1, PhaAppendCtrlEnter(L"转到线程", EnableShortcut), NULL, NULL), indexInParent);
     }
 }
 

@@ -1082,7 +1082,7 @@ INT_PTR CALLBACK EtFindSecurityIdsDlgProc(
                             break;
 
                         menu = PhCreateEMenu();
-                        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, USHRT_MAX, L"&Copy", NULL, NULL), ULONG_MAX);
+                        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, USHRT_MAX, L"复制", NULL, NULL), ULONG_MAX);
                         PhInsertCopyListViewEMenuItem(menu, USHRT_MAX, context->ListViewHandle);
 
                         GetCursorPos(&point);
@@ -1408,15 +1408,15 @@ INT_PTR CALLBACK EtReparseDlgProc(
                         {
                         case ID_REPARSE_POINTS:
                         case ID_REPARSE_OBJID:
-                            PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"Remove...", NULL, NULL), ULONG_MAX);
+                            PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"移除...", NULL, NULL), ULONG_MAX);
                             break;
                         case ID_REPARSE_SDDL:
-                            PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"Find files...", NULL, NULL), ULONG_MAX);
+                            PhInsertEMenuItem(menu, PhCreateEMenuItem(0, 1, L"查找文件...", NULL, NULL), ULONG_MAX);
                             break;
                         }
 
                         PhInsertEMenuItem(menu, PhCreateEMenuSeparator(), ULONG_MAX);
-                        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, USHRT_MAX, L"&Copy", NULL, NULL), ULONG_MAX);
+                        PhInsertEMenuItem(menu, PhCreateEMenuItem(0, USHRT_MAX, L"复制", NULL, NULL), ULONG_MAX);
                         PhInsertCopyListViewEMenuItem(menu, USHRT_MAX, context->ListViewHandle);
 
                         GetCursorPos(&point);
