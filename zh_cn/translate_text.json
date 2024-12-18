@@ -1897,5 +1897,21 @@
     "From": "从",
     "To": "到",
     "Thumbprint": "指纹",
-    "Algorithm": "算法"
+    "Algorithm": "算法",
+    "Country": "国家",
+    "Timeline": "时间线",
+    "CPU history": "CPU 历史记录",
+    "Private bytes history": "私有字节历史记录",
+    "I/O history": "I/O 历史记录",
+    "Ordinal": "序号",
+    "Hint": "提示",
+    "Forwarded name": "转发名称",
+    "Undecorated name": "未修饰名称",
+    "CFG export suppression": "CFG 导出抑制",
+    "Ordinal name": "序号名称",
+    "RAW (start)": "RAW (起始)",
+    "RAW (end)": "RAW (结束)",
+    "RAW (size)": "RAW (大小)",
+    "RVA (size)": "RVA (大小)",
+    "Language": "语言"
 }
