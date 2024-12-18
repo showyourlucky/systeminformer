@@ -248,9 +248,9 @@ VOID EtAddNamedPipeHandleToListView(
     }
 
     if (pipeLocalInfo.NamedPipeEnd == FILE_PIPE_CLIENT_END)
-        lvItemIndex = PhAddListViewItem(Context->ListViewWndHandle, MAXINT, L"Client", NULL);
+        lvItemIndex = PhAddListViewItem(Context->ListViewWndHandle, MAXINT, L"客户端", NULL);
     else if (pipeLocalInfo.NamedPipeEnd == FILE_PIPE_SERVER_END)
-        lvItemIndex = PhAddListViewItem(Context->ListViewWndHandle, MAXINT, L"Server", NULL);
+        lvItemIndex = PhAddListViewItem(Context->ListViewWndHandle, MAXINT, L"服务器", NULL);
     else
         lvItemIndex = PhAddListViewItem(Context->ListViewWndHandle, MAXINT, L"", NULL);
 
