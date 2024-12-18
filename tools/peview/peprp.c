@@ -1130,7 +1130,7 @@ VOID PvpSetPeImageEntropy(
     _In_ HWND ListViewHandle
     )
 {
-    PhSetListViewSubItem(ListViewHandle, PVP_IMAGE_GENERAL_INDEX_ENTROPY, 1, L"Calculating...");
+    PhSetListViewSubItem(ListViewHandle, PVP_IMAGE_GENERAL_INDEX_ENTROPY, 1, L"正在计算...");
 
     PhQueueItemWorkQueue(PhGetGlobalWorkQueue(), PvpEntropyImageThreadStart, WindowHandle);
 }
@@ -1210,7 +1210,7 @@ VOID PvpSetPeImageEntryPoint(
     _In_ HWND ListViewHandle
     )
 {
-    PhSetListViewSubItem(ListViewHandle, PVP_IMAGE_GENERAL_INDEX_ENTRYPOINT, 1, L"Resolving...");
+    PhSetListViewSubItem(ListViewHandle, PVP_IMAGE_GENERAL_INDEX_ENTRYPOINT, 1, L"正在解析...");
 
     PhQueueItemWorkQueue(PhGetGlobalWorkQueue(), PvpEntryPointImageThreadStart, ListViewHandle);
 }

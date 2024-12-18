@@ -739,7 +739,7 @@ static NTSTATUS NTAPI PhpTokenGroupResolveWorker(
         }
         else
         {
-            PhSetListViewSubItem(context->ListViewHandle, lvItemIndex, PH_PROCESS_TOKEN_INDEX_NAME, L"[Unknown SID]");
+            PhSetListViewSubItem(context->ListViewHandle, lvItemIndex, PH_PROCESS_TOKEN_INDEX_NAME, L"[未知SID]");
         }
 
         PhSetListViewSubItem(context->ListViewHandle, lvItemIndex, PH_PROCESS_TOKEN_INDEX_TYPE, (PWSTR)PhGetSidAccountTypeString(context->TokenGroupSid));
@@ -4158,10 +4158,10 @@ INT_PTR CALLBACK PhpTokenContainerPageProc(
                 switch (appContainerSidType)
                 {
                 case ChildAppContainerSidType:
-                    PhSetListViewSubItem(context->ListViewHandle, 1, 1, L"Child");
+                    PhSetListViewSubItem(context->ListViewHandle, 1, 1, L"子");
                     break;
                 case ParentAppContainerSidType:
-                    PhSetListViewSubItem(context->ListViewHandle, 1, 1, L"Parent");
+                    PhSetListViewSubItem(context->ListViewHandle, 1, 1, L"父");
                     break;
                 }
 

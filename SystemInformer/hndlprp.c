@@ -1151,11 +1151,11 @@ VOID PhpUpdateHandleGeneral(
                 {
                 case FILE_DEVICE_NAMED_PIPE:
                     //isPipeHandle = TRUE;
-                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"Pipe");
+                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"管道");
                     break;
                 case FILE_DEVICE_NETWORK:
                     //isNetworkHandle = TRUE;
-                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"Network");
+                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"网络");
                     break;
                 case FILE_DEVICE_CD_ROM:
                 case FILE_DEVICE_CD_ROM_FILE_SYSTEM:
@@ -1166,14 +1166,14 @@ VOID PhpUpdateHandleGeneral(
                 case FILE_DEVICE_DISK_FILE_SYSTEM:
                 case FILE_DEVICE_VIRTUAL_DISK:
                     isFileOrDirectory = TRUE;
-                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"File or directory");
+                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"文件或目录");
                     break;
                 case FILE_DEVICE_CONSOLE:
                     isConsoleHandle = TRUE;
-                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"Console");
+                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"控制台");
                     break;
                 default:
-                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"Other");
+                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"其他");
                     break;
                 }
             }
@@ -1294,19 +1294,19 @@ VOID PhpUpdateHandleGeneral(
                 switch (priorityInfo.PriorityHint)
                 {
                 case IoPriorityVeryLow:
-                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"Very Low");
+                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"非常低");
                     break;
                 case IoPriorityLow:
-                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"Low");
+                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"低");
                     break;
                 case IoPriorityNormal:
-                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"Normal");
+                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"正常");
                     break;
                 case IoPriorityHigh:
-                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"High");
+                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"高");
                     break;
                 case IoPriorityCritical:
-                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"Critical");
+                    PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"严重");
                     break;
                 }
             }
@@ -1430,11 +1430,11 @@ VOID PhpUpdateHandleGeneral(
                     {
                     case FILE_DEVICE_NAMED_PIPE:
                         //isPipeHandle = TRUE;
-                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"Pipe");
+                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"管道");
                         break;
                     case FILE_DEVICE_NETWORK:
                         //isNetworkHandle = TRUE;
-                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"Network");
+                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"网络");
                         break;
                     case FILE_DEVICE_CD_ROM:
                     case FILE_DEVICE_CD_ROM_FILE_SYSTEM:
@@ -1445,14 +1445,14 @@ VOID PhpUpdateHandleGeneral(
                     case FILE_DEVICE_DISK_FILE_SYSTEM:
                     case FILE_DEVICE_VIRTUAL_DISK:
                         isFileOrDirectory = TRUE;
-                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"File or directory");
+                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"文件或目录");
                         break;
                     case FILE_DEVICE_CONSOLE:
                         isConsoleHandle = TRUE;
-                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"Console");
+                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"控制台");
                         break;
                     default:
-                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"Other");
+                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE], 1, L"其他");
                         break;
                     }
                 }
@@ -1570,19 +1570,19 @@ VOID PhpUpdateHandleGeneral(
                     switch (priorityInfo.PriorityHint)
                     {
                     case IoPriorityVeryLow:
-                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"Very Low");
+                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"非常低");
                         break;
                     case IoPriorityLow:
-                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"Low");
+                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"低");
                         break;
                     case IoPriorityNormal:
-                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"Normal");
+                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"正常");
                         break;
                     case IoPriorityHigh:
-                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"High");
+                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"高");
                         break;
                     case IoPriorityCritical:
-                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"Critical");
+                        PhSetListViewSubItem(Context->ListViewHandle, Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILEPRIORITY], 1, L"严重");
                         break;
                     }
                 }

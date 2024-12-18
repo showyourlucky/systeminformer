@@ -101,15 +101,15 @@ BOOLEAN OptionsEnumDbCallback(
 
     if (Object->Tag == FILE_TAG)
     {
-        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 1, L"File");
+        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 1, L"文件");
     }
     else if (Object->Tag == SERVICE_TAG)
     {
-        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 1, L"Service");
+        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 1, L"服务");
     }
     else if (Object->Tag == COMMAND_LINE_TAG)
     {
-        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 1, L"Commandline");
+        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 1, L"命令行");
     }
 
     PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 2, PhGetString(Object->Name));
@@ -135,7 +135,7 @@ BOOLEAN OptionsEnumDbCallback(
 
     if (Object->Collapse)
     {
-        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"True");
+        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"是");
     }
 
     if (Object->AffinityMask != 0)
@@ -152,7 +152,7 @@ BOOLEAN OptionsEnumDbCallback(
 
     if (Object->Efficiency)
     {
-        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 10, L"True");
+        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 10, L"是");
     }
 
     return TRUE;

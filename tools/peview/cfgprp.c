@@ -50,13 +50,13 @@ VOID PvPeAddListViewCfgFunctionEntry(
     switch (Type)
     {
     case ControlFlowGuardFunction:
-        PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"Function");
+        PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"函数");
         break;
     case ControlFlowGuardTakenIatEntry:
-        PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"IATEntry");
+        PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"IAT项");
         break;
     case ControlFlowGuardLongJump:
-        PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"LongJump");
+        PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"长跳转");
         break;
     }
 
@@ -109,7 +109,7 @@ VOID PvPeAddListViewCfgFunctionEntry(
         break;
     default:
     case PhsrlInvalid:
-        PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, L"(unnamed)");
+        PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, L"(未命名)");
         break;
     }
 

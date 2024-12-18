@@ -104,7 +104,7 @@ VOID PvEnumerateEHContinuationEntries(
                 break;
             default:
             case PhsrlInvalid:
-                PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"(unnamed)");
+                PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"(未命名)");
                 break;
             }
 

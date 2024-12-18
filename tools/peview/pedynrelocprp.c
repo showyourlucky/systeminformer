@@ -52,16 +52,16 @@ VOID PvEnumerateDynamicRelocationEntries(
                     switch (entry->ARM64X.RecordFixup.Size)
                     {
                     case IMAGE_DVRT_ARM64X_FIXUP_SIZE_2BYTES:
-                        PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, L"Zero 2 bytes");
+                        PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, L"零2字节");
                         break;
                     case IMAGE_DVRT_ARM64X_FIXUP_SIZE_4BYTES:
-                        PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, L"Zero 4 bytes");
+                        PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, L"零4字节");
                         break;
                     case IMAGE_DVRT_ARM64X_FIXUP_SIZE_8BYTES:
-                        PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, L"Zero 8 bytes");
+                        PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, L"零8字节");
                         break;
                     default:
-                        PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, L"UNKNOWN");
+                        PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, L"未知");
                         break;
                     }
                     break;
@@ -78,7 +78,7 @@ VOID PvEnumerateDynamicRelocationEntries(
                         PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, PhFormatString(L"0x%016llx", entry->ARM64X.Value8)->Buffer);
                         break;
                     default:
-                        PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, L"UNKNOWN");
+                        PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, L"未知");
                         break;
                     }
                     break;
@@ -91,7 +91,7 @@ VOID PvEnumerateDynamicRelocationEntries(
                     }
                     break;
                 default:
-                    PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, L"UNKNOWN");
+                    PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, L"未知");
                     break;
                 }
             }
@@ -100,7 +100,7 @@ VOID PvEnumerateDynamicRelocationEntries(
                 ULONG iatIndex = entry->ImportControl.Record.IATIndex;
                 PhPrintPointer(value, PTR_ADD_OFFSET(entry->ImportControl.BlockRva, entry->ImportControl.Record.PageRelativeOffset));
                 PhSetListViewSubItem(ListViewHandle, lvItemIndex, 1, value);
-                PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"IMPORT");
+                PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"导入");
                 PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3,
                                      PhFormatString(
                                          L"IAT index %05x%ls",
@@ -112,7 +112,7 @@ VOID PvEnumerateDynamicRelocationEntries(
             {
                 PhPrintPointer(value, PTR_ADD_OFFSET(entry->IndirControl.BlockRva, entry->IndirControl.Record.PageRelativeOffset));
                 PhSetListViewSubItem(ListViewHandle, lvItemIndex, 1, value);
-                PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"INDIRECT");
+                PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"间接");
                 PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3,
                                      PhFormatString(
                                          L"%ls%ls%ls",
@@ -125,7 +125,7 @@ VOID PvEnumerateDynamicRelocationEntries(
             {
                 PhPrintPointer(value, PTR_ADD_OFFSET(entry->SwitchBranch.BlockRva, entry->SwitchBranch.Record.PageRelativeOffset));
                 PhSetListViewSubItem(ListViewHandle, lvItemIndex, 1, value);
-                PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"BRANCH");
+                PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"分支");
                 // TODO(jxy-s) map register numbers to names
                 PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, PhFormatString(L"Register %u", entry->SwitchBranch.Record.RegisterNumber)->Buffer);
             }
@@ -133,7 +133,7 @@ VOID PvEnumerateDynamicRelocationEntries(
             {
                 PhPrintPointer(value, PTR_ADD_OFFSET(entry->FuncOverride.BlockRva, entry->FuncOverride.Record.Offset));
                 PhSetListViewSubItem(ListViewHandle, lvItemIndex, 1, value);
-                PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"FUNCTION");
+                PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"函数");
                 switch (entry->FuncOverride.Record.Type)
                 {
                 case IMAGE_FUNCTION_OVERRIDE_X64_REL32:
@@ -146,7 +146,7 @@ VOID PvEnumerateDynamicRelocationEntries(
                     PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, L"ARM64 THUNK");
                     break;
                 default:
-                    PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, L"UNKNOWN");
+                    PhSetListViewSubItem(ListViewHandle, lvItemIndex, 3, L"未知");
                     break;
                 }
             }
@@ -161,13 +161,13 @@ VOID PvEnumerateDynamicRelocationEntries(
                     PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"ABS");
                     break;
                 case IMAGE_REL_BASED_HIGH:
-                    PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"HIGH");
+                    PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"高");
                     break;
                 case IMAGE_REL_BASED_LOW:
-                    PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"LOW");
+                    PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"低");
                     break;
                 case IMAGE_REL_BASED_HIGHLOW:
-                    PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"HIGHLOW");
+                    PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"高低");
                     break;
                 case IMAGE_REL_BASED_DIR64:
                     PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"DIR64");

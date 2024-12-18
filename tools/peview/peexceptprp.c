@@ -206,7 +206,7 @@ VOID PvEnumerateExceptionEntries(
                 {
                     IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA* data;
 
-                    PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 1, L"Full");
+                    PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 1, L"完整");
 
                     PhPrintPointer(value, UlongToPtr(entry->UnwindData));
                     PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 4, value);
@@ -226,7 +226,7 @@ VOID PvEnumerateExceptionEntries(
                 {
                     ULONG functionLength = entry->FunctionLength << 2;
 
-                    PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 1, L"Function");
+                    PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 1, L"函数");
                     PhPrintPointer(value, PTR_ADD_OFFSET(UlongToPtr(entry->BeginAddress), functionLength));
                     PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 3, value);
                     PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 5, PhaFormatSize(functionLength, ULONG_MAX)->Buffer);
@@ -236,14 +236,14 @@ VOID PvEnumerateExceptionEntries(
                 {
                     ULONG functionLength = entry->FunctionLength << 2;
 
-                    PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 1, L"Fragment");
+                    PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 1, L"片段");
                     PhPrintPointer(value, PTR_ADD_OFFSET(UlongToPtr(entry->BeginAddress), functionLength));
                     PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 3, value);
                     PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 5, PhaFormatSize(functionLength, ULONG_MAX)->Buffer);
                 }
                 break;
             case 3: // undocumented
-                PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 1, L"Reserved"); // ?
+                PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 1, L"已保留:"); // ?
             default:
                 break;
             }

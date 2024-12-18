@@ -648,7 +648,7 @@ VOID WepRefreshWindowGeneralInfoSymbols(
     else if (Context->WndProc != 0)
         PhSetListViewSubItem(ListViewHandle, WINDOW_PROPERTIES_INDEX_WNDPROC, 1, PhaFormatString(L"0x%Ix", Context->WndProc)->Buffer);
     else
-        PhSetListViewSubItem(ListViewHandle, WINDOW_PROPERTIES_INDEX_WNDPROC, 1, L"Unknown");
+        PhSetListViewSubItem(ListViewHandle, WINDOW_PROPERTIES_INDEX_WNDPROC, 1, L"未知");
 
     if (Context->DlgProcResolving != 0)
         PhSetListViewSubItem(ListViewHandle, WINDOW_PROPERTIES_INDEX_DLGPROC, 1, PhaFormatString(L"0x%Ix (resolving...)", Context->DlgProc)->Buffer);
@@ -659,7 +659,7 @@ VOID WepRefreshWindowGeneralInfoSymbols(
     else if (Context->WndProc != 0)
         PhSetListViewSubItem(ListViewHandle, WINDOW_PROPERTIES_INDEX_DLGPROC, 1, L"N/A");
     else
-        PhSetListViewSubItem(ListViewHandle, WINDOW_PROPERTIES_INDEX_DLGPROC, 1, L"Unknown");
+        PhSetListViewSubItem(ListViewHandle, WINDOW_PROPERTIES_INDEX_DLGPROC, 1, L"未知");
 }
 
 VOID WepRefreshWindowGeneralInfo(
@@ -831,11 +831,11 @@ VOID WepRefreshWindowGeneralInfo(
     {
         if (WepIsTopLevelWindow(Context->WindowHandle))
         {
-            PhSetListViewSubItem(ListViewHandle, WINDOW_PROPERTIES_INDEX_TOPLEVEL, 1, L"Yes");
+            PhSetListViewSubItem(ListViewHandle, WINDOW_PROPERTIES_INDEX_TOPLEVEL, 1, L"是");
         }
         else
         {
-            PhSetListViewSubItem(ListViewHandle, WINDOW_PROPERTIES_INDEX_TOPLEVEL, 1, L"No");
+            PhSetListViewSubItem(ListViewHandle, WINDOW_PROPERTIES_INDEX_TOPLEVEL, 1, L"否");
         }
     }
 
@@ -843,11 +843,11 @@ VOID WepRefreshWindowGeneralInfo(
     {
         if (WepIsWindowCloaked(Context->WindowHandle))
         {
-            PhSetListViewSubItem(ListViewHandle, WINDOW_PROPERTIES_INDEX_CLOAKED, 1, L"Yes");
+            PhSetListViewSubItem(ListViewHandle, WINDOW_PROPERTIES_INDEX_CLOAKED, 1, L"是");
         }
         else
         {
-            PhSetListViewSubItem(ListViewHandle, WINDOW_PROPERTIES_INDEX_CLOAKED, 1, L"No");
+            PhSetListViewSubItem(ListViewHandle, WINDOW_PROPERTIES_INDEX_CLOAKED, 1, L"否");
         }
     }
 
@@ -1124,7 +1124,7 @@ VOID WepRefreshWindowClassInfoSymbols(
     }
     else
     {
-        PhSetListViewSubItem(ListViewHandle, WINDOW_PROPERTIES_INDEX_CLASS_WNDPROC, 1, L"Unknown");
+        PhSetListViewSubItem(ListViewHandle, WINDOW_PROPERTIES_INDEX_CLASS_WNDPROC, 1, L"未知");
     }
 }
 
@@ -1185,9 +1185,9 @@ VOID WepRefreshAutomationProvider(
     else
     {
         if (WepWindowHasAutomationProvider(Context->WindowHandle))
-            PhSetListViewSubItem(Context->ListViewHandle, WINDOW_PROPERTIES_INDEX_AUTOMATION, 1, L"Yes");
+            PhSetListViewSubItem(Context->ListViewHandle, WINDOW_PROPERTIES_INDEX_AUTOMATION, 1, L"是");
         else
-            PhSetListViewSubItem(Context->ListViewHandle, WINDOW_PROPERTIES_INDEX_AUTOMATION, 1, L"No");
+            PhSetListViewSubItem(Context->ListViewHandle, WINDOW_PROPERTIES_INDEX_AUTOMATION, 1, L"否");
     }
 }
 
@@ -2073,7 +2073,7 @@ VOID WepRefreshWindowPropertyStorage(
                         if (SUCCEEDED(PSStringFromPropertyKey(&propkey, propKeyString, RTL_NUMBER_OF(propKeyString))))
                             PhSetListViewSubItem(Context->PropStoreListViewHandle, lvItemIndex, 1, propKeyString);
                         else
-                            PhSetListViewSubItem(Context->PropStoreListViewHandle, lvItemIndex, 1, L"Unknown");
+                            PhSetListViewSubItem(Context->PropStoreListViewHandle, lvItemIndex, 1, L"未知");
                     }
 
                     if (SUCCEEDED(IPropertyStore_GetValue(propstore, &propkey, &propKeyVariant)))

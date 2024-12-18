@@ -476,7 +476,7 @@ NTSTATUS PhCheckProcessImagesForTampering(
         PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 3, value);
         PhPrintPointer(value, entry->VirtualAddress);
         PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 4, value);
-        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 5, L"Resolving symbols...");
+        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 5, L"正在解析符号...");
         PhpLimitedSymbolProviderQueueSymbolLookup(Context, entry->VirtualAddress);
     }
 

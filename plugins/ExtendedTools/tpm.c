@@ -403,31 +403,31 @@ NTSTATUS EtEnumerateTpmEntries(
         PhDereferenceObject(string);
 
         if ((attributes & (TPMA_NV_OWNERREAD | TPMA_NV_OWNERWRITE)) == (TPMA_NV_OWNERREAD | TPMA_NV_OWNERWRITE))
-            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 2, L"Read/Write");
+            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 2, L"读/写");
         else if ((attributes & TPMA_NV_OWNERREAD) == TPMA_NV_OWNERREAD)
-            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 2, L"Read");
+            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 2, L"读取");
         else if ((attributes & TPMA_NV_OWNERWRITE) == TPMA_NV_OWNERWRITE)
-            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 2, L"Write");
+            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 2, L"写入");
         else
-            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 2, L"None");
+            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 2, L"无");
 
         if ((attributes & (TPMA_NV_AUTHREAD | TPMA_NV_AUTHWRITE)) == (TPMA_NV_AUTHREAD | TPMA_NV_AUTHWRITE))
-            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 3, L"Read/Write");
+            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 3, L"读/写");
         else if ((attributes & TPMA_NV_AUTHREAD) == TPMA_NV_AUTHREAD)
-            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 3, L"Read");
+            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 3, L"读取");
         else if ((attributes & TPMA_NV_AUTHWRITE) == TPMA_NV_AUTHWRITE)
-            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 3, L"Write");
+            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 3, L"写入");
         else
-            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 3, L"None");
+            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 3, L"无");
 
         if ((attributes & (TPMA_NV_PPREAD | TPMA_NV_PPWRITE)) == (TPMA_NV_PPREAD | TPMA_NV_PPWRITE))
-            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 4, L"Read/Write");
+            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 4, L"读/写");
         else if ((attributes & TPMA_NV_PPREAD) == TPMA_NV_PPREAD)
-            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 4, L"Read");
+            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 4, L"读取");
         else if ((attributes & TPMA_NV_PPWRITE) == TPMA_NV_PPWRITE)
-            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 4, L"Write");
+            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 4, L"写入");
         else
-            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 4, L"None");
+            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 4, L"无");
 
         // clear the bits we've broken out into their own columns
         attributes &= ~(

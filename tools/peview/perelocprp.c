@@ -53,13 +53,13 @@ VOID PvEnumerateRelocationEntries(
                 PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"ABS");
                 break;
             case IMAGE_REL_BASED_HIGH:
-                PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"HIGH");
+                PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"高");
                 break;
             case IMAGE_REL_BASED_LOW:
-                PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"LOW");
+                PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"低");
                 break;
             case IMAGE_REL_BASED_HIGHLOW:
-                PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"HIGHLOW");
+                PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"高低");
                 break;
             case IMAGE_REL_BASED_DIR64:
                 PhSetListViewSubItem(ListViewHandle, lvItemIndex, 2, L"DIR64");

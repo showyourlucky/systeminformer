@@ -515,13 +515,13 @@ VOID PhpEnumerateProcessHeaps(
                         switch (entry->HeapFrontEndType)
                         {
                         case 1:
-                            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"NT Heap (Lookaside)");
+                            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"NT堆（快速查找）");
                             break;
                         case 2:
-                            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"NT Heap (LFH)");
+                            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"NT堆（低碎片堆）");
                             break;
                         default:
-                            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"NT Heap");
+                            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"NT堆");
                             break;
                         }
                     }
@@ -531,13 +531,13 @@ VOID PhpEnumerateProcessHeaps(
                         switch (entry->HeapFrontEndType)
                         {
                         case 1:
-                            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"Segment Heap (Lookaside)");
+                            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"段堆（快速查找）");
                             break;
                         case 2:
-                            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"Segment Heap (LFH)");
+                            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"段堆（低碎片堆）");
                             break;
                         default:
-                            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"Segment Heap");
+                            PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"段堆");
                             break;
                         }
                     }
@@ -600,13 +600,13 @@ VOID PhpEnumerateProcessHeaps(
                     switch (entry->HeapFrontEndType)
                     {
                     case 1:
-                        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"NT Heap (Lookaside)");
+                        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"NT堆（快速查找）");
                         break;
                     case 2:
-                        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"NT Heap (LFH)");
+                        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"NT堆（低碎片堆）");
                         break;
                     default:
-                        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"NT Heap");
+                        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"NT堆");
                         break;
                     }
                 }
@@ -616,13 +616,13 @@ VOID PhpEnumerateProcessHeaps(
                     switch (entry->HeapFrontEndType)
                     {
                     case 1:
-                        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"Segment Heap (Lookaside)");
+                        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"段堆（快速查找）");
                         break;
                     case 2:
-                        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"Segment Heap (LFH)");
+                        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"段堆（低碎片堆）");
                         break;
                     default:
-                        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"Segment Heap");
+                        PhSetListViewSubItem(Context->ListViewHandle, lvItemIndex, 7, L"段堆");
                         break;
                     }
                 }

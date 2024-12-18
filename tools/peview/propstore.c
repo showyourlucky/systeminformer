@@ -105,7 +105,7 @@ VOID PvpPeEnumerateFilePropStore(
                         if (SUCCEEDED(PSStringFromPropertyKey(&propkey, propKeyString, RTL_NUMBER_OF(propKeyString))))
                             PhSetListViewSubItem(ListViewHandle, lvItemIndex, 1, propKeyString);
                         else
-                            PhSetListViewSubItem(ListViewHandle, lvItemIndex, 1, L"Unknown");
+                            PhSetListViewSubItem(ListViewHandle, lvItemIndex, 1, L"未知");
                     }
 
                     PropVariantInit(&propKeyVariant);
