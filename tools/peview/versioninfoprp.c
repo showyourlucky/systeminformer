@@ -353,8 +353,8 @@ INT_PTR CALLBACK PvpPeVersionInfoDlgProc(
             PhAddLayoutItem(&context->LayoutManager, context->ListViewHandle, NULL, PH_ANCHOR_ALL);
 
             ListView_EnableGroupView(context->ListViewHandle, TRUE);
-            PhAddListViewGroup(context->ListViewHandle, 0, L"FixedFileInfo");
-            PhAddListViewGroup(context->ListViewHandle, 1, L"StringFileInfo");
+            PhAddListViewGroup(context->ListViewHandle, 0, L"固定文件信息");
+            PhAddListViewGroup(context->ListViewHandle, 1, L"字符串文件信息");
 
             PvEnumVersionInfo(context->ListViewHandle);
 

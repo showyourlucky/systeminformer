@@ -734,8 +734,8 @@ INT_PTR CALLBACK EspPnPServiceDlgProc(
             ExtendedListView_SetColumnWidth(context->ListViewHandle, 0, ELVSCW_AUTOSIZE_REMAININGSPACE);
             if (PhWindowsVersion > WINDOWS_7)
                 ListView_EnableGroupView(context->ListViewHandle, TRUE);
-            PhAddListViewGroup(context->ListViewHandle, 0, L"Connected");
-            PhAddListViewGroup(context->ListViewHandle, 1, L"Disconnected");
+            PhAddListViewGroup(context->ListViewHandle, 0, L"已连接");
+            PhAddListViewGroup(context->ListViewHandle, 1, L"已断开连接");
 
             dpiValue = PhGetWindowDpi(WindowHandle);
             context->ImageList = PhImageListCreate(

@@ -734,11 +734,11 @@ VOID PvPeAddImageHeaderGroups(
     ExtendedListView_SetRedraw(Context->ListViewHandle, FALSE);
 
     ListView_EnableGroupView(Context->ListViewHandle, TRUE);
-    PhAddListViewGroup(Context->ListViewHandle, PVP_IMAGE_HEADER_CATEGORY_DOSHDR, L"DOS Header");
+    PhAddListViewGroup(Context->ListViewHandle, PVP_IMAGE_HEADER_CATEGORY_DOSHDR, L"DOS 头部");
     PhAddListViewGroup(Context->ListViewHandle, PVP_IMAGE_HEADER_CATEGORY_DOSSTUB, L"DOS Stub");
-    PhAddListViewGroup(Context->ListViewHandle, PVP_IMAGE_HEADER_CATEGORY_FILEHDR, L"File Header");
-    PhAddListViewGroup(Context->ListViewHandle, PVP_IMAGE_HEADER_CATEGORY_OPTHDR, L"Optional Header");
-    PhAddListViewGroup(Context->ListViewHandle, PVP_IMAGE_HEADER_CATEGORY_OVERLAY, L"Overlay Stub");
+    PhAddListViewGroup(Context->ListViewHandle, PVP_IMAGE_HEADER_CATEGORY_FILEHDR, L"文件头部");
+    PhAddListViewGroup(Context->ListViewHandle, PVP_IMAGE_HEADER_CATEGORY_OPTHDR, L"可选头部");
+    PhAddListViewGroup(Context->ListViewHandle, PVP_IMAGE_HEADER_CATEGORY_OVERLAY, L"覆盖 Stub");
 
     ExtendedListView_SetRedraw(Context->ListViewHandle, TRUE);
 }

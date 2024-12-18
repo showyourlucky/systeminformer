@@ -251,8 +251,8 @@ INT_PTR CALLBACK PhpSessionPropertiesDlgProc(
             PhSetExtendedListView(context->ListViewHandle);
 
             ListView_EnableGroupView(context->ListViewHandle, TRUE);
-            PhAddListViewGroup(context->ListViewHandle, 0, L"User");
-            //PhAddListViewGroup(context->ListViewHandle, 1, L"Profile");
+            PhAddListViewGroup(context->ListViewHandle, 0, L"用户");
+            //PhAddListViewGroup(context->ListViewHandle, 1, L"配置文件");
 
             PhAddListViewGroupItem(context->ListViewHandle, 0, 0, L"用户名", NULL);
             PhAddListViewGroupItem(context->ListViewHandle, 0, 1, L"会话 ID", NULL);

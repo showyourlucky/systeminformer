@@ -330,9 +330,9 @@ VOID PhpUpdateHandleGeneralListViewGroups(
     )
 {
     ListView_EnableGroupView(Context->ListViewHandle, TRUE);
-    PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_BASICINFO, L"Basic information");
-    PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_REFERENCES, L"References");
-    PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_QUOTA, L"Quota charges");
+    PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_BASICINFO, L"基本信息");
+    PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_REFERENCES, L"引用");
+    PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_QUOTA, L"配额费用");
 
     Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_NAME] = PhAddListViewGroupItem(
         Context->ListViewHandle,
@@ -397,7 +397,7 @@ VOID PhpUpdateHandleGeneralListViewGroups(
     }
     else if (PhEqualString2(Context->HandleItem->TypeName, L"ALPC Port", TRUE))
     {
-        PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_ALPC, L"ALPC Port");
+        PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_ALPC, L"ALPC 端口");
         Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FLAGS] = PhAddListViewGroupItem(
             Context->ListViewHandle,
             PH_HANDLE_GENERAL_CATEGORY_ALPC,
@@ -460,7 +460,7 @@ VOID PhpUpdateHandleGeneralListViewGroups(
     }
     else if (PhEqualString2(Context->HandleItem->TypeName, L"EtwRegistration", TRUE))
     {
-        PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_ETW, L"Event trace information");
+        PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_ETW, L"事件跟踪信息");
         Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_ETWORIGINALNAME] = PhAddListViewGroupItem(
             Context->ListViewHandle,
             PH_HANDLE_GENERAL_CATEGORY_ETW,
@@ -478,7 +478,7 @@ VOID PhpUpdateHandleGeneralListViewGroups(
     }
     else if (PhEqualStringRef2(&Context->HandleItem->TypeName->sr, L"File", TRUE))
     {
-        PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_FILE, L"File information");
+        PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_FILE, L"文件信息");
 
         Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_FILETYPE] = PhAddListViewGroupItem(
             Context->ListViewHandle,
@@ -537,7 +537,7 @@ VOID PhpUpdateHandleGeneralListViewGroups(
     }
     else if (PhEqualStringRef2(&Context->HandleItem->TypeName->sr, L"Section", TRUE))
     {
-        PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_SECTION, L"Section information");
+        PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_SECTION, L"节信息");
 
         Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_SECTIONTYPE] = PhAddListViewGroupItem(
             Context->ListViewHandle,
@@ -563,7 +563,7 @@ VOID PhpUpdateHandleGeneralListViewGroups(
     }
     else if (PhEqualStringRef2(&Context->HandleItem->TypeName->sr, L"Mutant", TRUE))
     {
-        PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_MUTANT, L"Mutant information");
+        PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_MUTANT, L"互斥体信息");
 
         Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_MUTANTCOUNT] = PhAddListViewGroupItem(
             Context->ListViewHandle,
@@ -589,7 +589,7 @@ VOID PhpUpdateHandleGeneralListViewGroups(
     }
     else if (PhEqualStringRef2(&Context->HandleItem->TypeName->sr, L"Process", TRUE))
     {
-        PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_PROCESSTHREAD, L"Process information");
+        PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_PROCESSTHREAD, L"进程信息");
 
         Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_PROCESSTHREADNAME] = PhAddListViewGroupItem(
             Context->ListViewHandle,
@@ -622,7 +622,7 @@ VOID PhpUpdateHandleGeneralListViewGroups(
     }
     else if (PhEqualStringRef2(&Context->HandleItem->TypeName->sr, L"Thread", TRUE))
     {
-        PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_PROCESSTHREAD, L"Thread information");
+        PhAddListViewGroup(Context->ListViewHandle, PH_HANDLE_GENERAL_CATEGORY_PROCESSTHREAD, L"线程信息");
 
         Context->ListViewRowCache[PH_HANDLE_GENERAL_INDEX_PROCESSTHREADNAME] = PhAddListViewGroupItem(
             Context->ListViewHandle,

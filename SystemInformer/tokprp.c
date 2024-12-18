@@ -1249,10 +1249,10 @@ INT_PTR CALLBACK PhpTokenPageProc(
             ExtendedListView_SetCompareFunction(tokenPageContext->ListViewHandle, 1, PhpTokenStatusColumnCompareFunction);
             ExtendedListView_SetItemColorFunction(tokenPageContext->ListViewHandle, PhpTokenGroupColorFunction);
             ListView_EnableGroupView(tokenPageContext->ListViewHandle, TRUE);
-            PhAddListViewGroup(tokenPageContext->ListViewHandle, PH_PROCESS_TOKEN_CATEGORY_DANGEROUS_FLAGS, L"Dangerous Flags");
-            PhAddListViewGroup(tokenPageContext->ListViewHandle, PH_PROCESS_TOKEN_CATEGORY_PRIVILEGES, L"Privileges");
-            PhAddListViewGroup(tokenPageContext->ListViewHandle, PH_PROCESS_TOKEN_CATEGORY_GROUPS, L"Groups");
-            PhAddListViewGroup(tokenPageContext->ListViewHandle, PH_PROCESS_TOKEN_CATEGORY_RESTRICTED, L"Restricting SIDs");
+            PhAddListViewGroup(tokenPageContext->ListViewHandle, PH_PROCESS_TOKEN_CATEGORY_DANGEROUS_FLAGS, L"危险标志");
+            PhAddListViewGroup(tokenPageContext->ListViewHandle, PH_PROCESS_TOKEN_CATEGORY_PRIVILEGES, L"特权");
+            PhAddListViewGroup(tokenPageContext->ListViewHandle, PH_PROCESS_TOKEN_CATEGORY_GROUPS, L"组");
+            PhAddListViewGroup(tokenPageContext->ListViewHandle, PH_PROCESS_TOKEN_CATEGORY_RESTRICTED, L"限制 SID");
             PhLoadListViewColumnsFromSetting(L"TokenGroupsListViewColumns", tokenPageContext->ListViewHandle);
             PhLoadListViewGroupStatesFromSetting(L"TokenGroupsListViewStates", tokenPageContext->ListViewHandle);
             PhLoadListViewSortColumnsFromSetting(L"TokenGroupsListViewSort", tokenPageContext->ListViewHandle);
@@ -2640,10 +2640,10 @@ INT_PTR CALLBACK PhpTokenAdvancedPageProc(
             PhAddLayoutItem(&context->LayoutManager, context->ListViewHandle, NULL, PH_ANCHOR_ALL);
 
             ListView_EnableGroupView(context->ListViewHandle, TRUE);
-            PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"General");
-            PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"LUIDs");
-            PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"Memory");
-            PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"Properties");
+            PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"常规");
+            PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"LUID");
+            PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"内存");
+            PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"属性");
             PhAddListViewGroupItem(context->ListViewHandle, 0, MAXINT, L"类型", NULL);
             PhAddListViewGroupItem(context->ListViewHandle, 0, MAXINT, L"模拟级别", NULL);
             PhAddListViewGroupItem(context->ListViewHandle, 1, MAXINT, L"令牌 LUID", NULL);
@@ -2697,7 +2697,7 @@ INT_PTR CALLBACK PhpTokenAdvancedPageProc(
                     INT trustLevelSidIndex;
                     INT trustLevelNameIndex;
 
-                    trustLevelGroupIndex = PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"TrustLevel");
+                    trustLevelGroupIndex = PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"信任级别");
                     trustLevelSidIndex = PhAddListViewGroupItem(context->ListViewHandle, trustLevelGroupIndex, MAXINT, L"信任级别 SID", NULL);
                     trustLevelNameIndex = PhAddListViewGroupItem(context->ListViewHandle, trustLevelGroupIndex, MAXINT, L"信任级别名称", NULL);
 
@@ -2713,7 +2713,7 @@ INT_PTR CALLBACK PhpTokenAdvancedPageProc(
                 //{
                 //    PPH_STRING tokenLogonName = PhGetSidFullName(tokenLogonGroups->Groups[0].Sid, TRUE, NULL);
                 //    PPH_STRING tokenLogonSid = PhSidToStringSid(tokenLogonGroups->Groups[0].Sid);
-                //    INT tokenLogonGroupIndex = PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"Logon");
+                //    INT tokenLogonGroupIndex = PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"登录");
                 //    INT tokenLogonNameIndex = PhAddListViewGroupItem(context->ListViewHandle, tokenLogonGroupIndex, MAXINT, L"令牌登录 SID", NULL);
                 //    INT tokenLogonSidIndex = PhAddListViewGroupItem(context->ListViewHandle, tokenLogonGroupIndex, MAXINT, L"令牌登录名称", NULL);
                 //    PhSetListViewSubItem(context->ListViewHandle, tokenLogonNameIndex, 1, PhGetStringOrDefault(tokenLogonName, L"Unknown"));
@@ -2727,7 +2727,7 @@ INT_PTR CALLBACK PhpTokenAdvancedPageProc(
                     INT profileFolderIndex;
                     INT profileRegistryIndex;
 
-                    profileGroupIndex = PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"Profile");
+                    profileGroupIndex = PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"配置文件");
                     profileFolderIndex = PhAddListViewGroupItem(context->ListViewHandle, profileGroupIndex, MAXINT, L"文件夹路径", NULL);
                     profileRegistryIndex = PhAddListViewGroupItem(context->ListViewHandle, profileGroupIndex, MAXINT, L"注册表路径", NULL);
 
@@ -2755,7 +2755,7 @@ INT_PTR CALLBACK PhpTokenAdvancedPageProc(
                 INT systemIdPublisherIndex;
                 INT systemIdUserIndex;
 
-                systemIdGroupIndex = PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"System ID");
+                systemIdGroupIndex = PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"系统 ID");
                 systemIdPublisherIndex = PhAddListViewGroupItem(context->ListViewHandle, systemIdGroupIndex, MAXINT, L"硬件 ID (发布者)", NULL);
                 systemIdUserIndex = PhAddListViewGroupItem(context->ListViewHandle, systemIdGroupIndex, MAXINT, L"硬件 ID (用户)", NULL);
 
@@ -4108,11 +4108,11 @@ INT_PTR CALLBACK PhpTokenContainerPageProc(
             PhAddLayoutItem(&context->LayoutManager, context->ListViewHandle, NULL, PH_ANCHOR_ALL);
 
             ListView_EnableGroupView(context->ListViewHandle, TRUE);
-            PhAddListViewGroup(context->ListViewHandle, 0, L"General");
-            PhAddListViewGroup(context->ListViewHandle, 1, L"Properties");
-            PhAddListViewGroup(context->ListViewHandle, 2, L"Parent");
-            PhAddListViewGroup(context->ListViewHandle, 3, L"Package");
-            PhAddListViewGroup(context->ListViewHandle, 4, L"Profile");
+            PhAddListViewGroup(context->ListViewHandle, 0, L"常规");
+            PhAddListViewGroup(context->ListViewHandle, 1, L"属性");
+            PhAddListViewGroup(context->ListViewHandle, 2, L"父");
+            PhAddListViewGroup(context->ListViewHandle, 3, L"包");
+            PhAddListViewGroup(context->ListViewHandle, 4, L"配置文件");
 
             PhAddListViewGroupItem(context->ListViewHandle, 0, MAXINT, L"名称", NULL);
             PhAddListViewGroupItem(context->ListViewHandle, 0, MAXINT, L"类型", NULL);

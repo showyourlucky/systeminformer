@@ -164,11 +164,11 @@ VOID PvPeGetMuiInfo(
     ListView_DeleteAllItems(ListViewHandle);
     ListView_EnableGroupView(ListViewHandle, TRUE);
     PhAddListViewGroup(ListViewHandle, 0, L"MUI");
-    PhAddListViewGroup(ListViewHandle, 1, L"Checksums");
-    PhAddListViewGroup(ListViewHandle, 2, L"MainNameTypes");
-    PhAddListViewGroup(ListViewHandle, 3, L"MainTypeIDs");
-    PhAddListViewGroup(ListViewHandle, 4, L"TypeNames");
-    PhAddListViewGroup(ListViewHandle, 5, L"TypeIDs");
+    PhAddListViewGroup(ListViewHandle, 1, L"校验和");
+    PhAddListViewGroup(ListViewHandle, 2, L"主名称类型");
+    PhAddListViewGroup(ListViewHandle, 3, L"主类型 ID");
+    PhAddListViewGroup(ListViewHandle, 4, L"类型名称");
+    PhAddListViewGroup(ListViewHandle, 5, L"类型 ID");
 
     if (PhLoadResource(
         PvMappedImage.ViewBase,

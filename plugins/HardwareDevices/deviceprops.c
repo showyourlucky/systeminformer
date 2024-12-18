@@ -92,8 +92,8 @@ VOID DeviceInitializeGeneralPageGroups(
     )
 {
     ListView_EnableGroupView(ListViewHandle, TRUE);
-    PhAddListViewGroup(ListViewHandle, DEVICE_PROPERTIES_CATEGORY_GENERAL, L"General");
-    PhAddListViewGroup(ListViewHandle, DEVICE_PROPERTIES_CATEGORY_CLASS, L"Class");
+    PhAddListViewGroup(ListViewHandle, DEVICE_PROPERTIES_CATEGORY_GENERAL, L"常规");
+    PhAddListViewGroup(ListViewHandle, DEVICE_PROPERTIES_CATEGORY_CLASS, L"类");
 
     PhAddListViewGroupItem(ListViewHandle, DEVICE_PROPERTIES_CATEGORY_GENERAL, DEVICE_PROPERTIES_INDEX_DESCRIPTION, L"描述", NULL);
     PhAddListViewGroupItem(ListViewHandle, DEVICE_PROPERTIES_CATEGORY_GENERAL, DEVICE_PROPERTIES_INDEX_INSTALLED, L"已安装", NULL);
