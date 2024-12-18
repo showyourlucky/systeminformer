@@ -69,12 +69,12 @@ INT_PTR CALLBACK PvpExlfExportsDlgProc(
             PhSetControlTheme(lvHandle, L"explorer");
             PhAddListViewColumn(lvHandle, 0, 0, 0, LVCFMT_LEFT, 40, L"#");
             PhAddListViewColumn(lvHandle, 1, 1, 1, LVCFMT_RIGHT, 80, L"RVA");
-            PhAddListViewColumn(lvHandle, 2, 2, 2, LVCFMT_LEFT, 250, L"Name");
-            PhAddListViewColumn(lvHandle, 3, 3, 3, LVCFMT_LEFT, 80, L"Size");
-            PhAddListViewColumn(lvHandle, 4, 4, 4, LVCFMT_LEFT, 80, L"Type");
-            PhAddListViewColumn(lvHandle, 5, 5, 5, LVCFMT_LEFT, 80, L"Binding");
-            PhAddListViewColumn(lvHandle, 6, 6, 6, LVCFMT_LEFT, 80, L"Visibility");
-            PhAddListViewColumn(lvHandle, 7, 7, 7, LVCFMT_LEFT, 80, L"Section");
+            PhAddListViewColumn(lvHandle, 2, 2, 2, LVCFMT_LEFT, 250, L"名称");
+            PhAddListViewColumn(lvHandle, 3, 3, 3, LVCFMT_LEFT, 80, L"大小");
+            PhAddListViewColumn(lvHandle, 4, 4, 4, LVCFMT_LEFT, 80, L"类型");
+            PhAddListViewColumn(lvHandle, 5, 5, 5, LVCFMT_LEFT, 80, L"绑定");
+            PhAddListViewColumn(lvHandle, 6, 6, 6, LVCFMT_LEFT, 80, L"可见性");
+            PhAddListViewColumn(lvHandle, 7, 7, 7, LVCFMT_LEFT, 80, L"节");
             PhSetExtendedListView(lvHandle);
             PhLoadListViewColumnsFromSetting(L"ExportsWslListViewColumns", lvHandle);
 

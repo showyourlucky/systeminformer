@@ -854,8 +854,8 @@ INT_PTR CALLBACK WinObjDlgProc(
             PhSetListViewStyle(context->ListViewHandle, TRUE, FALSE);
             PhSetExtendedListView(context->ListViewHandle);
             ListView_SetImageList(context->ListViewHandle, context->ListImageList, LVSIL_SMALL);
-            PhAddListViewColumn(context->ListViewHandle, 0, 0, 0, LVCFMT_LEFT, 620, L"Name");
-            PhAddListViewColumn(context->ListViewHandle, 1, 1, 1, LVCFMT_LEFT, 150, L"Type");
+            PhAddListViewColumn(context->ListViewHandle, 0, 0, 0, LVCFMT_LEFT, 620, L"名称");
+            PhAddListViewColumn(context->ListViewHandle, 1, 1, 1, LVCFMT_LEFT, 150, L"类型");
             PhLoadListViewColumnsFromSetting(SETTING_NAME_OBJMGR_COLUMNS, context->ListViewHandle);
 
             ExtendedListView_SetSortFast(context->ListViewHandle, TRUE);

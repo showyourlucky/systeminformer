@@ -82,10 +82,10 @@ INT_PTR CALLBACK PvpLibExportsDlgProc(
             PhSetListViewStyle(lvHandle, TRUE, TRUE);
             PhSetControlTheme(lvHandle, L"explorer");
             PhAddListViewColumn(lvHandle, 0, 0, 0, LVCFMT_LEFT, 60, L"DLL");
-            PhAddListViewColumn(lvHandle, 1, 1, 1, LVCFMT_LEFT, 200, L"Name");
-            PhAddListViewColumn(lvHandle, 2, 2, 2, LVCFMT_LEFT, 40, L"Ordinal/Hint");
-            PhAddListViewColumn(lvHandle, 3, 3, 3, LVCFMT_LEFT, 40, L"Type");
-            PhAddListViewColumn(lvHandle, 4, 4, 4, LVCFMT_LEFT, 60, L"Name type");
+            PhAddListViewColumn(lvHandle, 1, 1, 1, LVCFMT_LEFT, 200, L"名称");
+            PhAddListViewColumn(lvHandle, 2, 2, 2, LVCFMT_LEFT, 40, L"序号/提示");
+            PhAddListViewColumn(lvHandle, 3, 3, 3, LVCFMT_LEFT, 40, L"类型");
+            PhAddListViewColumn(lvHandle, 4, 4, 4, LVCFMT_LEFT, 60, L"名称类型");
             PhSetExtendedListView(lvHandle);
             ExtendedListView_AddFallbackColumns(lvHandle, 4, fallbackColumns);
             PhLoadListViewColumnsFromSetting(L"LibListViewColumns", lvHandle);

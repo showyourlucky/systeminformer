@@ -499,21 +499,21 @@ INT_PTR CALLBACK EtPipeEnumDlgProc(
 
             if (context->UseKph)
             {
-                PhAddListViewColumn(context->ListViewWndHandle, 0, 0, 0, LVCFMT_LEFT, 40, L"End");
-                PhAddListViewColumn(context->ListViewWndHandle, 1, 1, 1, LVCFMT_LEFT, 200, L"Name");
-                PhAddListViewColumn(context->ListViewWndHandle, 2, 2, 2, LVCFMT_LEFT, 200, L"Process");
-                PhAddListViewColumn(context->ListViewWndHandle, 3, 3, 3, LVCFMT_LEFT, 200, L"Handle");
-                PhAddListViewColumn(context->ListViewWndHandle, 4, 4, 4, LVCFMT_LEFT, 50, L"Granted access");
-                PhAddListViewColumn(context->ListViewWndHandle, 5, 5, 5, LVCFMT_LEFT, 80, L"Type");
-                PhAddListViewColumn(context->ListViewWndHandle, 6, 6, 6, LVCFMT_LEFT, 80, L"Configuration");
-                PhAddListViewColumn(context->ListViewWndHandle, 7, 7, 7, LVCFMT_LEFT, 80, L"Max instances");
-                PhAddListViewColumn(context->ListViewWndHandle, 8, 8, 8, LVCFMT_LEFT, 80, L"Current instances");
-                PhAddListViewColumn(context->ListViewWndHandle, 9, 9, 9, LVCFMT_LEFT, 80, L"Read data available");
-                PhAddListViewColumn(context->ListViewWndHandle, 10, 10, 10, LVCFMT_LEFT, 80, L"Outbound quota");
-                PhAddListViewColumn(context->ListViewWndHandle, 11, 11, 11, LVCFMT_LEFT, 80, L"State");
-                PhAddListViewColumn(context->ListViewWndHandle, 12, 12, 12, LVCFMT_LEFT, 80, L"Remote clients");
-                PhAddListViewColumn(context->ListViewWndHandle, 13, 13, 13, LVCFMT_LEFT, 80, L"Read mode");
-                PhAddListViewColumn(context->ListViewWndHandle, 14, 14, 14, LVCFMT_LEFT, 80, L"Completion mode");
+                PhAddListViewColumn(context->ListViewWndHandle, 0, 0, 0, LVCFMT_LEFT, 40, L"结束");
+                PhAddListViewColumn(context->ListViewWndHandle, 1, 1, 1, LVCFMT_LEFT, 200, L"名称");
+                PhAddListViewColumn(context->ListViewWndHandle, 2, 2, 2, LVCFMT_LEFT, 200, L"进程");
+                PhAddListViewColumn(context->ListViewWndHandle, 3, 3, 3, LVCFMT_LEFT, 200, L"句柄");
+                PhAddListViewColumn(context->ListViewWndHandle, 4, 4, 4, LVCFMT_LEFT, 50, L"授予的访问权限");
+                PhAddListViewColumn(context->ListViewWndHandle, 5, 5, 5, LVCFMT_LEFT, 80, L"类型");
+                PhAddListViewColumn(context->ListViewWndHandle, 6, 6, 6, LVCFMT_LEFT, 80, L"配置");
+                PhAddListViewColumn(context->ListViewWndHandle, 7, 7, 7, LVCFMT_LEFT, 80, L"最大实例数");
+                PhAddListViewColumn(context->ListViewWndHandle, 8, 8, 8, LVCFMT_LEFT, 80, L"当前实例数");
+                PhAddListViewColumn(context->ListViewWndHandle, 9, 9, 9, LVCFMT_LEFT, 80, L"可读取的数据");
+                PhAddListViewColumn(context->ListViewWndHandle, 10, 10, 10, LVCFMT_LEFT, 80, L"出站配额");
+                PhAddListViewColumn(context->ListViewWndHandle, 11, 11, 11, LVCFMT_LEFT, 80, L"状态");
+                PhAddListViewColumn(context->ListViewWndHandle, 12, 12, 12, LVCFMT_LEFT, 80, L"远程客户端");
+                PhAddListViewColumn(context->ListViewWndHandle, 13, 13, 13, LVCFMT_LEFT, 80, L"读取模式");
+                PhAddListViewColumn(context->ListViewWndHandle, 14, 14, 14, LVCFMT_LEFT, 80, L"完成模式");
                 PhSetExtendedListView(context->ListViewWndHandle);
                 PhLoadListViewColumnsFromSetting(SETTING_NAME_PIPE_ENUM_LISTVIEW_COLUMNS_WITH_KSI, context->ListViewWndHandle);
 
@@ -524,18 +524,18 @@ INT_PTR CALLBACK EtPipeEnumDlgProc(
             else
             {
                 PhAddListViewColumn(context->ListViewWndHandle, 0, 0, 0, LVCFMT_LEFT, 40, L"#");
-                PhAddListViewColumn(context->ListViewWndHandle, 1, 1, 1, LVCFMT_LEFT, 200, L"Name");
-                PhAddListViewColumn(context->ListViewWndHandle, 2, 2, 2, LVCFMT_LEFT, 50, L"Server");
-                PhAddListViewColumn(context->ListViewWndHandle, 3, 3, 3, LVCFMT_LEFT, 80, L"Type");
-                PhAddListViewColumn(context->ListViewWndHandle, 4, 4, 4, LVCFMT_LEFT, 80, L"Configuration");
-                PhAddListViewColumn(context->ListViewWndHandle, 5, 5, 5, LVCFMT_LEFT, 80, L"Max instances");
-                PhAddListViewColumn(context->ListViewWndHandle, 6, 6, 6, LVCFMT_LEFT, 80, L"Current instances");
-                PhAddListViewColumn(context->ListViewWndHandle, 7, 7, 7, LVCFMT_LEFT, 80, L"Read data available");
-                PhAddListViewColumn(context->ListViewWndHandle, 8, 8, 8, LVCFMT_LEFT, 80, L"Outbound quota");
-                PhAddListViewColumn(context->ListViewWndHandle, 9, 9, 9, LVCFMT_LEFT, 80, L"State");
-                PhAddListViewColumn(context->ListViewWndHandle, 10, 10, 10, LVCFMT_LEFT, 80, L"Remote clients");
-                PhAddListViewColumn(context->ListViewWndHandle, 11, 11, 11, LVCFMT_LEFT, 80, L"Read mode");
-                PhAddListViewColumn(context->ListViewWndHandle, 12, 12, 12, LVCFMT_LEFT, 80, L"Completion mode");
+                PhAddListViewColumn(context->ListViewWndHandle, 1, 1, 1, LVCFMT_LEFT, 200, L"名称");
+                PhAddListViewColumn(context->ListViewWndHandle, 2, 2, 2, LVCFMT_LEFT, 50, L"服务器");
+                PhAddListViewColumn(context->ListViewWndHandle, 3, 3, 3, LVCFMT_LEFT, 80, L"类型");
+                PhAddListViewColumn(context->ListViewWndHandle, 4, 4, 4, LVCFMT_LEFT, 80, L"配置");
+                PhAddListViewColumn(context->ListViewWndHandle, 5, 5, 5, LVCFMT_LEFT, 80, L"最大实例数");
+                PhAddListViewColumn(context->ListViewWndHandle, 6, 6, 6, LVCFMT_LEFT, 80, L"当前实例数");
+                PhAddListViewColumn(context->ListViewWndHandle, 7, 7, 7, LVCFMT_LEFT, 80, L"可读取的数据");
+                PhAddListViewColumn(context->ListViewWndHandle, 8, 8, 8, LVCFMT_LEFT, 80, L"出站配额");
+                PhAddListViewColumn(context->ListViewWndHandle, 9, 9, 9, LVCFMT_LEFT, 80, L"状态");
+                PhAddListViewColumn(context->ListViewWndHandle, 10, 10, 10, LVCFMT_LEFT, 80, L"远程客户端");
+                PhAddListViewColumn(context->ListViewWndHandle, 11, 11, 11, LVCFMT_LEFT, 80, L"读取模式");
+                PhAddListViewColumn(context->ListViewWndHandle, 12, 12, 12, LVCFMT_LEFT, 80, L"完成模式");
                 PhSetExtendedListView(context->ListViewWndHandle);
                 PhLoadListViewColumnsFromSetting(SETTING_NAME_PIPE_ENUM_LISTVIEW_COLUMNS, context->ListViewWndHandle);
 

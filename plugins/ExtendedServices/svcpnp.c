@@ -729,7 +729,7 @@ INT_PTR CALLBACK EspPnPServiceDlgProc(
 
             PhSetListViewStyle(context->ListViewHandle, FALSE, TRUE);
             PhSetControlTheme(context->ListViewHandle, L"explorer");
-            PhAddListViewColumn(context->ListViewHandle, 0, 0, 0, LVCFMT_LEFT, 350, L"PnP Devices");
+            PhAddListViewColumn(context->ListViewHandle, 0, 0, 0, LVCFMT_LEFT, 350, L"即插即用设备");
             PhSetExtendedListView(context->ListViewHandle);
             ExtendedListView_SetColumnWidth(context->ListViewHandle, 0, ELVSCW_AUTOSIZE_REMAININGSPACE);
             if (PhWindowsVersion > WINDOWS_7)

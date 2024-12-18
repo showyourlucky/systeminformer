@@ -124,7 +124,7 @@ INT_PTR CALLBACK PhpHiddenProcessesDlgProc(
 
             PhSetListViewStyle(lvHandle, TRUE, TRUE);
             PhSetControlTheme(lvHandle, L"explorer");
-            PhAddListViewColumn(lvHandle, 0, 0, 0, LVCFMT_LEFT, 320, L"Process");
+            PhAddListViewColumn(lvHandle, 0, 0, 0, LVCFMT_LEFT, 320, L"进程");
             PhAddListViewColumn(lvHandle, 1, 1, 1, LVCFMT_LEFT, 60, L"PID");
 
             PhSetExtendedListView(lvHandle);
