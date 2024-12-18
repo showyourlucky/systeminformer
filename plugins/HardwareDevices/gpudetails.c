@@ -48,20 +48,20 @@ VOID EtpGpuDetailsAddListViewItemGroups(
     _In_ HWND ListViewHandle,
     _In_ INT GpuGroupId)
 {
-    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_PHYSICALLOCTION, L"Physical Location", NULL);
-    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_DRIVERDATE, L"Driver Date", NULL);
-    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_DRIVERVERSION, L"Driver Version", NULL);
-    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_WDDMVERSION, L"WDDM Version", NULL);
-    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_VENDORID, L"Vendor ID", NULL);
-    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_DEVICEID, L"Device ID", NULL);
-    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_TOTALMEMORY, L"Total Memory", NULL);
-    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_RESERVEDMEMORY, L"Reserved Memory", NULL);
-    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_MEMORYFREQUENCY, L"Memory Frequency", NULL);
-    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_MEMORYBANDWIDTH, L"Memory Bandwidth", NULL);
-    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_PCIEBANDWIDTH, L"PCIE Bandwidth", NULL);
-    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_FANRPM, L"Fan RPM", NULL);
-    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_POWERUSAGE, L"Power Usage", NULL);
-    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_TEMPERATURE, L"Temperature", NULL);
+    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_PHYSICALLOCTION, L"物理位置", NULL);
+    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_DRIVERDATE, L"驱动程序日期", NULL);
+    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_DRIVERVERSION, L"驱动程序版本", NULL);
+    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_WDDMVERSION, L"WDDM 版本", NULL);
+    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_VENDORID, L"供应商 ID", NULL);
+    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_DEVICEID, L"设备 ID", NULL);
+    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_TOTALMEMORY, L"总内存", NULL);
+    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_RESERVEDMEMORY, L"保留内存", NULL);
+    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_MEMORYFREQUENCY, L"内存频率", NULL);
+    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_MEMORYBANDWIDTH, L"内存带宽", NULL);
+    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_PCIEBANDWIDTH, L"PCIE 带宽", NULL);
+    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_FANRPM, L"风扇转速", NULL);
+    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_POWERUSAGE, L"功耗", NULL);
+    PhAddListViewItem(ListViewHandle, GPUADAPTER_DETAILS_INDEX_TEMPERATURE, L"温度", NULL);
 }
 
 VOID EtpQueryAdapterDeviceProperties(

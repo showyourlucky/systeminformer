@@ -88,15 +88,15 @@ VOID PvAddMappingsEntry(
     }
     else if (Entry->ViewMapType == VIEW_MAP_TYPE_SESSION)
     {
-        lvItemIndex = PhAddListViewItem(ListViewHandle, MAXINT, L"Session", NULL);
+        lvItemIndex = PhAddListViewItem(ListViewHandle, MAXINT, L"会话", NULL);
     }
     else if (Entry->ViewMapType == VIEW_MAP_TYPE_SYSTEM_CACHE)
     {
-        lvItemIndex = PhAddListViewItem(ListViewHandle, MAXINT, L"System", NULL);
+        lvItemIndex = PhAddListViewItem(ListViewHandle, MAXINT, L"系统:", NULL);
     }
     else
     {
-        lvItemIndex = PhAddListViewItem(ListViewHandle, MAXINT, L"Unknown", NULL);
+        lvItemIndex = PhAddListViewItem(ListViewHandle, MAXINT, L"未知", NULL);
     }
 
     PhSetListViewSubItem(ListViewHandle, lvItemIndex, 1, Type);

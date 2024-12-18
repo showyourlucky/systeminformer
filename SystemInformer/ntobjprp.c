@@ -607,15 +607,15 @@ VOID PhpEnumerateMappingsEntries(
         }
         else if (info->ViewMapType == VIEW_MAP_TYPE_SESSION)
         {
-            lvItemIndex = PhAddListViewItem(Context->ListViewHandle, MAXINT, L"Session", info);
+            lvItemIndex = PhAddListViewItem(Context->ListViewHandle, MAXINT, L"会话", info);
         }
         else if (info->ViewMapType == VIEW_MAP_TYPE_SYSTEM_CACHE)
         {
-            lvItemIndex = PhAddListViewItem(Context->ListViewHandle, MAXINT, L"System", info);
+            lvItemIndex = PhAddListViewItem(Context->ListViewHandle, MAXINT, L"系统:", info);
         }
         else
         {
-            lvItemIndex = PhAddListViewItem(Context->ListViewHandle, MAXINT, L"Unknown", info);
+            lvItemIndex = PhAddListViewItem(Context->ListViewHandle, MAXINT, L"未知", info);
         }
 
         PhPrintPointer(value, info->StartVa);
