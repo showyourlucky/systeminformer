@@ -254,21 +254,21 @@ INT_PTR CALLBACK PhpSessionPropertiesDlgProc(
             PhAddListViewGroup(context->ListViewHandle, 0, L"User");
             //PhAddListViewGroup(context->ListViewHandle, 1, L"Profile");
 
-            PhAddListViewGroupItem(context->ListViewHandle, 0, 0, L"用户名", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 0, 1, L"会话 ID", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 0, 2, L"状态", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 0, 3, L"登录时间", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 0, 4, L"连接时间", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 0, 5, L"断开连接时间", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 0, 6, L"最后输入时间", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 0, 7, L"客户端名称", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 0, 8, L"客户端地址", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 0, 9, L"客户端显示", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 0, 0, L"User name", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 0, 1, L"Session ID", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 0, 2, L"State", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 0, 3, L"Logon time", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 0, 4, L"Connect time", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 0, 5, L"Disconnect time", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 0, 6, L"Last input time", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 0, 7, L"Client name", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 0, 8, L"Client address", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 0, 9, L"Client display", NULL);
 
-            //PhAddListViewGroupItem(context->ListViewHandle, 1, 10, L"上次登录时间", NULL);
-            //PhAddListViewGroupItem(context->ListViewHandle, 1, 11, L"上次注销时间", NULL);
-            //PhAddListViewGroupItem(context->ListViewHandle, 1, 12, L"主目录", NULL);
-            //PhAddListViewGroupItem(context->ListViewHandle, 1, 13, L"配置文件目录", NULL);
+            //PhAddListViewGroupItem(context->ListViewHandle, 1, 10, L"LastLogon", NULL);
+            //PhAddListViewGroupItem(context->ListViewHandle, 1, 11, L"LastLogoff", NULL);
+            //PhAddListViewGroupItem(context->ListViewHandle, 1, 12, L"Home directory", NULL);
+            //PhAddListViewGroupItem(context->ListViewHandle, 1, 13, L"Profile directory", NULL);
 
             PhInitializeLayoutManager(&context->LayoutManager, hwndDlg);
             PhAddLayoutItem(&context->LayoutManager, GetDlgItem(hwndDlg, IDC_LIST), NULL, PH_ANCHOR_ALL);

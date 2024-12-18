@@ -2644,16 +2644,16 @@ INT_PTR CALLBACK PhpTokenAdvancedPageProc(
             PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"LUIDs");
             PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"Memory");
             PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"Properties");
-            PhAddListViewGroupItem(context->ListViewHandle, 0, MAXINT, L"类型", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 0, MAXINT, L"模拟级别", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 1, MAXINT, L"令牌 LUID", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 1, MAXINT, L"身份验证 LUID", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 1, MAXINT, L"修改 ID LUID", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 1, MAXINT, L"原始 LUID", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 2, MAXINT, L"已用内存", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 2, MAXINT, L"可用内存", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 3, MAXINT, L"令牌对象路径", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 3, MAXINT, L"令牌 SDDL", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 0, MAXINT, L"Type", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 0, MAXINT, L"Impersonation level", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 1, MAXINT, L"Token LUID", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 1, MAXINT, L"Authentication LUID", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 1, MAXINT, L"ModifiedId LUID", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 1, MAXINT, L"Origin LUID", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 2, MAXINT, L"Memory used", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 2, MAXINT, L"Memory available", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 3, MAXINT, L"Token object path", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 3, MAXINT, L"Token SDDL", NULL);
 
             if (NT_SUCCESS(tokenPageContext->OpenObject(
                 &tokenHandle,
@@ -2698,8 +2698,8 @@ INT_PTR CALLBACK PhpTokenAdvancedPageProc(
                     INT trustLevelNameIndex;
 
                     trustLevelGroupIndex = PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"TrustLevel");
-                    trustLevelSidIndex = PhAddListViewGroupItem(context->ListViewHandle, trustLevelGroupIndex, MAXINT, L"信任级别 SID", NULL);
-                    trustLevelNameIndex = PhAddListViewGroupItem(context->ListViewHandle, trustLevelGroupIndex, MAXINT, L"信任级别名称", NULL);
+                    trustLevelSidIndex = PhAddListViewGroupItem(context->ListViewHandle, trustLevelGroupIndex, MAXINT, L"TrustLevel Sid", NULL);
+                    trustLevelNameIndex = PhAddListViewGroupItem(context->ListViewHandle, trustLevelGroupIndex, MAXINT, L"TrustLevel Name", NULL);
 
                     PhSetListViewSubItem(context->ListViewHandle, trustLevelSidIndex, 1, PhGetStringOrDefault(tokenTrustLevelSidString, L"N/A"));
                     PhSetListViewSubItem(context->ListViewHandle, trustLevelNameIndex, 1, PhGetStringOrDefault(tokenTrustLevelNameString, L"N/A"));
@@ -2714,8 +2714,8 @@ INT_PTR CALLBACK PhpTokenAdvancedPageProc(
                 //    PPH_STRING tokenLogonName = PhGetSidFullName(tokenLogonGroups->Groups[0].Sid, TRUE, NULL);
                 //    PPH_STRING tokenLogonSid = PhSidToStringSid(tokenLogonGroups->Groups[0].Sid);
                 //    INT tokenLogonGroupIndex = PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"Logon");
-                //    INT tokenLogonNameIndex = PhAddListViewGroupItem(context->ListViewHandle, tokenLogonGroupIndex, MAXINT, L"令牌登录 SID", NULL);
-                //    INT tokenLogonSidIndex = PhAddListViewGroupItem(context->ListViewHandle, tokenLogonGroupIndex, MAXINT, L"令牌登录名称", NULL);
+                //    INT tokenLogonNameIndex = PhAddListViewGroupItem(context->ListViewHandle, tokenLogonGroupIndex, MAXINT, L"Token logon SID", NULL);
+                //    INT tokenLogonSidIndex = PhAddListViewGroupItem(context->ListViewHandle, tokenLogonGroupIndex, MAXINT, L"Token logon Name", NULL);
                 //    PhSetListViewSubItem(context->ListViewHandle, tokenLogonNameIndex, 1, PhGetStringOrDefault(tokenLogonName, L"Unknown"));
                 //    PhSetListViewSubItem(context->ListViewHandle, tokenLogonSidIndex, 1, PhGetStringOrDefault(tokenLogonSid, L"Unknown"));
                 //    PhFree(tokenLogonGroups);
@@ -2728,8 +2728,8 @@ INT_PTR CALLBACK PhpTokenAdvancedPageProc(
                     INT profileRegistryIndex;
 
                     profileGroupIndex = PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"Profile");
-                    profileFolderIndex = PhAddListViewGroupItem(context->ListViewHandle, profileGroupIndex, MAXINT, L"文件夹路径", NULL);
-                    profileRegistryIndex = PhAddListViewGroupItem(context->ListViewHandle, profileGroupIndex, MAXINT, L"注册表路径", NULL);
+                    profileFolderIndex = PhAddListViewGroupItem(context->ListViewHandle, profileGroupIndex, MAXINT, L"Folder path", NULL);
+                    profileRegistryIndex = PhAddListViewGroupItem(context->ListViewHandle, profileGroupIndex, MAXINT, L"Registry path", NULL);
 
                     PhSetListViewSubItem(context->ListViewHandle, profileFolderIndex, 1, PhGetStringOrDefault(tokenProfilePathString, L"N/A"));
 
@@ -2756,8 +2756,8 @@ INT_PTR CALLBACK PhpTokenAdvancedPageProc(
                 INT systemIdUserIndex;
 
                 systemIdGroupIndex = PhAddListViewGroup(context->ListViewHandle, listViewGroupIndex++, L"System ID");
-                systemIdPublisherIndex = PhAddListViewGroupItem(context->ListViewHandle, systemIdGroupIndex, MAXINT, L"硬件 ID (发布者)", NULL);
-                systemIdUserIndex = PhAddListViewGroupItem(context->ListViewHandle, systemIdGroupIndex, MAXINT, L"硬件 ID (用户)", NULL);
+                systemIdPublisherIndex = PhAddListViewGroupItem(context->ListViewHandle, systemIdGroupIndex, MAXINT, L"HWID (Publisher)", NULL);
+                systemIdUserIndex = PhAddListViewGroupItem(context->ListViewHandle, systemIdGroupIndex, MAXINT, L"HWID (User)", NULL);
 
                 PhSetListViewSubItem(context->ListViewHandle, systemIdPublisherIndex, 1, PhGetStringOrDefault(tokenSystemIdForPublisher, L"N/A"));
                 PhSetListViewSubItem(context->ListViewHandle, systemIdUserIndex, 1, PhGetStringOrDefault(tokenSystemIdForUser, L"N/A"));
@@ -4114,15 +4114,18 @@ INT_PTR CALLBACK PhpTokenContainerPageProc(
             PhAddListViewGroup(context->ListViewHandle, 3, L"Package");
             PhAddListViewGroup(context->ListViewHandle, 4, L"Profile");
 
-            PhAddListViewGroupItem(context->ListViewHandle, 0, MAXINT, L"名称", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 0, MAXINT, L"类型", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 1, MAXINT, L"数量", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 1, MAXINT, L"令牌对象路径", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 2, MAXINT, L"名称", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 3, MAXINT, L"名称", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 3, MAXINT, L"路径", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 4, MAXINT, L"文件夹路径", NULL);
-            PhAddListViewGroupItem(context->ListViewHandle, 4, MAXINT, L"注册表路径", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 0, MAXINT, L"Name", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 0, MAXINT, L"Type", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 0, MAXINT, L"SID", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 1, MAXINT, L"Number", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 1, MAXINT, L"LPAC", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 1, MAXINT, L"Token object path", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 2, MAXINT, L"Name", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 2, MAXINT, L"SID", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 3, MAXINT, L"Name", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 3, MAXINT, L"Path", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 4, MAXINT, L"Folder path", NULL);
+            PhAddListViewGroupItem(context->ListViewHandle, 4, MAXINT, L"Registry path", NULL);
 
             if (NT_SUCCESS(tokenPageContext->OpenObject(
                 &tokenHandle,
