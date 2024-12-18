@@ -1780,7 +1780,7 @@ INT_PTR CALLBACK PhpOptionsGeneralDlgProc(
             PhSetListViewStyle(ListViewHandle, FALSE, TRUE);
             ListView_SetExtendedListViewStyleEx(ListViewHandle, LVS_EX_CHECKBOXES, LVS_EX_CHECKBOXES);
             PhSetControlTheme(ListViewHandle, L"explorer");
-            PhAddListViewColumn(ListViewHandle, 0, 0, 0, LVCFMT_LEFT, 250, L"Name");
+            PhAddListViewColumn(ListViewHandle, 0, 0, 0, LVCFMT_LEFT, 250, L"名称");
             PhSetExtendedListView(ListViewHandle);
 
             for (i = 0; i < RTL_NUMBER_OF(PhSizeUnitNames); i++)
@@ -3401,7 +3401,7 @@ INT_PTR CALLBACK PhpOptionsHighlightingDlgProc(
             HighlightingListViewHandle = GetDlgItem(hwndDlg, IDC_LIST);
             PhSetListViewStyle(HighlightingListViewHandle, FALSE, TRUE);
             ListView_SetExtendedListViewStyleEx(HighlightingListViewHandle, LVS_EX_CHECKBOXES, LVS_EX_CHECKBOXES);
-            PhAddListViewColumn(HighlightingListViewHandle, 0, 0, 0, LVCFMT_LEFT, 240, L"Name");
+            PhAddListViewColumn(HighlightingListViewHandle, 0, 0, 0, LVCFMT_LEFT, 240, L"名称");
             PhSetExtendedListView(HighlightingListViewHandle);
             ExtendedListView_SetItemColorFunction(HighlightingListViewHandle, PhpColorItemColorFunction);
 
@@ -3565,7 +3565,7 @@ INT_PTR CALLBACK PhpOptionsGraphsDlgProc(
             // Highlighting
             PhpGraphListViewHandle = GetDlgItem(hwndDlg, IDC_LIST);
             PhSetListViewStyle(PhpGraphListViewHandle, FALSE, TRUE);
-            PhAddListViewColumn(PhpGraphListViewHandle, 0, 0, 0, LVCFMT_LEFT, 240, L"Name");
+            PhAddListViewColumn(PhpGraphListViewHandle, 0, 0, 0, LVCFMT_LEFT, 240, L"名称");
             PhSetExtendedListView(PhpGraphListViewHandle);
             ExtendedListView_SetItemColorFunction(PhpGraphListViewHandle, PhpColorItemColorFunction);
 

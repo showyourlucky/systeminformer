@@ -182,7 +182,7 @@ INT_PTR CALLBACK PhpProcessMitigationPolicyDlgProc(
             context->ListViewHandle = lvHandle = GetDlgItem(hwndDlg, IDC_LIST);
             PhSetListViewStyle(lvHandle, FALSE, TRUE);
             PhSetControlTheme(lvHandle, L"explorer");
-            PhAddListViewColumn(lvHandle, 0, 0, 0, LVCFMT_LEFT, 350, L"Policy");
+            PhAddListViewColumn(lvHandle, 0, 0, 0, LVCFMT_LEFT, 350, L"策略");
             PhSetExtendedListView(lvHandle);
 
             for (policy = 0; policy < MaxProcessMitigationPolicy; policy++)

@@ -419,12 +419,12 @@ INT_PTR CALLBACK EtpUnloadedDllsDlgProc(
 
             PhSetListViewStyle(lvHandle, TRUE, TRUE);
             PhSetControlTheme(lvHandle, L"explorer");
-            PhAddListViewColumn(lvHandle, 0, 0, 0, LVCFMT_LEFT, 40, L"No.");
-            PhAddListViewColumn(lvHandle, 1, 1, 1, LVCFMT_LEFT, 120, L"Name");
-            PhAddListViewColumn(lvHandle, 2, 2, 2, LVCFMT_LEFT, 80, L"Base Address");
-            PhAddListViewColumn(lvHandle, 3, 3, 3, LVCFMT_LEFT, 60, L"Size");
-            PhAddListViewColumn(lvHandle, 4, 4, 4, LVCFMT_LEFT, 100, L"Time Stamp");
-            PhAddListViewColumn(lvHandle, 5, 5, 5, LVCFMT_LEFT, 60, L"Checksum");
+            PhAddListViewColumn(lvHandle, 0, 0, 0, LVCFMT_LEFT, 40, L"编号");
+            PhAddListViewColumn(lvHandle, 1, 1, 1, LVCFMT_LEFT, 120, L"名称");
+            PhAddListViewColumn(lvHandle, 2, 2, 2, LVCFMT_LEFT, 80, L"基址");
+            PhAddListViewColumn(lvHandle, 3, 3, 3, LVCFMT_LEFT, 60, L"大小");
+            PhAddListViewColumn(lvHandle, 4, 4, 4, LVCFMT_LEFT, 100, L"时间戳");
+            PhAddListViewColumn(lvHandle, 5, 5, 5, LVCFMT_LEFT, 60, L"校验和");
 
             PhSetExtendedListView(lvHandle);
             ExtendedListView_SetCompareFunction(lvHandle, 0, EtpNumberCompareFunction);
