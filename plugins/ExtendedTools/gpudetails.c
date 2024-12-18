@@ -578,7 +578,7 @@ VOID EtShowGpuDetailsDialog(
     {
         if (!NT_SUCCESS(PhCreateThreadEx(&EtGpuDetailsDialogThreadHandle, EtGpuDetailsDialogThreadStart, ParentWindowHandle)))
         {
-            PhShowError(NULL, L"%s", L"Unable to create the window.");
+            PhShowError(NULL, L"%s", L"无法创建窗口。");
             return;
         }
 

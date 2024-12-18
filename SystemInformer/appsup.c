@@ -806,7 +806,7 @@ VOID PhShellExecuteUserString(
 
     if (!(applicationDirectory = PhGetApplicationDirectoryWin32()))
     {
-        PhShowStatus(WindowHandle, L"Unable to locate the application directory.", STATUS_NOT_FOUND, 0);
+        PhShowStatus(WindowHandle, L"无法找到应用程序目录。  ", STATUS_NOT_FOUND, 0);
         return;
     }
 
@@ -923,16 +923,16 @@ VOID PhShellExecuteUserString(
                 ntMessage = PhGetNtMessage(status);
                 PhShowError2(
                     WindowHandle,
-                    L"Unable to execute the command.",
-                    L"%s\n%s",
-                    PhGetStringOrDefault(ntMessage, L"An unknown error occurred."),
+                    L"无法执行命令。  ",
+                    L"%s\n%s  ",
+                    PhGetStringOrDefault(ntMessage, L"发生未知错误。"),
                     ErrorMessage
                     );
                 PhDereferenceObject(ntMessage);
             }
             else
             {
-                PhShowStatus(WindowHandle, L"Unable to execute the command.", status, 0);
+                PhShowStatus(WindowHandle, L"无法执行命令。  ", status, 0);
             }
         }
     }
@@ -2148,7 +2148,7 @@ VOID PhShellOpenKey(
 
     if (!NT_SUCCESS(status))
     {
-        PhShowStatus(WindowHandle, L"Unable to execute the program.", status, 0);
+        PhShowStatus(WindowHandle, L"无法运行该程序。  ", status, 0);
         return;
     }
 
@@ -2178,7 +2178,7 @@ VOID PhShellOpenKey(
 
         if (!NT_SUCCESS(status))
         {
-            PhShowStatus(WindowHandle, L"Unable to execute the program.", status, 0);
+            PhShowStatus(WindowHandle, L"无法运行该程序。  ", status, 0);
         }
     }
     else
@@ -2196,7 +2196,7 @@ VOID PhShellOpenKey(
 
         if (!NT_SUCCESS(status))
         {
-            PhShowStatus(WindowHandle, L"Unable to execute the program.", status, 0);
+            PhShowStatus(WindowHandle, L"无法运行该程序。  ", status, 0);
         }
     }
 

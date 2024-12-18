@@ -565,7 +565,7 @@ INT_PTR CALLBACK PhPageModifiedDlgProc(
 
                 if (!NT_SUCCESS(status))
                 {
-                    PhShowStatus(context->ParentWindowHandle, L"Unable to perform the scan", status, 0);
+                    PhShowStatus(context->ParentWindowHandle, L"无法执行扫描", status, 0);
                     EndDialog(WindowHandle, IDCANCEL);
                 }
             }
@@ -621,7 +621,7 @@ INT_PTR CALLBACK PhPageModifiedDlgProc(
 
                         if (!NT_SUCCESS(status))
                         {
-                            PhShowStatus(WindowHandle, L"Unable to perform the scan", status, 0);
+                            PhShowStatus(WindowHandle, L"无法执行扫描", status, 0);
                         }
                     }
                 }
@@ -720,7 +720,7 @@ VOID PhShowImagePageModifiedDialog(
 
     if (!NT_SUCCESS(status))
     {
-        PhShowStatus(ParentWindowHandle, L"Unable to open the process.", status, 0);
+        PhShowStatus(ParentWindowHandle, L"无法打开进程。", status, 0);
         return;
     }
 

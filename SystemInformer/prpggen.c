@@ -617,7 +617,7 @@ INT_PTR CALLBACK PhpProcessGeneralDlgProc(
                         }
                         else
                         {
-                            PhShowStatus(hwndDlg, L"Unable to locate the file.", STATUS_NOT_FOUND, 0);
+                            PhShowStatus(hwndDlg, L"无法找到文件。", STATUS_NOT_FOUND, 0);
                         }
                     }
                 }
@@ -642,7 +642,7 @@ INT_PTR CALLBACK PhpProcessGeneralDlgProc(
                         }
                         else
                         {
-                            PhShowStatus(hwndDlg, L"Unable to locate the file.", STATUS_NOT_FOUND, 0);
+                            PhShowStatus(hwndDlg, L"无法找到文件。", STATUS_NOT_FOUND, 0);
                         }
                     }
                 }
@@ -694,7 +694,7 @@ INT_PTR CALLBACK PhpProcessGeneralDlgProc(
                     }
                     else
                     {
-                        PhShowError(hwndDlg, L"%s", L"The process does not exist.");
+                        PhShowError(hwndDlg, L"%s", L"该进程不存在。");
                     }
                 }
                 break;
@@ -800,8 +800,8 @@ INT_PTR CALLBACK PhpProcessGeneralDlgProc(
                         if (PhShowConfirmMessage(
                             hwndDlg,
                             L"update",
-                            L"the integrity label",
-                            L"Altering the integrity label for a process may produce undesirable results, instability or data corruption.",
+                            L"完整性标签",
+                            L"更改进程的完整性标签可能会导致不良后果、不稳定或数据损坏。",
                             FALSE
                             ))
                         {
@@ -842,7 +842,7 @@ INT_PTR CALLBACK PhpProcessGeneralDlgProc(
 
                         if (!NT_SUCCESS(status))
                         {
-                            PhShowStatus(hwndDlg, L"Unable to set the integrity label", status, 0);
+                            PhShowStatus(hwndDlg, L"无法设置完整性标签", status, 0);
                         }
                     }
 
@@ -908,7 +908,7 @@ INT_PTR CALLBACK PhpProcessGeneralDlgProc(
                                 }
                                 else
                                 {
-                                    PhShowStatus(hwndDlg, L"Unable to perform the operation.", status, 0);
+                                    PhShowStatus(hwndDlg, L"无法执行该操作。  ", status, 0);
                                 }
                             }
                         }

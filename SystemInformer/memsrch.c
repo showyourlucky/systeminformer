@@ -500,7 +500,7 @@ VOID PhShowMemoryStringDialog(
         ProcessItem->ProcessId
         )))
     {
-        PhShowStatus(ParentWindowHandle, L"Unable to open the process", status, 0);
+        PhShowStatus(ParentWindowHandle, L"无法打开进程", status, 0);
         return;
     }
 
@@ -596,7 +596,7 @@ INT_PTR CALLBACK PhpMemoryStringDlgProc(
 
                     if (minimumLength < 4)
                     {
-                        PhShowError(hwndDlg, L"%s", L"The minimum length must be at least 4.");
+                        PhShowError(hwndDlg, L"%s", L"长度最少必须为4。");
                         break;
                     }
 

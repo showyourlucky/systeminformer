@@ -1029,7 +1029,7 @@ VOID PhpShowWmiProviderStatus(
         }
         else
         {
-            PhShowError(hWnd, L"%s", L"Unable to perform the operation.");
+            PhShowError(hWnd, L"%s", L"无法执行该操作。  ");
         }
     }
 }
@@ -1091,7 +1091,7 @@ VOID PhpShowWmiProviderNodeContextMenu(
 
                     if (FAILED(status))
                     {
-                        PhpShowWmiProviderStatus(Context->WindowHandle, L"Unable to perform the operation.", status);
+                        PhpShowWmiProviderStatus(Context->WindowHandle, L"无法执行该操作。  ", status);
                     }
                 }
                 break;
@@ -1103,7 +1103,7 @@ VOID PhpShowWmiProviderNodeContextMenu(
 
                     if (FAILED(status))
                     {
-                        PhpShowWmiProviderStatus(Context->WindowHandle, L"Unable to perform the operation.", status);
+                        PhpShowWmiProviderStatus(Context->WindowHandle, L"无法执行该操作。  ", status);
                     }
                 }
                 break;
@@ -1115,7 +1115,7 @@ VOID PhpShowWmiProviderNodeContextMenu(
 
                     if (FAILED(status))
                     {
-                        PhpShowWmiProviderStatus(Context->WindowHandle, L"Unable to perform the operation.", status);
+                        PhpShowWmiProviderStatus(Context->WindowHandle, L"无法执行该操作。  ", status);
                     }
                 }
                 break;

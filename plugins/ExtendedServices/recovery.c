@@ -299,8 +299,8 @@ INT_PTR CALLBACK EspServiceRecoveryDlgProc(
                 {
                     PhShowWarning(
                         WindowHandle,
-                        L"The service has %lu failure actions configured, but this program only supports editing 3. "
-                        L"If you save the recovery information using this program, the additional failure actions will be lost.",
+                        L"服务已配置了 %lu 个故障处理措施，但本程序仅支持编辑3个。"
+                        L"如果使用该程序保存恢复信息，额外的故障处理措施将会丢失。",
                         context->NumberOfActions
                         );
                 }
@@ -316,8 +316,8 @@ INT_PTR CALLBACK EspServiceRecoveryDlgProc(
 
                 PhShowWarning(
                     WindowHandle,
-                    L"Unable to query service recovery information: %s",
-                    PhGetStringOrDefault(errorMessage, L"Unknown error.")
+                    L"无法查询服务恢复信息：%s",
+                    PhGetStringOrDefault(errorMessage, L"未知错误。  ")
                     );
 
                 PhClearReference(&errorMessage);
@@ -559,8 +559,8 @@ ErrorCase:
                         if (PhShowMessage(
                             WindowHandle,
                             MB_ICONERROR | MB_RETRYCANCEL,
-                            L"Unable to change service recovery information: %s",
-                            PhGetStringOrDefault(errorMessage, L"Unknown error.")
+                            L"无法更改服务恢复信息：%s",
+                            PhGetStringOrDefault(errorMessage, L"未知错误。  ")
                             ) == IDRETRY)
                         {
                             SetWindowLongPtr(WindowHandle, DWLP_MSGRESULT, PSNRET_INVALID);

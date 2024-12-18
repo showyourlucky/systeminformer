@@ -195,7 +195,7 @@ INT_PTR CALLBACK PhpMemoryEditorDlgProc(
 
             if (context->RegionSize > 1024 * 1024 * 1024) // 1 GB
             {
-                PhShowError(context->OwnerHandle, L"%s", L"Unable to edit the memory region because it is too large.");
+                PhShowError(context->OwnerHandle, L"%s", L"无法编辑内存区域，因为它太大了。");
                 return TRUE;
             }
 
@@ -205,7 +205,7 @@ INT_PTR CALLBACK PhpMemoryEditorDlgProc(
                 context->ProcessId
                 )))
             {
-                PhShowStatus(context->OwnerHandle, L"Unable to open the process", status, 0);
+                PhShowStatus(context->OwnerHandle, L"无法打开进程", status, 0);
                 return TRUE;
             }
 
@@ -213,7 +213,7 @@ INT_PTR CALLBACK PhpMemoryEditorDlgProc(
 
             if (!context->Buffer)
             {
-                PhShowError(context->OwnerHandle, L"%s", L"Unable to allocate memory for the buffer.");
+                PhShowError(context->OwnerHandle, L"%s", L"无法为缓冲区分配内存。");
                 return TRUE;
             }
 
@@ -225,7 +225,7 @@ INT_PTR CALLBACK PhpMemoryEditorDlgProc(
                 NULL
                 )))
             {
-                PhShowStatus(context->OwnerHandle, L"Unable to read memory", status, 0);
+                PhShowStatus(context->OwnerHandle, L"无法读取内存", status, 0);
                 return TRUE;
             }
 
@@ -401,7 +401,7 @@ INT_PTR CALLBACK PhpMemoryEditorDlgProc(
                         }
 
                         if (!NT_SUCCESS(status))
-                            PhShowStatus(hwndDlg, L"Unable to create the file", status, 0);
+                            PhShowStatus(hwndDlg, L"无法创建文件", status, 0);
                     }
 
                     PhFreeFileDialog(fileDialog);
@@ -433,7 +433,7 @@ INT_PTR CALLBACK PhpMemoryEditorDlgProc(
                         {
                             if (offset >= context->RegionSize)
                             {
-                                PhShowError(hwndDlg, L"%s", L"The offset is too large.");
+                                PhShowError(hwndDlg, L"%s", L"偏移量太大了。");
                                 continue;
                             }
 
@@ -450,9 +450,9 @@ INT_PTR CALLBACK PhpMemoryEditorDlgProc(
 
                     if (PhGetIntegerSetting(L"EnableWarnings") && !PhShowConfirmMessage(
                         hwndDlg,
-                        L"write",
-                        L"process memory",
-                        L"Some programs may restrict access or ban your account when editing the memory of the process.",
+                        L"写入",
+                        L"进程内存",
+                        L"某些程序可能会在编辑进程内存时限制访问或封禁您的账户。",
                         FALSE
                         ))
                     {
@@ -469,7 +469,7 @@ INT_PTR CALLBACK PhpMemoryEditorDlgProc(
                             context->ProcessId
                             )))
                         {
-                            PhShowStatus(hwndDlg, L"Unable to open the process", status, 0);
+                            PhShowStatus(hwndDlg, L"无法打开进程", status, 0);
                             break;
                         }
 
@@ -486,7 +486,7 @@ INT_PTR CALLBACK PhpMemoryEditorDlgProc(
                         NULL
                         )))
                     {
-                        PhShowStatus(hwndDlg, L"Unable to write memory", status, 0);
+                        PhShowStatus(hwndDlg, L"无法写入内存", status, 0);
                     }
                 }
                 break;
@@ -502,7 +502,7 @@ INT_PTR CALLBACK PhpMemoryEditorDlgProc(
                         NULL
                         )))
                     {
-                        PhShowStatus(hwndDlg, L"Unable to read memory", status, 0);
+                        PhShowStatus(hwndDlg, L"无法读取内存", status, 0);
                     }
 
                     InvalidateRect(context->HexEditHandle, NULL, TRUE);

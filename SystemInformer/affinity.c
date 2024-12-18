@@ -154,7 +154,7 @@ static BOOLEAN PhpShowProcessErrorAffinity(
     return PhShowContinueStatus(
         hWnd,
         PhaFormatString(
-        L"Unable to change affinity of process %lu",
+        L"无法更改进程 %lu 的关联",
         HandleToUlong(Process->ProcessId)
         )->Buffer,
         Status,
@@ -172,7 +172,7 @@ static BOOLEAN PhpShowThreadErrorAffinity(
     return PhShowContinueStatus(
         hWnd,
         PhaFormatString(
-        L"Unable to change affinity of thread %lu",
+        L"无法更改线程 %lu 的关联",
         HandleToUlong(Thread->ThreadId)
         )->Buffer,
         Status,
@@ -471,7 +471,7 @@ INT_PTR CALLBACK PhpProcessAffinityDlgProc(
 
             if (!NT_SUCCESS(status))
             {
-                PhShowStatus(hwndDlg, L"Unable to query the current affinity.", status, 0);
+                PhShowStatus(hwndDlg, L"无法查询当前的关联。", status, 0);
                 EndDialog(hwndDlg, IDCANCEL);
                 break;
             }

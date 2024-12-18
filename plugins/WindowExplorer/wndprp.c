@@ -1713,7 +1713,7 @@ static INT_PTR CALLBACK WepWindowPropEditDlgProc(
 
                     if (!context->WindowPropCreate && PhIsNullOrEmptyString(windowPropName))
                     {
-                        PhShowError2(hwndDlg, L"Unable to add window property.", L"%s", L"The property name is empty.");
+                        PhShowError2(hwndDlg, L"无法添加窗口属性。", L"%s", L"属性名称为空。");
                         break;
                     }
 
@@ -1721,7 +1721,7 @@ static INT_PTR CALLBACK WepWindowPropEditDlgProc(
                     {
                         if (!SetProp(context->TargetWindowHandle, PhGetString(windowPropName), (HANDLE)value))
                         {
-                            PhShowStatus(hwndDlg, L"Unable to create the window property.", 0, GetLastError());
+                            PhShowStatus(hwndDlg, L"无法创建窗口属性。", 0, GetLastError());
                             break;
                         }
                     }
@@ -1729,7 +1729,7 @@ static INT_PTR CALLBACK WepWindowPropEditDlgProc(
                     {
                         if (!SetProp(context->TargetWindowHandle, PhGetString(context->WindowPropString), (HANDLE)value))
                         {
-                            PhShowStatus(hwndDlg, L"Unable to update the window property.", 0, GetLastError());
+                            PhShowStatus(hwndDlg, L"无法更新窗口属性。", 0, GetLastError());
                             break;
                         }
                     }
@@ -1991,8 +1991,8 @@ INT_PTR CALLBACK WepWindowPropListDlgProc(
                                 if (PhGetIntegerSetting(L"EnableWarnings") && !PhShowConfirmMessage(
                                     hwndDlg,
                                     L"remove",
-                                    L"the window property",
-                                    L"The window property will be permanently deleted.",
+                                    L"窗口属性",
+                                    L"窗口属性将被永久删除。",
                                     FALSE
                                     ))
                                 {
@@ -2003,7 +2003,7 @@ INT_PTR CALLBACK WepWindowPropListDlgProc(
 
                                 status = PhGetLastWin32ErrorAsNtStatus();
                                 if (status != STATUS_CANCELLED)
-                                    PhShowStatus(hwndDlg, L"Unable to remove the window property.", status, 0);
+                                    PhShowStatus(hwndDlg, L"无法移除窗口属性。", status, 0);
 
                                 //WepRefreshWindowProps(context);
                                 PvRefreshChildWindows(hwndDlg);

@@ -1257,11 +1257,11 @@ INT_PTR CALLBACK PhpRunAsDlgProc(
                         {
                             if (status == STATUS_NOT_IMPLEMENTED)
                             {
-                                PhShowError2(hwndDlg, L"Unable to start the program.", L"Unable to start the execution alias with custom tokens.", "");
+                                PhShowError2(hwndDlg, L"无法启动程序。", L"无法使用自定义令牌启动执行别名。", "");
                             }
                             else
                             {
-                                PhShowStatus(hwndDlg, L"Unable to start the program.", status, 0);
+                                PhShowStatus(hwndDlg, L"无法启动程序。", status, 0);
                             }
                         }
                     }
@@ -1364,8 +1364,8 @@ NTSTATUS PhSetDesktopWinStaAccess(
         WindowHandle,
         TD_YES_BUTTON | TD_NO_BUTTON,
         TD_WARNING_ICON,
-        L"WARNING: This will grant Everyone access to the current window station and desktop.",
-        L"Are you sure you want to continue?"
+        L"警告：这将授予所有人访问当前窗口工作站和桌面的权限。",
+        L"您确定要继续吗？"
         ) == IDNO)
     {
         return STATUS_ACCESS_DENIED;
@@ -2411,7 +2411,7 @@ INT_PTR CALLBACK PhpRunFileWndProc(
                         {
                             if (!(NT_NTWIN32(status) && WIN32_FROM_NTSTATUS(status) == ERROR_CANCELLED))
                             {
-                                PhShowStatus(hwndDlg, L"Unable to execute the command.", status, 0);
+                                PhShowStatus(hwndDlg, L"无法执行命令。  ", status, 0);
                             }
                         }
 
@@ -3389,7 +3389,7 @@ INT_PTR CALLBACK PhRunAsPackageWndProc(
                             }
                             else
                             {
-                                PhShowStatus(WindowHandle, L"Unable to execute the command.", 0, status);
+                                PhShowStatus(WindowHandle, L"无法执行命令。  ", 0, status);
                             }
 
                             PhClearReference(&argumentsString);

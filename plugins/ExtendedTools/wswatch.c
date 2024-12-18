@@ -83,7 +83,7 @@ VOID EtShowWsWatchDialog(
 
     if (!NT_SUCCESS(status))
     {
-        PhShowStatus(ParentWindowHandle, L"Unable to open the process.", status, 0);
+        PhShowStatus(ParentWindowHandle, L"无法打开进程。", status, 0);
         return;
     }
 
@@ -516,7 +516,7 @@ INT_PTR CALLBACK EtpWsWatchDlgProc(
 
             if (!context->SymbolProvider)
             {
-                PhShowError(hwndDlg, L"%s", L"Unable to create the symbol provider.");
+                PhShowError(hwndDlg, L"%s", L"无法创建符号提供者。");
                 EndDialog(hwndDlg, IDCANCEL);
                 break;
             }
@@ -620,7 +620,7 @@ INT_PTR CALLBACK EtpWsWatchDlgProc(
                     }
                     else
                     {
-                        PhShowStatus(hwndDlg, L"Unable to enable WS watch.", status, 0);
+                        PhShowStatus(hwndDlg, L"无法启用WS监视。", status, 0);
                     }
                 }
                 break;

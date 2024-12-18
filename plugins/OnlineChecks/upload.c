@@ -1505,6 +1505,6 @@ VOID UploadServiceToOnlineService(
     }
     else
     {
-        PhShowStatus(PhMainWndHandle, L"Unable to query the service.", status, 0);
+        PhShowStatus(PhMainWndHandle, L"无法查询服务。", status, 0);
     }
 }

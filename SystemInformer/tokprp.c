@@ -1613,7 +1613,7 @@ INT_PTR CALLBACK PhpTokenPageProc(
 
                                 if (!PhShowContinueStatus(
                                     hwndDlg,
-                                    PhaFormatString(L"Unable to %s %s.", action, PhGetStringOrDefault(privilegeName, L"privilege"))->Buffer,
+                                    PhaFormatString(L"无法%s %s。", action, PhGetStringOrDefault(privilegeName, L"privilege"))->Buffer,
                                     STATUS_UNSUCCESSFUL,
                                     0
                                     ))
@@ -1628,7 +1628,7 @@ INT_PTR CALLBACK PhpTokenPageProc(
                     }
                     else
                     {
-                        PhShowStatus(hwndDlg, L"Unable to open the token.", status, 0);
+                        PhShowStatus(hwndDlg, L"无法打开令牌。", status, 0);
                     }
 
                     PhFree(listViewItems);
@@ -1748,7 +1748,7 @@ INT_PTR CALLBACK PhpTokenPageProc(
 
                                 if (!PhShowContinueStatus(
                                     hwndDlg,
-                                    PhaFormatString(L"Unable to %s %s.", action, L"group")->Buffer,
+                                    PhaFormatString(L"无法%s %s。", action, L"group")->Buffer,
                                     status,
                                     0
                                     ))
@@ -1763,7 +1763,7 @@ INT_PTR CALLBACK PhpTokenPageProc(
                     }
                     else
                     {
-                        PhShowStatus(hwndDlg, L"Unable to open the token.", status, 0);
+                        PhShowStatus(hwndDlg, L"无法打开令牌。", status, 0);
                     }
 
                     PhFree(listViewItems);
@@ -1798,9 +1798,9 @@ INT_PTR CALLBACK PhpTokenPageProc(
                     if (!PhShowConfirmMessage(
                         hwndDlg,
                         L"remove",
-                        L"the UIAccess flag",
-                        L"Removing this flag may reduce the functionality of the process "
-                        L"provided it is an accessibility application.",
+                        L"UIAccess标志",
+                        L"移除此标志可能会降低进程的功能，"
+                        L"如果它是一个辅助功能应用程序。",
                         FALSE
                         ))
                     {
@@ -1835,7 +1835,7 @@ INT_PTR CALLBACK PhpTokenPageProc(
                         }
                         else
                         {
-                            PhShowStatus(hwndDlg, L"Unable to disable UIAccess flag.", status, 0);
+                            PhShowStatus(hwndDlg, L"无法禁用UIAccess标志。", status, 0);
                         }
 
                         ExtendedListView_SortItems(tokenPageContext->ListViewHandle);
@@ -1845,7 +1845,7 @@ INT_PTR CALLBACK PhpTokenPageProc(
                     }
                     else
                     {
-                        PhShowStatus(hwndDlg, L"Unable to open the token.", status, 0);
+                        PhShowStatus(hwndDlg, L"无法打开令牌。", status, 0);
                     }
 
                     PhFree(listViewItems);
@@ -1966,9 +1966,9 @@ INT_PTR CALLBACK PhpTokenPageProc(
                     {
                         if (PhShowConfirmMessage(
                             hwndDlg,
-                            L"set",
-                            L"the integrity level",
-                            L"Once lowered, the integrity level of the token cannot be raised again.",
+                            L"设置",
+                            L"完整性级别",
+                            L"一旦降低，令牌的完整性级别将无法再次提高。",
                             FALSE
                             ))
                         {
@@ -2049,7 +2049,7 @@ INT_PTR CALLBACK PhpTokenPageProc(
                             }
 
                             if (!NT_SUCCESS(status))
-                                PhShowStatus(hwndDlg, L"Unable to set the integrity level", status, 0);
+                                PhShowStatus(hwndDlg, L"无法设置完整性级别", status, 0);
                         }
                     }
 
@@ -2545,7 +2545,7 @@ INT_PTR CALLBACK PhpTokenGeneralPageProc(
                     }
                     else
                     {
-                        PhShowStatus(hwndDlg, L"Unable to open the token", status, 0);
+                        PhShowStatus(hwndDlg, L"无法打开令牌", status, 0);
                     }
                 }
                 break;

@@ -652,7 +652,7 @@ INT_PTR CALLBACK PhpServiceGeneralDlgProc(
                     goto Cleanup;
 ErrorCase:
 
-                    PhShowStatus(hwndDlg, L"Unable to change service configuration.", status, 0);
+                    PhShowStatus(hwndDlg, L"无法更改服务配置。", status, 0);
                     SetWindowLongPtr(hwndDlg, DWLP_MSGRESULT, PSNRET_INVALID);
 
 Cleanup:

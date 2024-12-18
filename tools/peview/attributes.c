@@ -258,7 +258,7 @@ INT_PTR CALLBACK PvpPeExtendedAttributesDlgProc(
                                     }
                                     else
                                     {
-                                        PhShowStatus(hwndDlg, L"Unable to remove attribute.", status, 0);
+                                        PhShowStatus(hwndDlg, L"无法删除属性。", status, 0);
                                     }
 
                                     PhClearReference(&nameUtf);

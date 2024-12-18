@@ -483,7 +483,7 @@ BOOLEAN PhUiLockComputer(
     if (LockWorkStation())
         return TRUE;
     else
-        PhShowStatus(WindowHandle, L"Unable to lock the computer.", 0, PhGetLastError());
+        PhShowStatus(WindowHandle, L"无法锁定计算机。", 0, PhGetLastError());
 
     return FALSE;
 }
@@ -495,7 +495,7 @@ BOOLEAN PhUiLogoffComputer(
     if (ExitWindowsEx(EWX_LOGOFF, 0))
         return TRUE;
     else
-        PhShowStatus(WindowHandle, L"Unable to log off the computer.", 0, GetLastError());
+        PhShowStatus(WindowHandle, L"无法注销计算机。", 0, GetLastError());
 
     return FALSE;
 }
@@ -514,7 +514,7 @@ BOOLEAN PhUiSleepComputer(
         )))
         return TRUE;
     else
-        PhShowStatus(WindowHandle, L"Unable to sleep the computer.", status, 0);
+        PhShowStatus(WindowHandle, L"无法使计算机进入睡眠状态。", status, 0);
 
     return FALSE;
 }
@@ -533,7 +533,7 @@ BOOLEAN PhUiHibernateComputer(
         )))
         return TRUE;
     else
-        PhShowStatus(WindowHandle, L"Unable to hibernate the computer.", status, 0);
+        PhShowStatus(WindowHandle, L"无法使计算机进入休眠状态。", status, 0);
 
     return FALSE;
 }
@@ -550,8 +550,8 @@ BOOLEAN PhUiRestartComputer(
         {
             if (!PhGetIntegerSetting(L"EnableWarnings") || PhShowConfirmMessage(
                 WindowHandle,
-                L"restart",
-                L"the computer",
+                L"重启",
+                L"计算机",
                 NULL,
                 FALSE
                 ))
@@ -561,12 +561,12 @@ BOOLEAN PhUiRestartComputer(
                 if (status == ERROR_SUCCESS)
                     return TRUE;
 
-                PhShowStatus(WindowHandle, L"Unable to restart the computer.", 0, status);
+                PhShowStatus(WindowHandle, L"无法重启计算机。", 0, status);
 
                 //if (ExitWindowsEx(EWX_REBOOT | EWX_BOOTOPTIONS, 0))
                 //    return TRUE;
                 //else
-                //    PhShowStatus(WindowHandle, L"Unable to restart the computer.", 0, GetLastError());
+                //    PhShowStatus(WindowHandle, L"无法重启计算机。", 0, GetLastError());
             }
         }
         break;
@@ -582,8 +582,8 @@ BOOLEAN PhUiRestartComputer(
             // Ignore the EnableWarnings preference and always show the warning prompt. (dmex)
             if (PhShowConfirmMessage(
                 WindowHandle,
-                L"restart",
-                L"the computer",
+                L"重启",
+                L"计算机",
                 messageText->Buffer,
                 TRUE
                 ))
@@ -595,7 +595,7 @@ BOOLEAN PhUiRestartComputer(
                 if (NT_SUCCESS(status))
                     return TRUE;
 
-                PhShowStatus(WindowHandle, L"Unable to restart the computer.", status, 0);
+                PhShowStatus(WindowHandle, L"无法重启计算机。", status, 0);
             }
         }
         break;
@@ -611,8 +611,8 @@ BOOLEAN PhUiRestartComputer(
             // Ignore the EnableWarnings preference and always show the warning prompt. (dmex)
             if (PhShowConfirmMessage(
                 WindowHandle,
-                L"restart",
-                L"the computer",
+                L"重启",
+                L"计算机",
                 messageText->Buffer,
                 TRUE
                 ))
@@ -634,7 +634,7 @@ BOOLEAN PhUiRestartComputer(
                 if (NT_SUCCESS(status))
                     return TRUE;
 
-                PhShowStatus(WindowHandle, L"Unable to restart the computer.", status, 0);
+                PhShowStatus(WindowHandle, L"无法重启计算机。", status, 0);
             }
         }
         break;
@@ -642,8 +642,8 @@ BOOLEAN PhUiRestartComputer(
         {
             if (!PhGetIntegerSetting(L"EnableWarnings") || PhShowConfirmMessage(
                 WindowHandle,
-                L"restart",
-                L"the computer",
+                L"重启",
+                L"计算机",
                 NULL,
                 FALSE
                 ))
@@ -661,11 +661,11 @@ BOOLEAN PhUiRestartComputer(
                     if (status == ERROR_SUCCESS)
                         return TRUE;
 
-                    PhShowStatus(WindowHandle, L"Unable to configure the advanced boot options.", 0, status);
+                    PhShowStatus(WindowHandle, L"无法配置高级启动选项。", 0, status);
                 }
                 else
                 {
-                    PhShowStatus(WindowHandle, L"Unable to configure the advanced boot options.", status, 0);
+                    PhShowStatus(WindowHandle, L"无法配置高级启动选项。", status, 0);
                 }
             }
         }
@@ -678,8 +678,8 @@ BOOLEAN PhUiRestartComputer(
                     WindowHandle,
                     TD_OK_BUTTON,
                     TD_ERROR_ICON,
-                    L"Unable to restart to firmware options.",
-                    L"Make sure System Informer is running with administrative privileges."
+                    L"无法重启进入固件选项。",
+                    L"请确保 System Informer 以管理员权限运行。"
                     );
                 break;
             }
@@ -690,8 +690,8 @@ BOOLEAN PhUiRestartComputer(
                     WindowHandle,
                     TD_OK_BUTTON,
                     TD_ERROR_ICON,
-                    L"Unable to restart to firmware options.",
-                    L"Make sure System Informer is running with administrative privileges."
+                    L"无法重启进入固件选项。",
+                    L"请确保 System Informer 以管理员权限运行。"
                     );
                 break;
             }
@@ -702,16 +702,16 @@ BOOLEAN PhUiRestartComputer(
                     WindowHandle,
                     TD_OK_BUTTON,
                     TD_ERROR_ICON,
-                    L"Unable to restart to firmware options.",
-                    L"This machine does not have UEFI support."
+                    L"无法重启进入固件选项。",
+                    L"此计算机不支持 UEFI。"
                     );
                 break;
             }
 
             if (!PhGetIntegerSetting(L"EnableWarnings") || PhShowConfirmMessage(
                 WindowHandle,
-                L"restart",
-                L"the computer",
+                L"重启",
+                L"计算机",
                 NULL,
                 FALSE
                 ))
@@ -727,11 +727,11 @@ BOOLEAN PhUiRestartComputer(
                     if (status == ERROR_SUCCESS)
                         return TRUE;
 
-                    PhShowStatus(WindowHandle, L"Unable to restart the computer.", 0, status);
+                    PhShowStatus(WindowHandle, L"无法重启计算机。", 0, status);
                 }
                 else
                 {
-                    PhShowStatus(WindowHandle, L"Unable to restart the computer.", status, 0);
+                    PhShowStatus(WindowHandle, L"无法重启计算机。", status, 0);
                 }
             }
         }
@@ -740,8 +740,8 @@ BOOLEAN PhUiRestartComputer(
         {
             if (!PhGetIntegerSetting(L"EnableWarnings") || PhShowConfirmMessage(
                 WindowHandle,
-                L"update and restart",
-                L"the computer",
+                L"更新并重启",
+                L"计算机",
                 NULL,
                 FALSE
                 ))
@@ -751,7 +751,7 @@ BOOLEAN PhUiRestartComputer(
                 if (status == ERROR_SUCCESS)
                     return TRUE;
 
-                PhShowStatus(WindowHandle, L"Unable to restart the computer.", 0, status);
+                PhShowStatus(WindowHandle, L"无法重启计算机。", 0, status);
             }
         }
         break;
@@ -759,8 +759,8 @@ BOOLEAN PhUiRestartComputer(
         {
             if (!PhGetIntegerSetting(L"EnableWarnings") || PhShowConfirmMessage(
                 WindowHandle,
-                L"restart",
-                L"the computer for Windows Defender Offline Scan",
+                L"重启",
+                L"计算机以进行Windows Defender脱机扫描",
                 NULL,
                 FALSE
                 ))
@@ -772,11 +772,11 @@ BOOLEAN PhUiRestartComputer(
 
                 if ((status & 0xFFFF0000) == MAKE_HRESULT(SEVERITY_ERROR, FACILITY_WIN32, 0))
                 {
-                    PhShowStatus(WindowHandle, L"Unable to restart the computer.", 0, HRESULT_CODE(status));
+                    PhShowStatus(WindowHandle, L"无法重启计算机。", 0, HRESULT_CODE(status));
                 }
                 else
                 {
-                    PhShowStatus(WindowHandle, L"Unable to restart the computer.", STATUS_UNSUCCESSFUL, 0);
+                    PhShowStatus(WindowHandle, L"无法重启计算机。", STATUS_UNSUCCESSFUL, 0);
                 }
             }
         }
@@ -798,8 +798,8 @@ BOOLEAN PhUiShutdownComputer(
         {
             if (!PhGetIntegerSetting(L"EnableWarnings") || PhShowConfirmMessage(
                 WindowHandle,
-                L"shut down",
-                L"the computer",
+                L"关机",
+                L"计算机",
                 NULL,
                 FALSE
                 ))
@@ -809,14 +809,14 @@ BOOLEAN PhUiShutdownComputer(
                 if (status == ERROR_SUCCESS)
                     return TRUE;
 
-                PhShowStatus(WindowHandle, L"Unable to shut down the computer.", 0, status);
+                PhShowStatus(WindowHandle, L"无法关闭计算机。", 0, status);
 
                 //if (ExitWindowsEx(EWX_POWEROFF | EWX_HYBRID_SHUTDOWN, 0))
                 //    return TRUE;
                 //else if (ExitWindowsEx(EWX_SHUTDOWN | EWX_HYBRID_SHUTDOWN, 0))
                 //    return TRUE;
                 //else
-                //    PhShowStatus(WindowHandle, L"Unable to shut down the computer.", 0, GetLastError());
+                //    PhShowStatus(WindowHandle, L"无法关闭计算机。", 0, GetLastError());
             }
         }
         break;
@@ -832,8 +832,8 @@ BOOLEAN PhUiShutdownComputer(
             // Ignore the EnableWarnings preference and always show the warning prompt. (dmex)
             if (PhShowConfirmMessage(
                 WindowHandle,
-                L"shut down",
-                L"the computer",
+                L"关机",
+                L"计算机",
                 messageText->Buffer,
                 TRUE
                 ))
@@ -845,7 +845,7 @@ BOOLEAN PhUiShutdownComputer(
                 if (NT_SUCCESS(status))
                     return TRUE;
 
-                PhShowStatus(WindowHandle, L"Unable to shut down the computer.", status, 0);
+                PhShowStatus(WindowHandle, L"无法关闭计算机。", status, 0);
             }
         }
         break;
@@ -861,8 +861,8 @@ BOOLEAN PhUiShutdownComputer(
             // Ignore the EnableWarnings preference and always show the warning prompt. (dmex)
             if (PhShowConfirmMessage(
                 WindowHandle,
-                L"shut down",
-                L"the computer",
+                L"关机",
+                L"计算机",
                 messageText->Buffer,
                 TRUE
                 ))
@@ -884,7 +884,7 @@ BOOLEAN PhUiShutdownComputer(
                 if (NT_SUCCESS(status))
                     return TRUE;
 
-                PhShowStatus(WindowHandle, L"Unable to shut down the computer.", status, 0);
+                PhShowStatus(WindowHandle, L"无法关闭计算机。", status, 0);
             }
         }
         break;
@@ -892,8 +892,8 @@ BOOLEAN PhUiShutdownComputer(
         {
             if (!PhGetIntegerSetting(L"EnableWarnings") || PhShowConfirmMessage(
                 WindowHandle,
-                L"update and shutdown",
-                L"the computer",
+                L"更新并关机",
+                L"计算机",
                 NULL,
                 FALSE
                 ))
@@ -903,7 +903,7 @@ BOOLEAN PhUiShutdownComputer(
                 if (status == ERROR_SUCCESS)
                     return TRUE;
 
-                PhShowStatus(WindowHandle, L"Unable to shut down the computer.", 0, status);
+                PhShowStatus(WindowHandle, L"无法关闭计算机。", 0, status);
             }
         }
         break;
@@ -1010,8 +1010,8 @@ VOID PhUiHandleComputerBootApplicationMenu(
 
     if (PhGetIntegerSetting(L"EnableWarnings") && !PhShowConfirmMessage(
         WindowHandle,
-        L"restart",
-        L"the computer",
+        L"重启",
+        L"计算机",
         NULL,
         FALSE
         ))
@@ -1040,12 +1040,12 @@ VOID PhUiHandleComputerBootApplicationMenu(
 
         if (status != ERROR_SUCCESS)
         {
-            PhShowStatus(WindowHandle, L"Unable to configure the boot application.", 0, status);
+            PhShowStatus(WindowHandle, L"无法配置启动应用程序。", 0, status);
         }
     }
     else
     {
-        PhShowStatus(WindowHandle, L"Unable to configure the boot application.", status, 0);
+        PhShowStatus(WindowHandle, L"无法配置启动应用程序。", status, 0);
     }
 }
 
@@ -1059,8 +1059,8 @@ VOID PhUiHandleComputerFirmwareApplicationMenu(
 
     if (PhGetIntegerSetting(L"EnableWarnings") && !PhShowConfirmMessage(
         WindowHandle,
-        L"restart",
-        L"the computer",
+        L"重启",
+        L"计算机",
         NULL,
         FALSE
         ))
@@ -1086,12 +1086,12 @@ VOID PhUiHandleComputerFirmwareApplicationMenu(
 
         if (status != ERROR_SUCCESS)
         {
-            PhShowStatus(WindowHandle, L"Unable to configure the boot application.", 0, status);
+            PhShowStatus(WindowHandle, L"无法配置启动应用程序。", 0, status);
         }
     }
     else
     {
-        PhShowStatus(WindowHandle, L"Unable to configure the boot application.", status, 0);
+        PhShowStatus(WindowHandle, L"无法配置启动应用程序。", status, 0);
     }
 }
 
@@ -1265,7 +1265,7 @@ BOOLEAN PhUiConnectSession(
         }
         else
         {
-            if (!PhShowContinueStatus(WindowHandle, L"Unable to connect to the session", 0, GetLastError()))
+            if (!PhShowContinueStatus(WindowHandle, L"无法连接到会话", 0, GetLastError()))
                 break;
         }
     }
@@ -1287,7 +1287,7 @@ BOOLEAN PhUiDisconnectSession(
     if (WinStationDisconnect(NULL, SessionId, FALSE))
         return TRUE;
     else
-        PhShowStatus(WindowHandle, L"Unable to disconnect the session", 0, GetLastError());
+        PhShowStatus(WindowHandle, L"无法断开会话", 0, GetLastError());
 
     return FALSE;
 }
@@ -1299,8 +1299,8 @@ BOOLEAN PhUiLogoffSession(
 {
     if (!PhGetIntegerSetting(L"EnableWarnings") || PhShowConfirmMessage(
         WindowHandle,
-        L"logoff",
-        L"the user",
+        L"注销",
+        L"用户",
         NULL,
         FALSE
         ))
@@ -1308,7 +1308,7 @@ BOOLEAN PhUiLogoffSession(
         if (WinStationReset(NULL, SessionId, FALSE))
             return TRUE;
         else
-            PhShowStatus(WindowHandle, L"Unable to logoff the session", 0, GetLastError());
+            PhShowStatus(WindowHandle, L"无法注销会话", 0, GetLastError());
     }
 
     return FALSE;
@@ -1456,9 +1456,9 @@ static BOOLEAN PhpShowContinueMessageProcesses(
                 object,
                 PhaConcatStrings(
                 3,
-                L"You are about to ",
+                L"您即将",
                 Verb,
-                L" one or more system processes."
+                L"一个或多个系统进程。"
                 )->Buffer,
                 TRUE
                 );
@@ -1548,7 +1548,7 @@ static BOOLEAN PhpShowErrorProcess(
         return PhShowContinueStatus(
             WindowHandle,
             PhaFormatString(
-            L"Unable to %s %s",
+            L"无法%s %s",
             Verb,
             Process->ProcessName->Buffer
             )->Buffer,
@@ -1570,8 +1570,8 @@ BOOLEAN PhUiTerminateProcesses(
 
     if (!PhpShowContinueMessageProcesses(
         WindowHandle,
-        L"terminate",
-        L"Terminating a process will cause unsaved data to be lost.",
+        L"终止",
+        L"终止进程将导致未保存的数据丢失。",
         FALSE,
         Processes,
         NumberOfProcesses
@@ -1615,7 +1615,7 @@ BOOLEAN PhUiTerminateProcesses(
 
             if (!cancelled && PhpShowErrorAndConnectToPhSvc(
                 WindowHandle,
-                PhaConcatStrings2(L"Unable to terminate ", Processes[i]->ProcessName->Buffer)->Buffer,
+                PhaConcatStrings2(L"无法终止", Processes[i]->ProcessName->Buffer)->Buffer,
                 status,
                 &connected
                 ))
@@ -1625,7 +1625,7 @@ BOOLEAN PhUiTerminateProcesses(
                     if (NT_SUCCESS(status = PhSvcCallControlProcess(Processes[i]->ProcessId, PhSvcControlProcessTerminate, 0)))
                         success = TRUE;
                     else
-                        PhpShowErrorProcess(WindowHandle, L"terminate", Processes[i], status, 0);
+                        PhpShowErrorProcess(WindowHandle, L"终止", Processes[i], status, 0);
 
                     PhUiDisconnectFromPhSvc();
                 }
@@ -1636,7 +1636,7 @@ BOOLEAN PhUiTerminateProcesses(
             }
             else
             {
-                if (!PhpShowErrorProcess(WindowHandle, L"terminate", Processes[i], status, 0))
+                if (!PhpShowErrorProcess(WindowHandle, L"终止", Processes[i], status, 0))
                     break;
             }
         }
@@ -1682,7 +1682,7 @@ BOOLEAN PhpUiTerminateTreeProcess(
     {
         *Success = FALSE;
 
-        if (!PhpShowErrorProcess(WindowHandle, L"terminate", Process, status, 0))
+        if (!PhpShowErrorProcess(WindowHandle, L"终止", Process, status, 0))
             return FALSE;
     }
 
@@ -1744,8 +1744,8 @@ BOOLEAN PhUiTerminateTreeProcess(
     {
         cont = PhShowConfirmMessage(
             WindowHandle,
-            L"terminate",
-            PhaConcatStrings2(Process->ProcessName->Buffer, L" and its descendants")->Buffer,
+            L"终止",
+            PhaConcatStrings2(Process->ProcessName->Buffer, L"及其子进程")->Buffer,
             L"Terminating a process tree will cause the process and its descendants to be terminated.",
             FALSE
             );
@@ -1760,7 +1760,7 @@ BOOLEAN PhUiTerminateTreeProcess(
 
     if (!NT_SUCCESS(status = PhEnumProcesses(&processes)))
     {
-        PhShowStatus(WindowHandle, L"Unable to enumerate processes", status, 0);
+        PhShowStatus(WindowHandle, L"无法枚举进程", status, 0);
         return FALSE;
     }
 
@@ -1782,7 +1782,7 @@ BOOLEAN PhUiSuspendProcesses(
 
     if (!PhpShowContinueMessageProcesses(
         WindowHandle,
-        L"suspend",
+        L"暂停",
         NULL,
         TRUE,
         Processes,
@@ -1813,7 +1813,7 @@ BOOLEAN PhUiSuspendProcesses(
 
             if (!cancelled && PhpShowErrorAndConnectToPhSvc(
                 WindowHandle,
-                PhaConcatStrings2(L"Unable to suspend ", Processes[i]->ProcessName->Buffer)->Buffer,
+                PhaConcatStrings2(L"无法暂停", Processes[i]->ProcessName->Buffer)->Buffer,
                 status,
                 &connected
                 ))
@@ -1823,7 +1823,7 @@ BOOLEAN PhUiSuspendProcesses(
                     if (NT_SUCCESS(status = PhSvcCallControlProcess(Processes[i]->ProcessId, PhSvcControlProcessSuspend, 0)))
                         success = TRUE;
                     else
-                        PhpShowErrorProcess(WindowHandle, L"suspend", Processes[i], status, 0);
+                        PhpShowErrorProcess(WindowHandle, L"暂停", Processes[i], status, 0);
 
                     PhUiDisconnectFromPhSvc();
                 }
@@ -1834,7 +1834,7 @@ BOOLEAN PhUiSuspendProcesses(
             }
             else
             {
-                if (!PhpShowErrorProcess(WindowHandle, L"suspend", Processes[i], status, 0))
+                if (!PhpShowErrorProcess(WindowHandle, L"暂停", Processes[i], status, 0))
                     break;
             }
         }
@@ -1876,7 +1876,7 @@ BOOLEAN PhpUiSuspendTreeProcess(
     {
         *Success = FALSE;
 
-        if (!PhpShowErrorProcess(WindowHandle, L"suspend", Process, status, 0))
+        if (!PhpShowErrorProcess(WindowHandle, L"暂停", Process, status, 0))
             return FALSE;
     }
 
@@ -1938,8 +1938,8 @@ BOOLEAN PhUiSuspendTreeProcess(
     {
         cont = PhShowConfirmMessage(
             WindowHandle,
-            L"suspend",
-            PhaConcatStrings2(Process->ProcessName->Buffer, L" and its descendants")->Buffer,
+            L"暂停",
+            PhaConcatStrings2(Process->ProcessName->Buffer, L"及其子进程")->Buffer,
             L"Suspending a process tree will cause the process and its descendants to be suspend.",
             FALSE
             );
@@ -1954,7 +1954,7 @@ BOOLEAN PhUiSuspendTreeProcess(
 
     if (!NT_SUCCESS(status = PhEnumProcesses(&processes)))
     {
-        PhShowStatus(WindowHandle, L"Unable to enumerate processes", status, 0);
+        PhShowStatus(WindowHandle, L"无法枚举进程", status, 0);
         return FALSE;
     }
 
@@ -1976,7 +1976,7 @@ BOOLEAN PhUiResumeProcesses(
 
     if (!PhpShowContinueMessageProcesses(
         WindowHandle,
-        L"resume",
+        L"恢复",
         NULL,
         TRUE,
         Processes,
@@ -2007,7 +2007,7 @@ BOOLEAN PhUiResumeProcesses(
 
             if (!cancelled && PhpShowErrorAndConnectToPhSvc(
                 WindowHandle,
-                PhaConcatStrings2(L"Unable to resume ", Processes[i]->ProcessName->Buffer)->Buffer,
+                PhaConcatStrings2(L"无法恢复", Processes[i]->ProcessName->Buffer)->Buffer,
                 status,
                 &connected
                 ))
@@ -2017,7 +2017,7 @@ BOOLEAN PhUiResumeProcesses(
                     if (NT_SUCCESS(status = PhSvcCallControlProcess(Processes[i]->ProcessId, PhSvcControlProcessResume, 0)))
                         success = TRUE;
                     else
-                        PhpShowErrorProcess(WindowHandle, L"resume", Processes[i], status, 0);
+                        PhpShowErrorProcess(WindowHandle, L"恢复", Processes[i], status, 0);
 
                     PhUiDisconnectFromPhSvc();
                 }
@@ -2028,7 +2028,7 @@ BOOLEAN PhUiResumeProcesses(
             }
             else
             {
-                if (!PhpShowErrorProcess(WindowHandle, L"resume", Processes[i], status, 0))
+                if (!PhpShowErrorProcess(WindowHandle, L"恢复", Processes[i], status, 0))
                     break;
             }
         }
@@ -2070,7 +2070,7 @@ BOOLEAN PhpUiResumeTreeProcess(
     {
         *Success = FALSE;
 
-        if (!PhpShowErrorProcess(WindowHandle, L"resume", Process, status, 0))
+        if (!PhpShowErrorProcess(WindowHandle, L"恢复", Process, status, 0))
             return FALSE;
     }
 
@@ -2132,8 +2132,8 @@ BOOLEAN PhUiResumeTreeProcess(
     {
         cont = PhShowConfirmMessage(
             WindowHandle,
-            L"resume",
-            PhaConcatStrings2(Process->ProcessName->Buffer, L" and its descendants")->Buffer,
+            L"恢复",
+            PhaConcatStrings2(Process->ProcessName->Buffer, L"及其子进程")->Buffer,
             L"Resuming a process tree will cause the process and its descendants to be resumed.",
             FALSE
             );
@@ -2148,7 +2148,7 @@ BOOLEAN PhUiResumeTreeProcess(
 
     if (!NT_SUCCESS(status = PhEnumProcesses(&processes)))
     {
-        PhShowStatus(WindowHandle, L"Unable to enumerate processes", status, 0);
+        PhShowStatus(WindowHandle, L"无法枚举进程", status, 0);
         return FALSE;
     }
 
@@ -2170,9 +2170,9 @@ BOOLEAN PhUiFreezeTreeProcess(
     {
         cont = PhShowConfirmMessage(
             WindowHandle,
-            L"freeze",
+            L"冻结",
             Process->ProcessName->Buffer,
-            L"Freezing does not persist after exiting System Informer.",
+            L"退出系统信息器后，冻结状态不会保留。",
             FALSE
             );
     }
@@ -2188,7 +2188,7 @@ BOOLEAN PhUiFreezeTreeProcess(
 
     if (!NT_SUCCESS(status))
     {
-        PhpShowErrorProcess(WindowHandle, L"freeze", Process, status, 0);
+        PhpShowErrorProcess(WindowHandle, L"冻结", Process, status, 0);
         return FALSE;
     }
 
@@ -2206,7 +2206,7 @@ BOOLEAN PhUiThawTreeProcess(
 
     if (!NT_SUCCESS(status))
     {
-        PhpShowErrorProcess(WindowHandle, L"thaw", Process, status, 0);
+        PhpShowErrorProcess(WindowHandle, L"解冻", Process, status, 0);
         return FALSE;
     }
 
@@ -2239,10 +2239,10 @@ BOOLEAN PhUiRestartProcess(
     {
         cont = PhShowConfirmMessage(
             WindowHandle,
-            L"restart",
+            L"重启",
             Process->ProcessName->Buffer,
-            L"The process will be restarted with the same command line, "
-            L"working directory and privileges.",
+            L"该进程将使用相同的命令行重启，"
+            L"工作目录和权限。",
             FALSE
             );
     }
@@ -2527,7 +2527,7 @@ CleanupExit:
 
     if (!NT_SUCCESS(status))
     {
-        PhpShowErrorProcess(WindowHandle, L"restart", Process, status, 0);
+        PhpShowErrorProcess(WindowHandle, L"重启", Process, status, 0);
         return FALSE;
     }
 
@@ -2557,9 +2557,9 @@ BOOLEAN PhUiDebugProcess(
     {
         cont = PhShowConfirmMessage(
             WindowHandle,
-            L"debug",
+            L"调试",
             Process->ProcessName->Buffer,
-            L"Debugging a process may result in loss of data.",
+            L"调试进程可能会导致数据丢失。",
             FALSE
             );
     }
@@ -2599,7 +2599,7 @@ BOOLEAN PhUiDebugProcess(
 
     if (PhIsNullOrEmptyString(debuggerCommand))
     {
-        PhShowStatus(WindowHandle, L"Unable to locate the debugger.", STATUS_OBJECT_NAME_NOT_FOUND, 0);
+        PhShowStatus(WindowHandle, L"无法找到调试器。", STATUS_OBJECT_NAME_NOT_FOUND, 0);
         return FALSE;
     }
 
@@ -2625,7 +2625,7 @@ BOOLEAN PhUiDebugProcess(
 
     if (!NT_SUCCESS(status))
     {
-        PhpShowErrorProcess(WindowHandle, L"debug", Process, status, 0);
+        PhpShowErrorProcess(WindowHandle, L"调试", Process, status, 0);
         return FALSE;
     }
 
@@ -2671,7 +2671,7 @@ BOOLEAN PhUiReduceWorkingSetProcesses(
         {
             success = FALSE;
 
-            if (!PhpShowErrorProcess(WindowHandle, L"reduce the working set of", Processes[i], status, 0))
+            if (!PhpShowErrorProcess(WindowHandle, L"减少...的工作集", Processes[i], status, 0))
                 break;
         }
     }
@@ -2694,10 +2694,10 @@ BOOLEAN PhUiSetVirtualizationProcess(
     {
         cont = PhShowConfirmMessage(
             WindowHandle,
-            L"set",
-            L"virtualization for the process",
-            L"Enabling or disabling virtualization for a process may "
-            L"alter its functionality and produce undesirable effects.",
+            L"设置",
+            L"进程虚拟化",
+            L"为进程启用或禁用虚拟化可能会"
+            L"改变其功能并产生不良影响。",
             FALSE
             );
     }
@@ -2730,7 +2730,7 @@ BOOLEAN PhUiSetVirtualizationProcess(
 
     if (!NT_SUCCESS(status))
     {
-        PhpShowErrorProcess(WindowHandle, L"set virtualization for", Process, status, 0);
+        PhpShowErrorProcess(WindowHandle, L"为...设置虚拟化", Process, status, 0);
         return FALSE;
     }
 
@@ -2763,9 +2763,9 @@ BOOLEAN PhUiSetCriticalProcess(
         {
             if (!breakOnTermination && (!PhGetIntegerSetting(L"EnableWarnings") || PhShowConfirmMessage(
                 WindowHandle,
-                L"enable",
-                L"critical status on the process",
-                L"If the process ends, the operating system will shut down immediately.",
+                L"启用",
+                L"进程的关键状态",
+                L"如果进程结束，操作系统将立即关闭。",
                 TRUE
                 )))
             {
@@ -2773,8 +2773,8 @@ BOOLEAN PhUiSetCriticalProcess(
             }
             else if (breakOnTermination && (!PhGetIntegerSetting(L"EnableWarnings") || PhShowConfirmMessage(
                 WindowHandle,
-                L"disable",
-                L"critical status on the process",
+                L"禁用",
+                L"进程的关键状态",
                 NULL,
                 FALSE
                 )))
@@ -2788,7 +2788,7 @@ BOOLEAN PhUiSetCriticalProcess(
 
     if (!NT_SUCCESS(status))
     {
-        PhpShowErrorProcess(WindowHandle, L"set critical status for", Process, status, 0);
+        PhpShowErrorProcess(WindowHandle, L"为...设置关键状态", Process, status, 0);
         return FALSE;
     }
 
@@ -2826,9 +2826,9 @@ BOOLEAN PhUiSetEcoModeProcess(
             {
                 if (!PhGetIntegerSetting(L"EnableWarnings") || PhShowConfirmMessage(
                     WindowHandle,
-                    L"enable",
-                    L"Eco mode for this process",
-                    L"Eco mode will lower process priority and improve power efficiency but may cause instability in some processes.",
+                    L"启用",
+                    L"此进程的节能模式",
+                    L"节能模式会降低进程优先级并提高电源效率，但可能会导致某些进程不稳定。",
                     FALSE
                     ))
                 {
@@ -2846,9 +2846,9 @@ BOOLEAN PhUiSetEcoModeProcess(
             {
                 //if (!PhGetIntegerSetting(L"EnableWarnings") || PhShowConfirmMessage(
                 //    WindowHandle,
-                //    L"disable",
-                //    L"Eco mode for this process",
-                //    L"Eco mode will lower process priority and improve power efficiency but may cause instability in some processes.",
+                //    L"禁用",
+                //    L"此进程的节能模式",
+                //    L"节能模式会降低进程优先级并提高电源效率，但可能会导致某些进程不稳定。",
                 //    FALSE
                 //    ))
                 {
@@ -2867,7 +2867,7 @@ BOOLEAN PhUiSetEcoModeProcess(
 
     if (!NT_SUCCESS(status))
     {
-        PhpShowErrorProcess(WindowHandle, L"set Eco mode for", Process, status, 0);
+        PhpShowErrorProcess(WindowHandle, L"为...设置节能模式", Process, status, 0);
         return FALSE;
     }
 
@@ -2892,7 +2892,7 @@ BOOLEAN PhUiSetExecutionRequiredProcess(
 
     if (!NT_SUCCESS(status))
     {
-        PhpShowErrorProcess(WindowHandle, L"create PLM power request for", Process, status, 0);
+        PhpShowErrorProcess(WindowHandle, L"为...创建PLM电源请求", Process, status, 0);
         return FALSE;
     }
 
@@ -2936,13 +2936,13 @@ BOOLEAN PhUiDetachFromDebuggerProcess(
 
     if (status == STATUS_PORT_NOT_SET)
     {
-        PhShowInformation2(WindowHandle, L"The process is not being debugged.", L"%s", L"");
+        PhShowInformation2(WindowHandle, L"该进程未被调试。", L"%s", L"");
         return FALSE;
     }
 
     if (!NT_SUCCESS(status))
     {
-        PhpShowErrorProcess(WindowHandle, L"detach debugger from", Process, status, 0);
+        PhpShowErrorProcess(WindowHandle, L"从...分离调试器", Process, status, 0);
         return FALSE;
     }
 
@@ -3012,7 +3012,7 @@ BOOLEAN PhUiLoadDllProcess(
 
     if (!NT_SUCCESS(status))
     {
-        PhpShowErrorProcess(WindowHandle, L"load the DLL into", Process, status, 0);
+        PhpShowErrorProcess(WindowHandle, L"将DLL加载到...", Process, status, 0);
         return FALSE;
     }
 
@@ -3063,7 +3063,7 @@ BOOLEAN PhUiSetIoPriorityProcesses(
             // The operation may have failed due to the lack of SeIncreaseBasePriorityPrivilege.
             if (!cancelled && PhpShowErrorAndConnectToPhSvc(
                 WindowHandle,
-                PhaConcatStrings2(L"Unable to set the I/O priority of ", Processes[i]->ProcessName->Buffer)->Buffer,
+                PhaConcatStrings2(L"无法设置...的I/O优先级", Processes[i]->ProcessName->Buffer)->Buffer,
                 status,
                 &connected
                 ))
@@ -3073,7 +3073,7 @@ BOOLEAN PhUiSetIoPriorityProcesses(
                     if (NT_SUCCESS(status = PhSvcCallControlProcess(Processes[i]->ProcessId, PhSvcControlProcessIoPriority, IoPriority)))
                         success = TRUE;
                     else
-                        PhpShowErrorProcess(WindowHandle, L"set the I/O priority of", Processes[i], status, 0);
+                        PhpShowErrorProcess(WindowHandle, L"设置...的I/O优先级", Processes[i], status, 0);
 
                     PhUiDisconnectFromPhSvc();
                 }
@@ -3084,7 +3084,7 @@ BOOLEAN PhUiSetIoPriorityProcesses(
             }
             else
             {
-                if (!PhpShowErrorProcess(WindowHandle, L"set the I/O priority of", Processes[i], status, 0))
+                if (!PhpShowErrorProcess(WindowHandle, L"设置...的I/O优先级", Processes[i], status, 0))
                     break;
             }
         }
@@ -3123,7 +3123,7 @@ BOOLEAN PhUiSetPagePriorityProcess(
 
     if (!NT_SUCCESS(status))
     {
-        PhpShowErrorProcess(WindowHandle, L"set the page priority of", Process, status, 0);
+        PhpShowErrorProcess(WindowHandle, L"设置...的页面优先级", Process, status, 0);
         return FALSE;
     }
 
@@ -3175,7 +3175,7 @@ BOOLEAN PhUiSetPriorityProcesses(
             // The operation may have failed due to the lack of SeIncreaseBasePriorityPrivilege.
             if (!cancelled && PhpShowErrorAndConnectToPhSvc(
                 WindowHandle,
-                PhaConcatStrings2(L"Unable to set the priority of ", Processes[i]->ProcessName->Buffer)->Buffer,
+                PhaConcatStrings2(L"无法设置...的优先级", Processes[i]->ProcessName->Buffer)->Buffer,
                 status,
                 &connected
                 ))
@@ -3185,7 +3185,7 @@ BOOLEAN PhUiSetPriorityProcesses(
                     if (NT_SUCCESS(status = PhSvcCallControlProcess(Processes[i]->ProcessId, PhSvcControlProcessPriority, PriorityClass)))
                         success = TRUE;
                     else
-                        PhpShowErrorProcess(WindowHandle, L"set the priority of", Processes[i], status, 0);
+                        PhpShowErrorProcess(WindowHandle, L"设置...的优先级", Processes[i], status, 0);
 
                     PhUiDisconnectFromPhSvc();
                 }
@@ -3196,7 +3196,7 @@ BOOLEAN PhUiSetPriorityProcesses(
             }
             else
             {
-                if (!PhpShowErrorProcess(WindowHandle, L"set the priority of", Processes[i], status, 0))
+                if (!PhpShowErrorProcess(WindowHandle, L"设置...的优先级", Processes[i], status, 0))
                     break;
             }
         }
@@ -3233,7 +3233,7 @@ BOOLEAN PhUiSetBoostPriorityProcesses(
             {
                 success = FALSE;
 
-                if (!PhpShowErrorProcess(WindowHandle, L"change boost priority of", Processes[i], status, 0))
+                if (!PhpShowErrorProcess(WindowHandle, L"更改...的提升优先级", Processes[i], status, 0))
                     break;
             }
         }
@@ -3263,7 +3263,7 @@ BOOLEAN PhUiSetBoostPriorityProcess(
 
     if (!NT_SUCCESS(status))
     {
-        PhpShowErrorProcess(WindowHandle, L"set the boost priority of", Process, status, 0);
+        PhpShowErrorProcess(WindowHandle, L"设置...的提升优先级", Process, status, 0);
         return FALSE;
     }
 
@@ -3999,7 +3999,7 @@ static BOOLEAN PhpShowErrorService(
     return PhShowContinueStatus(
         WindowHandle,
         PhaFormatString(
-        L"Unable to %s %s.",
+        L"无法%s %s。",
         Verb,
         Service->Name->Buffer
         )->Buffer,
@@ -4045,8 +4045,8 @@ BOOLEAN PhUiStartServices(
     {
         PhShowServiceProgressDialog(
             WindowHandle,
-            L"start",
-            L"Starting a service might prevent the system from functioning properly.",
+            L"启动",
+            L"启动服务可能会阻止系统正常运行。",
             FALSE,
             Services,
             NumberOfServices,
@@ -4058,8 +4058,8 @@ BOOLEAN PhUiStartServices(
 
     if (!PhpShowContinueMessageServices(
         WindowHandle,
-        L"start",
-        L"Starting a service might prevent the system from functioning properly.",
+        L"启动",
+        L"启动服务可能会阻止系统正常运行。",
         FALSE,
         Services,
         NumberOfServices
@@ -4092,7 +4092,7 @@ BOOLEAN PhUiStartServices(
 
             if (!cancelled && PhpShowErrorAndConnectToPhSvc(
                 WindowHandle,
-                PhaConcatStrings2(L"Unable to start ", PhGetString(Services[i]->Name))->Buffer,
+                PhaConcatStrings2(L"无法启动", PhGetString(Services[i]->Name))->Buffer,
                 status,
                 &connected
                 ))
@@ -4102,7 +4102,7 @@ BOOLEAN PhUiStartServices(
                     if (NT_SUCCESS(status = PhSvcCallControlService(PhGetString(Services[i]->Name), PhSvcControlServiceStart)))
                         success = TRUE;
                     else
-                        PhpShowErrorService(WindowHandle, L"start", Services[i], status, 0);
+                        PhpShowErrorService(WindowHandle, L"启动", Services[i], status, 0);
 
                     PhUiDisconnectFromPhSvc();
                 }
@@ -4113,7 +4113,7 @@ BOOLEAN PhUiStartServices(
             }
             else
             {
-                if (!PhpShowErrorService(WindowHandle, L"start", Services[i], status, 0))
+                if (!PhpShowErrorService(WindowHandle, L"启动", Services[i], status, 0))
                     break;
             }
         }
@@ -4146,7 +4146,7 @@ BOOLEAN PhUiStartServices(
     //        status = PhGetLastWin32ErrorAsNtStatus();
     //        result = FALSE;
     //
-    //        PhpShowErrorService(WindowHandle, L"start", Services[i], status, 0);
+    //        PhpShowErrorService(WindowHandle, L"启动", Services[i], status, 0);
     //    }
     //}
     //
@@ -4180,7 +4180,7 @@ BOOLEAN PhUiStartService(
 
         if (PhpShowErrorAndConnectToPhSvc(
             WindowHandle,
-            PhaConcatStrings2(L"Unable to start ", PhGetString(Service->Name))->Buffer,
+            PhaConcatStrings2(L"无法启动", PhGetString(Service->Name))->Buffer,
             status,
             &connected
             ))
@@ -4190,14 +4190,14 @@ BOOLEAN PhUiStartService(
                 if (NT_SUCCESS(status = PhSvcCallControlService(PhGetString(Service->Name), PhSvcControlServiceStart)))
                     success = TRUE;
                 else
-                    PhpShowErrorService(WindowHandle, L"start", Service, status, 0);
+                    PhpShowErrorService(WindowHandle, L"启动", Service, status, 0);
 
                 PhUiDisconnectFromPhSvc();
             }
         }
         else
         {
-            PhpShowErrorService(WindowHandle, L"start", Service, status, 0);
+            PhpShowErrorService(WindowHandle, L"启动", Service, status, 0);
         }
     }
 
@@ -4241,8 +4241,8 @@ BOOLEAN PhUiContinueServices(
     {
         PhShowServiceProgressDialog(
             WindowHandle,
-            L"continue",
-            L"Continuing a service might prevent the system from functioning properly.",
+            L"继续",
+            L"继续服务可能会阻止系统正常运行。",
             FALSE,
             Services,
             NumberOfServices,
@@ -4254,8 +4254,8 @@ BOOLEAN PhUiContinueServices(
 
     if (!PhpShowContinueMessageServices(
         WindowHandle,
-        L"continue",
-        L"Continuing a service might prevent the system from functioning properly.",
+        L"继续",
+        L"继续服务可能会阻止系统正常运行。",
         FALSE,
         Services,
         NumberOfServices
@@ -4288,7 +4288,7 @@ BOOLEAN PhUiContinueServices(
 
             if (!cancelled && PhpShowErrorAndConnectToPhSvc(
                 WindowHandle,
-                PhaConcatStrings2(L"Unable to continue ", PhGetString(Services[i]->Name))->Buffer,
+                PhaConcatStrings2(L"无法继续", PhGetString(Services[i]->Name))->Buffer,
                 status,
                 &connected
                 ))
@@ -4298,7 +4298,7 @@ BOOLEAN PhUiContinueServices(
                     if (NT_SUCCESS(status = PhSvcCallControlService(PhGetString(Services[i]->Name), PhSvcControlServiceContinue)))
                         success = TRUE;
                     else
-                        PhpShowErrorService(WindowHandle, L"continue", Services[i], status, 0);
+                        PhpShowErrorService(WindowHandle, L"继续", Services[i], status, 0);
 
                     PhUiDisconnectFromPhSvc();
                 }
@@ -4309,7 +4309,7 @@ BOOLEAN PhUiContinueServices(
             }
             else
             {
-                if (!PhpShowErrorService(WindowHandle, L"continue", Services[i], status, 0))
+                if (!PhpShowErrorService(WindowHandle, L"继续", Services[i], status, 0))
                     break;
             }
         }
@@ -4344,7 +4344,7 @@ BOOLEAN PhUiContinueServices(
     //        status = PhGetLastWin32ErrorAsNtStatus();
     //        result = FALSE;
     //
-    //        PhpShowErrorService(WindowHandle, L"continue", Services[i], status, 0);
+    //        PhpShowErrorService(WindowHandle, L"继续", Services[i], status, 0);
     //    }
     //}
     //
@@ -4378,7 +4378,7 @@ BOOLEAN PhUiContinueService(
 
         if (PhpShowErrorAndConnectToPhSvc(
             WindowHandle,
-            PhaConcatStrings2(L"Unable to continue ", PhGetString(Service->Name))->Buffer,
+            PhaConcatStrings2(L"无法继续", PhGetString(Service->Name))->Buffer,
             status,
             &connected
             ))
@@ -4388,14 +4388,14 @@ BOOLEAN PhUiContinueService(
                 if (NT_SUCCESS(status = PhSvcCallControlService(PhGetString(Service->Name), PhSvcControlServiceContinue)))
                     success = TRUE;
                 else
-                    PhpShowErrorService(WindowHandle, L"continue", Service, status, 0);
+                    PhpShowErrorService(WindowHandle, L"继续", Service, status, 0);
 
                 PhUiDisconnectFromPhSvc();
             }
         }
         else
         {
-            PhpShowErrorService(WindowHandle, L"continue", Service, status, 0);
+            PhpShowErrorService(WindowHandle, L"继续", Service, status, 0);
         }
     }
 
@@ -4439,8 +4439,8 @@ BOOLEAN PhUiPauseServices(
     {
         PhShowServiceProgressDialog(
             WindowHandle,
-            L"pause",
-            L"Pausing a service might prevent the system from functioning properly.",
+            L"暂停",
+            L"暂停服务可能会阻止系统正常运行。",
             FALSE,
             Services,
             NumberOfServices,
@@ -4452,8 +4452,8 @@ BOOLEAN PhUiPauseServices(
 
     if (!PhpShowContinueMessageServices(
         WindowHandle,
-        L"pause",
-        L"Pausing a service might prevent the system from functioning properly.",
+        L"暂停",
+        L"暂停服务可能会阻止系统正常运行。",
         FALSE,
         Services,
         NumberOfServices
@@ -4486,7 +4486,7 @@ BOOLEAN PhUiPauseServices(
 
             if (!cancelled && PhpShowErrorAndConnectToPhSvc(
                 WindowHandle,
-                PhaConcatStrings2(L"Unable to pause ", PhGetString(Services[i]->Name))->Buffer,
+                PhaConcatStrings2(L"无法暂停", PhGetString(Services[i]->Name))->Buffer,
                 status,
                 &connected
                 ))
@@ -4496,7 +4496,7 @@ BOOLEAN PhUiPauseServices(
                     if (NT_SUCCESS(status = PhSvcCallControlService(PhGetString(Services[i]->Name), PhSvcControlServicePause)))
                         success = TRUE;
                     else
-                        PhpShowErrorService(WindowHandle, L"pause", Services[i], status, 0);
+                        PhpShowErrorService(WindowHandle, L"暂停", Services[i], status, 0);
 
                     PhUiDisconnectFromPhSvc();
                 }
@@ -4507,7 +4507,7 @@ BOOLEAN PhUiPauseServices(
             }
             else
             {
-                if (!PhpShowErrorService(WindowHandle, L"pause", Services[i], status, 0))
+                if (!PhpShowErrorService(WindowHandle, L"暂停", Services[i], status, 0))
                     break;
             }
         }
@@ -4542,7 +4542,7 @@ BOOLEAN PhUiPauseServices(
     //        status = PhGetLastWin32ErrorAsNtStatus();
     //        result = FALSE;
     //
-    //        PhpShowErrorService(WindowHandle, L"pause", Services[i], status, 0);
+    //        PhpShowErrorService(WindowHandle, L"暂停", Services[i], status, 0);
     //    }
     //}
     //
@@ -4576,7 +4576,7 @@ BOOLEAN PhUiPauseService(
 
         if (PhpShowErrorAndConnectToPhSvc(
             WindowHandle,
-            PhaConcatStrings2(L"Unable to pause ", Service->Name->Buffer)->Buffer,
+            PhaConcatStrings2(L"无法暂停", Service->Name->Buffer)->Buffer,
             status,
             &connected
             ))
@@ -4586,14 +4586,14 @@ BOOLEAN PhUiPauseService(
                 if (NT_SUCCESS(status = PhSvcCallControlService(PhGetString(Service->Name), PhSvcControlServicePause)))
                     success = TRUE;
                 else
-                    PhpShowErrorService(WindowHandle, L"pause", Service, status, 0);
+                    PhpShowErrorService(WindowHandle, L"暂停", Service, status, 0);
 
                 PhUiDisconnectFromPhSvc();
             }
         }
         else
         {
-            PhpShowErrorService(WindowHandle, L"pause", Service, status, 0);
+            PhpShowErrorService(WindowHandle, L"暂停", Service, status, 0);
         }
     }
 
@@ -4637,8 +4637,8 @@ BOOLEAN PhUiStopServices(
     {
         PhShowServiceProgressDialog(
             WindowHandle,
-            L"stop",
-            L"Stopping a service might prevent the system from functioning properly.",
+            L"停止",
+            L"停止服务可能会阻止系统正常运行。",
             FALSE,
             Services,
             NumberOfServices,
@@ -4650,8 +4650,8 @@ BOOLEAN PhUiStopServices(
 
     if (!PhpShowContinueMessageServices(
         WindowHandle,
-        L"stop",
-        L"Stopping a service might prevent the system from functioning properly.",
+        L"停止",
+        L"停止服务可能会阻止系统正常运行。",
         FALSE,
         Services,
         NumberOfServices
@@ -4684,7 +4684,7 @@ BOOLEAN PhUiStopServices(
 
             if (!cancelled && PhpShowErrorAndConnectToPhSvc(
                 WindowHandle,
-                PhaConcatStrings2(L"Unable to stop ", PhGetString(Services[i]->Name))->Buffer,
+                PhaConcatStrings2(L"无法停止", PhGetString(Services[i]->Name))->Buffer,
                 status,
                 &connected
                 ))
@@ -4694,7 +4694,7 @@ BOOLEAN PhUiStopServices(
                     if (NT_SUCCESS(status = PhSvcCallControlService(PhGetString(Services[i]->Name), PhSvcControlServiceStop)))
                         success = TRUE;
                     else
-                        PhpShowErrorService(WindowHandle, L"stop", Services[i], status, 0);
+                        PhpShowErrorService(WindowHandle, L"停止", Services[i], status, 0);
 
                     PhUiDisconnectFromPhSvc();
                 }
@@ -4705,7 +4705,7 @@ BOOLEAN PhUiStopServices(
             }
             else
             {
-                if (!PhpShowErrorService(WindowHandle, L"stop", Services[i], status, 0))
+                if (!PhpShowErrorService(WindowHandle, L"停止", Services[i], status, 0))
                     break;
             }
         }
@@ -4740,7 +4740,7 @@ BOOLEAN PhUiStopServices(
     //        status = PhGetLastWin32ErrorAsNtStatus();
     //        result = FALSE;
     //
-    //        PhpShowErrorService(WindowHandle, L"stop", Services[i], status, 0);
+    //        PhpShowErrorService(WindowHandle, L"停止", Services[i], status, 0);
     //    }
     //}
     //
@@ -4774,7 +4774,7 @@ BOOLEAN PhUiStopService(
 
         if (PhpShowErrorAndConnectToPhSvc(
             WindowHandle,
-            PhaConcatStrings2(L"Unable to stop ", PhGetString(Service->Name))->Buffer,
+            PhaConcatStrings2(L"无法停止", PhGetString(Service->Name))->Buffer,
             status,
             &connected
             ))
@@ -4784,14 +4784,14 @@ BOOLEAN PhUiStopService(
                 if (NT_SUCCESS(status = PhSvcCallControlService(PhGetString(Service->Name), PhSvcControlServiceStop)))
                     success = TRUE;
                 else
-                    PhpShowErrorService(WindowHandle, L"stop", Service, status, 0);
+                    PhpShowErrorService(WindowHandle, L"停止", Service, status, 0);
 
                 PhUiDisconnectFromPhSvc();
             }
         }
         else
         {
-            PhpShowErrorService(WindowHandle, L"stop", Service, status, 0);
+            PhpShowErrorService(WindowHandle, L"停止", Service, status, 0);
         }
     }
 
@@ -4810,10 +4810,10 @@ BOOLEAN PhUiDeleteService(
     // Warnings cannot be disabled for service deletion.
     if (!PhShowConfirmMessage(
         WindowHandle,
-        L"delete",
+        L"删除",
         Service->Name->Buffer,
-        L"Deleting a service can prevent the system from starting "
-        L"or functioning properly.",
+        L"删除服务可能会阻止系统启动"
+        L"或正常运行。",
         TRUE
         ))
         return FALSE;
@@ -4836,7 +4836,7 @@ BOOLEAN PhUiDeleteService(
 
         if (PhpShowErrorAndConnectToPhSvc(
             WindowHandle,
-            PhaConcatStrings2(L"Unable to delete ", PhGetString(Service->Name))->Buffer,
+            PhaConcatStrings2(L"无法删除", PhGetString(Service->Name))->Buffer,
             status,
             &connected
             ))
@@ -4846,14 +4846,14 @@ BOOLEAN PhUiDeleteService(
                 if (NT_SUCCESS(status = PhSvcCallControlService(PhGetString(Service->Name), PhSvcControlServiceDelete)))
                     success = TRUE;
                 else
-                    PhpShowErrorService(WindowHandle, L"delete", Service, status, 0);
+                    PhpShowErrorService(WindowHandle, L"删除", Service, status, 0);
 
                 PhUiDisconnectFromPhSvc();
             }
         }
         else
         {
-            PhpShowErrorService(WindowHandle, L"delete", Service, status, 0);
+            PhpShowErrorService(WindowHandle, L"删除", Service, status, 0);
         }
     }
 
@@ -4880,7 +4880,7 @@ BOOLEAN PhUiCloseConnections(
         PhShowError(
             WindowHandle,
             L"%s",
-            L"This feature is not supported by your operating system."
+            L"您的操作系统不支持此功能。"
             );
         return FALSE;
     }
@@ -4912,7 +4912,7 @@ BOOLEAN PhUiCloseConnections(
 
             if (!cancelled && PhpShowErrorAndConnectToPhSvc(
                 WindowHandle,
-                L"Unable to close the TCP connection",
+                L"无法关闭 TCP 连接",
                 PhDosErrorToNtStatus(result),
                 &connected
                 ))
@@ -4922,7 +4922,7 @@ BOOLEAN PhUiCloseConnections(
                     if (NT_SUCCESS(status = PhSvcCallSetTcpEntry(&tcpRow)))
                         success = TRUE;
                     else
-                        PhShowStatus(WindowHandle, L"Unable to close the TCP connection", status, 0);
+                        PhShowStatus(WindowHandle, L"无法关闭 TCP 连接", status, 0);
 
                     PhUiDisconnectFromPhSvc();
                 }
@@ -4937,8 +4937,8 @@ BOOLEAN PhUiCloseConnections(
                     WindowHandle,
                     TD_OK_BUTTON,
                     TD_ERROR_ICON,
-                    L"Unable to close the TCP connection.",
-                    L"Make sure System Informer is running with administrative privileges."
+                    L"无法关闭 TCP 连接。",
+                    L"请确保 System Informer 以管理员权限运行。"
                     ) != IDOK)
                     break;
             }
@@ -5001,7 +5001,7 @@ static BOOLEAN PhpShowErrorThread(
     return PhShowContinueStatus(
         WindowHandle,
         PhaFormatString(
-        L"Unable to %s thread %lu",
+        L"无法%s线程%lu",
         Verb,
         HandleToUlong(Thread->ThreadId)
         )->Buffer,
@@ -5022,8 +5022,8 @@ BOOLEAN PhUiTerminateThreads(
 
     if (!PhpShowContinueMessageThreads(
         WindowHandle,
-        L"terminate",
-        L"Terminating a thread may cause the process to stop working.",
+        L"终止",
+        L"终止线程可能会导致进程停止工作。",
         FALSE,
         Threads,
         NumberOfThreads
@@ -5057,7 +5057,7 @@ BOOLEAN PhUiTerminateThreads(
 
             if (!cancelled && PhpShowErrorAndConnectToPhSvc(
                 WindowHandle,
-                PhaFormatString(L"Unable to terminate thread %lu", HandleToUlong(Threads[i]->ThreadId))->Buffer,
+                PhaFormatString(L"无法终止线程 %lu", HandleToUlong(Threads[i]->ThreadId))->Buffer,
                 status,
                 &connected
                 ))
@@ -5067,7 +5067,7 @@ BOOLEAN PhUiTerminateThreads(
                     if (NT_SUCCESS(status = PhSvcCallControlThread(Threads[i]->ThreadId, PhSvcControlThreadTerminate, 0)))
                         success = TRUE;
                     else
-                        PhpShowErrorThread(WindowHandle, L"terminate", Threads[i], status, 0);
+                        PhpShowErrorThread(WindowHandle, L"终止", Threads[i], status, 0);
 
                     PhUiDisconnectFromPhSvc();
                 }
@@ -5078,7 +5078,7 @@ BOOLEAN PhUiTerminateThreads(
             }
             else
             {
-                if (!PhpShowErrorThread(WindowHandle, L"terminate", Threads[i], status, 0))
+                if (!PhpShowErrorThread(WindowHandle, L"终止", Threads[i], status, 0))
                     break;
             }
         }
@@ -5120,7 +5120,7 @@ BOOLEAN PhUiSuspendThreads(
 
             if (!cancelled && PhpShowErrorAndConnectToPhSvc(
                 WindowHandle,
-                PhaFormatString(L"Unable to suspend thread %lu", HandleToUlong(Threads[i]->ThreadId))->Buffer,
+                PhaFormatString(L"无法暂停线程 %lu", HandleToUlong(Threads[i]->ThreadId))->Buffer,
                 status,
                 &connected
                 ))
@@ -5130,7 +5130,7 @@ BOOLEAN PhUiSuspendThreads(
                     if (NT_SUCCESS(status = PhSvcCallControlThread(Threads[i]->ThreadId, PhSvcControlThreadSuspend, 0)))
                         success = TRUE;
                     else
-                        PhpShowErrorThread(WindowHandle, L"suspend", Threads[i], status, 0);
+                        PhpShowErrorThread(WindowHandle, L"暂停", Threads[i], status, 0);
 
                     PhUiDisconnectFromPhSvc();
                 }
@@ -5141,7 +5141,7 @@ BOOLEAN PhUiSuspendThreads(
             }
             else
             {
-                if (!PhpShowErrorThread(WindowHandle, L"suspend", Threads[i], status, 0))
+                if (!PhpShowErrorThread(WindowHandle, L"暂停", Threads[i], status, 0))
                     break;
             }
         }
@@ -5183,7 +5183,7 @@ BOOLEAN PhUiResumeThreads(
 
             if (!cancelled && PhpShowErrorAndConnectToPhSvc(
                 WindowHandle,
-                PhaFormatString(L"Unable to resume thread %lu", HandleToUlong(Threads[i]->ThreadId))->Buffer,
+                PhaFormatString(L"无法恢复线程 %lu", HandleToUlong(Threads[i]->ThreadId))->Buffer,
                 status,
                 &connected
                 ))
@@ -5193,7 +5193,7 @@ BOOLEAN PhUiResumeThreads(
                     if (NT_SUCCESS(status = PhSvcCallControlThread(Threads[i]->ThreadId, PhSvcControlThreadResume, 0)))
                         success = TRUE;
                     else
-                        PhpShowErrorThread(WindowHandle, L"resume", Threads[i], status, 0);
+                        PhpShowErrorThread(WindowHandle, L"恢复", Threads[i], status, 0);
 
                     PhUiDisconnectFromPhSvc();
                 }
@@ -5204,7 +5204,7 @@ BOOLEAN PhUiResumeThreads(
             }
             else
             {
-                if (!PhpShowErrorThread(WindowHandle, L"resume", Threads[i], status, 0))
+                if (!PhpShowErrorThread(WindowHandle, L"恢复", Threads[i], status, 0))
                     break;
             }
         }
@@ -5244,7 +5244,7 @@ BOOLEAN PhUiSetBoostPriorityThreads(
         {
             success = FALSE;
 
-            if (!PhpShowErrorThread(WindowHandle, L"change boost priority of", Threads[i], status, 0))
+            if (!PhpShowErrorThread(WindowHandle, L"更改...的提升优先级", Threads[i], status, 0))
                 break;
         }
     }
@@ -5273,7 +5273,7 @@ BOOLEAN PhUiSetBoostPriorityThread(
 
     if (!NT_SUCCESS(status))
     {
-        PhpShowErrorThread(WindowHandle, L"set the boost priority of", Thread, status, 0);
+        PhpShowErrorThread(WindowHandle, L"设置...的提升优先级", Thread, status, 0);
         return FALSE;
     }
 
@@ -5317,7 +5317,7 @@ BOOLEAN PhUiSetPriorityThreads(
         {
             success = FALSE;
 
-            if (!PhpShowErrorThread(WindowHandle, L"change priority of", Threads[i], status, 0))
+            if (!PhpShowErrorThread(WindowHandle, L"更改...的优先级", Threads[i], status, 0))
                 break;
         }
     }
@@ -5346,7 +5346,7 @@ BOOLEAN PhUiSetPriorityThread(
 
     if (!NT_SUCCESS(status))
     {
-        PhpShowErrorThread(WindowHandle, L"set the priority of", Thread, status, 0);
+        PhpShowErrorThread(WindowHandle, L"设置...的优先级", Thread, status, 0);
         return FALSE;
     }
 
@@ -5382,7 +5382,7 @@ BOOLEAN PhUiSetIoPriorityThread(
         // The operation may have failed due to the lack of SeIncreaseBasePriorityPrivilege.
         if (PhpShowErrorAndConnectToPhSvc(
             WindowHandle,
-            PhaFormatString(L"Unable to set the I/O priority of thread %lu", HandleToUlong(Thread->ThreadId))->Buffer,
+            PhaFormatString(L"无法设置线程 %lu 的I/O优先级", HandleToUlong(Thread->ThreadId))->Buffer,
             status,
             &connected
             ))
@@ -5392,14 +5392,14 @@ BOOLEAN PhUiSetIoPriorityThread(
                 if (NT_SUCCESS(status = PhSvcCallControlThread(Thread->ThreadId, PhSvcControlThreadIoPriority, IoPriority)))
                     success = TRUE;
                 else
-                    PhpShowErrorThread(WindowHandle, L"set the I/O priority of", Thread, status, 0);
+                    PhpShowErrorThread(WindowHandle, L"设置...的I/O优先级", Thread, status, 0);
 
                 PhUiDisconnectFromPhSvc();
             }
         }
         else
         {
-            PhpShowErrorThread(WindowHandle, L"set the I/O priority of", Thread, status, 0);
+            PhpShowErrorThread(WindowHandle, L"设置...的I/O优先级", Thread, status, 0);
         }
     }
 
@@ -5428,7 +5428,7 @@ BOOLEAN PhUiSetPagePriorityThread(
 
     if (!NT_SUCCESS(status))
     {
-        PhpShowErrorThread(WindowHandle, L"set the page priority of", Thread, status, 0);
+        PhpShowErrorThread(WindowHandle, L"设置...的页面优先级", Thread, status, 0);
         return FALSE;
     }
 
@@ -5547,7 +5547,7 @@ BOOLEAN PhUiUnloadModule(
 
             if (status == STATUS_DLL_NOT_FOUND)
             {
-                PhShowError(WindowHandle, L"%s", L"Unable to find the module to unload.");
+                PhShowError(WindowHandle, L"%s", L"无法找到要卸载的模块。");
                 return FALSE;
             }
 
@@ -5555,7 +5555,7 @@ BOOLEAN PhUiUnloadModule(
             {
                 PhShowStatus(
                     WindowHandle,
-                    PhaConcatStrings2(L"Unable to unload ", Module->Name->Buffer)->Buffer,
+                    PhaConcatStrings2(L"无法卸载", Module->Name->Buffer)->Buffer,
                     status,
                     0
                     );
@@ -5574,7 +5574,7 @@ BOOLEAN PhUiUnloadModule(
 
             if (PhpShowErrorAndConnectToPhSvc(
                 WindowHandle,
-                PhaConcatStrings2(L"Unable to unload ", Module->Name->Buffer)->Buffer,
+                PhaConcatStrings2(L"无法卸载", Module->Name->Buffer)->Buffer,
                 status,
                 &connected
                 ))
@@ -5584,7 +5584,7 @@ BOOLEAN PhUiUnloadModule(
                     if (NT_SUCCESS(status = PhSvcCallUnloadDriver(Module->BaseAddress, Module->Name->Buffer)))
                         success = TRUE;
                     else
-                        PhShowStatus(WindowHandle, PhaConcatStrings2(L"Unable to unload ", Module->Name->Buffer)->Buffer, status, 0);
+                        PhShowStatus(WindowHandle, PhaConcatStrings2(L"无法卸载", Module->Name->Buffer)->Buffer, status, 0);
 
                     PhUiDisconnectFromPhSvc();
                 }
@@ -5595,10 +5595,10 @@ BOOLEAN PhUiUnloadModule(
                     WindowHandle,
                     PhaConcatStrings(
                     3,
-                    L"Unable to unload ",
+                    L"无法卸载",
                     Module->Name->Buffer,
-                    L". Make sure System Informer is running with "
-                    L"administrative privileges."
+                    L"。请确保 System Informer 以"
+                    L"管理员权限运行。"
                     )->Buffer,
                     status,
                     0
@@ -5627,7 +5627,7 @@ BOOLEAN PhUiUnloadModule(
         {
             PhShowStatus(
                 WindowHandle,
-                PhaFormatString(L"Unable to unmap the section view at 0x%p", Module->BaseAddress)->Buffer,
+                PhaFormatString(L"无法取消映射 0x%p 处的节视图", Module->BaseAddress)->Buffer,
                 status,
                 0
                 );
@@ -5681,7 +5681,7 @@ BOOLEAN PhUiFreeMemory(
         cont = PhShowConfirmMessage(
             WindowHandle,
             verb,
-            L"the memory region",
+            L"内存区域",
             message,
             TRUE
             );
@@ -5773,7 +5773,7 @@ static BOOLEAN PhpShowErrorHandle(
         return PhShowContinueStatus(
             WindowHandle,
             PhaFormatString(
-            L"Unable to %s handle \"%s\" (%s)",
+            L"无法%s句柄\"%s\" (%s)",
             Verb,
             Handle->BestObjectName->Buffer,
             value
@@ -5787,7 +5787,7 @@ static BOOLEAN PhpShowErrorHandle(
         return PhShowContinueStatus(
             WindowHandle,
             PhaFormatString(
-            L"Unable to %s handle %s",
+            L"无法%s句柄%s",
             Verb,
             value
             )->Buffer,
@@ -5817,9 +5817,9 @@ BOOLEAN PhUiCloseHandles(
     {
         cont = PhShowConfirmMessage(
             WindowHandle,
-            L"close",
-            NumberOfHandles == 1 ? L"the selected handle" : L"the selected handles",
-            L"Closing handles may cause system instability and data corruption.",
+            L"关闭",
+            NumberOfHandles == 1 ? L"所选句柄" : L"所选句柄",
+            L"关闭句柄可能会导致系统不稳定和数据损坏。",
             FALSE
             );
     }
@@ -5873,7 +5873,7 @@ BOOLEAN PhUiCloseHandles(
         {
             cont = PhShowConfirmMessage(
                 WindowHandle,
-                L"close",
+                L"关闭",
                 L"critical process handle(s)",
                 L"You are about to close one or more handles for a critical process with strict handle checks enabled. This will shut down the operating system immediately.\r\n\r\n",
                 TRUE
@@ -5901,7 +5901,7 @@ BOOLEAN PhUiCloseHandles(
 
                 if (!PhpShowErrorHandle(
                     WindowHandle,
-                    L"close",
+                    L"关闭",
                     Handles[i],
                     status,
                     0
@@ -5914,7 +5914,7 @@ BOOLEAN PhUiCloseHandles(
     }
     else
     {
-        PhShowStatus(WindowHandle, L"Unable to open the process", status, 0);
+        PhShowStatus(WindowHandle, L"无法打开进程", status, 0);
         return FALSE;
     }
 
@@ -5935,7 +5935,7 @@ BOOLEAN PhUiSetAttributesHandle(
     {
         PhShowKsiNotConnected(
             WindowHandle,
-            L"Setting handle attributes requires a connection to the kernel driver."
+            L"设置句柄属性需要连接到内核驱动程序。"
             );
         return FALSE;
     }
@@ -5964,7 +5964,7 @@ BOOLEAN PhUiSetAttributesHandle(
 
     if (!NT_SUCCESS(status))
     {
-        PhpShowErrorHandle(WindowHandle, L"set attributes of", Handle, status, 0);
+        PhpShowErrorHandle(WindowHandle, L"设置...的属性", Handle, status, 0);
         return FALSE;
     }
 

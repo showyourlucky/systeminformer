@@ -234,9 +234,9 @@ INT WINAPI wWinMain(
         PhShowWarning(
             NULL,
             L"%s",
-            L"You are attempting to run the 32-bit version of System Informer on 64-bit Windows. "
-            L"Most features will not work correctly.\n\n"
-            L"Please run the 64-bit version of System Informer instead."
+            L"你正在64位Windows上运行32位版本的System Informer。"
+            L"大多数功能将无法正常工作。\n\n"
+            L"请运行 64 位版本的 System Informer。"
             );
         PhExitApplication(STATUS_IMAGE_SUBSYSTEM_NOT_PRESENT);
     }
@@ -261,7 +261,7 @@ INT WINAPI wWinMain(
 
     if (!PhMainWndInitialization(CmdShow))
     {
-        PhShowError(NULL, L"%s", L"Unable to initialize the main window.");
+        PhShowError(NULL, L"%s", L"无法初始化主窗口。");
         return 1;
     }
 
@@ -794,8 +794,8 @@ ULONG CALLBACK PhpUnhandledExceptionCallback(
             if (PhShowMessage(
                 NULL,
                 MB_YESNO | MB_ICONWARNING | MB_DEFBUTTON2,
-                L"System Informer has crashed :(\r\n\r\n%s",
-                L"Do you want to create a minidump on the Desktop?"
+                L"System Informer 已崩溃 :(\r\n\r\n%s",
+                L"您想在桌面上创建一个小转储文件吗？"
                 ) == IDYES)
             {
                 PhpCreateUnhandledExceptionCrashDump(ExceptionInfo, FALSE);
@@ -1058,7 +1058,7 @@ VOID PhEnableTerminationPolicy(
 
         if (!NT_SUCCESS(status))
         {
-            PhShowStatus(NULL, L"Unable to configure termination policy.", status, 0);
+            PhShowStatus(NULL, L"无法配置终止策略。", status, 0);
         }
     }
 }
@@ -1157,8 +1157,8 @@ VOID PhpInitializeSettings(
                     NULL,
                     TD_YES_BUTTON | TD_NO_BUTTON,
                     TD_WARNING_ICON,
-                    L"System Informer's settings file is corrupt. Do you want to reset it?",
-                    L"If you select No, the settings system will not function properly."
+                    L"System Informer 的设置文件已损坏。您要重置它吗？",
+                    L"如果选择“No”，设置系统将无法正常运行。"
                     ) == IDYES)
                 {
                     HANDLE fileHandle;
@@ -1444,7 +1444,7 @@ VOID PhpProcessStartupParameters(
         PhShowInformation(
             NULL,
             L"%s",
-            L"Command line options:\n\n"
+            L"命令行选项：\n\n"
             L"-debug\n"
             L"-elevate\n"
             L"-help\n"

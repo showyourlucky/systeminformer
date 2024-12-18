@@ -187,8 +187,8 @@ VOID PvGeneralPageSave(
             Context->WindowHandle,
             TD_YES_BUTTON | TD_NO_BUTTON,
             TD_INFORMATION_ICON,
-            L"One or more options you have changed requires a restart of PE Viewer.",
-            L"Do you want to restart PE Viewer now?"
+            L"您更改的一个或多个选项需要重新启动 PE Viewer。",
+            L"您想立即重新启动 PE Viewer 吗？"
             ) == IDYES)
         {
             if (PvShellExecuteRestart(Context->WindowHandle))
@@ -295,7 +295,7 @@ INT_PTR CALLBACK PvOptionsWndProc(
                         hwndDlg,
                         TD_YES_BUTTON | TD_NO_BUTTON,
                         TD_WARNING_ICON,
-                        L"Do you want to reset all settings and restart PE Viewer?",
+                        L"您想重置所有设置并重新启动 PE Viewer 吗？",
                         L""
                         ) == IDYES)
                     {
@@ -316,7 +316,7 @@ INT_PTR CALLBACK PvOptionsWndProc(
                         hwndDlg,
                         TD_YES_BUTTON | TD_NO_BUTTON,
                         TD_INFORMATION_ICON,
-                        L"Do you want to clean up unused settings?",
+                        L"你想要清理未使用的设置吗?",
                         L""
                         ) == IDYES)
                     {

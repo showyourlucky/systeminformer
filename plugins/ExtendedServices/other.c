@@ -366,8 +366,8 @@ INT_PTR CALLBACK EspServiceOtherDlgProc(
 
                 PhShowWarning(
                     WindowHandle,
-                    L"Unable to query service information: %s",
-                    PhGetStringOrDefault(errorMessage, L"Unknown error.")
+                    L"无法查询服务信息: %s  ",
+                    PhGetStringOrDefault(errorMessage, L"未知错误。  ")
                     );
 
                 PhClearReference(&errorMessage);
@@ -415,7 +415,7 @@ INT_PTR CALLBACK EspServiceOtherDlgProc(
 
                     if (!NT_SUCCESS(status))
                     {
-                        PhShowStatus(WindowHandle, L"Unable to open LSA policy", status, 0);
+                        PhShowStatus(WindowHandle, L"无法打开LSA策略  ", status, 0);
                         break;
                     }
 
@@ -454,7 +454,7 @@ INT_PTR CALLBACK EspServiceOtherDlgProc(
                             if (PhShowMessage(
                                 WindowHandle,
                                 MB_OKCANCEL | MB_ICONERROR,
-                                L"The selected privilege has already been added."
+                                L"所选权限已被添加。  "
                                 ) == IDOK)
                             {
                                 continue;
@@ -567,7 +567,7 @@ INT_PTR CALLBACK EspServiceOtherDlgProc(
                         if (PhShowMessage(
                             WindowHandle,
                             MB_ICONWARNING | MB_YESNO | MB_DEFBUTTON2,
-                            L"Setting service protection will prevent the service from being controlled, modified, or deleted. Do you want to continue?"
+                            L"设置服务保护将防止服务被控制、修改或删除。您要继续吗？  "
                             ) == IDNO)
                         {
                             SetWindowLongPtr(WindowHandle, DWLP_MSGRESULT, PSNRET_INVALID);
@@ -686,8 +686,8 @@ Done:
                             if (status == STATUS_CANCELLED || PhShowMessage(
                                 WindowHandle,
                                 MB_ICONERROR | MB_RETRYCANCEL,
-                                L"Unable to change service information: %s",
-                                PhGetStringOrDefault(errorMessage, L"Unknown error.")
+                                L"无法更改服务信息: %s  ",
+                                PhGetStringOrDefault(errorMessage, L"未知错误。  ")
                                 ) == IDRETRY)
                             {
                                 SetWindowLongPtr(WindowHandle, DWLP_MSGRESULT, PSNRET_INVALID);

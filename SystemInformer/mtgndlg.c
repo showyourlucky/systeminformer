@@ -140,7 +140,7 @@ VOID PhShowProcessMitigationPolicyDialog(
     }
     else
     {
-        PhShowStatus(ParentWindowHandle, L"Unable to open the process.", status, 0);
+        PhShowStatus(ParentWindowHandle, L"无法打开进程。", status, 0);
     }
 }
 

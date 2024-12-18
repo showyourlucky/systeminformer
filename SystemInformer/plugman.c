@@ -741,7 +741,7 @@ INT_PTR CALLBACK PhPluginsDlgProc(
                             {
                                 //if (PhShowConfirmMessage(
                                 //    hwndDlg,
-                                //    L"Uninstall",
+                                //    L"卸载",
                                 //    PhGetString(selectedNode->Name),
                                 //    L"Changes may require a restart to take effect...",
                                 //    TRUE
@@ -872,7 +872,7 @@ INT_PTR CALLBACK PhPluginsDlgProc(
 //        {
 //            if (!NT_SUCCESS(PhCreateThreadEx(&PhPluginsThreadHandle, PhpPluginsDialogThreadStart, NULL)))
 //            {
-//                PhShowError(PhMainWndHandle, L"%s", L"Unable to create the window.");
+//                PhShowError(PhMainWndHandle, L"%s", L"无法创建窗口。");
 //                return;
 //            }
 //
@@ -885,9 +885,9 @@ INT_PTR CALLBACK PhPluginsDlgProc(
 //    {
 //        PhShowInformation2(
 //            ParentWindowHandle,
-//            L"Plugins are not enabled.",
+//            L"插件未启用。",
 //            L"%s",
-//            L"To use plugins enable them in Options and restart System Informer."
+//            L"要使用插件，请在选项中启用它们并重启系统信息器。"
 //            );
 //    }
 //}

@@ -741,7 +741,7 @@ VOID PhpProcessThreadsSave(
         }
 
         if (!NT_SUCCESS(status))
-            PhShowStatus(ThreadsContext->WindowHandle, L"Unable to create the file", status, 0);
+            PhShowStatus(ThreadsContext->WindowHandle, L"无法创建文件", status, 0);
     }
 
     PhFreeFileDialog(fileDialog);
@@ -1130,7 +1130,7 @@ INT_PTR CALLBACK PhpProcessThreadsDlgProc(
                         else
                         {
                             PhShowStatus(hwndDlg, PhaFormatString(
-                                L"Unable to %s thread %lu", // string pooling optimization (dmex)
+                                L"无法%s线程%lu", // string pooling optimization (dmex)
                                 L"set the boost priority of",
                                 HandleToUlong(threadItem->ThreadId)
                                 )->Buffer, status, 0);
@@ -1165,9 +1165,9 @@ INT_PTR CALLBACK PhpProcessThreadsDlgProc(
                             {
                                 if (!breakOnTermination && (!PhGetIntegerSetting(L"EnableWarnings") || PhShowConfirmMessage(
                                     hwndDlg,
-                                    L"enable",
-                                    L"critical status on the thread",
-                                    L"If the process ends, the operating system will shut down immediately.",
+                                    L"启用",
+                                    L"线程的关键状态  ",
+                                    L"如果进程结束，操作系统将立即关闭。",
                                     TRUE
                                     )))
                                 {
@@ -1175,8 +1175,8 @@ INT_PTR CALLBACK PhpProcessThreadsDlgProc(
                                 }
                                 else if (breakOnTermination && (!PhGetIntegerSetting(L"EnableWarnings") || PhShowConfirmMessage(
                                     hwndDlg,
-                                    L"disable",
-                                    L"critical status on the thread",
+                                    L"禁用",
+                                    L"线程的关键状态  ",
                                     NULL,
                                     FALSE
                                     )))
@@ -1190,7 +1190,7 @@ INT_PTR CALLBACK PhpProcessThreadsDlgProc(
 
                         if (!NT_SUCCESS(status))
                         {
-                            PhShowStatus(hwndDlg, L"Unable to change the thread critical status.", status, 0);
+                            PhShowStatus(hwndDlg, L"无法更改线程的关键状态。  ", status, 0);
                         }
                     }
                 }
@@ -1238,7 +1238,7 @@ INT_PTR CALLBACK PhpProcessThreadsDlgProc(
                         }
                         else
                         {
-                            PhShowStatus(hwndDlg, L"Unable to open the thread", status, 0);
+                            PhShowStatus(hwndDlg, L"无法打开线程  ", status, 0);
                         }
                     }
                 }

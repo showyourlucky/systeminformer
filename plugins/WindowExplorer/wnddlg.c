@@ -132,7 +132,7 @@ VOID WeShowWindowsDialog(
         if (!NT_SUCCESS(PhCreateThreadEx(&WepWindowsDialogThreadHandle, WepShowWindowsDialogThread, context)))
         {
             PhFree(context);
-            PhShowError(ParentWindowHandle, L"%s", L"Unable to create the window.");
+            PhShowError(ParentWindowHandle, L"%s", L"无法创建窗口。");
             return;
         }
 
@@ -728,7 +728,7 @@ VOID WepDestroyRemoteWindow(
 
     if (!NT_SUCCESS(status))
     {
-        PhShowStatus(WindowHandle, L"Unable to destroy the window.", status, 0);
+        PhShowStatus(WindowHandle, L"无法销毁窗口。", status, 0);
     }
 }
 
@@ -1244,7 +1244,7 @@ INT_PTR CALLBACK WepWindowsDlgProc(
                         }
                         else
                         {
-                            PhShowError(hwndDlg, L"%s", L"The process does not exist.");
+                            PhShowError(hwndDlg, L"%s", L"该进程不存在。");
                         }
                     }
                 }
@@ -1270,7 +1270,7 @@ INT_PTR CALLBACK WepWindowsDlgProc(
                         }
                         else
                         {
-                            PhShowError(hwndDlg, L"%s", L"The process does not exist.");
+                            PhShowError(hwndDlg, L"%s", L"该进程不存在。");
                         }
                     }
                 }
@@ -1327,7 +1327,7 @@ INT_PTR CALLBACK WepWindowsDlgProc(
                     {
                         if (!WeShowWindowProperties(hwndDlg, selectedNode->WindowHandle, !!selectedNode->WindowMessageOnly, &selectedNode->ClientId))
                         {
-                            PhShowError(hwndDlg, L"%s", L"The window does not exist.");
+                            PhShowError(hwndDlg, L"%s", L"窗口不存在。");
                         }
                     }
                 }
@@ -1972,7 +1972,7 @@ INT_PTR CALLBACK WepWindowsPageProc(
                         }
                         else
                         {
-                            PhShowError(hwndDlg, L"%s", L"The process does not exist.");
+                            PhShowError(hwndDlg, L"%s", L"该进程不存在。");
                         }
                     }
                 }
@@ -2029,7 +2029,7 @@ INT_PTR CALLBACK WepWindowsPageProc(
                     {
                         if (!WeShowWindowProperties(hwndDlg, selectedNode->WindowHandle, !!selectedNode->WindowMessageOnly, &selectedNode->ClientId))
                         {
-                            PhShowError(hwndDlg, L"%s", L"The window does not exist.");
+                            PhShowError(hwndDlg, L"%s", L"窗口不存在。");
                         }
                     }
                 }

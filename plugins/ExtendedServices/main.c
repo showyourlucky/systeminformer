@@ -71,7 +71,7 @@ VOID NTAPI MenuItemCallback(
             {
                 PhShowStatus(
                     menuItem->OwnerWindow,
-                    PhaFormatString(L"Unable to restart %s", serviceItem->Name->Buffer)->Buffer,
+                    PhaFormatString(L"无法重启 %s", serviceItem->Name->Buffer)->Buffer,
                     status,
                     0
                     );

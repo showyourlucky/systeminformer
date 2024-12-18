@@ -57,7 +57,7 @@ VOID PhShowHandleStatisticsDialog(
         ProcessId
         )))
     {
-        PhShowStatus(ParentWindowHandle, L"Unable to open the process", status, 0);
+        PhShowStatus(ParentWindowHandle, L"无法打开进程", status, 0);
         return;
     }
 
@@ -74,7 +74,7 @@ VOID PhShowHandleStatisticsDialog(
     if (!NT_SUCCESS(status))
     {
         NtClose(context.ProcessHandle);
-        PhShowStatus(ParentWindowHandle, L"Unable to enumerate process handles", status, 0);
+        PhShowStatus(ParentWindowHandle, L"无法枚举进程句柄", status, 0);
         return;
     }
 

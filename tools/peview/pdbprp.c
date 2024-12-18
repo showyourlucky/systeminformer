@@ -1084,7 +1084,7 @@ VOID PvPdbProperties(
 
     if (!PhDoesFileExistWin32(PhGetString(PvFileName)))
     {
-        PhShowStatus(NULL, L"Unable to load the pdb file", STATUS_FILE_NOT_AVAILABLE, 0);
+        PhShowStatus(NULL, L"无法加载pdb文件", STATUS_FILE_NOT_AVAILABLE, 0);
         return;
     }
 

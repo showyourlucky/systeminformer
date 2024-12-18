@@ -133,7 +133,7 @@ VOID PhShowKsiStatus(
             NULL,
             TD_OK_BUTTON,
             TD_ERROR_ICON,
-            L"Access to the kernel driver is restricted.",
+            L"访问内核驱动程序受到限制。",
             L"%s",
             PhGetString(infoString)
             ))
@@ -707,10 +707,10 @@ VOID KsiConnect(
             TD_ERROR_ICON,
             0,
             FALSE,
-            L"Unable to load kernel driver",
-            L"The kernel driver is not yet supported on this kernel "
-            L"version. Request support by submitting a GitHub issue with "
-            L"the Windows Kernel version."
+            L"无法加载内核驱动程序",
+            L"此内核暂不支持内核驱动"
+            L"版本。请通过提交GitHub问题请求支持，并附上"
+            L"Windows内核版本。"
             );
         goto CleanupExit;
     }
@@ -722,8 +722,8 @@ VOID KsiConnect(
             TD_ERROR_ICON,
             0,
             FALSE,
-            L"Unable to load kernel driver",
-            L"The dynamic configuration was not found."
+            L"无法加载内核驱动程序",
+            L"未找到动态配置。"
             );
         goto CleanupExit;
     }
@@ -735,8 +735,8 @@ VOID KsiConnect(
             TD_ERROR_ICON,
             status,
             FALSE,
-            L"Unable to load kernel driver",
-            L"Failed to access the dynamic configuration."
+            L"无法加载内核驱动程序",
+            L"无法访问动态配置。"
             );
         goto CleanupExit;
     }
@@ -753,8 +753,8 @@ VOID KsiConnect(
             TD_ERROR_ICON,
             0,
             FALSE,
-            L"Unable to load kernel driver",
-            L"The kernel driver was not found."
+            L"无法加载内核驱动程序",
+            L"未找到内核驱动程序。"
             );
         goto CleanupExit;
     }
@@ -853,8 +853,8 @@ VOID KsiConnect(
             TD_ERROR_ICON,
             status,
             FALSE,
-            L"Unable to load kernel driver",
-            L"Unable to load the kernel driver service."
+            L"无法加载内核驱动程序",
+            L"无法加载内核驱动程序服务。"
             );
         goto CleanupExit;
     }
@@ -887,8 +887,8 @@ VOID KsiConnect(
                 TD_ERROR_ICON,
                 status,
                 FALSE,
-                L"Unable to load kernel driver",
-                L"Unable to restart."
+                L"无法加载内核驱动程序",
+                L"无法重启。"
                 );
             goto CleanupExit;
         }
@@ -986,7 +986,7 @@ static HRESULT CALLBACK KsiSplashScreenDialogCallbackProc(
             }
             else
             {
-                PhShowStatus(WindowHandle, L"Unable to create the window.", status, 0);
+                PhShowStatus(WindowHandle, L"无法创建窗口。", status, 0);
             }
         }
         break;
@@ -1048,9 +1048,9 @@ VOID PhInitializeKsi(
             TD_ERROR_ICON,
             0,
             FALSE,
-            L"Unable to load kernel driver",
-            L"The kernel driver is not supported on this Windows version, the "
-            L"minimum supported version is Windows 10."
+            L"无法加载内核驱动程序",
+            L"此Windows版本不支持内核驱动，最低支持版本为"
+            L"Windows 10。"
             );
         return;
     }
@@ -1061,10 +1061,10 @@ VOID PhInitializeKsi(
             TD_ERROR_ICON,
             0,
             FALSE,
-            L"Unable to load kernel driver",
-            L"The kernel driver is not supported on preview builds. If this is "
-            L"not a preview build, request support by submitting a GitHub issue "
-            L"with the Windows Kernel version."
+            L"无法加载内核驱动程序",
+            L"内核驱动不支持预览版。如果这不是预览版，"
+            L"请通过提交GitHub问题请求支持，并附上"
+            L"Windows内核版本。"
             );
         return;
     }
@@ -1076,8 +1076,8 @@ VOID PhInitializeKsi(
             TD_ERROR_ICON,
             STATUS_PENDING,
             FALSE,
-            L"Unable to load kernel driver",
-            L"The last System Informer update requires a reboot."
+            L"无法加载内核驱动程序",
+            L"最后一次系统信息更新需要重启。"
             );
         return;
     }
@@ -1089,8 +1089,8 @@ VOID PhInitializeKsi(
             TD_ERROR_ICON,
             0,
             FALSE,
-            L"Unable to load kernel driver",
-            L"The kernel driver is not supported under Wow64, use the native "
+            L"无法加载内核驱动程序",
+            L"Wow64下不支持内核驱动，请使用本地版本"
             "binary instead."
             );
         return;
@@ -1104,8 +1104,8 @@ VOID PhInitializeKsi(
             TD_ERROR_ICON,
             0,
             FALSE,
-            L"Unable to load kernel driver",
-            L"The kernel driver is not supported on this architecture."
+            L"无法加载内核驱动程序",
+            L"此架构不支持内核驱动程序。"
             );
         return;
     }

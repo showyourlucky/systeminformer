@@ -219,7 +219,7 @@ VOID PhUiCreateDumpFileProcess(
 
     if (!NT_SUCCESS(status))
     {
-        PhShowStatus(WindowHandle, L"Unable to open the process", status, 0);
+        PhShowStatus(WindowHandle, L"无法打开进程", status, 0);
         PhDereferenceObject(context);
         return;
     }
@@ -241,7 +241,7 @@ VOID PhUiCreateDumpFileProcess(
 
     if (!NT_SUCCESS(status))
     {
-        PhShowStatus(WindowHandle, L"Unable to access the dump file", status, 0);
+        PhShowStatus(WindowHandle, L"无法访问转储文件  ", status, 0);
         PhDereferenceObject(context);
         return;
     }
@@ -456,8 +456,8 @@ NTSTATUS PhpProcessMiniDumpThreadStart(
                 context->WindowHandle,
                 TD_YES_BUTTON | TD_NO_BUTTON,
                 TD_WARNING_ICON,
-                L"The 32-bit version of System Informer could not be located.",
-                L"A 64-bit dump will be created instead. Do you want to continue?"
+                L"无法找到32位版本的System Informer。",
+                L"将会创建一个64位转储。您要继续吗？  "
                 ) == IDNO)
             {
                 goto Completed;
@@ -479,10 +479,10 @@ NTSTATUS PhpProcessMiniDumpThreadStart(
         {
             PhShowWarning2(
                 context->WindowHandle,
-                L"Unable to create kernel minidump.",
+                L"无法创建内核小型转储。  ",
                 L"%s",
-                L"Kernel minidump of processes require administrative privileges. "
-                L"Make sure System Informer is running with administrative privileges."
+                L"进程的内核小型转储需要管理员权限。  "
+                L"请确保 System Informer 以管理员权限运行。"
                 );
         }
     }
@@ -638,7 +638,7 @@ INT_PTR CALLBACK PhpProcessMiniDumpDlgProc(
         context->LastTickCount = NtGetTickCount64();
         break;
     case WM_PH_MINIDUMP_ERROR:
-        PhShowStatus(hwndDlg, L"Unable to create the minidump", 0, (ULONG)lParam);
+        PhShowStatus(hwndDlg, L"无法创建小型转储  ", 0, (ULONG)lParam);
         break;
     case WM_PH_MINIDUMP_COMPLETED:
         EndDialog(hwndDlg, IDOK);

@@ -229,7 +229,7 @@ INT_PTR CALLBACK PhpPagefilesDlgProc(
 
             if (!NT_SUCCESS(status))
             {
-                PhShowStatus(hwndDlg, L"Unable to query pagefile information.", status, 0);
+                PhShowStatus(hwndDlg, L"无法查询页面文件信息。", status, 0);
                 DestroyWindow(hwndDlg);
             }
 
@@ -294,7 +294,7 @@ INT_PTR CALLBACK PhpPagefilesDlgProc(
 
                     if (!NT_SUCCESS(status))
                     {
-                        PhShowStatus(hwndDlg, L"Unable to query pagefile information.", status, 0);
+                        PhShowStatus(hwndDlg, L"无法查询页面文件信息。", status, 0);
                     }
                 }
                 break;

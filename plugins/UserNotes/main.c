@@ -380,7 +380,7 @@ PPH_STRING ShowFileDialog(
         if (!NT_SUCCESS(status))
         {
             PhClearReference(&fileName);
-            PhShowStatus(ParentWindowHandle, L"Unable to configure IFEO priority for this image.", status, 0);
+            PhShowStatus(ParentWindowHandle, L"无法配置此映像的IFEO优先级。", status, 0);
         }
     }
 
@@ -840,11 +840,11 @@ VOID NTAPI MenuItemCallback(
 
                     if (NT_SUCCESS(status))
                     {
-                        PhShowInformation(menuItem->OwnerWindow, L"Successfully deleted the IFEO key.", status, 0);
+                        PhShowInformation(menuItem->OwnerWindow, L"成功删除了IFEO键。", status, 0);
                     }
                     else
                     {
-                        PhShowStatus(menuItem->OwnerWindow, L"Unable to update the IFEO for priority.", status, 0);
+                        PhShowStatus(menuItem->OwnerWindow, L"无法更新IFEO优先级。", status, 0);
                     }
                 }
                 else
@@ -877,11 +877,11 @@ VOID NTAPI MenuItemCallback(
 
                     if (NT_SUCCESS(status))
                     {
-                        PhShowInformation(menuItem->OwnerWindow, L"Successfully deleted the IFEO key.", status, 0);
+                        PhShowInformation(menuItem->OwnerWindow, L"成功删除了IFEO键。", status, 0);
                     }
                     else
                     {
-                        PhShowStatus(menuItem->OwnerWindow, L"Unable to update the IFEO for IO priority.", status, 0);
+                        PhShowStatus(menuItem->OwnerWindow, L"无法更新IFEO的IO优先级。", status, 0);
                     }
                 }
                 else
@@ -914,11 +914,11 @@ VOID NTAPI MenuItemCallback(
 
                     if (NT_SUCCESS(status))
                     {
-                        PhShowInformation(menuItem->OwnerWindow, L"Successfully deleted the IFEO key.", status, 0);
+                        PhShowInformation(menuItem->OwnerWindow, L"成功删除了IFEO键。", status, 0);
                     }
                     else
                     {
-                        PhShowStatus(menuItem->OwnerWindow, L"Unable to update the IFEO for page priority.", status, 0);
+                        PhShowStatus(menuItem->OwnerWindow, L"无法更新IFEO的页面优先级。", status, 0);
                     }
                 }
                 else
@@ -965,7 +965,7 @@ VOID NTAPI MenuItemCallback(
                 }
                 else
                 {
-                    PhShowStatus(menuItem->OwnerWindow, L"Unable to query priority.", status, 0);
+                    PhShowStatus(menuItem->OwnerWindow, L"无法查询优先级。", status, 0);
                 }
             }
 
@@ -1001,7 +1001,7 @@ VOID NTAPI MenuItemCallback(
                     }
                     else
                     {
-                        PhShowStatus(menuItem->OwnerWindow, L"Unable to query priority.", status, 0);
+                        PhShowStatus(menuItem->OwnerWindow, L"无法查询优先级。", status, 0);
                     }
                 }
 
@@ -1026,7 +1026,7 @@ VOID NTAPI MenuItemCallback(
 
                 if (!NT_SUCCESS(status))
                 {
-                    PhShowStatus(menuItem->OwnerWindow, L"Unable to update the IFEO for priority.", status, 0);
+                    PhShowStatus(menuItem->OwnerWindow, L"无法更新IFEO优先级。", status, 0);
                 }
             }
             else
@@ -1062,7 +1062,7 @@ VOID NTAPI MenuItemCallback(
                 }
                 else
                 {
-                    PhShowStatus(menuItem->OwnerWindow, L"Unable to query IO priority.", status, 0);
+                    PhShowStatus(menuItem->OwnerWindow, L"无法查询IO优先级。", status, 0);
                 }
             }
 
@@ -1098,7 +1098,7 @@ VOID NTAPI MenuItemCallback(
                     }
                     else
                     {
-                        PhShowStatus(menuItem->OwnerWindow, L"Unable to query IO priority.", status, 0);
+                        PhShowStatus(menuItem->OwnerWindow, L"无法查询IO优先级。", status, 0);
                     }
                 }
 
@@ -1124,7 +1124,7 @@ VOID NTAPI MenuItemCallback(
 
                 if (!NT_SUCCESS(status))
                 {
-                    PhShowStatus(menuItem->OwnerWindow, L"Unable to update the IFEO for IO priority.", status, 0);
+                    PhShowStatus(menuItem->OwnerWindow, L"无法更新IFEO的IO优先级。", status, 0);
                 }
             }
             else
@@ -1272,14 +1272,14 @@ VOID NTAPI MenuItemCallback(
                     {
                         PhShowInformation2(
                             menuItem->OwnerWindow,
-                            L"Unable to query the current affinity.",
-                            L"This process has multi-group affinity, %s",
-                            L"you can only change affinity for individual threads."
+                            L"无法查询当前的关联。",
+                            L"该进程具有多组关联，%s",
+                            L"您只能更改单个线程的关联。"
                             );
                     }
                     else
                     {
-                        PhShowStatus(menuItem->OwnerWindow, L"Unable to query process affinity.", status, 0);
+                        PhShowStatus(menuItem->OwnerWindow, L"无法查询进程关联。", status, 0);
                     }
                 }
             }
@@ -1328,14 +1328,14 @@ VOID NTAPI MenuItemCallback(
                         {
                             PhShowInformation2(
                                 menuItem->OwnerWindow,
-                                L"Unable to query the current affinity.",
-                                L"This process has multi-group affinity, %s",
-                                L"you can only change affinity for individual threads."
+                                L"无法查询当前的关联。",
+                                L"该进程具有多组关联，%s",
+                                L"您只能更改单个线程的关联。"
                                 );
                         }
                         else
                         {
-                            PhShowStatus(menuItem->OwnerWindow, L"Unable to query process affinity.", status, 0);
+                            PhShowStatus(menuItem->OwnerWindow, L"无法查询进程关联。", status, 0);
                         }
                     }
                 }
@@ -1372,7 +1372,7 @@ VOID NTAPI MenuItemCallback(
                 }
                 else
                 {
-                    PhShowStatus(menuItem->OwnerWindow, L"Unable to query page priority.", status, 0);
+                    PhShowStatus(menuItem->OwnerWindow, L"无法查询页面优先级。", status, 0);
                 }
             }
 
@@ -1408,7 +1408,7 @@ VOID NTAPI MenuItemCallback(
                     }
                     else
                     {
-                        PhShowStatus(menuItem->OwnerWindow, L"Unable to query page priority.", status, 0);
+                        PhShowStatus(menuItem->OwnerWindow, L"无法查询页面优先级。", status, 0);
                     }
                 }
 
@@ -1434,7 +1434,7 @@ VOID NTAPI MenuItemCallback(
 
                 if (!NT_SUCCESS(status))
                 {
-                    PhShowStatus(menuItem->OwnerWindow, L"Unable to update the IFEO for page priority.", status, 0);
+                    PhShowStatus(menuItem->OwnerWindow, L"无法更新IFEO的页面优先级。", status, 0);
                 }
             }
             else
@@ -1464,7 +1464,7 @@ VOID NTAPI MenuItemCallback(
 
             if (!NT_SUCCESS(status))
             {
-                PhShowStatus(menuItem->OwnerWindow, L"Unable to query process boost.", status, 0);
+                PhShowStatus(menuItem->OwnerWindow, L"无法查询进程提升。", status, 0);
             }
         }
         break;
@@ -1494,7 +1494,7 @@ VOID NTAPI MenuItemCallback(
                 }
                 else
                 {
-                    PhShowStatus(menuItem->OwnerWindow, L"Unable to query process boost.", status, 0);
+                    PhShowStatus(menuItem->OwnerWindow, L"无法查询进程提升。", status, 0);
                 }
             }
 
@@ -1530,7 +1530,7 @@ VOID NTAPI MenuItemCallback(
                     }
                     else
                     {
-                        PhShowStatus(menuItem->OwnerWindow, L"Unable to query process boost.", status, 0);
+                        PhShowStatus(menuItem->OwnerWindow, L"无法查询进程提升。", status, 0);
                     }
                 }
 
@@ -1567,7 +1567,7 @@ VOID NTAPI MenuItemCallback(
 
             if (!NT_SUCCESS(status))
             {
-                PhShowStatus(menuItem->OwnerWindow, L"Unable to query process efficiency mode.", status, 0);
+                PhShowStatus(menuItem->OwnerWindow, L"无法查询进程效率模式。", status, 0);
             }
         }
         break;
@@ -1608,7 +1608,7 @@ VOID NTAPI MenuItemCallback(
                 }
                 else
                 {
-                    PhShowStatus(menuItem->OwnerWindow, L"Unable to query process efficiency mode.", status, 0);
+                    PhShowStatus(menuItem->OwnerWindow, L"无法查询进程效率模式。", status, 0);
                 }
             }
 
@@ -1655,7 +1655,7 @@ VOID NTAPI MenuItemCallback(
                     }
                     else
                     {
-                        PhShowStatus(menuItem->OwnerWindow, L"Unable to query process efficiency mode.", status, 0);
+                        PhShowStatus(menuItem->OwnerWindow, L"无法查询进程效率模式。", status, 0);
                     }
                 }
 

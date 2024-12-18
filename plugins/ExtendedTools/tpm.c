@@ -611,7 +611,7 @@ VOID EtShowTpmDialog(
 {
     if (!EtTpmIsReady())
     {
-        PhShowStatus(ParentWindowHandle, L"Unable to query the TPM", STATUS_TPM_FAIL, 0);
+        PhShowStatus(ParentWindowHandle, L"无法查询TPM", STATUS_TPM_FAIL, 0);
         return;
     }
 

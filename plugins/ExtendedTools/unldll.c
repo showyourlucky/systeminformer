@@ -56,7 +56,7 @@ VOID EtShowUnloadedDllsDialog(
 
     if (!NT_SUCCESS(status))
     {
-        PhShowStatus(ParentWindowHandle, L"Unable to open the process.", status, 0);
+        PhShowStatus(ParentWindowHandle, L"无法打开进程。", status, 0);
         return;
     }
 
@@ -447,7 +447,7 @@ INT_PTR CALLBACK EtpUnloadedDllsDlgProc(
 
             if (!NT_SUCCESS(status = EtpRefreshUnloadedDlls(hwndDlg, context)))
             {
-                PhShowStatus(context->ParentWindowHandle, L"Unable to retrieve unload event trace information.", status, 0);
+                PhShowStatus(context->ParentWindowHandle, L"无法检索卸载事件追踪信息。", status, 0);
                 EndDialog(hwndDlg, IDCANCEL);
                 return FALSE;
             }

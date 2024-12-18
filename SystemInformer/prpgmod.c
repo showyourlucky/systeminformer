@@ -585,7 +585,7 @@ VOID PhpProcessModulesSave(
         }
 
         if (!NT_SUCCESS(status))
-            PhShowStatus(ModulesContext->WindowHandle, L"Unable to create the file", status, 0);
+            PhShowStatus(ModulesContext->WindowHandle, L"无法创建文件", status, 0);
     }
 
     PhFreeFileDialog(fileDialog);
@@ -934,9 +934,9 @@ INT_PTR CALLBACK PhpProcessModulesDlgProc(
                         {
                             if (PhGetIntegerSetting(L"EnableWarnings") && !PhShowConfirmMessage(
                                 hwndDlg,
-                                L"load",
-                                L"a module",
-                                L"Some programs may restrict access or ban your account when loading modules into the process.",
+                                L"加载",
+                                L"模块",
+                                L"某些程序在加载模块到进程时，可能会限制访问或封禁您的账户。",
                                 FALSE
                                 ))
                             {

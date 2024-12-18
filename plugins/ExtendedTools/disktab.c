@@ -1007,7 +1007,7 @@ VOID EtHandleDiskCommand(
                 }
                 else
                 {
-                    PhShowError2(WindowHandle, L"Unable to select the process.", L"%s", L"The process does not exist.");
+                    PhShowError2(WindowHandle, L"无法选择该进程。", L"%s", L"该进程不存在。");
                 }
 
                 PhDereferenceObject(diskItem);

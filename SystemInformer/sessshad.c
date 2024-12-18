@@ -102,7 +102,7 @@ VOID PhShowSessionShadowDialog(
 
     if (SessionId == sessionId)
     {
-        PhShowError2(ParentWindowHandle, L"Unable to shadow session.", L"%s", L"You cannot remote control the current session.");
+        PhShowError2(ParentWindowHandle, L"无法记录会话。", L"%s", L"您无法远程控制当前会话。");
         return;
     }
 
@@ -211,14 +211,14 @@ INT_PTR CALLBACK PhpSessionShadowDlgProc(
                         }
                         else
                         {
-                            PhShowStatus(hwndDlg, L"Unable to remote control the session", 0, GetLastError());
+                            PhShowStatus(hwndDlg, L"无法远程控制会话", 0, GetLastError());
                         }
 
                         PhDereferenceObject(computerName);
                     }
                     else
                     {
-                        PhShowError(hwndDlg, L"%s", L"The computer name is too long.");
+                        PhShowError(hwndDlg, L"%s", L"计算机名称太长。");
                     }
                 }
                 break;

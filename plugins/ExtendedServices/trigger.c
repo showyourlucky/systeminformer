@@ -1429,7 +1429,7 @@ INT_PTR CALLBACK EspServiceTriggerDlgProc(
                         {
                             if (!EspLookupEtwPublisherGuid(&subTypeString->sr, &context->EditingInfo->SubtypeBuffer))
                             {
-                                PhShowError(WindowHandle, L"%s", L"Unable to find the ETW publisher GUID.");
+                                PhShowError(WindowHandle, L"%s", L"无法找到 ETW 发布者 GUID.");
                                 goto DoNotClose;
                             }
 
@@ -1459,7 +1459,7 @@ INT_PTR CALLBACK EspServiceTriggerDlgProc(
                         }
                         else
                         {
-                            PhShowError(WindowHandle, L"%s", L"The custom subtype is invalid. Please ensure that the string is a valid GUID: \"{x-x-x-x-x}\".");
+                            PhShowError(WindowHandle, L"%s", L"自定义子类型无效。请确保该字符串是有效的 GUID: \"{x-x-x-x-x}\".");
                             goto DoNotClose;
                         }
                     }
@@ -1482,8 +1482,8 @@ INT_PTR CALLBACK EspServiceTriggerDlgProc(
                         if (PhShowMessage(
                             WindowHandle,
                             MB_OKCANCEL | MB_ICONWARNING,
-                            L"The trigger type \"%s\" does not allow data items to be configured. "
-                            L"If you continue, they will be removed.",
+                            L"触发器类型 \"%s\" does not allow data items to be configured. "
+                            L"如果继续，他们将被移除。",
                             typeString->Buffer
                             ) != IDOK)
                         {

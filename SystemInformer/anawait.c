@@ -108,7 +108,7 @@ VOID PhUiAnalyzeWaitThread(
 
     if (!NT_SUCCESS(status = PhOpenProcess(&processHandle, PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, ProcessId)))
     {
-        PhShowStatus(hWnd, L"Unable to open the process.", status, 0);
+        PhShowStatus(hWnd, L"无法打开进程。", status, 0);
         return;
     }
 
@@ -130,7 +130,7 @@ VOID PhUiAnalyzeWaitThread(
         ThreadId
         )))
     {
-        PhShowStatus(hWnd, L"Unable to open the thread.", status, 0);
+        PhShowStatus(hWnd, L"无法打开线程。", status, 0);
         NtClose(processHandle);
         return;
     }
@@ -165,7 +165,7 @@ VOID PhUiAnalyzeWaitThread(
     }
     else
     {
-        PhShowInformation2(hWnd, L"The thread does not appear to be waiting.", L"%s", L"");
+        PhShowInformation2(hWnd, L"线程似乎没有处于等待状态。", L"%s", L"");
     }
 
     PhDeleteStringBuilder(&context.StringBuilder);
@@ -188,21 +188,21 @@ VOID PhpAnalyzeWaitPassive(
 
     if (!NT_SUCCESS(status = PhOpenThread(&threadHandle, THREAD_GET_CONTEXT, ThreadId)))
     {
-        PhShowStatus(hWnd, L"Unable to open the thread.", status, 0);
+        PhShowStatus(hWnd, L"无法打开线程。", status, 0);
         return;
     }
 
     if (!NT_SUCCESS(status = PhGetThreadLastSystemCall(threadHandle, &lastSystemCall)))
     {
         NtClose(threadHandle);
-        PhShowStatus(hWnd, L"Unable to determine whether the thread is waiting.", status, 0);
+        PhShowStatus(hWnd, L"无法确定线程是否处于等待状态。", status, 0);
         return;
     }
 
     if (!NT_SUCCESS(status = PhOpenProcess(&processHandle, PROCESS_DUP_HANDLE, ProcessId)))
     {
         NtClose(threadHandle);
-        PhShowStatus(hWnd, L"Unable to open the process.", status, 0);
+        PhShowStatus(hWnd, L"无法打开进程。", status, 0);
         return;
     }
 

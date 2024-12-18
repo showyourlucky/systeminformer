@@ -179,7 +179,7 @@ VOID EtFirmwareDeleteEntry(
     }
     else
     {
-        PhShowStatus(Context->WindowHandle, L"Unable to delete firmware variable.", status, 0);
+        PhShowStatus(Context->WindowHandle, L"无法删除固件变量。", status, 0);
     }
 }
 
@@ -413,7 +413,7 @@ BOOLEAN EtFirmwareEnablePrivilege(
 
     if (!NT_SUCCESS(status))
     {
-        PhShowStatus(ParentWindowHandle, L"Unable to enable environment privilege.", status, 0);
+        PhShowStatus(ParentWindowHandle, L"无法启用环境权限。", status, 0);
         return FALSE;
     }
 
@@ -441,9 +441,9 @@ VOID EtShowFirmwareDialog(
     {
         PhShowError2(
             ParentWindowHandle,
-            L"Unable to query firmware table.",
+            L"无法查询固件表。",
             L"%s",
-            L"Windows was installed using legacy BIOS."
+            L"Windows 是使用传统 BIOS 安装的。"
             );
     }
 

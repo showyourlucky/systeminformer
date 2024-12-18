@@ -1029,7 +1029,7 @@ VOID PhRegisterDialogSuperClass(
 
     if (RegisterClassEx(&wcex) == INVALID_ATOM)
     {
-        PhShowStatus(NULL, L"Unable to register window class.", 0, GetLastError());
+        PhShowStatus(NULL, L"无法注册窗口类。", 0, GetLastError());
     }
 }
 
@@ -1047,7 +1047,7 @@ VOID PhRegisterMenuSuperClass(
 
     if (RegisterClassEx(&wcex) == INVALID_ATOM)
     {
-        PhShowStatus(NULL, L"Unable to register window class.", 0, GetLastError());
+        PhShowStatus(NULL, L"无法注册窗口类。", 0, GetLastError());
     }
 }
 
@@ -1067,7 +1067,7 @@ VOID PhRegisterRebarSuperClass(
 
     if (RegisterClassEx(&wcex) == INVALID_ATOM)
     {
-        PhShowStatus(NULL, L"Unable to register window class.", 0, GetLastError());
+        PhShowStatus(NULL, L"无法注册窗口类。", 0, GetLastError());
     }
 }
 
@@ -1087,7 +1087,7 @@ VOID PhRegisterComboBoxSuperClass(
 
     if (RegisterClassEx(&wcex) == INVALID_ATOM)
     {
-        PhShowStatus(NULL, L"Unable to register window class.", 0, GetLastError());
+        PhShowStatus(NULL, L"无法注册窗口类。", 0, GetLastError());
     }
 }
 
@@ -1107,7 +1107,7 @@ VOID PhRegisterStaticSuperClass(
 
     if (RegisterClassEx(&wcex) == INVALID_ATOM)
     {
-        PhShowStatus(NULL, L"Unable to register window class.", 0, GetLastError());
+        PhShowStatus(NULL, L"无法注册窗口类。", 0, GetLastError());
     }
 }
 
@@ -1127,7 +1127,7 @@ VOID PhRegisterStatusBarSuperClass(
 
     if (RegisterClassEx(&wcex) == INVALID_ATOM)
     {
-        PhShowStatus(NULL, L"Unable to register window class.", 0, GetLastError());
+        PhShowStatus(NULL, L"无法注册窗口类。", 0, GetLastError());
     }
 }
 
@@ -1147,7 +1147,7 @@ VOID PhRegisterEditSuperClass(
 
     if (RegisterClassEx(&wcex) == INVALID_ATOM)
     {
-        PhShowStatus(NULL, L"Unable to register window class.", 0, GetLastError());
+        PhShowStatus(NULL, L"无法注册窗口类。", 0, GetLastError());
     }
 }
 
@@ -1167,7 +1167,7 @@ VOID PhRegisterHeaderSuperClass(
 
     if (RegisterClassEx(&wcex) == INVALID_ATOM)
     {
-        PhShowStatus(NULL, L"Unable to register window class.", 0, GetLastError());
+        PhShowStatus(NULL, L"无法注册窗口类。", 0, GetLastError());
     }
 }
 
@@ -1524,7 +1524,7 @@ CleanupExit:
 
     if (!NT_SUCCESS(status))
     {
-        PhShowStatus(NULL, L"Unable to commit detours transaction.", status, 0);
+        PhShowStatus(NULL, L"无法提交转向事务。", status, 0);
     }
 }
 

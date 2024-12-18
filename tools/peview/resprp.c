@@ -317,7 +317,7 @@ VOID PvpPeResourceSaveToFile(
 
             if (!NT_SUCCESS(status))
             {
-                PhShowStatus(WindowHandle, L"Unable to save resource.", status, 0);
+                PhShowStatus(WindowHandle, L"无法保存资源。", status, 0);
             }
         }
     }

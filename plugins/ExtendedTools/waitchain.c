@@ -522,7 +522,7 @@ INT_PTR CALLBACK WaitChainDlgProc(
                         }
                         else
                         {
-                            PhShowError(hwndDlg, L"%s", L"The process does not exist.");
+                            PhShowError(hwndDlg, L"%s", L"该进程不存在。");
                         }
                     }
                 }

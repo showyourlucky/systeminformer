@@ -112,9 +112,9 @@ BOOLEAN SetupShowDirectoryWarningPrompt(
             //    Context->DialogHandle,
             //    TDCBF_YES_BUTTON | TDCBF_NO_BUTTON,
             //    TD_WARNING_ICON,
-            //    L"WARNING",
-            //    L"The installation directory already contains files and data. Please select a different directory"
-            //    L" or click Yes to delete the files and data and continue. Are you sure you want to continue?"
+            //    L"警告",
+            //    L"安装目录已包含文件和数据。请选择一个不同的目录"
+            //    L"或点击“是”删除文件和数据后继续。您确定要继续吗？"
             //    );
 
             return TRUE;

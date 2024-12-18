@@ -240,7 +240,7 @@ INT_PTR CALLBACK PhpEventPageProc(
                     PhpRefreshEventPageInfo(hwndDlg, pageContext);
 
                     if (!NT_SUCCESS(status))
-                        PhShowStatus(hwndDlg, L"Unable to open the event", status, 0);
+                        PhShowStatus(hwndDlg, L"无法打开事件  ", status, 0);
                 }
                 break;
             }
@@ -315,7 +315,7 @@ INT_PTR CALLBACK PhpEventPairPageProc(
                     }
 
                     if (!NT_SUCCESS(status))
-                        PhShowStatus(hwndDlg, L"Unable to open the event pair", status, 0);
+                        PhShowStatus(hwndDlg, L"无法打开事件对  ", status, 0);
                 }
                 break;
             }
@@ -428,7 +428,7 @@ INT_PTR CALLBACK PhpSemaphorePageProc(
                     PhpRefreshSemaphorePageInfo(hwndDlg, pageContext);
 
                     if (!NT_SUCCESS(status))
-                        PhShowStatus(hwndDlg, L"Unable to open the semaphore", status, 0);
+                        PhShowStatus(hwndDlg, L"无法打开信号量  ", status, 0);
                 }
                 break;
             }
@@ -530,7 +530,7 @@ INT_PTR CALLBACK PhpTimerPageProc(
                     PhpRefreshTimerPageInfo(hwndDlg, pageContext);
 
                     if (!NT_SUCCESS(status))
-                        PhShowStatus(hwndDlg, L"Unable to open the timer", status, 0);
+                        PhShowStatus(hwndDlg, L"无法打开计时器  ", status, 0);
                 }
                 break;
             }
@@ -564,7 +564,7 @@ VOID PhpEnumerateMappingsEntries(
     {
         PhShowKsiNotConnected(
             Context->WindowHandle,
-            L"Viewing active mappings requires a connection to the kernel driver."
+            L"查看活动映射需要连接到内核驱动程序  "
             );
         return;
     }
@@ -645,7 +645,7 @@ VOID PhpShowProcessForMapping(
     }
     else
     {
-        PhShowStatus(hwndDlg, L"The process does not exist.", STATUS_INVALID_CID, 0);
+        PhShowStatus(hwndDlg, L"该进程不存在。", STATUS_INVALID_CID, 0);
     }
 }
 

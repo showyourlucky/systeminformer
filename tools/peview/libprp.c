@@ -32,7 +32,7 @@ VOID PvLibProperties(
 
     if (!NT_SUCCESS(status))
     {
-        PhShowStatus(NULL, L"Unable to load the archive file", status, 0);
+        PhShowStatus(NULL, L"无法加载归档文件", status, 0);
         return;
     }
 

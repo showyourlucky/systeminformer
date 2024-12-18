@@ -122,9 +122,9 @@ INT WINAPI wWinMain(
         PhShowWarning(
             NULL,
             L"%s",
-            L"You are attempting to run the 32-bit version of PE Viewer on 64-bit Windows. "
-            L"Most features will not work correctly.\n\n"
-            L"Please run the 64-bit version of PE Viewer instead."
+            L" 您正在尝试在 64 位 Windows 上运行 32 位版本的 PE Viewer。  "
+            L"大多数功能将无法正常工作。\n\n"
+            L"请运行64位版本的PE Viewer。"
             );
         PhExitApplication(STATUS_IMAGE_SUBSYSTEM_NOT_PRESENT);
     }
@@ -308,9 +308,9 @@ INT WINAPI wWinMain(
         if (!NT_SUCCESS(status))
         {
             if (status == STATUS_IMAGE_SUBSYSTEM_NOT_PRESENT)
-                PhShowError2(NULL, L"Unable to load the file.", L"%s", L"PE Viewer does not support this image type.");
+                PhShowError2(NULL, L"无法加载文件。", L"%s", L"PE Viewer不支持此图像类型。");
             else
-                PhShowStatus(NULL, L"Unable to load the file.", status, 0);
+                PhShowStatus(NULL, L"无法加载文件。", status, 0);
         }
     }
 
@@ -341,7 +341,7 @@ ULONG CALLBACK PvUnhandledExceptionCallback(
     PhShowMessage(
         NULL,
         MB_OK | MB_ICONWARNING,
-        L"PE Viewer has crashed :(\r\n\r\n%s",
+        L"PE Viewer已崩溃 :(\r\n\r\n%s",
         PhGetStringOrEmpty(message)
         );
 

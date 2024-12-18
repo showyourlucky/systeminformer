@@ -275,8 +275,8 @@ VOID PhMwpToggleSignedProcessTreeFilter(
             PhShowInformation2(
                 PhMainWndHandle,
                 NULL,
-                L"This filter cannot function because digital signature checking is not enabled.\r\n%s",
-                L"Enable it in Options > General and restart System Informer."
+                L"该筛选器无法运行，因为未启用数字签名检查。\r\n%s",
+                L"在选项 > 常规 中启用它，然后重启 System Informer。"
                 );
             return;
         }
@@ -1126,11 +1126,11 @@ VOID PhMwpOnProcessAdded(
 
                 if (PhFormatToBuffer(format, RTL_NUMBER_OF(format), formatBuffer, sizeof(formatBuffer), NULL))
                 {
-                    PhShowIconNotification(L"Process Created", formatBuffer);
+                    PhShowIconNotification(L"进程已创建", formatBuffer);
                 }
                 else
                 {
-                    PhShowIconNotification(L"Process Created",
+                    PhShowIconNotification(L"进程已创建",
                         PH_AUTO_T(PH_STRING, PhFormat(format, RTL_NUMBER_OF(format), 0))->Buffer);
                 }
             }
@@ -1206,11 +1206,11 @@ VOID PhMwpOnProcessRemoved(
 
             if (PhFormatToBuffer(format, RTL_NUMBER_OF(format), formatBuffer, sizeof(formatBuffer), NULL))
             {
-                PhShowIconNotification(L"Process Terminated", formatBuffer);
+                PhShowIconNotification(L"进程已终止", formatBuffer);
             }
             else
             {
-                PhShowIconNotification(L"Process Terminated",
+                PhShowIconNotification(L"进程已终止",
                     PH_AUTO_T(PH_STRING, PhFormat(format, RTL_NUMBER_OF(format), 0))->Buffer);
             }
         }

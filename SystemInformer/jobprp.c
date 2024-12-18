@@ -404,9 +404,9 @@ INT_PTR CALLBACK PhpJobPageProc(
                 {
                     if (PhShowConfirmMessage(
                         hwndDlg,
-                        L"terminate",
+                        L"终止",
                         L"the job",
-                        L"Terminating a job will terminate all processes assigned to it.",
+                        L"终止一个任务将会终止分配给它的所有进程。",
                         TRUE
                         ))
                     {
@@ -424,7 +424,7 @@ INT_PTR CALLBACK PhpJobPageProc(
                         }
 
                         if (!NT_SUCCESS(status))
-                            PhShowStatus(hwndDlg, L"Unable to terminate the job", status, 0);
+                            PhShowStatus(hwndDlg, L"无法终止该任务", status, 0);
                     }
                 }
                 break;
@@ -437,7 +437,7 @@ INT_PTR CALLBACK PhpJobPageProc(
 
                     while (PhShowChooseProcessDialog(
                         hwndDlg,
-                        L"Select a process to add to the job permanently.",
+                        L"选择一个进程永久添加到该任务中。",
                         &processId
                         ))
                     {
@@ -470,7 +470,7 @@ INT_PTR CALLBACK PhpJobPageProc(
                         if (NT_SUCCESS(status))
                             break;
                         else
-                            PhShowStatus(hwndDlg, L"Unable to add the process to the job", status, 0);
+                            PhShowStatus(hwndDlg, L"无法将该进程添加到任务中", status, 0);
                     }
                 }
                 break;

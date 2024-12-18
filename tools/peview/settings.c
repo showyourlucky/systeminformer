@@ -165,8 +165,8 @@ VOID PvInitializeSettings(
                 NULL,
                 TDCBF_YES_BUTTON | TDCBF_NO_BUTTON,
                 TD_WARNING_ICON,
-                L"PE View's settings file is corrupt. Do you want to reset it?",
-                L"If you select No, the settings system will not function properly."
+                L"PE View 的设置文件已损坏。您要重置它吗？",
+                L"如果选择“No”，设置系统将无法正常运行。"
                 ) == IDYES)
             {
                 HANDLE fileHandle;

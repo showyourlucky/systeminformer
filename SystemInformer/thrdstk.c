@@ -878,7 +878,7 @@ VOID PhShowThreadStackDialog(
     {
         PhShowKsiNotConnected(
             ParentWindowHandle,
-            L"Inspecting kernel stacks requires a connection to the kernel driver."
+            L"检查内核堆栈需要连接到内核驱动程序。  "
             );
         return;
     }
@@ -887,7 +887,7 @@ VOID PhShowThreadStackDialog(
     if (ProcessId == SYSTEM_IDLE_PROCESS_ID &&
         HandleToUlong(ThreadId) < PhSystemProcessorInformation.NumberOfProcessors)
     {
-        PhShowStatus(ParentWindowHandle, L"Unable to open the thread.", STATUS_UNSUCCESSFUL, 0);
+        PhShowStatus(ParentWindowHandle, L"无法打开线程。", STATUS_UNSUCCESSFUL, 0);
         return;
     }
 
@@ -906,7 +906,7 @@ VOID PhShowThreadStackDialog(
 
     if (!NT_SUCCESS(status))
     {
-        PhShowStatus(ParentWindowHandle, L"Unable to open the thread.", status, 0);
+        PhShowStatus(ParentWindowHandle, L"无法打开线程。", status, 0);
         return;
     }
 
@@ -1072,7 +1072,7 @@ INT_PTR CALLBACK PhpThreadStackDlgProc(
 
                     if (!NT_SUCCESS(status = PhpRefreshThreadStack(hwndDlg, context)))
                     {
-                        PhShowStatus(hwndDlg, L"Unable to refresh the stack.", status, 0);
+                        PhShowStatus(hwndDlg, L"无法刷新堆栈。", status, 0);
                     }
                 }
                 break;

@@ -74,7 +74,7 @@ static VOID PhpRefreshProcessList(
 
     if (!NT_SUCCESS(status = PhEnumProcesses(&processes)))
     {
-        PhShowStatus(hwndDlg, L"Unable to enumerate processes", status, 0);
+        PhShowStatus(hwndDlg, L"无法枚举进程", status, 0);
         return;
     }
 

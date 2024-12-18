@@ -139,7 +139,7 @@ INT_PTR CALLBACK PhpSessionSendMessageDlgProc(
                     }
                     else
                     {
-                        PhShowStatus(hwndDlg, L"Unable to send the message", 0, GetLastError());
+                        PhShowStatus(hwndDlg, L"无法发送消息", 0, GetLastError());
                     }
                 }
                 break;

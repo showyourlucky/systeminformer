@@ -78,7 +78,7 @@ VOID GraphicsDeviceShowNodesDialog(
 {
     if (Context->DeviceEntry->NumberOfNodes == 0)
     {
-        PhShowError(ParentWindowHandle, L"%s", L"There are no graphics nodes to display.");
+        PhShowError(ParentWindowHandle, L"%s", L"没有图形节点可显示。");
         return;
     }
 
@@ -88,7 +88,7 @@ VOID GraphicsDeviceShowNodesDialog(
 
         if (!NT_SUCCESS(PhCreateThreadEx(&Context->NodeWindowThreadHandle, EtpGpuNodesDialogThreadStart, Context)))
         {
-            PhShowError(ParentWindowHandle, L"%s", L"Unable to create the window.");
+            PhShowError(ParentWindowHandle, L"%s", L"无法创建窗口。");
             PhDereferenceObject(Context);
             return;
         }

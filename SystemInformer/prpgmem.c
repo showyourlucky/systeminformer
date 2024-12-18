@@ -471,7 +471,7 @@ VOID PhpProcessMemorySave(
         }
 
         if (!NT_SUCCESS(status))
-            PhShowStatus(MemoryContext->WindowHandle, L"Unable to create the file", status, 0);
+            PhShowStatus(MemoryContext->WindowHandle, L"无法创建文件", status, 0);
     }
 
     PhFreeFileDialog(fileDialog);
@@ -674,7 +674,7 @@ INT_PTR CALLBACK PhpProcessMemoryDlgProc(
                         processItem->ProcessId
                         )))
                     {
-                        PhShowStatus(hwndDlg, L"Unable to open the process", status, 0);
+                        PhShowStatus(hwndDlg, L"无法打开进程", status, 0);
                         break;
                     }
 
@@ -747,7 +747,7 @@ INT_PTR CALLBACK PhpProcessMemoryDlgProc(
                             }
 
                             if (!NT_SUCCESS(status))
-                                PhShowStatus(hwndDlg, L"Unable to create the file", status, 0);
+                                PhShowStatus(hwndDlg, L"无法创建文件", status, 0);
                         }
 
                         PhFreeFileDialog(fileDialog);
@@ -1014,7 +1014,7 @@ INT_PTR CALLBACK PhpProcessMemoryDlgProc(
                                     }
                                     else
                                     {
-                                        PhShowStatus(hwndDlg, L"Unable to find the memory region for the selected address.", STATUS_UNSUCCESSFUL, 0);
+                                        PhShowStatus(hwndDlg, L"无法找到所选地址的内存区域。", STATUS_UNSUCCESSFUL, 0);
                                     }
                                 }
                             }

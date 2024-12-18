@@ -969,7 +969,7 @@ VOID PhMwpOnCommand(
                 }
 
                 if (!NT_SUCCESS(status))
-                    PhShowStatus(WindowHandle, L"Unable to create the file", status, 0);
+                    PhShowStatus(WindowHandle, L"无法创建文件", status, 0);
             }
 
             PhFreeFileDialog(fileDialog);
@@ -1298,7 +1298,7 @@ VOID PhMwpOnCommand(
 
             if (!NT_SUCCESS(status))
             {
-                PhShowStatus(WindowHandle, L"Unable to shutdown WSL instances.", status, 0);
+                PhShowStatus(WindowHandle, L"无法关闭WSL实例。", status, 0);
             }
         }
         break;
@@ -1931,7 +1931,7 @@ VOID PhMwpOnCommand(
                 }
                 else
                 {
-                    PhShowStatus(WindowHandle, L"The process does not exist.", STATUS_INVALID_CID, 0);
+                    PhShowStatus(WindowHandle, L"该进程不存在。", STATUS_INVALID_CID, 0);
                 }
             }
         }
@@ -2025,14 +2025,14 @@ VOID PhMwpOnCommand(
                     }
                     else
                     {
-                        PhShowStatus(WindowHandle, L"The service does not exist.", STATUS_OBJECT_NAME_NOT_FOUND, 0);
+                        PhShowStatus(WindowHandle, L"该服务不存在。", STATUS_OBJECT_NAME_NOT_FOUND, 0);
                     }
 
                     NtClose(keyHandle);
                 }
                 else
                 {
-                    PhShowStatus(WindowHandle, L"The service does not exist.", STATUS_OBJECT_NAME_NOT_FOUND, 0);
+                    PhShowStatus(WindowHandle, L"该服务不存在。", STATUS_OBJECT_NAME_NOT_FOUND, 0);
                 }
             }
         }
@@ -2096,7 +2096,7 @@ VOID PhMwpOnCommand(
                 }
                 else
                 {
-                    PhShowStatus(WindowHandle, L"The process does not exist.", STATUS_INVALID_CID, 0);
+                    PhShowStatus(WindowHandle, L"该进程不存在。", STATUS_INVALID_CID, 0);
                 }
             }
         }
@@ -3071,7 +3071,7 @@ VOID PhMwpDispatchMenuCommand(
         break;
     case ID_VIEW_ORGANIZECOLUMNSETS:
         {
-            PhShowColumnSetEditorDialog(WindowHandle, L"ProcessTreeColumnSetConfig");
+            PhShowColumnSetEditorDialog(WindowHandle, L"进程树列集合配置");
         }
         return;
     case ID_VIEW_SAVECOLUMNSET:
@@ -3906,7 +3906,7 @@ BOOLEAN PhHandleMiniProcessMenuItem(
             }
             else
             {
-                PhShowStatus(PhMainWndHandle, L"The process does not exist.", STATUS_INVALID_CID, 0);
+                PhShowStatus(PhMainWndHandle, L"该进程不存在。", STATUS_INVALID_CID, 0);
             }
         }
         break;
@@ -3927,7 +3927,7 @@ BOOLEAN PhHandleMiniProcessMenuItem(
             }
             else
             {
-                PhShowStatus(PhMainWndHandle, L"The process does not exist.", STATUS_INVALID_CID, 0);
+                PhShowStatus(PhMainWndHandle, L"该进程不存在。", STATUS_INVALID_CID, 0);
             }
         }
         break;
@@ -3946,7 +3946,7 @@ BOOLEAN PhHandleMiniProcessMenuItem(
             }
             else
             {
-                PhShowStatus(PhMainWndHandle, L"The process does not exist.", STATUS_INVALID_CID, 0);
+                PhShowStatus(PhMainWndHandle, L"该进程不存在。", STATUS_INVALID_CID, 0);
             }
         }
         break;

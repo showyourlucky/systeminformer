@@ -198,7 +198,7 @@ static VOID FilterResults(
 
             if (!compiledExpression)
             {
-                PhShowError2(hwndDlg, L"Unable to compile the regular expression.",
+                PhShowError2(hwndDlg, L"无法编译正则表达式。",
                     L"\"%s\" at position %zu.",
                     PhGetStringOrDefault(PH_AUTO(PhPcre2GetErrorMessage(errorCode)), L"Unknown error"),
                     errorOffset
@@ -446,7 +446,7 @@ INT_PTR CALLBACK PhpMemoryResultsDlgProc(
                         }
 
                         if (!NT_SUCCESS(status))
-                            PhShowStatus(hwndDlg, L"Unable to create the file", status, 0);
+                            PhShowStatus(hwndDlg, L"无法创建文件", status, 0);
                     }
 
                     PhFreeFileDialog(fileDialog);
@@ -616,7 +616,7 @@ INT_PTR CALLBACK PhpMemoryResultsDlgProc(
                             }
 
                             if (!NT_SUCCESS(status))
-                                PhShowStatus(hwndDlg, L"Unable to edit memory", status, 0);
+                                PhShowStatus(hwndDlg, L"无法编辑内存", status, 0);
                         }
                     }
                 }
@@ -693,7 +693,7 @@ INT_PTR CALLBACK PhpMemoryResultsDlgProc(
                                             }
 
                                             if (!NT_SUCCESS(status))
-                                                PhShowStatus(hwndDlg, L"Unable to edit memory", status, 0);
+                                                PhShowStatus(hwndDlg, L"无法编辑内存", status, 0);
                                         }
                                     }
                                     break;

@@ -563,8 +563,8 @@ INT_PTR CALLBACK PhpEditEnvDlgProc(
 
                     if (PhGetIntegerSetting(L"EnableWarnings") && !PhShowConfirmMessage(
                         hwndDlg,
-                        L"edit",
-                        L"the selected environment variable",
+                        L"编辑",
+                        L"选定的环境变量",
                         L"Some programs may restrict access or ban your account when editing the environment variable(s) of the process.",
                         FALSE
                         ))
@@ -589,12 +589,12 @@ INT_PTR CALLBACK PhpEditEnvDlgProc(
 
                             if (!NT_SUCCESS(status))
                             {
-                                PhShowStatus(hwndDlg, L"Unable to set the environment variable.", status, 0);
+                                PhShowStatus(hwndDlg, L"无法设置环境变量。", status, 0);
                                 break;
                             }
                             else if (status == STATUS_TIMEOUT)
                             {
-                                PhShowStatus(hwndDlg, L"Unable to delete the environment variable.", 0, WAIT_TIMEOUT);
+                                PhShowStatus(hwndDlg, L"无法删除环境变量。", 0, WAIT_TIMEOUT);
                                 break;
                             }
 
@@ -1590,8 +1590,8 @@ INT_PTR CALLBACK PhpProcessEnvironmentDlgProc(
 
                     if (PhGetIntegerSetting(L"EnableWarnings") && !PhShowConfirmMessage(
                         context->WindowHandle,
-                        L"delete",
-                        L"the selected environment variable",
+                        L"删除",
+                        L"选定的环境变量",
                         L"Some programs may restrict access or ban your account when editing the environment variable(s) of the process.",
                         FALSE
                         ))
@@ -1609,11 +1609,11 @@ INT_PTR CALLBACK PhpProcessEnvironmentDlgProc(
 
                     if (status == STATUS_TIMEOUT)
                     {
-                        PhShowStatus(hwndDlg, L"Unable to delete the environment variable.", 0, WAIT_TIMEOUT);
+                        PhShowStatus(hwndDlg, L"无法删除环境变量。", 0, WAIT_TIMEOUT);
                     }
                     else if (!NT_SUCCESS(status))
                     {
-                        PhShowStatus(hwndDlg, L"Unable to delete the environment variable.", status, 0);
+                        PhShowStatus(hwndDlg, L"无法删除环境变量。", status, 0);
                     }
                 }
                 break;

@@ -383,7 +383,7 @@ VOID SetupCreateWindowsOptions(
     //
     //    if (!NT_SUCCESS(status))
     //    {
-    //        PhShowStatus(NULL, L"Unable to set the Windows default Task Manager.", status, 0);
+    //        PhShowStatus(NULL, L"无法设置Windows默认任务管理器。", status, 0);
     //    }
     //}
 
@@ -416,7 +416,7 @@ VOID SetupCreateWindowsOptions(
     //    }
     //    else
     //    {
-    //        PhShowStatus(NULL, L"Unable to create the startup entry.", status, 0);
+    //        PhShowStatus(NULL, L"无法创建启动项。", status, 0);
     //    }
     //}
 }

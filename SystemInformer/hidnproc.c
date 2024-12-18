@@ -237,7 +237,7 @@ INT_PTR CALLBACK PhpHiddenProcessesDlgProc(
                     }
                     else
                     {
-                        PhShowStatus(hwndDlg, L"Unable to perform the scan", status, 0);
+                        PhShowStatus(hwndDlg, L"无法执行扫描", status, 0);
                     }
                 }
                 break;
@@ -254,7 +254,7 @@ INT_PTR CALLBACK PhpHiddenProcessesDlgProc(
                         if (!PhGetIntegerSetting(L"EnableWarnings") ||
                             PhShowConfirmMessage(
                             hwndDlg,
-                            L"terminate",
+                            L"终止",
                             L"the selected process(es)",
                             L"Terminating a hidden process may cause the system to become unstable "
                             L"or crash.",
@@ -296,7 +296,7 @@ INT_PTR CALLBACK PhpHiddenProcessesDlgProc(
                                 }
                                 else
                                 {
-                                    PhShowStatus(hwndDlg, L"Unable to terminate the process", status, 0);
+                                    PhShowStatus(hwndDlg, L"无法终止进程", status, 0);
                                 }
                             }
 
@@ -385,7 +385,7 @@ INT_PTR CALLBACK PhpHiddenProcessesDlgProc(
                         }
 
                         if (!NT_SUCCESS(status))
-                            PhShowStatus(hwndDlg, L"Unable to create the file", status, 0);
+                            PhShowStatus(hwndDlg, L"无法创建文件", status, 0);
                     }
 
                     PhFreeFileDialog(fileDialog);
@@ -432,7 +432,7 @@ INT_PTR CALLBACK PhpHiddenProcessesDlgProc(
                             }
                             else
                             {
-                                PhShowError(hwndDlg, L"%s", L"Unable to create a process structure for the selected process.");
+                                PhShowError(hwndDlg, L"%s", L"无法为所选进程创建进程结构。");
                             }
                         }
                     }

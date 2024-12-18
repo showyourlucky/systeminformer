@@ -116,7 +116,7 @@ INT_PTR CALLBACK EtFirmwareEditorDlgProc(
 
             if (!NT_SUCCESS(status = EtFirmwareQueryVariable(context, context->Name, context->GuidString)))
             {
-                PhShowStatus(context->ParentWindowHandle, L"Unable to query the EFI variable.", status, 0);
+                PhShowStatus(context->ParentWindowHandle, L"无法查询EFI变量。", status, 0);
                 DestroyWindow(hwndDlg);
                 return TRUE;
             }
@@ -243,7 +243,7 @@ INT_PTR CALLBACK EtFirmwareEditorDlgProc(
                         }
 
                         if (!NT_SUCCESS(status))
-                            PhShowStatus(hwndDlg, L"Unable to create the file", status, 0);
+                            PhShowStatus(hwndDlg, L"无法创建文件", status, 0);
                     }
 
                     PhFreeFileDialog(fileDialog);
@@ -266,7 +266,7 @@ INT_PTR CALLBACK EtFirmwareEditorDlgProc(
 
                     if (!NT_SUCCESS(status))
                     {
-                        PhShowStatus(NULL, L"Unable to update the EFI variable.", status, 0);
+                        PhShowStatus(NULL, L"无法更新EFI变量。", status, 0);
                         return TRUE;
                     }
 
@@ -280,7 +280,7 @@ INT_PTR CALLBACK EtFirmwareEditorDlgProc(
 
                     if (!NT_SUCCESS(status))
                     {
-                        PhShowStatus(NULL, L"Unable to update the EFI variable.", status, 0);
+                        PhShowStatus(NULL, L"无法更新EFI变量。", status, 0);
                         return TRUE;
                     }
 
@@ -292,7 +292,7 @@ INT_PTR CALLBACK EtFirmwareEditorDlgProc(
 
                     if (!NT_SUCCESS(status = EtFirmwareQueryVariable(context, context->Name, context->GuidString)))
                     {
-                        PhShowStatus(NULL, L"Unable to query the EFI variable.", status, 0);
+                        PhShowStatus(NULL, L"无法查询EFI变量。", status, 0);
                         return TRUE;
                     }
 

@@ -876,7 +876,7 @@ VOID ShowNetAdapterDetailsDialog(
 
         if (!NT_SUCCESS(PhCreateThreadEx(&threadHandle, ShowNetAdapterDetailsDialogThread, context)))
         {
-            PhShowError(Context->WindowHandle, L"%s", L"Unable to create the window.");
+            PhShowError(Context->WindowHandle, L"%s", L"无法创建窗口。");
             return;
         }
 

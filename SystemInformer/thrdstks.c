@@ -1861,7 +1861,7 @@ VOID PhShowThreadStacksDialog(
 
     if (!NT_SUCCESS(PhCreateThread2(PhpThreadStacksDialogThreadStart, context)))
     {
-        PhShowError(ParentWindowHandle, L"%s", L"Unable to create the window.");
+        PhShowError(ParentWindowHandle, L"%s", L"无法创建窗口。");
         PhDereferenceObject(context);
     }
 }

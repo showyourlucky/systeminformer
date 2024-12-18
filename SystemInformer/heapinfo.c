@@ -470,7 +470,7 @@ VOID PhpEnumerateProcessHeaps(
             {
                 PhUiDisconnectFromPhSvc();
 
-                PhShowStatus(Context->WindowHandle, L"Unable to query heap information.", status, 0);
+                PhShowStatus(Context->WindowHandle, L"无法查询堆信息。", status, 0);
                 goto CleanupExit;
             }
 
@@ -551,9 +551,9 @@ VOID PhpEnumerateProcessHeaps(
         {
             PhShowError2(
                 Context->WindowHandle,
-                L"Unable to query 32bit heap information.",
+                L"无法查询32位堆信息。",
                 L"%s",
-                L"The 32-bit version of System Informer could not be located."
+                L"无法找到32位版本的System Informer。"
                 );
             goto CleanupExit;
         }
@@ -570,7 +570,7 @@ VOID PhpEnumerateProcessHeaps(
 
         if (!NT_SUCCESS(status))
         {
-            PhShowStatus(Context->WindowHandle, L"Unable to query heap information.", status, 0);
+            PhShowStatus(Context->WindowHandle, L"无法查询堆信息。", status, 0);
             goto CleanupExit;
         }
 
@@ -1248,7 +1248,7 @@ NTSTATUS PhGetProcessDefaultHeap(
 //            hWnd,
 //            L"destroy",
 //            L"the selected heap",
-//            L"Destroying heaps may cause the process to crash.",
+//            L"销毁堆可能导致进程崩溃。",
 //            FALSE
 //            );
 //    }
@@ -1305,7 +1305,7 @@ NTSTATUS PhGetProcessDefaultHeap(
 //
 //    if (!NT_SUCCESS(status))
 //    {
-//        PhShowStatus(hWnd, L"Unable to destroy the heap", status, 0);
+//        PhShowStatus(hWnd, L"无法销毁堆。", status, 0);
 //        return FALSE;
 //    }
 //

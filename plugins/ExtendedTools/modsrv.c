@@ -178,7 +178,7 @@ INT_PTR CALLBACK EtpModuleServicesDlgProc(
             {
                 PhShowStatus(
                     context->ParentWindowHandle,
-                    L"Unable to query module references.", 0, win32Result
+                    L"无法查询模块引用。", 0, win32Result
                     );
                 DestroyWindow(hwndDlg);
                 return FALSE;

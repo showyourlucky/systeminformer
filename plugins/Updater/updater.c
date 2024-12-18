@@ -113,7 +113,7 @@ NTSTATUS UpdateShellExecute(
 
         if (status != STATUS_CANCELLED) // Ignore UAC decline.
         {
-            PhShowStatus(WindowHandle, L"Unable to execute the setup.", status, 0);
+            PhShowStatus(WindowHandle, L"无法执行安装程序。", status, 0);
 
             if (Context->StartupCheck)
                 ShowAvailableDialog(Context);
@@ -1193,7 +1193,7 @@ VOID ShowUpdateDialog(
     {
         if (!NT_SUCCESS(PhCreateThreadEx(&UpdateDialogThreadHandle, ShowUpdateDialogThread, Context)))
         {
-            PhShowError(NULL, L"%s", L"Unable to create the window.");
+            PhShowError(NULL, L"%s", L"无法创建窗口。");
             return;
         }
 

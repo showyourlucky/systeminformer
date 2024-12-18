@@ -496,7 +496,7 @@ NTSTATUS EtEnumCurrentDirectoryObjects(
 
     if (!NT_SUCCESS(status) && status != STATUS_NO_MORE_ENTRIES)
     {
-        PhShowStatus(Context->WindowHandle, L"Unable to query directory object.", status, 0);
+        PhShowStatus(Context->WindowHandle, L"无法查询目录对象。", status, 0);
     }
 
     ExtendedListView_SortItems(Context->ListViewHandle);
@@ -1064,7 +1064,7 @@ INT_PTR CALLBACK WinObjDlgProc(
                             }
                             else
                             {
-                                PhShowStatus(hwndDlg, L"Unable to open object type.", status, 0);
+                                PhShowStatus(hwndDlg, L"无法打开对象类型。", status, 0);
                                 EtObjectManagerHandleCloseCallback(objectContext);
                             }
                         }
@@ -1151,7 +1151,7 @@ INT_PTR CALLBACK WinObjDlgProc(
                                     }
                                     else
                                     {
-                                        PhShowStatus(hwndDlg, L"Unable to open object type.", status, 0);
+                                        PhShowStatus(hwndDlg, L"无法打开对象类型。", status, 0);
                                         EtObjectManagerHandleCloseCallback(objectContext);
                                     }
                                 }
@@ -1242,7 +1242,7 @@ INT_PTR CALLBACK WinObjDlgProc(
                                     }
                                     else
                                     {
-                                        PhShowStatus(hwndDlg, L"Unable to query directory object.", status, 0);
+                                        PhShowStatus(hwndDlg, L"无法查询目录对象。", status, 0);
                                         EtObjectManagerHandleCloseCallback(objectContext);
                                     }
 
@@ -1326,7 +1326,7 @@ VOID EtShowObjectManagerDialog(
     {
         if (!NT_SUCCESS(PhCreateThreadEx(&EtObjectManagerDialogThreadHandle, EtShowObjectManagerDialogThread, ParentWindowHandle)))
         {
-            PhShowError(ParentWindowHandle, L"%s", L"Unable to create the window.");
+            PhShowError(ParentWindowHandle, L"%s", L"无法创建窗口。");
             return;
         }
 

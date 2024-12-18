@@ -253,7 +253,7 @@ INT_PTR CALLBACK PhpProcessRecordDlgProc(
                     }
                     else
                     {
-                        PhShowError(hwndDlg, L"%s", L"The process has already terminated; only the process record is available.");
+                        PhShowError(hwndDlg, L"%s", L"进程已结束；仅可用进程记录。");
                     }
                 }
                 break;

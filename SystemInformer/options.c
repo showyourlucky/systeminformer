@@ -405,7 +405,7 @@ INT_PTR CALLBACK PhOptionsDialogProc(
                         hwndDlg,
                         TD_YES_BUTTON | TD_NO_BUTTON,
                         TD_WARNING_ICON,
-                        L"Do you want to reset all settings and restart System Informer?",
+                        L"你想要重置所有设置并重启系统信息器吗?",
                         L""
                         ) == IDYES)
                     {
@@ -441,7 +441,7 @@ INT_PTR CALLBACK PhOptionsDialogProc(
                         hwndDlg,
                         TD_YES_BUTTON | TD_NO_BUTTON,
                         TD_INFORMATION_ICON,
-                        L"Do you want to clean up unused settings?",
+                        L"你想要清理未使用的设置吗?",
                         L""
                         ) == IDYES)
                     {
@@ -983,7 +983,7 @@ VOID PhpSetDefaultTaskManager(
         message = L"Do you want to make System Informer the default Windows Task Manager?";
 
         // Warn the user when we're not installed into secure location. (dmex)
-        if (!PhShowOptionsDefaultInstallLocation(ParentWindowHandle, L"Changing the default Task Manager"))
+        if (!PhShowOptionsDefaultInstallLocation(ParentWindowHandle, L"更改默认任务管理器"))
         {
             return;
         }
@@ -1044,7 +1044,7 @@ VOID PhpSetDefaultTaskManager(
         }
 
         if (!NT_SUCCESS(status))
-            PhShowStatus(ParentWindowHandle, L"Unable to replace Task Manager", status, 0);
+            PhShowStatus(ParentWindowHandle, L"无法替换任务管理器", status, 0);
 
         if (!PhIsNullOrEmptyString(PhSettingsFileName))
             PhSaveSettings(&PhSettingsFileName->sr);
@@ -1524,8 +1524,8 @@ static VOID PhpOptionsNotifyChangeCallback(
             PhMainWndHandle,
             TD_YES_BUTTON | TD_NO_BUTTON,
             TD_INFORMATION_ICON,
-            L"One or more options you have changed requires a restart of System Informer.",
-            L"Do you want to restart System Informer now?"
+            L"你更改的一个或多个选项需要重启系统信息器。",
+            L"你想要立即重启系统信息器吗?"
             ) == IDYES)
         {
             ProcessHacker_PrepareForEarlyShutdown();
@@ -1551,8 +1551,8 @@ VOID PhShowOptionsRestartRequired(
         PhMainWndHandle,
         TD_YES_BUTTON | TD_NO_BUTTON,
         TD_INFORMATION_ICON,
-        L"One or more options you have changed requires a restart of System Informer.",
-        L"Do you want to restart System Informer now?"
+        L"你更改的一个或多个选项需要重启系统信息器。",
+        L"你想要立即重启系统信息器吗?"
         ) == IDYES)
     {
         ProcessHacker_PrepareForEarlyShutdown();
@@ -1599,7 +1599,7 @@ BOOLEAN PhShowOptionsDefaultInstallLocation(
                         ParentWindowHandle,
                         TD_YES_BUTTON | TD_NO_BUTTON,
                         TD_WARNING_ICON,
-                        L"WARNING: You have not installed System Informer into a secure location.",
+                        L"警告: 你没有把系统信息器安装在一个安全位置。",
                         L"%s is not recommended when running System Informer from outside a secure location (e.g. Program Files).\r\n\r\nAre you sure you want to continue?",
                         Message
                         ) == IDNO)
@@ -2031,9 +2031,9 @@ INT_PTR CALLBACK PhpOptionsGeneralDlgProc(
                                         {
                                             PhShowInformation2(
                                                 PhOptionsWindowHandle,
-                                                L"Unable to change process exit notification.",
+                                                L"无法更改进程退出通知。",
                                                 L"%s",
-                                                L"You need to disable this option with administrative privileges."
+                                                L"你需要以管理员权限禁用此选项。"
                                                 );
 
                                             SetWindowLongPtr(hwndDlg, DWLP_MSGRESULT, TRUE);
@@ -2056,9 +2056,9 @@ INT_PTR CALLBACK PhpOptionsGeneralDlgProc(
                                         {
                                             PhShowInformation2(
                                                 PhOptionsWindowHandle,
-                                                L"Unable to enable option start as admin.",
+                                                L"无法启用以管理员身份启动选项。",
                                                 L"%s",
-                                                L"You need to enable this option with administrative privileges."
+                                                L"你需要以管理员权限启用此选项。"
                                                 );
 
                                             SetWindowLongPtr(hwndDlg, DWLP_MSGRESULT, TRUE);
@@ -2071,7 +2071,7 @@ INT_PTR CALLBACK PhpOptionsGeneralDlgProc(
                                             HRESULT status;
                                             PPH_STRING quotedFileName;
 
-                                            if (!PhShowOptionsDefaultInstallLocation(PhOptionsWindowHandle, L"Enabling the 'start as admin' option"))
+                                            if (!PhShowOptionsDefaultInstallLocation(PhOptionsWindowHandle, L"正在启用“以管理员启动”选项"))
                                             {
                                                 SetWindowLongPtr(hwndDlg, DWLP_MSGRESULT, TRUE);
                                                 return TRUE;
@@ -2092,7 +2092,7 @@ INT_PTR CALLBACK PhpOptionsGeneralDlgProc(
                                             {
                                                 PhShowStatus(
                                                     PhOptionsWindowHandle,
-                                                    L"Unable to enable start as admin.",
+                                                    L"无法启用以管理员身份启动。",
                                                     0,
                                                     HRESULT_CODE(status)
                                                     );
@@ -2114,9 +2114,9 @@ INT_PTR CALLBACK PhpOptionsGeneralDlgProc(
                                         {
                                             PhShowInformation2(
                                                 PhOptionsWindowHandle,
-                                                L"Unable to change process exit notification.",
+                                                L"无法更改进程退出通知。",
                                                 L"%s",
-                                                L"You need to enable this option with administrative privileges."
+                                                L"你需要以管理员权限启用此选项。"
                                                 );
 
                                             SetWindowLongPtr(hwndDlg, DWLP_MSGRESULT, TRUE);
@@ -2127,7 +2127,7 @@ INT_PTR CALLBACK PhpOptionsGeneralDlgProc(
 
                                         if (!NT_SUCCESS(status))
                                         {
-                                            PhShowStatus(hwndDlg, L"Unable to change process exit notification.", status, 0);
+                                            PhShowStatus(hwndDlg, L"无法更改进程退出通知。", status, 0);
                                         }
                                     }
                                     break;
@@ -2190,7 +2190,7 @@ INT_PTR CALLBACK PhpOptionsGeneralDlgProc(
 
                                         if (!NT_SUCCESS(status))
                                         {
-                                            PhShowStatus(hwndDlg, L"Unable to change process exit notification.", status, 0);
+                                            PhShowStatus(hwndDlg, L"无法更改进程退出通知。", status, 0);
                                         }
                                     }
                                     break;

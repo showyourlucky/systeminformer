@@ -255,7 +255,7 @@ BOOLEAN HardwareDeviceEnableDisable(
 
     if (result != CR_SUCCESS)
     {
-        PhShowStatus(ParentWindow, L"Failed to change the device state.", 0, CM_MapCrToWin32Err(result, ERROR_INVALID_HANDLE_STATE));
+        PhShowStatus(ParentWindow, L"更改设备状态失败。", 0, CM_MapCrToWin32Err(result, ERROR_INVALID_HANDLE_STATE));
         return FALSE;
     }
 
@@ -266,7 +266,7 @@ BOOLEAN HardwareDeviceEnableDisable(
 
     if (result != CR_SUCCESS)
     {
-        PhShowStatus(ParentWindow, L"Failed to change the device state.", 0, CM_MapCrToWin32Err(result, ERROR_INVALID_HANDLE_STATE));
+        PhShowStatus(ParentWindow, L"更改设备状态失败。", 0, CM_MapCrToWin32Err(result, ERROR_INVALID_HANDLE_STATE));
         return FALSE;
     }
 
@@ -289,7 +289,7 @@ BOOLEAN HardwareDeviceRestart(
 
     if (result != CR_SUCCESS)
     {
-        PhShowStatus(ParentWindow, L"Failed to restart the device.", 0, CM_MapCrToWin32Err(result, ERROR_UNKNOWN_PROPERTY));
+        PhShowStatus(ParentWindow, L"重启设备失败。", 0, CM_MapCrToWin32Err(result, ERROR_UNKNOWN_PROPERTY));
         return FALSE;
     }
 
@@ -303,7 +303,7 @@ BOOLEAN HardwareDeviceRestart(
 
     if (result != CR_SUCCESS)
     {
-        PhShowStatus(ParentWindow, L"Failed to restart the device.", 0, CM_MapCrToWin32Err(result, ERROR_UNKNOWN_PROPERTY));
+        PhShowStatus(ParentWindow, L"重启设备失败。", 0, CM_MapCrToWin32Err(result, ERROR_UNKNOWN_PROPERTY));
         return FALSE;
     }
 
@@ -314,7 +314,7 @@ BOOLEAN HardwareDeviceRestart(
 
     if (result != CR_SUCCESS)
     {
-        PhShowStatus(ParentWindow, L"Failed to restart the device.", 0, CM_MapCrToWin32Err(result, ERROR_UNKNOWN_PROPERTY));
+        PhShowStatus(ParentWindow, L"重启设备失败。", 0, CM_MapCrToWin32Err(result, ERROR_UNKNOWN_PROPERTY));
         return FALSE;
     }
 
@@ -337,7 +337,7 @@ BOOLEAN HardwareDeviceUninstall(
 
     if (result != CR_SUCCESS)
     {
-        PhShowStatus(ParentWindow, L"Failed to uninstall the device.", 0, CM_MapCrToWin32Err(result, ERROR_UNKNOWN_PROPERTY));
+        PhShowStatus(ParentWindow, L"卸载设备失败。", 0, CM_MapCrToWin32Err(result, ERROR_UNKNOWN_PROPERTY));
         return FALSE;
     }
 
@@ -345,7 +345,7 @@ BOOLEAN HardwareDeviceUninstall(
 
     if (result != CR_SUCCESS)
     {
-        PhShowStatus(ParentWindow, L"Failed to uninstall the device.", 0, CM_MapCrToWin32Err(result, ERROR_UNKNOWN_PROPERTY));
+        PhShowStatus(ParentWindow, L"卸载设备失败。", 0, CM_MapCrToWin32Err(result, ERROR_UNKNOWN_PROPERTY));
         return FALSE;
     }
 
@@ -498,7 +498,7 @@ BOOLEAN HardwareDeviceOpenKey(
 
     if (result != CR_SUCCESS)
     {
-        PhShowStatus(ParentWindow, L"Failed to locate the device.", 0, CM_MapCrToWin32Err(result, ERROR_UNKNOWN_PROPERTY));
+        PhShowStatus(ParentWindow, L"定位设备失败。", 0, CM_MapCrToWin32Err(result, ERROR_UNKNOWN_PROPERTY));
         return FALSE;
     }
 

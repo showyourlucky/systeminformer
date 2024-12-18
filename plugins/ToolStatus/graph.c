@@ -850,7 +850,7 @@ TOOLSTATUS_GRAPH_MESSAGE_CALLBACK_DECLARE(PhysicalHistoryGraphMessageCallback)
             {
                 if (PhGetIntegerSetting(SETTING_NAME_SHOWSYSINFOGRAPH))
                 {
-                    PhShowSystemInformationDialog(L"Memory");
+                    PhShowSystemInformationDialog(L"内存");
                 }
             }
         }
@@ -933,7 +933,7 @@ TOOLSTATUS_GRAPH_MESSAGE_CALLBACK_DECLARE(CommitHistoryGraphMessageCallback)
             {
                 if (PhGetIntegerSetting(SETTING_NAME_SHOWSYSINFOGRAPH))
                 {
-                    PhShowSystemInformationDialog(L"Memory");
+                    PhShowSystemInformationDialog(L"内存");
                 }
             }
         }

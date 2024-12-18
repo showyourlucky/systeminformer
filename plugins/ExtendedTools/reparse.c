@@ -1339,7 +1339,7 @@ INT_PTR CALLBACK EtReparseDlgProc(
 
             if (!NT_SUCCESS(status))
             {
-                PhShowStatus(hwndDlg, L"Unable to enumerate the objects.", status, 0);
+                PhShowStatus(hwndDlg, L"无法枚举对象。", status, 0);
             }
 
             EnableWindow(GetDlgItem(hwndDlg, IDRETRY), TRUE);
@@ -1447,8 +1447,8 @@ INT_PTR CALLBACK EtReparseDlgProc(
                                             if (PhGetIntegerSetting(L"EnableWarnings") && !PhShowConfirmMessage(
                                                 hwndDlg,
                                                 L"remove",
-                                                L"the repase point",
-                                                L"The repase point will be permanently deleted.",
+                                                L"重解析点",
+                                                L"重解析点将被永久删除。",
                                                 FALSE
                                                 ))
                                             {
@@ -1462,8 +1462,8 @@ INT_PTR CALLBACK EtReparseDlgProc(
                                             if (PhGetIntegerSetting(L"EnableWarnings") && !PhShowConfirmMessage(
                                                 hwndDlg,
                                                 L"remove",
-                                                L"the object identifier",
-                                                L"The object identifier will be permanently deleted.",
+                                                L"对象标识符",
+                                                L"对象标识符将被永久删除。",
                                                 FALSE
                                                 ))
                                             {
@@ -1500,7 +1500,7 @@ INT_PTR CALLBACK EtReparseDlgProc(
                                                     }
                                                     else
                                                     {
-                                                        PhShowStatus(hwndDlg, L"Unable to remove the reparse point.", status, 0);
+                                                        PhShowStatus(hwndDlg, L"无法移除重解析点。", status, 0);
                                                     }
                                                 }
                                                 break;
@@ -1516,7 +1516,7 @@ INT_PTR CALLBACK EtReparseDlgProc(
                                                     }
                                                     else
                                                     {
-                                                        PhShowStatus(hwndDlg, L"Unable to remove the object identifier.", status, 0);
+                                                        PhShowStatus(hwndDlg, L"无法移除对象标识符。", status, 0);
                                                     }
                                                 }
                                                 break;
@@ -1536,7 +1536,7 @@ INT_PTR CALLBACK EtReparseDlgProc(
                                                     }
                                                     else
                                                     {
-                                                        PhShowStatus(hwndDlg, L"Unable to locate files with the SecurityId.", STATUS_NOT_FOUND, 0);
+                                                        PhShowStatus(hwndDlg, L"无法定位具有SecurityId的文件。", STATUS_NOT_FOUND, 0);
                                                     }
                                                 }
                                                 break;

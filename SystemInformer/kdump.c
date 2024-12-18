@@ -242,7 +242,7 @@ NTSTATUS PhpLiveDumpTaskDialogThread(
 
     if (!NT_SUCCESS(status))
     {
-        PhShowStatus(NULL, L"Unable to save the live kernel dump.", status, 0);
+        PhShowStatus(NULL, L"无法保存实时内核转储。", status, 0);
         return status;
     }
 
@@ -376,7 +376,7 @@ INT_PTR CALLBACK PhpLiveDumpDlgProc(
 
                     if (!PhGetOwnTokenAttributes().Elevated)
                     {
-                        PhShowStatus(hwndDlg, L"Unable to create live kernel dump.", 0, ERROR_ELEVATION_REQUIRED);
+                        PhShowStatus(hwndDlg, L"无法创建实时内核转储。", 0, ERROR_ELEVATION_REQUIRED);
                         break;
                     }
 

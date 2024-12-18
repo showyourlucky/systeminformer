@@ -93,8 +93,8 @@ INT_PTR CALLBACK EspServiceTriggersDlgProc(
 
                 PhShowWarning(
                     WindowHandle,
-                    L"Unable to query service trigger information: %s",
-                    PhGetStringOrDefault(errorMessage, L"Unknown error.")
+                    L"无法查询服务触发器信息：%s  ",
+                    PhGetStringOrDefault(errorMessage, L"未知错误。  ")
                     );
 
                 PhClearReference(&errorMessage);
@@ -168,8 +168,8 @@ INT_PTR CALLBACK EspServiceTriggersDlgProc(
                             if (PhShowMessage(
                                 WindowHandle,
                                 MB_ICONERROR | MB_RETRYCANCEL,
-                                L"Unable to change service trigger information: %s",
-                                PhGetStringOrDefault(errorMessage, L"Unknown error.")
+                                L"无法更改服务触发器信息：%s  ",
+                                PhGetStringOrDefault(errorMessage, L"未知错误。  ")
                                 ) == IDRETRY)
                             {
                                 SetWindowLongPtr(WindowHandle, DWLP_MSGRESULT, PSNRET_INVALID);

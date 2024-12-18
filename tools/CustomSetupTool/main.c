@@ -174,9 +174,9 @@ INT SetupShowMessagePromptForLegacyVersion(
     //    NULL,
     //    L"Process Hacker",
     //    L"%s",
-    //    L"Process Hacker was renamed System Informer.\n"
-    //    L"The legacy version of Process Hacker is no longer maintained and will not receive updates.\r\n\r\n"
-    //    L"The updater is now installing System Informer. The Process Hacker installation must be manually uninstalled"
+    //    L"Process Hacker 已更名为 System Informer。\n"
+    //    L"Process Hacker 的旧版已停止维护，不再接收更新。\r\n\r\n"
+    //    L"更新程序正在安装System Informer。必须手动卸载Process Hacker安装程序。"
     //    );
 
     if (SUCCEEDED(TaskDialogIndirect(

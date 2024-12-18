@@ -444,7 +444,7 @@ VOID EtShowPoolTableDialog(
     {
         if (!NT_SUCCESS(PhCreateThreadEx(&EtPoolTagDialogThreadHandle, EtShowPoolMonDialogThread, ParentWindowHandle)))
         {
-            PhShowError(ParentWindowHandle, L"%s", L"Unable to create the window.");
+            PhShowError(ParentWindowHandle, L"%s", L"无法创建窗口。");
             return;
         }
 

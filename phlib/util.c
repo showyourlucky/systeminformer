@@ -880,7 +880,7 @@ VOID PhShowStatus(
         }
         else
         {
-            PhShowError(WindowHandle, L"%s", L"Unable to perform the operation.");
+            PhShowError(WindowHandle, L"%s", L"无法执行该操作。  ");
         }
     }
 }
@@ -915,7 +915,7 @@ BOOLEAN PhShowContinueStatus(
     else if (statusMessage)
         result = PhShowMessage2(WindowHandle, TD_OK_BUTTON | TD_CANCEL_BUTTON, TD_ERROR_ICON, L"", L"%s", PhGetString(statusMessage));
     else
-        result = PhShowMessage2(WindowHandle, TD_OK_BUTTON | TD_CANCEL_BUTTON, TD_ERROR_ICON, L"Unable to perform the operation.", L"%s", L"");
+        result = PhShowMessage2(WindowHandle, TD_OK_BUTTON | TD_CANCEL_BUTTON, TD_ERROR_ICON, L"无法执行该操作。  ", L"%s", L"");
 
     if (statusMessage) PhDereferenceObject(statusMessage);
 
@@ -994,7 +994,7 @@ BOOLEAN PhShowConfirmMessage(
             return PhShowMessage(
                 WindowHandle,
                 MB_YESNO | MB_ICONWARNING | MB_DEFBUTTON2,
-                L"Are you sure you want to %s?",
+                L"您确定要%s吗？  ",
                 action->Buffer
                 ) == IDYES;
         }
@@ -5290,7 +5290,7 @@ VOID PhShellExecute(
 
     if (!PhShellExecuteWin32(&info))
     {
-        PhShowStatus(WindowHandle, L"Unable to execute the program.", 0, PhGetLastError());
+        PhShowStatus(WindowHandle, L"无法运行该程序。  ", 0, PhGetLastError());
     }
 }
 
@@ -5417,7 +5417,7 @@ VOID PhShellExploreFile(
         }
         else
         {
-            PhShowError2(WindowHandle, L"The location could not be found.", L"%s", FileName);
+            PhShowError2(WindowHandle, L"未找到该位置。  ", L"%s", FileName);
         }
     }
     else
@@ -5453,7 +5453,7 @@ VOID PhShellProperties(
 
     if (!PhShellExecuteWin32(&info))
     {
-        PhShowStatus(WindowHandle, L"Unable to execute the program.", 0, PhGetLastError());
+        PhShowStatus(WindowHandle, L"无法运行该程序。  ", 0, PhGetLastError());
     }
 }
 

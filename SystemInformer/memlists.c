@@ -369,7 +369,7 @@ VOID NTAPI PhpEmptyCompressionStoreCommand(
         {
             PhShowKsiNotConnected(
                 ParentWindow,
-                L"Emptying the compression store requires a connection to the kernel driver."
+                L"清空压缩存储需要连接到内核驱动程序。"
                 );
             *ShowError = FALSE;
         }
@@ -560,16 +560,16 @@ VOID PhShowMemoryListCommand(
             if (!PhIsNullOrEmptyString(message))
             {
                 if (showError)
-                    PhShowError2(ParentWindow, L"Memory Command", PhGetString(message));
+                    PhShowError2(ParentWindow, L"内存命令", PhGetString(message));
                 else
-                    PhShowInformation2(ParentWindow, L"Memory Command", PhGetString(message));
+                    PhShowInformation2(ParentWindow, L"内存命令", PhGetString(message));
             }
 
             PhClearReference(&message);
         }
         else if (!PhGetOwnTokenAttributes().Elevated)
         {
-            PhShowError2(ParentWindow, L"Memory Command", L"System Informer must run elevated to empty all.");
+            PhShowError2(ParentWindow, L"内存命令", L"System Informer 必须以提升权限运行才能清空所有内容。");
         }
         else
         {
@@ -597,7 +597,7 @@ VOID PhShowMemoryListCommand(
 
             message = PhFinalStringBuilderString(&stringBuilder);
             if (!PhIsNullOrEmptyString(message))
-                PhShowInformation2(ParentWindow, L"Memory Command", PhGetString(message));
+                PhShowInformation2(ParentWindow, L"内存命令", PhGetString(message));
             PhClearReference(&message);
         }
     }

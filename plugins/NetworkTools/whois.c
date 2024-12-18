@@ -1081,7 +1081,7 @@ NTSTATUS NetworkWhoisDialogThreadStart(
 
     if (!dllhandle)
     {
-        PhShowStatus(context->ParentWindowHandle, L"Unable to display the whois window.", 0, ERROR_MOD_NOT_FOUND);
+        PhShowStatus(context->ParentWindowHandle, L"无法显示 whois 窗口。", 0, ERROR_MOD_NOT_FOUND);
         PhDereferenceObject(context);
         return STATUS_SUCCESS;
     }

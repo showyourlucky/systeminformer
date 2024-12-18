@@ -1440,9 +1440,9 @@ INT_PTR CALLBACK PhpFindObjectsDlgProc(
 
                     if (numberOfHandleObjectNodes != 0 && PhShowConfirmMessage(
                         hwndDlg,
-                        L"close",
-                        numberOfHandleObjectNodes == 1 ? L"the selected handle" : L"the selected handles",
-                        L"Closing handles may cause system instability and data corruption.",
+                        L"关闭",
+                        numberOfHandleObjectNodes == 1 ? L"所选句柄" : L"所选句柄",
+                        L"关闭句柄可能会导致系统不稳定和数据损坏。",
                         FALSE
                         ))
                     {
@@ -1499,7 +1499,7 @@ INT_PTR CALLBACK PhpFindObjectsDlgProc(
                                     {
                                         if (!PhShowConfirmMessage(
                                             hwndDlg,
-                                            L"close",
+                                            L"关闭",
                                             L"critical handle(s)",
                                             L"You are about to close one or more handles for a critical process with strict handle checks enabled. This will shut down the operating system immediately.\r\n\r\n",
                                             TRUE
@@ -1539,7 +1539,7 @@ INT_PTR CALLBACK PhpFindObjectsDlgProc(
                             if (!NT_SUCCESS(status))
                             {
                                 if (!PhShowContinueStatus(hwndDlg,
-                                    PhaFormatString(L"Unable to close \"%s\"", PhGetStringOrDefault(handleObjectNodes[i]->BestObjectName, L"??"))->Buffer,
+                                    PhaFormatString(L"无法关闭\"%s\"", PhGetStringOrDefault(handleObjectNodes[i]->BestObjectName, L"??"))->Buffer,
                                     status,
                                     0
                                     ))
@@ -1692,8 +1692,8 @@ INT_PTR CALLBACK PhpFindObjectsDlgProc(
             {
                 PhShowWarning(
                     hwndDlg,
-                    L"Unable to search for handles because the total number of handles on the system is too large.\r\n%s",
-                    L"Please check if there are any processes with an extremely large number of handles open."
+                    L"无法搜索句柄，因为系统中的句柄总数过多。\r\n%s",
+                    L"请检查是否有进程打开了大量句柄。"
                     );
             }
         }
@@ -1763,7 +1763,7 @@ VOID PhShowFindObjectsDialog(
     {
         if (!NT_SUCCESS(PhCreateThreadEx(&PhFindObjectsThreadHandle, PhpFindObjectsDialogThreadStart, NULL)))
         {
-            PhShowError(PhMainWndHandle, L"%s", L"Unable to create the window.");
+            PhShowError(PhMainWndHandle, L"%s", L"无法创建窗口。");
             return;
         }
 

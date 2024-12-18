@@ -1828,7 +1828,7 @@ VOID DotNetAsmRefreshTraceQuery(
     //if (!PhIsProcessSuspended(Context->ProcessItem->ProcessId) || PhShowMessage(
     //    Context->WindowHandle,
     //    MB_ICONWARNING | MB_YESNO,
-    //    L".NET assembly enumeration may not work properly because the process is currently suspended. Do you want to continue?"
+    //    L" .NET 程序集枚举可能无法正常工作，因为进程当前已被挂起。您要继续吗？"
     //    ) == IDYES)
     {
         CreateDotNetTraceQueryThread(Context, Context->ProcessItem->ProcessId, EnableTrace);
