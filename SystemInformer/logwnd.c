@@ -152,8 +152,8 @@ INT_PTR CALLBACK PhpLogDlgProc(
             ListViewHandle = GetDlgItem(hwndDlg, IDC_LIST);
             PhSetListViewStyle(ListViewHandle, FALSE, TRUE);
             PhSetControlTheme(ListViewHandle, L"explorer");
-            PhAddListViewColumn(ListViewHandle, 0, 0, 0, LVCFMT_LEFT, 140, L"时间:");
-            PhAddListViewColumn(ListViewHandle, 1, 1, 1, LVCFMT_LEFT, 260, L"消息");
+            PhAddListViewColumn(ListViewHandle, 0, 0, 0, LVCFMT_LEFT, 140, L"Time");
+            PhAddListViewColumn(ListViewHandle, 1, 1, 1, LVCFMT_LEFT, 260, L"Message");
             PhLoadListViewColumnsFromSetting(L"LogListViewColumns", ListViewHandle);
 
             PhInitializeLayoutManager(&WindowLayoutManager, hwndDlg);

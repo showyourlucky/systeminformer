@@ -225,9 +225,9 @@ INT_PTR CALLBACK PhpJobPageProc(
             PhSetExtendedListView(processesLv);
             PhSetExtendedListView(limitsLv);
 
-            PhAddListViewColumn(processesLv, 0, 0, 0, LVCFMT_LEFT, 240, L"名称");
-            PhAddListViewColumn(limitsLv, 0, 0, 0, LVCFMT_LEFT, 120, L"名称");
-            PhAddListViewColumn(limitsLv, 1, 1, 1, LVCFMT_LEFT, 160, L"值");
+            PhAddListViewColumn(processesLv, 0, 0, 0, LVCFMT_LEFT, 240, L"Name");
+            PhAddListViewColumn(limitsLv, 0, 0, 0, LVCFMT_LEFT, 120, L"Name");
+            PhAddListViewColumn(limitsLv, 1, 1, 1, LVCFMT_LEFT, 160, L"Value");
             PhLoadListViewColumnsFromSetting(L"JobListViewColumns", limitsLv);
 
             PhSetDialogItemText(hwndDlg, IDC_NAME, L"Unknown");

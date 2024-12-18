@@ -175,16 +175,17 @@ INT_PTR CALLBACK OptionsDlgProc(
 
             PhSetListViewStyle(listview, TRUE, TRUE);
             PhSetControlTheme(listview, L"explorer");
-            PhAddListViewColumn(listview, 1, 1, 1, LVCFMT_LEFT, 100, L"类型");
-            PhAddListViewColumn(listview, 2, 2, 2, LVCFMT_LEFT, 100, L"名称");
-            PhAddListViewColumn(listview, 3, 3, 3, LVCFMT_LEFT, 100, L"注释");
-            PhAddListViewColumn(listview, 4, 4, 4, LVCFMT_LEFT, 80, L"优先级");
-            PhAddListViewColumn(listview, 5, 5, 5, LVCFMT_LEFT, 80, L"IO 优先级");
-            PhAddListViewColumn(listview, 6, 6, 6, LVCFMT_LEFT, 80, L"背景颜色");
-            PhAddListViewColumn(listview, 7, 7, 7, LVCFMT_LEFT, 80, L"折叠");
-            PhAddListViewColumn(listview, 8, 8, 8, LVCFMT_LEFT, 80, L"亲和性");
-            PhAddListViewColumn(listview, 9, 9, 9, LVCFMT_LEFT, 80, L"页面优先级");
-            PhAddListViewColumn(listview, 10, 10, 10, LVCFMT_LEFT, 80, L"效率");
+            PhAddListViewColumn(listview, 0, 0, 0, LVCFMT_LEFT, 40, L"#");
+            PhAddListViewColumn(listview, 1, 1, 1, LVCFMT_LEFT, 100, L"Type");
+            PhAddListViewColumn(listview, 2, 2, 2, LVCFMT_LEFT, 100, L"Name");
+            PhAddListViewColumn(listview, 3, 3, 3, LVCFMT_LEFT, 100, L"Comment");
+            PhAddListViewColumn(listview, 4, 4, 4, LVCFMT_LEFT, 80, L"Priority");
+            PhAddListViewColumn(listview, 5, 5, 5, LVCFMT_LEFT, 80, L"IO priority");
+            PhAddListViewColumn(listview, 6, 6, 6, LVCFMT_LEFT, 80, L"BackColor");
+            PhAddListViewColumn(listview, 7, 7, 7, LVCFMT_LEFT, 80, L"Collapse");
+            PhAddListViewColumn(listview, 8, 8, 8, LVCFMT_LEFT, 80, L"Affinity");
+            PhAddListViewColumn(listview, 9, 9, 9, LVCFMT_LEFT, 80, L"Page priority");
+            PhAddListViewColumn(listview, 10, 10, 10, LVCFMT_LEFT, 80, L"Efficiency");
             PhSetExtendedListView(listview);
             PhLoadListViewColumnsFromSetting(SETTING_NAME_OPTIONS_DB_COLUMNS, listview);
 

@@ -291,10 +291,10 @@ INT_PTR CALLBACK PhpMemoryResultsDlgProc(
             lvHandle = GetDlgItem(hwndDlg, IDC_LIST);
             PhSetListViewStyle(lvHandle, FALSE, TRUE);
             PhSetControlTheme(lvHandle, L"explorer");
-            PhAddListViewColumn(lvHandle, 0, 0, 0, LVCFMT_LEFT, 120, L"地址");
-            PhAddListViewColumn(lvHandle, 1, 1, 1, LVCFMT_LEFT, 120, L"基址");
-            PhAddListViewColumn(lvHandle, 2, 2, 2, LVCFMT_LEFT, 80, L"长度");
-            PhAddListViewColumn(lvHandle, 3, 3, 3, LVCFMT_LEFT, 200, L"结果");
+            PhAddListViewColumn(lvHandle, 0, 0, 0, LVCFMT_LEFT, 120, L"Address");
+            PhAddListViewColumn(lvHandle, 1, 1, 1, LVCFMT_LEFT, 120, L"Base Address");
+            PhAddListViewColumn(lvHandle, 2, 2, 2, LVCFMT_LEFT, 80, L"Length");
+            PhAddListViewColumn(lvHandle, 3, 3, 3, LVCFMT_LEFT, 200, L"Result");
 
             PhLoadListViewColumnsFromSetting(L"MemResultsListViewColumns", lvHandle);
 
