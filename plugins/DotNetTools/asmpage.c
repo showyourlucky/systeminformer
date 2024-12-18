@@ -975,12 +975,12 @@ VOID DotNetAsmInitializeTreeList(
     SendMessage(TreeNew_GetTooltips(Context->TreeNewHandle), TTM_SETMAXTIPWIDTH, 0, MAXSHORT);
     TreeNew_SetRedraw(Context->TreeNewHandle, FALSE);
 
-    PhAddTreeNewColumn(Context->TreeNewHandle, DNATNC_STRUCTURE, TRUE, L"Structure", 240, PH_ALIGN_LEFT, -2, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, DNATNC_ADDRESS, TRUE, L"Address", 50, PH_ALIGN_RIGHT, 1, DT_RIGHT);
-    PhAddTreeNewColumn(Context->TreeNewHandle, DNATNC_FLAGS, TRUE, L"Flags", 80, PH_ALIGN_LEFT, 2, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, DNATNC_PATH, TRUE, L"File name", 600, PH_ALIGN_LEFT, 3, DT_PATH_ELLIPSIS);
-    PhAddTreeNewColumn(Context->TreeNewHandle, DNATNC_NATIVEPATH, FALSE, L"Native image path", 600, PH_ALIGN_LEFT, 4, DT_PATH_ELLIPSIS);
-    PhAddTreeNewColumn(Context->TreeNewHandle, DNATNC_BASEADDRESS, FALSE, L"Base address", 100, PH_ALIGN_LEFT, 5, DT_PATH_ELLIPSIS);
+    PhAddTreeNewColumn(Context->TreeNewHandle, DNATNC_STRUCTURE, TRUE, L"结构", 240, PH_ALIGN_LEFT, -2, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, DNATNC_ADDRESS, TRUE, L"地址", 50, PH_ALIGN_RIGHT, 1, DT_RIGHT);
+    PhAddTreeNewColumn(Context->TreeNewHandle, DNATNC_FLAGS, TRUE, L"标志", 80, PH_ALIGN_LEFT, 2, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, DNATNC_PATH, TRUE, L"文件名", 600, PH_ALIGN_LEFT, 3, DT_PATH_ELLIPSIS);
+    PhAddTreeNewColumn(Context->TreeNewHandle, DNATNC_NATIVEPATH, FALSE, L"本机映像路径", 600, PH_ALIGN_LEFT, 4, DT_PATH_ELLIPSIS);
+    PhAddTreeNewColumn(Context->TreeNewHandle, DNATNC_BASEADDRESS, FALSE, L"基址", 100, PH_ALIGN_LEFT, 5, DT_PATH_ELLIPSIS);
     PhAddTreeNewColumn(Context->TreeNewHandle, DNATNC_MVID, FALSE, L"MVID", 100, PH_ALIGN_LEFT, 6, DT_PATH_ELLIPSIS);
 
     DotNetAsmLoadSettingsTreeList(Context);

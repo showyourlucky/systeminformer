@@ -90,8 +90,8 @@ VOID PvInitializeLayoutTree(
     PhSetControlTheme(Context->TreeNewHandle, L"explorer");
     TreeNew_SetCallback(Context->TreeNewHandle, PvLayoutTreeNewCallback, Context);
 
-    PhAddTreeNewColumn(Context->TreeNewHandle, PV_LAYOUT_TREE_COLUMN_NAME_NAME, TRUE, L"Name", 200, PH_ALIGN_LEFT, 0, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, PV_LAYOUT_TREE_COLUMN_NAME_VALUE, TRUE, L"Value", 800, PH_ALIGN_LEFT, 1, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PV_LAYOUT_TREE_COLUMN_NAME_NAME, TRUE, L"名称", 200, PH_ALIGN_LEFT, 0, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PV_LAYOUT_TREE_COLUMN_NAME_VALUE, TRUE, L"值", 800, PH_ALIGN_LEFT, 1, 0);
 
     //TreeNew_SetTriState(Context->TreeNewHandle, TRUE);
     //TreeNew_SetSort(Context->TreeNewHandle, PV_LAYOUT_TREE_COLUMN_NAME_NAME, NoSortOrder);

@@ -1548,27 +1548,27 @@ VOID PhpInitializeThreadStacksTree(
 
     TreeNew_SetRedraw(Context->TreeNewHandle, FALSE);
 
-    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_SYMBOL, TRUE, L"Symbol", 250, PH_ALIGN_LEFT, 0, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_SYMBOL, TRUE, L"符号", 250, PH_ALIGN_LEFT, 0, 0);
     PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_PROCESSID, TRUE, L"PID", 80, PH_ALIGN_LEFT, 1, 0);
     PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_THREADID, TRUE, L"TID", 80, PH_ALIGN_LEFT, 2, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_FRAMENUMBER, TRUE, L"Frame", 80, PH_ALIGN_LEFT, 3, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_ARCHITECTURE, TRUE, L"Architecture", 100, PH_ALIGN_LEFT, 4, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_FRAMENUMBER, TRUE, L"帧", 80, PH_ALIGN_LEFT, 3, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_ARCHITECTURE, TRUE, L"架构", 100, PH_ALIGN_LEFT, 4, 0);
 
-    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_STACKADDRESS, FALSE, L"Stack address", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_FRAMEADDRESS, FALSE, L"Frame address", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_PARAMETER1, FALSE, L"Stack parameter #1", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_PARAMETER2, FALSE, L"Stack parameter #2", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_PARAMETER3, FALSE, L"Stack parameter #3", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_PARAMETER4, FALSE, L"Stack parameter #4", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_CONTROLADDRESS, FALSE, L"Control address", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_RETURNADDRESS, FALSE, L"Return address", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_FILENAME, FALSE, L"File name", 250, PH_ALIGN_LEFT, ULONG_MAX, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_LINETEXT, FALSE, L"Line number", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_FRAMEDISTANCE, FALSE, L"Frame distance", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_STARTADDRESS, FALSE, L"Start address", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_STARTADDRESSSYMBOL, FALSE, L"Start address (symbolic)", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_PROCESSNAME, FALSE, L"Process name", 250, PH_ALIGN_LEFT, ULONG_MAX, 0);
-    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_THREADNAME, FALSE, L"Thread name", 250, PH_ALIGN_LEFT, ULONG_MAX, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_STACKADDRESS, FALSE, L"堆栈地址", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_FRAMEADDRESS, FALSE, L"帧地址", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_PARAMETER1, FALSE, L"堆栈参数 #1", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_PARAMETER2, FALSE, L"堆栈参数 #2", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_PARAMETER3, FALSE, L"堆栈参数 #3", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_PARAMETER4, FALSE, L"堆栈参数 #4", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_CONTROLADDRESS, FALSE, L"控制地址", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_RETURNADDRESS, FALSE, L"返回地址", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_FILENAME, FALSE, L"文件名", 250, PH_ALIGN_LEFT, ULONG_MAX, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_LINETEXT, FALSE, L"行号", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_FRAMEDISTANCE, FALSE, L"帧距离", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_STARTADDRESS, FALSE, L"起始地址", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_STARTADDRESSSYMBOL, FALSE, L"起始地址(符号)", 100, PH_ALIGN_LEFT, ULONG_MAX, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_PROCESSNAME, FALSE, L"进程名称", 250, PH_ALIGN_LEFT, ULONG_MAX, 0);
+    PhAddTreeNewColumn(Context->TreeNewHandle, PH_THREAD_STACKS_COLUMN_THREADNAME, FALSE, L"线程名称", 250, PH_ALIGN_LEFT, ULONG_MAX, 0);
 
     TreeNew_SetRedraw(Context->TreeNewHandle, TRUE);
     //TreeNew_SetTriState(Context->TreeNewHandle, FALSE);

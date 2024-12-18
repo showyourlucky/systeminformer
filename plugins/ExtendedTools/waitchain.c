@@ -903,15 +903,15 @@ VOID WtcInitializeWaitTree(
     TreeNew_SetCallback(hwnd, WtcWaitTreeNewCallback, Context);
     TreeNew_SetRedraw(hwnd, FALSE);
 
-    PhAddTreeNewColumn(hwnd, TREE_COLUMN_ITEM_TYPE, TRUE, L"Type", 80, PH_ALIGN_LEFT, 0, 0);
-    PhAddTreeNewColumn(hwnd, TREE_COLUMN_ITEM_THREADID, TRUE, L"ThreadId", 50, PH_ALIGN_LEFT, 1, 0);
-    PhAddTreeNewColumn(hwnd, TREE_COLUMN_ITEM_PROCESSID, TRUE, L"ProcessId", 50, PH_ALIGN_LEFT, 2, 0);
-    PhAddTreeNewColumn(hwnd, TREE_COLUMN_ITEM_STATUS, TRUE, L"Status", 80, PH_ALIGN_LEFT, 3, 0);
-    PhAddTreeNewColumn(hwnd, TREE_COLUMN_ITEM_CONTEXTSWITCH, TRUE, L"Context Switches", 70, PH_ALIGN_LEFT, 4, 0);
-    PhAddTreeNewColumn(hwnd, TREE_COLUMN_ITEM_WAITTIME, TRUE, L"WaitTime", 60, PH_ALIGN_LEFT, 5, 0);
-    PhAddTreeNewColumn(hwnd, TREE_COLUMN_ITEM_TIMEOUT, TRUE, L"Timeout", 60, PH_ALIGN_LEFT, 6, 0);
-    PhAddTreeNewColumn(hwnd, TREE_COLUMN_ITEM_ALERTABLE, TRUE, L"Alertable", 50, PH_ALIGN_LEFT, 7, 0);
-    PhAddTreeNewColumn(hwnd, TREE_COLUMN_ITEM_NAME, TRUE, L"Name", 100, PH_ALIGN_LEFT, 8, 0);
+    PhAddTreeNewColumn(hwnd, TREE_COLUMN_ITEM_TYPE, TRUE, L"类型", 80, PH_ALIGN_LEFT, 0, 0);
+    PhAddTreeNewColumn(hwnd, TREE_COLUMN_ITEM_THREADID, TRUE, L"线程ID", 50, PH_ALIGN_LEFT, 1, 0);
+    PhAddTreeNewColumn(hwnd, TREE_COLUMN_ITEM_PROCESSID, TRUE, L"进程ID", 50, PH_ALIGN_LEFT, 2, 0);
+    PhAddTreeNewColumn(hwnd, TREE_COLUMN_ITEM_STATUS, TRUE, L"状态", 80, PH_ALIGN_LEFT, 3, 0);
+    PhAddTreeNewColumn(hwnd, TREE_COLUMN_ITEM_CONTEXTSWITCH, TRUE, L"上下文切换", 70, PH_ALIGN_LEFT, 4, 0);
+    PhAddTreeNewColumn(hwnd, TREE_COLUMN_ITEM_WAITTIME, TRUE, L"等待时间", 60, PH_ALIGN_LEFT, 5, 0);
+    PhAddTreeNewColumn(hwnd, TREE_COLUMN_ITEM_TIMEOUT, TRUE, L"超时", 60, PH_ALIGN_LEFT, 6, 0);
+    PhAddTreeNewColumn(hwnd, TREE_COLUMN_ITEM_ALERTABLE, TRUE, L"可提醒", 50, PH_ALIGN_LEFT, 7, 0);
+    PhAddTreeNewColumn(hwnd, TREE_COLUMN_ITEM_NAME, TRUE, L"名称", 100, PH_ALIGN_LEFT, 8, 0);
 
     TreeNew_SetRedraw(hwnd, TRUE);
     TreeNew_SetTriState(hwnd, TRUE);
