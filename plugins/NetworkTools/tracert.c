@@ -859,10 +859,10 @@ INT_PTR CALLBACK TracertDlgProc(
             LONG dpiValue;
 
             PhSetWindowText(hwndDlg,
-                PhaFormatString(L"Tracing %s...", context->RemoteAddressString)->Buffer
+                PhaFormatString(L"追踪中 %s...", context->RemoteAddressString)->Buffer
                 );
             PhSetWindowText(GetDlgItem(hwndDlg, IDC_STATUS),
-                PhaFormatString(L"Tracing route to %s with %lu bytes of data...", context->RemoteAddressString, PhGetIntegerSetting(SETTING_NAME_PING_SIZE))->Buffer
+                PhaFormatString(L"正在跟踪路由到 %s 数据包大小为 %lu bytes...", context->RemoteAddressString, PhGetIntegerSetting(SETTING_NAME_PING_SIZE))->Buffer
                 );
 
             dpiValue = PhGetWindowDpi(hwndDlg);
@@ -931,11 +931,11 @@ INT_PTR CALLBACK TracertDlgProc(
             case IDC_REFRESH:
                 {
                     PhSetWindowText(context->WindowHandle, PhaFormatString(
-                        L"Tracing %s...",
+                        L"跟踪中 %s...",
                         context->RemoteAddressString
                         )->Buffer);
                     PhSetWindowText(GetDlgItem(hwndDlg, IDC_STATUS), PhaFormatString(
-                        L"Tracing route to %s with %lu bytes of data...",
+                        L"正在跟踪路由到 %s 数据包大小为 %lu bytes...",
                         context->RemoteAddressString,
                         PhGetIntegerSetting(SETTING_NAME_PING_SIZE)
                         )->Buffer);
@@ -1065,12 +1065,12 @@ INT_PTR CALLBACK TracertDlgProc(
             EnableWindow(GetDlgItem(hwndDlg, IDC_REFRESH), TRUE);
 
             PhSetWindowText(context->WindowHandle, PhaFormatString(
-                L"Tracing %s... %s",
+                L"跟踪 %s... %s",
                 context->RemoteAddressString,
                 failed ? L"error" : L"complete"
                 )->Buffer);
             PhSetWindowText(GetDlgItem(hwndDlg, IDC_STATUS), PhaFormatString(
-                L"Tracing route to %s with %lu bytes of data... %s.",
+                L"正在跟踪路由到 %s 数据包大小为 %lu bytes... %s.",
                 context->RemoteAddressString,
                 PhGetIntegerSetting(SETTING_NAME_PING_SIZE),
                 failed ? L"error" : L"complete"

@@ -521,15 +521,15 @@ VOID PhMwpInitializeControls(
 
     PageList = PhCreateList(10);
 
-    PhMwpCreateInternalPage(L"Processes", 0, PhMwpProcessesPageCallback);
+    PhMwpCreateInternalPage(L"进程", 0, PhMwpProcessesPageCallback);
     PhProcessTreeListInitialization();
     PhInitializeProcessTreeList(PhMwpProcessTreeNewHandle);
 
-    PhMwpCreateInternalPage(L"Services", 0, PhMwpServicesPageCallback);
+    PhMwpCreateInternalPage(L"服务", 0, PhMwpServicesPageCallback);
     PhServiceTreeListInitialization();
     PhInitializeServiceTreeList(PhMwpServiceTreeNewHandle);
 
-    PhMwpCreateInternalPage(L"Network", 0, PhMwpNetworkPageCallback);
+    PhMwpCreateInternalPage(L"网络", 0, PhMwpNetworkPageCallback);
     PhNetworkTreeListInitialization();
     PhInitializeNetworkTreeList(PhMwpNetworkTreeNewHandle);
 

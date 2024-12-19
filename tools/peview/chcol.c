@@ -285,14 +285,14 @@ INT_PTR CALLBACK PvColumnsDlgProc(
 
             PvCreateSearchControl(
                 context->SearchInactiveHandle,
-                L"Inactive columns...",
+                L"隐藏列...",
                 PvpInactiveColumnsSearchControlCallback,
                 context
                 );
 
             PvCreateSearchControl(
                 context->SearchActiveHandle,
-                L"Active columns...",
+                L"显示列...",
                 PvpActiveColumnsSearchControlCallback,
                 context
                 );

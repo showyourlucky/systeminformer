@@ -76,38 +76,38 @@ DEFINE_GUID(SubTypeUnknownGuid, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 static TYPE_ENTRY TypeEntries[] =
 {
-    { SERVICE_TRIGGER_TYPE_DEVICE_INTERFACE_ARRIVAL, L"Device interface arrival" },
-    { SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY, L"IP address availability" },
-    { SERVICE_TRIGGER_TYPE_DOMAIN_JOIN, L"Domain join" },
-    { SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT, L"Firewall port event" },
-    { SERVICE_TRIGGER_TYPE_GROUP_POLICY, L"Group policy" },
-    { SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT, L"Network endpoint" },
-    { SERVICE_TRIGGER_TYPE_CUSTOM_SYSTEM_STATE_CHANGE, L"Custom system state change" },
-    { SERVICE_TRIGGER_TYPE_CUSTOM, L"Custom" }
+    { SERVICE_TRIGGER_TYPE_DEVICE_INTERFACE_ARRIVAL, L"设备接口到达" },
+    { SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY, L"IP地址可用性" },
+    { SERVICE_TRIGGER_TYPE_DOMAIN_JOIN, L"加入域" },
+    { SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT, L"防火墙端口事件" },
+    { SERVICE_TRIGGER_TYPE_GROUP_POLICY, L"组策略" },
+    { SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT, L"网络端点" },
+    { SERVICE_TRIGGER_TYPE_CUSTOM_SYSTEM_STATE_CHANGE, L"自定义系统状态更改" },
+    { SERVICE_TRIGGER_TYPE_CUSTOM, L"自定义" }
 };
 
 static SUBTYPE_ENTRY SubTypeEntries[] =
 {
-    { SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY, NULL, L"IP address" },
-    { SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY, &NetworkManagerFirstIpAddressArrivalGuid, L"IP address: First arrival" },
-    { SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY, &NetworkManagerLastIpAddressRemovalGuid, L"IP address: Last removal" },
-    { SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY, &SubTypeUnknownGuid, L"IP address: Unknown" },
-    { SERVICE_TRIGGER_TYPE_DOMAIN_JOIN, NULL, L"Domain" },
-    { SERVICE_TRIGGER_TYPE_DOMAIN_JOIN, &DomainJoinGuid, L"Domain: Join" },
-    { SERVICE_TRIGGER_TYPE_DOMAIN_JOIN, &DomainLeaveGuid, L"Domain: Leave" },
-    { SERVICE_TRIGGER_TYPE_DOMAIN_JOIN, &SubTypeUnknownGuid, L"Domain: Unknown" },
-    { SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT, NULL, L"Firewall port" },
-    { SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT, &FirewallPortOpenGuid, L"Firewall port: Open" },
-    { SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT, &FirewallPortCloseGuid, L"Firewall port: Close" },
-    { SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT, &SubTypeUnknownGuid, L"Firewall port: Unknown" },
-    { SERVICE_TRIGGER_TYPE_GROUP_POLICY, NULL, L"Group policy change" },
-    { SERVICE_TRIGGER_TYPE_GROUP_POLICY, &MachinePolicyPresentGuid, L"Group policy change: Machine" },
-    { SERVICE_TRIGGER_TYPE_GROUP_POLICY, &UserPolicyPresentGuid, L"Group policy change: User" },
-    { SERVICE_TRIGGER_TYPE_GROUP_POLICY, &SubTypeUnknownGuid, L"Group policy change: Unknown" },
-    { SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT, NULL, L"Network endpoint" },
-    { SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT, &RpcInterfaceEventGuid, L"Network endpoint: RPC interface" },
-    { SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT, &NamedPipeEventGuid, L"Network endpoint: Named pipe" },
-    { SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT, &SubTypeUnknownGuid, L"Network endpoint: Unknown" }
+    { SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY, NULL, L"IP地址" },
+    { SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY, &NetworkManagerFirstIpAddressArrivalGuid, L"IP地址：首次到达" },
+    { SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY, &NetworkManagerLastIpAddressRemovalGuid, L"IP地址：最后移除" },
+    { SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY, &SubTypeUnknownGuid, L"IP地址：未知" },
+    { SERVICE_TRIGGER_TYPE_DOMAIN_JOIN, NULL, L"域" },
+    { SERVICE_TRIGGER_TYPE_DOMAIN_JOIN, &DomainJoinGuid, L"域：加入" },
+    { SERVICE_TRIGGER_TYPE_DOMAIN_JOIN, &DomainLeaveGuid, L"域：离开" },
+    { SERVICE_TRIGGER_TYPE_DOMAIN_JOIN, &SubTypeUnknownGuid, L"域：未知" },
+    { SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT, NULL, L"防火墙端口" },
+    { SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT, &FirewallPortOpenGuid, L"防火墙端口：打开" },
+    { SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT, &FirewallPortCloseGuid, L"防火墙端口：关闭" },
+    { SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT, &SubTypeUnknownGuid, L"防火墙端口：未知" },
+    { SERVICE_TRIGGER_TYPE_GROUP_POLICY, NULL, L"组策略更改" },
+    { SERVICE_TRIGGER_TYPE_GROUP_POLICY, &MachinePolicyPresentGuid, L"组策略更改：计算机" },
+    { SERVICE_TRIGGER_TYPE_GROUP_POLICY, &UserPolicyPresentGuid, L"组策略更改：用户" },
+    { SERVICE_TRIGGER_TYPE_GROUP_POLICY, &SubTypeUnknownGuid, L"组策略更改：未知" },
+    { SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT, NULL, L"网络端点" },
+    { SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT, &RpcInterfaceEventGuid, L"网络端点：RPC接口" },
+    { SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT, &NamedPipeEventGuid, L"网络端点：命名管道" },
+    { SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT, &SubTypeUnknownGuid, L"网络端点：未知" }
 };
 
 static PH_STRINGREF PublishersKeyName = PH_STRINGREF_INIT(L"Software\\Microsoft\\Windows\\CurrentVersion\\WINEVT\\Publishers\\");

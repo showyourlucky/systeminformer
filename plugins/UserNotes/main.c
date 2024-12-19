@@ -2337,7 +2337,7 @@ VOID ProcessTreeNewInitializingCallback(
     ProcessTreeNewHandle = info->TreeNewHandle;
 
     memset(&column, 0, sizeof(PH_TREENEW_COLUMN));
-    column.Text = L"Comment";
+    column.Text = L"备注";
     column.Width = 120;
     column.Alignment = PH_ALIGN_LEFT;
 
@@ -2428,7 +2428,7 @@ VOID ServiceTreeNewInitializingCallback(
     ServiceTreeNewHandle = info->TreeNewHandle;
 
     memset(&column, 0, sizeof(PH_TREENEW_COLUMN));
-    column.Text = L"Comment";
+    column.Text = L"备注";
     column.Width = 120;
     column.Alignment = PH_ALIGN_LEFT;
 
@@ -2749,6 +2749,8 @@ LOGICAL DllMain(
             return FALSE;
 
         info->DisplayName = L"User Notes";
+        info->Author = L"dmex, wj32";
+        info->Description = L"允许用户为进程和服务添加备注、保存进程优先级和关联性、突出显示单个进程，并默认以折叠方式显示进程。";info->DisplayName = L"用户备注";
         info->Author = L"dmex, wj32";
         info->Description = L"Allows the user to add comments for processes and services, save process priority and affinity, highlight individual processes and show processes collapsed by default.";
 
