@@ -4,6 +4,25 @@ import json
 from itertools import islice
 import requests
 
+fix_regex = re.compile(r'L"([^"]+)"')
+
+def contains_chinese_regex(text: str) -> bool:
+    """
+    使用正则表达式检查文本中是否包含中文字符。
+
+    Args:
+        text: 要检查的文本。
+
+    Returns:
+        如果文本中包含中文字符，则返回 True，否则返回 False。
+    """
+    pattern = re.compile(r'[\u4e00-\u9fff]')
+    return bool(pattern.search(text))
+
+def is_untranslatable_file(text, translated_dict):
+    """ 如果text不包含中文, 属于术语不需要翻译 """
+    return text and not contains_chinese_regex(text) and text != translated_dict.get(text)
+
 def find_rc_files(directory, suffix=".c"):
     """查找目录下所有.rc文件"""
     rc_files = []
@@ -13,13 +32,12 @@ def find_rc_files(directory, suffix=".c"):
                 rc_files.append(os.path.join(root, file))
     return rc_files
 
-def find_translatable_strings(c_file_path, translated_dict, translated_files, regex):
+def find_translatable_strings_by_line(c_file_path, translated_dict, translated_files, regex):
     """
     查找C/C++文件中需要翻译的字符串, 针对 PhCreateEMenuItem
     """
     translatable_text = {}
     try:
-        dictValves  = translated_dict.values()
         with open(c_file_path, 'r', encoding='utf-8', errors='ignore') as f:
             for line_num, line in enumerate(f, start=1):  # 添加行号
                 # 匹配 PhCreateEMenuItem 函数中的 L"..." 字符串
@@ -27,7 +45,7 @@ def find_translatable_strings(c_file_path, translated_dict, translated_files, re
                 if match:
                     translated_files.add(c_file_path)
                     text = match.group(1)
-                    if text and text not in translated_dict and text not in dictValves:
+                    if is_untranslatable_file(text, translated_dict):
                        translatable_text[text] = ""
     except FileNotFoundError:
         print(f"错误: 文件未找到 {c_file_path}")
@@ -35,6 +53,45 @@ def find_translatable_strings(c_file_path, translated_dict, translated_files, re
         print(f"读取文件时发生错误: {e}， 位置: {line_num}, line: {line.strip()}")
     return translatable_text
 
+def find_translatable_strings_by_line_by_onefile(c_file_path, translated_dict, translated_files, regex):
+    """
+    查找C/C++文件中需要翻译的字符串
+    """
+    translatable_text = {}
+    try:
+        with open(c_file_path, 'r', encoding='utf-8', errors='ignore') as f:
+            content = f.read()
+            match_contents = re.finditer(regex, content)
+            if any(match_contents):
+                translated_files.add(c_file_path)
+                for match in match_contents:
+                    text = match.group(1)
+                    if is_untranslatable_file(text, translated_dict):
+                        translatable_text[text] = ""
+   
+    except Exception as e:
+        print(f"读取文件时发生错误: {e}")
+    return translatable_text
+
+def find_translatable_strings_by_onefile_multi_regex(c_file_path, translated_dict, msgRegexList, translated_file_regexs):
+    """ 根据多段正则匹配文件里 """
+    untranslatable_text = {}
+    with open(c_file_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    for regex in msgRegexList:
+        for match in regex.finditer(content):
+            # 获取整个匹配的字符串
+            item = match.group(0)  
+            # 匹配 L"..." 字符串
+            matches = re.findall(fix_regex, item)
+            if any(matches):
+                # 记录要修改的文件和正则表达式
+                translated_file_regexs.setdefault(c_file_path, set()).add(regex)
+            for text in matches:
+                # 未翻译过的字段
+                if is_untranslatable_file(text, translated_dict):
+                    untranslatable_text[text] = ""
+    return untranslatable_text
 
 def replace_strings(c_file_path, translated_dict, regex):
     """
@@ -44,7 +101,6 @@ def replace_strings(c_file_path, translated_dict, regex):
         with open(c_file_path, 'r', encoding='utf-8') as file:
             lines = file.readlines()
 
-        dictValves  = translated_dict.values()
         # 使用列表推导式和 re.sub 进行替换
         new_lines = []
         for line in lines:
@@ -52,7 +108,7 @@ def replace_strings(c_file_path, translated_dict, regex):
             if match:
                 text = match.group(1)
                 # 未翻译过的字段
-                if text not in dictValves and text in translated_dict:
+                if is_untranslatable_file(text, translated_dict):
                     line = line.replace(f'"{text}"', f'"{translated_dict.get(text)}"')
             new_lines.append(line)
 
@@ -63,6 +119,40 @@ def replace_strings(c_file_path, translated_dict, regex):
     except Exception as e:
          print(f"发生错误: {e}")
 
+def replace_strings_by_onefile_multi_regex(c_file, regexs, translated_dict):
+    is_update = False
+    replacements = []
+    with open(c_file, 'r+', encoding='utf-8') as f:
+        content = f.read()
+        for regex in regexs:
+            # 匹配PhShowMessage等函数
+            for match in regex.finditer(content):
+                # 获取整个匹配的字符串
+                item = match.group(0)
+                translate_text = item
+                # 匹配 L"..." 字符串
+                matches = re.findall(fix_regex, item)
+                for text in matches:
+                    value = translated_dict.get(text)
+                    if value and value != text:
+                        translate_text = translate_text.replace(f'L"{text}"', f'L"{value}"')
+                        # print(translate_text)
+                if matches and translate_text != item:
+                    # content = content.replace(item, translate_text)
+                    replacements.append((match.start(), match.end(), translate_text))
+                    is_update = True
+        if is_update:
+            # 写入 content
+            new_content = ""
+            last_end = 0
+            for start, end, replacement_text in replacements:
+                new_content += content[last_end:start] + replacement_text
+                last_end = end
+            new_content += content[last_end:]
+
+            f.seek(0)
+            f.write(new_content)
+            f.truncate()
 
 def translate_json(untranslatable_json):
     """逐个翻译json文件中的key，并将结果保存到value"""
@@ -165,7 +255,7 @@ def translata_by_fixComponent(c_files, base_dir, systeminformer_dir, untranslata
     translated_files = set()
     # 提取可翻译字符串
     for c_file in c_files:
-        translatable_text = find_translatable_strings(c_file, translated_dict, translated_files, regex)
+        translatable_text = find_translatable_strings_by_line(c_file, translated_dict, translated_files, regex)
         untranslatable_json.update(translatable_text)
 
      # 翻译 untranslatable_json中的key
@@ -181,6 +271,52 @@ def translata_by_fixComponent(c_files, base_dir, systeminformer_dir, untranslata
     # 替换 C 文件中的字符串
     for c_file in translated_files:
         replace_strings(c_file, translated_dict, regex)
+
+def getFixRegex(Prefix, paramNum):
+        fixTxt = 'L"([^"]+)"'
+        """Prefix表示哪个函数, paramNum表示汉化字段前面的参数个数"""
+        text = ''
+        for i in range(paramNum):
+            text += '[^,]+,\s*'
+        return re.compile(Prefix + '\s*\(' + text + fixTxt)
+    
+def getFixRegex2(Prefix, paramNum, paramNum2 = 1, endStr = ""):
+    """Prefix表示哪个函数, paramNum表示汉化字段前面的参数个数"""
+    text = ''
+    for i in range(paramNum):
+        text += '[^,]+,\s*'
+    param_l = ['L"([^"]+)"' for _ in range(paramNum2)]
+    text += ",\s*".join(param_l)
+
+    # for i in range(paramNum2):
+    #     text += 'L"([^"]+)",\s*'
+    # # 移除最后的,\s*
+    # text = text[:-4]
+    return re.compile(Prefix + '\s*\(' + text + endStr, re.DOTALL)
+
+def translata_by_ShowMessage(c_files, base_dir, untranslatable_json, translated_dict, msgRegexStrs):
+    """先从第一段正则找出匹配项, 再从第二段正则找出翻译项, 最后替换"""
+
+    translated_file_regexs = {}
+
+    msgRegexList = [re.compile(r, re.DOTALL) for r in msgRegexStrs] 
+    
+    for c_file in c_files:
+        untranslatable_text = find_translatable_strings_by_onefile_multi_regex(c_file, translated_dict, msgRegexList, translated_file_regexs)
+        untranslatable_json.update(untranslatable_text)
+    # 翻译
+    translateMap = translate_json(untranslatable_json)
+    if translateMap:
+        # 防止有key没有被翻译, translateMap中没有key
+        untranslatable_json.update(translateMap)
+        translated_dict.update(untranslatable_json)
+        # 保存untranslatable_json到translated_dict
+        with open(base_dir + "/translate_text.json", 'w', encoding='utf-8') as f:
+            json.dump(translated_dict, f, ensure_ascii=False, indent=4)
+
+    for c_file, regexs in translated_file_regexs.items():
+        replace_strings_by_onefile_multi_regex(c_file, regexs, translated_dict)
+
 
 def main():
 
@@ -222,27 +358,7 @@ def main():
     # 查找所有.c文件
     c_files = find_rc_files(systeminformer_dir, ".c")
 
-    def getFixRegex(Prefix, paramNum):
-        fixTxt = 'L"([^"]+)"'
-        """Prefix表示哪个函数, paramNum表示汉化字段前面的参数个数"""
-        text = ''
-        for i in range(paramNum):
-            text += '[^,]+,\s*'
-        return re.compile(Prefix + '\s*\(' + text + fixTxt)
     
-    def getFixRegex2(Prefix, paramNum, paramNum2 = 1, endStr = ""):
-        """Prefix表示哪个函数, paramNum表示汉化字段前面的参数个数"""
-        text = ''
-        for i in range(paramNum):
-            text += '[^,]+,\s*'
-        param_l = ['L"([^"]+)"' for _ in range(paramNum2)]
-        text += ",\s*".join(param_l)
-
-        # for i in range(paramNum2):
-        #     text += 'L"([^"]+)",\s*'
-        # # 移除最后的,\s*
-        # text = text[:-4]
-        return re.compile(Prefix + '\s*\(' + text + endStr)
     
     # regex = getFixRegex('PhCreateEMenuItem', 2)
     # regex = re.compile(r'PhCreateEMenuItem\s*\([^,]+,\s*[^,]+,[^\"]*\"([^\"]+)\"')
@@ -260,73 +376,21 @@ def main():
     # regex = getFixRegex('PhAddListViewGroup', 2)
 
     # regex = getFixRegex('PhAddTreeNewColumn', 3)
-    regex = getFixRegex('PhAddTreeNewColumnEx2', 3)
-
-
+    # regex = getFixRegex('PhAddTreeNewColumnEx', 3)
+    # regex = getFixRegex('PhAddTreeNewColumnEx2', 3)
+    regex = getFixRegex('PhPluginCreateEMenuItem', 3)
     # translata_by_fixComponent(c_files, base_dir, systeminformer_dir, untranslatable_json, translated_dict, regex)
-    msgRegexList = ['PhShowConfirmMessage', 'PhShowWarning', 'PhShowMessage', 
-                    'PhShowMessage2', 'PhShowStatus', 'PhShowError', 'PhShowError2'
-                    ]
-    translata_by_ShowMessage(c_files, base_dir, untranslatable_json, translated_dict, translated_dict.values(), msgRegexList)
-
-def translata_by_ShowMessage(c_files, base_dir, untranslatable_json, translated_dict, dictValves, msgRegexList):
-    regex2 = re.compile(r'L"([^"]+)"')
-    regex = re.compile(r'Ph[p]?Show\w+\((.*?)\)', re.DOTALL)
-    translated_files = set()
-    for c_file in c_files:
-        with open(c_file, 'r', encoding='utf-8') as f:
-            content = f.read()
-            untranslatable_text = {}
-            match_content_map = {}
-            # 匹配PhShowMessage等函数中的 L"..." 字符串
-            # for msgRegex in msgRegexList:
-            
-            match_contents = re.findall(regex, content)
-            # match_content_map[msgRegex] = match_contents
-            for item in match_contents:
-                matches = re.findall(regex2, item)
-                for text in matches:
-                    translated_files.add(c_file)
-                    if text and text not in translated_dict and text not in dictValves:
-                        untranslatable_text[text] = ""
-            untranslatable_json.update(untranslatable_text)
-    # 翻译
-    translateMap = translate_json(untranslatable_json)
-    if translateMap:
-        # 防止有key没有被翻译, translateMap中没有key
-        untranslatable_json.update(translateMap)
-        translated_dict.update(untranslatable_json)
-        # 保存untranslatable_json到translated_dict
-        with open(base_dir + "/translate_text.json", 'w', encoding='utf-8') as f:
-            json.dump(translated_dict, f, ensure_ascii=False, indent=4)
-            # 遍历match_content_map 替换 content 中的字符串
-            # for msgRegex, match_contents in match_content_map.items():
-
-    for c_file in translated_files:
-        is_update = False
-        with open(c_file, 'r', encoding='utf-8') as f:
-            content = f.read()
-            # 匹配PhShowMessage等函数
-            match_contents = re.findall(regex, content)
-            for item in match_contents:
-                translate_text = item
-                # 匹配 L"..." 字符串
-                matches = re.findall(regex2, item)
-                for text in matches:
-                    value = translated_dict.get(text)
-                    if value and value != text:
-                        translate_text = translate_text.replace(f'L"{text}"', f'L"{translated_dict.get(text)}"')
-                        # print(translate_text)
-                if matches and translate_text != item:
-                    content = content.replace(item, translate_text)
-                    is_update = True
-                    if is_update:
-                        # 写入 content
-                        with open(c_file, 'w', encoding='utf-8') as f:
-                            f.write(content)
-
-
-
+    # show相关函数翻译
+    msgRegexStrs = ['Ph[p]?Show\w+\((.*?)\)']
+    # 设备函数翻译
+    # msgRegexStrs = ['const DEVICE_PROPERTY_TABLE_ENTRY DeviceItemPropertyTable\[\] =\s*\{(.*?)\};']
+    # c_files = ['F:\systeminformer_zh\systeminformer_my\plugins\HardwareDevices\devicetree.c']
+    # 防火墙翻译
+    # msgRegexStrs = ['static[^\[]+\[\] =\s*\{(.*?)\};']
+    # c_files = ['F:/systeminformer_zh/systeminformer_my/plugins/ExtendedServices/trigger.c']
+    # msgRegexStrs = ['column\.Text =(.*?);']
+    msgRegexStrs = ['info->DisplayName =(.*?);', 'info->Description =(.*?);']
+    translata_by_ShowMessage(c_files, base_dir, untranslatable_json, translated_dict, msgRegexStrs)
 
 if __name__ == "__main__":
     main()
