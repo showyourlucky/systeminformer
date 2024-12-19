@@ -229,7 +229,7 @@ VOID EtInitializeFirewallTab(
     PH_MAIN_TAB_PAGE page;
 
     memset(&page, 0, sizeof(PH_MAIN_TAB_PAGE));
-    PhInitializeStringRef(&page.Name, L"Firewall");
+    PhInitializeStringRef(&page.Name, L"防火墙");
     page.Callback = FwTabPageCallback;
     EtFwAddedTabPage = PhPluginCreateTabPage(&page);
 
@@ -238,7 +238,7 @@ VOID EtInitializeFirewallTab(
         PTOOLSTATUS_TAB_INFO tabInfo;
 
         tabInfo = EtFwToolStatusInterface->RegisterTabInfo(EtFwAddedTabPage->Index);
-        tabInfo->BannerText = L"Search Firewall";
+        tabInfo->BannerText = L"搜索防火墙";
         tabInfo->ActivateContent = FwToolStatusActivateContent;
         tabInfo->GetTreeNewHandle = FwToolStatusGetTreeNewHandle;
     }
@@ -262,11 +262,11 @@ VOID InitializeFwTreeList(
     PhAddTreeNewColumn(FwTreeNewHandle, FW_COLUMN_DIRECTION, TRUE, L"方向", 40, PH_ALIGN_LEFT, FW_COLUMN_DIRECTION, 0);
     PhAddTreeNewColumn(FwTreeNewHandle, FW_COLUMN_RULENAME, TRUE, L"规则", 240, PH_ALIGN_LEFT, FW_COLUMN_RULENAME, 0);
     PhAddTreeNewColumn(FwTreeNewHandle, FW_COLUMN_RULEDESCRIPTION, TRUE, L"描述", 180, PH_ALIGN_LEFT, FW_COLUMN_RULEDESCRIPTION, 0);
-    PhAddTreeNewColumnEx(FwTreeNewHandle, FW_COLUMN_LOCALADDRESS, TRUE, L"Local address", 220, PH_ALIGN_RIGHT, FW_COLUMN_LOCALADDRESS, DT_RIGHT, TRUE);
-    PhAddTreeNewColumnEx(FwTreeNewHandle, FW_COLUMN_LOCALPORT, TRUE, L"Local port", 50, PH_ALIGN_LEFT, FW_COLUMN_LOCALPORT, DT_LEFT, TRUE);
+    PhAddTreeNewColumnEx(FwTreeNewHandle, FW_COLUMN_LOCALADDRESS, TRUE, L"本地地址", 220, PH_ALIGN_RIGHT, FW_COLUMN_LOCALADDRESS, DT_RIGHT, TRUE);
+    PhAddTreeNewColumnEx(FwTreeNewHandle, FW_COLUMN_LOCALPORT, TRUE, L"本地端口", 50, PH_ALIGN_LEFT, FW_COLUMN_LOCALPORT, DT_LEFT, TRUE);
     PhAddTreeNewColumn(FwTreeNewHandle, FW_COLUMN_LOCALHOSTNAME, TRUE, L"本地主机名", 70, PH_ALIGN_LEFT, FW_COLUMN_LOCALHOSTNAME, 0);
-    PhAddTreeNewColumnEx(FwTreeNewHandle, FW_COLUMN_REMOTEADDRESS, TRUE, L"Remote address", 220, PH_ALIGN_RIGHT, FW_COLUMN_REMOTEADDRESS, DT_RIGHT, TRUE);
-    PhAddTreeNewColumnEx(FwTreeNewHandle, FW_COLUMN_REMOTEPORT, TRUE, L"Remote port", 50, PH_ALIGN_LEFT, FW_COLUMN_REMOTEPORT, DT_LEFT, TRUE);
+    PhAddTreeNewColumnEx(FwTreeNewHandle, FW_COLUMN_REMOTEADDRESS, TRUE, L"远程地址", 220, PH_ALIGN_RIGHT, FW_COLUMN_REMOTEADDRESS, DT_RIGHT, TRUE);
+    PhAddTreeNewColumnEx(FwTreeNewHandle, FW_COLUMN_REMOTEPORT, TRUE, L"远程端口", 50, PH_ALIGN_LEFT, FW_COLUMN_REMOTEPORT, DT_LEFT, TRUE);
     PhAddTreeNewColumn(FwTreeNewHandle, FW_COLUMN_REMOTEHOSTNAME, TRUE, L"远程主机名", 70, PH_ALIGN_LEFT, FW_COLUMN_REMOTEHOSTNAME, 0);
     PhAddTreeNewColumn(FwTreeNewHandle, FW_COLUMN_PROTOCOL, TRUE, L"协议", 60, PH_ALIGN_LEFT, FW_COLUMN_PROTOCOL, 0);
     PhAddTreeNewColumn(FwTreeNewHandle, FW_COLUMN_TIMESTAMP, TRUE, L"时间戳", 60, PH_ALIGN_LEFT, FW_COLUMN_TIMESTAMP, 0);

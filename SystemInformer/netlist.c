@@ -133,7 +133,7 @@ VOID PhInitializeNetworkTreeList(
     PhAddTreeNewColumn(TreeNewHandle, PHNETLC_PROTOCOL, TRUE, L"协议", 45, PH_ALIGN_LEFT, 6, 0);
     PhAddTreeNewColumn(TreeNewHandle, PHNETLC_STATE, TRUE, L"状态", 70, PH_ALIGN_LEFT, 7, 0);
     PhAddTreeNewColumn(TreeNewHandle, PHNETLC_OWNER, TRUE, L"所有者", 80, PH_ALIGN_LEFT, 8, 0);
-    PhAddTreeNewColumnEx(TreeNewHandle, PHNETLC_TIMESTAMP, FALSE, L"Time stamp", 100, PH_ALIGN_LEFT, ULONG_MAX, 0, TRUE);
+    PhAddTreeNewColumnEx(TreeNewHandle, PHNETLC_TIMESTAMP, FALSE, L"时间戳", 100, PH_ALIGN_LEFT, ULONG_MAX, 0, TRUE);
     PhAddTreeNewColumn(TreeNewHandle, PHNETLC_LOCALHOSTNAME, FALSE, L"本地主机名", 120, PH_ALIGN_LEFT, ULONG_MAX, 0);
     PhAddTreeNewColumn(TreeNewHandle, PHNETLC_REMOTEHOSTNAME, FALSE, L"远程主机名", 120, PH_ALIGN_LEFT, ULONG_MAX, 0);
     PhAddTreeNewColumnEx2(TreeNewHandle, PHNETLC_TIMELINE, FALSE, L"时间线", 100, PH_ALIGN_LEFT, ULONG_MAX, 0, TN_COLUMN_FLAG_CUSTOMDRAW | TN_COLUMN_FLAG_SORTDESCENDING);

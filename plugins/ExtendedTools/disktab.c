@@ -19,7 +19,7 @@ static BOOLEAN DiskTreeNewCreated = FALSE;
 static HWND DiskTreeNewHandle = NULL;
 static ULONG DiskTreeNewSortColumn = 0;
 static PH_SORT_ORDER DiskTreeNewSortOrder = NoSortOrder;
-static PH_STRINGREF DiskTreeEmptyText = PH_STRINGREF_INIT(L"Disk monitoring requires System Informer to be restarted with administrative privileges.");
+static PH_STRINGREF DiskTreeEmptyText = PH_STRINGREF_INIT(L"磁盘监控需要以管理员权限重新启动 System Informer。");
 static PPH_STRING DiskTreeErrorText = NULL;
 
 static PPH_HASHTABLE DiskNodeHashtable = NULL; // hashtable of all nodes
@@ -42,7 +42,7 @@ VOID EtInitializeDiskTab(
     PH_MAIN_TAB_PAGE page;
 
     memset(&page, 0, sizeof(PH_MAIN_TAB_PAGE));
-    PhInitializeStringRef(&page.Name, L"Disk");
+    PhInitializeStringRef(&page.Name, L"磁盘");
     page.Callback = EtpDiskPageCallback;
     DiskPage = PhPluginCreateTabPage(&page);
 
@@ -51,7 +51,7 @@ VOID EtInitializeDiskTab(
         PTOOLSTATUS_TAB_INFO tabInfo;
 
         tabInfo = ToolStatusInterface->RegisterTabInfo(DiskPage->Index);
-        tabInfo->BannerText = L"Search Disk";
+        tabInfo->BannerText = L"搜索磁盘";
         tabInfo->ActivateContent = EtpToolStatusActivateContent;
         tabInfo->GetTreeNewHandle = EtpToolStatusGetTreeNewHandle;
     }
@@ -130,7 +130,7 @@ BOOLEAN EtpDiskPageCallback(
                     {
                         DiskTreeErrorText = PhFormatString(
                             L"%s %s (%lu)",
-                            L"Unable to start the kernel event tracing session: ",
+                            L"无法启动内核事件跟踪会话: ",
                             statusMessage->Buffer,
                             EtEtwStatus
                             );
@@ -140,7 +140,7 @@ BOOLEAN EtpDiskPageCallback(
                     {
                         DiskTreeErrorText = PhFormatString(
                             L"%s (%lu)",
-                            L"Unable to start the kernel event tracing session: ",
+                            L"无法启动内核事件跟踪会话: ",
                             EtEtwStatus
                             );
                     }
@@ -273,11 +273,11 @@ VOID EtInitializeDiskTreeList(
     PhAddTreeNewColumn(WindowHandle, ETDSTNC_NAME, TRUE, L"名称", 100, PH_ALIGN_LEFT, 0, 0);
     PhAddTreeNewColumn(WindowHandle, ETDSTNC_PID, TRUE, L"PID", 50, PH_ALIGN_RIGHT, 1, DT_RIGHT);
     PhAddTreeNewColumn(WindowHandle, ETDSTNC_FILE, TRUE, L"文件", 400, PH_ALIGN_LEFT, 2, DT_PATH_ELLIPSIS);
-    PhAddTreeNewColumnEx(WindowHandle, ETDSTNC_READRATEAVERAGE, TRUE, L"Read rate average", 70, PH_ALIGN_RIGHT, 3, DT_RIGHT, TRUE);
-    PhAddTreeNewColumnEx(WindowHandle, ETDSTNC_WRITERATEAVERAGE, TRUE, L"Write rate average", 70, PH_ALIGN_RIGHT, 4, DT_RIGHT, TRUE);
-    PhAddTreeNewColumnEx(WindowHandle, ETDSTNC_TOTALRATEAVERAGE, TRUE, L"Total rate average", 70, PH_ALIGN_RIGHT, 5, DT_RIGHT, TRUE);
-    PhAddTreeNewColumnEx(WindowHandle, ETDSTNC_IOPRIORITY, TRUE, L"I/O priority", 70, PH_ALIGN_LEFT, 6, 0, TRUE);
-    PhAddTreeNewColumnEx(WindowHandle, ETDSTNC_RESPONSETIME, TRUE, L"Response time (ms)", 70, PH_ALIGN_RIGHT, 7, 0, TRUE);
+    PhAddTreeNewColumnEx(WindowHandle, ETDSTNC_READRATEAVERAGE, TRUE, L"读取速率平均值", 70, PH_ALIGN_RIGHT, 3, DT_RIGHT, TRUE);
+    PhAddTreeNewColumnEx(WindowHandle, ETDSTNC_WRITERATEAVERAGE, TRUE, L"写入速率平均值", 70, PH_ALIGN_RIGHT, 4, DT_RIGHT, TRUE);
+    PhAddTreeNewColumnEx(WindowHandle, ETDSTNC_TOTALRATEAVERAGE, TRUE, L"总速率平均值", 70, PH_ALIGN_RIGHT, 5, DT_RIGHT, TRUE);
+    PhAddTreeNewColumnEx(WindowHandle, ETDSTNC_IOPRIORITY, TRUE, L"I/O优先级", 70, PH_ALIGN_LEFT, 6, 0, TRUE);
+    PhAddTreeNewColumnEx(WindowHandle, ETDSTNC_RESPONSETIME, TRUE, L"响应时间（毫秒）", 70, PH_ALIGN_RIGHT, 7, 0, TRUE);
     PhAddTreeNewColumn(WindowHandle, ETDSTNC_ORIGINALNAME, FALSE, L"原始名称", 200, PH_ALIGN_LEFT, ULONG_MAX, DT_PATH_ELLIPSIS);
 
     TreeNew_SetRedraw(WindowHandle, TRUE);
@@ -1347,7 +1347,7 @@ HWND NTAPI EtpToolStatusGetTreeNewHandle(
 //            }
 //            else
 //            {
-//                PhSetDialogItemText(hwndDlg, IDC_ERROR, L"Unable to start the kernel event tracing session.");
+//                PhSetDialogItemText(hwndDlg, IDC_ERROR, L"无法启动内核事件跟踪会话.");
 //                ShowWindow(GetDlgItem(hwndDlg, IDC_RESTART), SW_HIDE);
 //            }
 //
