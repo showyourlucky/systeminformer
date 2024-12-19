@@ -598,9 +598,9 @@ LOGICAL DllMain(
             if (!PluginInstance)
                 return FALSE;
 
-            info->DisplayName = L"Online Checks";
+            info->DisplayName = L"在线检查";
             info->Author = L"dmex, wj32";
-            info->Description = L"Allows files to be checked with online services.";
+            info->Description = L"允许通过在线服务检查文件。";
 
             PhRegisterCallback(
                 PhGetPluginCallback(PluginInstance, PluginCallbackLoad),

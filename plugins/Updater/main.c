@@ -173,9 +173,9 @@ LOGICAL DllMain(
             if (!PluginInstance)
                 return FALSE;
 
-            info->DisplayName = L"Update Checker";
+            info->DisplayName = L"更新检查器";
             info->Author = L"dmex";
-            info->Description = L"Plugin for checking new System Informer releases via the Help menu.";
+            info->Description = L"在帮助菜单中检查新的 System Informer 发行版的插件。";
 
             PhRegisterCallback(
                 PhGetGeneralCallback(GeneralCallbackMainWindowShowing),

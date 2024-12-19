@@ -85,9 +85,9 @@ LOGICAL DllMain(
             if (!PluginInstance)
                 return FALSE;
 
-            info->DisplayName = L"Extended Notifications";
+            info->DisplayName = L"扩展通知";
             info->Author = L"wj32";
-            info->Description = L"Filters notifications.";
+            info->Description = L"筛选通知。";
 
             PhRegisterCallback(
                 PhGetPluginCallback(PluginInstance, PluginCallbackLoad),

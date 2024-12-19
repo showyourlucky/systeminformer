@@ -222,9 +222,9 @@ LOGICAL DllMain(
             if (!PluginInstance)
                 return FALSE;
 
-            info->DisplayName = L"Window Explorer";
+            info->DisplayName = L"窗口资源管理器";
             info->Author = L"dmex, wj32";
-            info->Description = L"View and manipulate windows.";
+            info->Description = L"查看和操作窗口。";
 
             //PhRegisterCallback(
             //    PhGetPluginCallback(PluginInstance, PluginCallbackLoad),

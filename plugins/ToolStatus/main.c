@@ -1920,9 +1920,9 @@ LOGICAL DllMain(
             if (!PluginInstance)
                 return FALSE;
 
-            info->DisplayName = L"Toolbar and Status Bar";
+            info->DisplayName = L"工具栏和状态栏";
             info->Author = L"dmex, wj32";
-            info->Description = L"Adds a Toolbar, Status Bar and Search box.\r\n\r\nModern Toolbar icons by http://www.icons8.com";
+            info->Description = L"添加工具栏、状态栏和搜索框。\r\n\r\n现代工具栏图标由 http://www.icons8.com 提供";
             info->Interface = &PluginInterface;
 
             PhRegisterCallback(

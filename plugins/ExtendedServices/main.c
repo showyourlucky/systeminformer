@@ -577,9 +577,9 @@ LOGICAL DllMain(
             if (!PluginInstance)
                 return FALSE;
 
-            info->DisplayName = L"Extended Services";
+            info->DisplayName = L"扩展服务";
             info->Author = L"dmex, wj32";
-            info->Description = L"Extends service management capabilities.";
+            info->Description = L"扩展服务管理功能。";
 
             PhRegisterCallback(
                 PhGetPluginCallback(PluginInstance, PluginCallbackMenuItem),

@@ -1315,9 +1315,9 @@ LOGICAL DllMain(
             if (!PluginInstance)
                 return FALSE;
 
-            info->DisplayName = L"Extended Tools";
+            info->DisplayName = L"扩展工具";
             info->Author = L"dmex, wj32";
-            info->Description = L"Extended functionality for Windows 7 and above, including ETW, GPU, Disk and Firewall monitoring tabs.";
+            info->Description = L"为 Windows 7 及以上版本扩展功能，包括 ETW、GPU、磁盘和防火墙监控选项卡。";
             info->Interface = &PluginInterface;
 
             PhRegisterCallback(

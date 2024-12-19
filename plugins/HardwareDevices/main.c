@@ -683,9 +683,9 @@ LOGICAL DllMain(
             if (!PluginInstance)
                 return FALSE;
 
-            info->DisplayName = L"Hardware Devices";
+            info->DisplayName = L"硬件设备";
             info->Author = L"dmex, wj32, jxy-s";
-            info->Description = L"Plugin for monitoring hardware devices like Disk drives and Network adapters via the System Information window.";
+            info->Description = L"通过系统信息窗口监控磁盘驱动器和网络适配器等硬件设备的插件。";
 
             PhRegisterCallback(
                 PhGetPluginCallback(PluginInstance, PluginCallbackLoad),

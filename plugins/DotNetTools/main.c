@@ -220,9 +220,9 @@ LOGICAL DllMain(
             if (!PluginInstance)
                 return FALSE;
 
-            info->DisplayName = L".NET Tools";
+            info->DisplayName = L".NET 工具";
             info->Author = L"dmex, wj32";
-            info->Description = L"Adds .NET performance counters, assembly information, thread stack support, and more.";
+            info->Description = L"添加 .NET 性能计数器、程序集信息、线程堆栈支持等功能。";
 
             //PhRegisterCallback(
             //    PhGetPluginCallback(PluginInstance, PluginCallbackLoad),
