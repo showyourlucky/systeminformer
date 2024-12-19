@@ -320,10 +320,10 @@ VOID NTAPI MainMenuInitializingCallback(
     if (menuInfo->u.MainMenu.SubMenuIndex != PH_MENU_ITEM_LOCATION_TOOLS)
         return;
 
-    onlineMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, 0, L"&User Notes", NULL);
-    PhInsertEMenuItem(onlineMenuItem, PhPluginCreateEMenuItem(PluginInstance, 0, FILE_PRIORITY_SAVE_IFEO, L"Configure priority for executable...", NULL), ULONG_MAX);
-    PhInsertEMenuItem(onlineMenuItem, PhPluginCreateEMenuItem(PluginInstance, 0, FILE_IO_PRIORITY_SAVE_IFEO, L"Configure IO priority for executable...", NULL), ULONG_MAX);
-    PhInsertEMenuItem(onlineMenuItem, PhPluginCreateEMenuItem(PluginInstance, 0, FILE_PAGE_PRIORITY_SAVE_IFEO, L"Configure page priority for executable...", NULL), ULONG_MAX);
+    onlineMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, 0, L"用户注释", NULL);
+    PhInsertEMenuItem(onlineMenuItem, PhPluginCreateEMenuItem(PluginInstance, 0, FILE_PRIORITY_SAVE_IFEO, L"配置可执行文件的优先级...", NULL), ULONG_MAX);
+    PhInsertEMenuItem(onlineMenuItem, PhPluginCreateEMenuItem(PluginInstance, 0, FILE_IO_PRIORITY_SAVE_IFEO, L"配置可执行文件的IO优先级...", NULL), ULONG_MAX);
+    PhInsertEMenuItem(onlineMenuItem, PhPluginCreateEMenuItem(PluginInstance, 0, FILE_PAGE_PRIORITY_SAVE_IFEO, L"配置可执行文件的页面优先级...", NULL), ULONG_MAX);
     PhInsertEMenuItem(menuInfo->Menu, onlineMenuItem, ULONG_MAX);
 }
 
@@ -2073,11 +2073,11 @@ VOID AddSavePriorityMenuItemsAndHook(
         ULONG index = PhIndexOfEMenuItem(MenuInfo->Menu, affinityMenuItem);
         PhRemoveEMenuItem(MenuInfo->Menu, affinityMenuItem, 0);
 
-        affinityMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, 0, L"&Affinity", NULL);
-        PhInsertEMenuItem(affinityMenuItem, PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_AFFINITY_ID, L"Set &affinity", NULL), ULONG_MAX);
+        affinityMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, 0, L"关联性", NULL);
+        PhInsertEMenuItem(affinityMenuItem, PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_AFFINITY_ID, L"设置关联性", NULL), ULONG_MAX);
         PhInsertEMenuItem(affinityMenuItem, PhCreateEMenuSeparator(), ULONG_MAX);
         PhInsertEMenuItem(affinityMenuItem, saveMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_AFFINITY_SAVE_ID, PhaFormatString(L"&Save for %s", ProcessItem->ProcessName->Buffer)->Buffer, NULL), ULONG_MAX);
-        PhInsertEMenuItem(affinityMenuItem, saveForCommandLineMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_AFFINITY_SAVE_FOR_THIS_COMMAND_LINE_ID, L"Save &for this command line", NULL), ULONG_MAX);
+        PhInsertEMenuItem(affinityMenuItem, saveForCommandLineMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_AFFINITY_SAVE_FOR_THIS_COMMAND_LINE_ID, L"为此命令行保存", NULL), ULONG_MAX);
         PhInsertEMenuItem(MenuInfo->Menu, affinityMenuItem, index);
 
         if (!ProcessItem->CommandLine)
@@ -2096,11 +2096,11 @@ VOID AddSavePriorityMenuItemsAndHook(
     // Boost
     if (affinityMenuItem)
     {
-        boostMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, 0, L"&Boost", NULL);
-        PhInsertEMenuItem(boostMenuItem, boostPluginMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_BOOST_PRIORITY_ID, L"Set &boost", NULL), ULONG_MAX);
+        boostMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, 0, L"加速", NULL);
+        PhInsertEMenuItem(boostMenuItem, boostPluginMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_BOOST_PRIORITY_ID, L"设置加速", NULL), ULONG_MAX);
         PhInsertEMenuItem(boostMenuItem, PhCreateEMenuSeparator(), ULONG_MAX);
         PhInsertEMenuItem(boostMenuItem, saveMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_BOOST_PRIORITY_SAVE_ID, PhaFormatString(L"&Save for %s", ProcessItem->ProcessName->Buffer)->Buffer, NULL), ULONG_MAX);
-        PhInsertEMenuItem(boostMenuItem, saveForCommandLineMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_BOOST_PRIORITY_SAVE_FOR_THIS_COMMAND_LINE_ID, L"Save &for this command line", NULL), ULONG_MAX);
+        PhInsertEMenuItem(boostMenuItem, saveForCommandLineMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_BOOST_PRIORITY_SAVE_FOR_THIS_COMMAND_LINE_ID, L"为此命令行保存", NULL), ULONG_MAX);
         PhInsertEMenuItem(MenuInfo->Menu, boostMenuItem, PhIndexOfEMenuItem(MenuInfo->Menu, affinityMenuItem) + 1);
 
         if (!ProcessItem->CommandLine)
@@ -2129,11 +2129,11 @@ VOID AddSavePriorityMenuItemsAndHook(
     // Efficiency
     if (boostMenuItem)
     {
-        efficiencyMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, 0, L"&Efficiency", NULL);
-        PhInsertEMenuItem(efficiencyMenuItem, efficiencyPluginMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_EFFICIENCY_ID, L"Set &efficiency mode", NULL), ULONG_MAX);
+        efficiencyMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, 0, L"效率", NULL);
+        PhInsertEMenuItem(efficiencyMenuItem, efficiencyPluginMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_EFFICIENCY_ID, L"设置效率模式", NULL), ULONG_MAX);
         PhInsertEMenuItem(efficiencyMenuItem, PhCreateEMenuSeparator(), ULONG_MAX);
         PhInsertEMenuItem(efficiencyMenuItem, saveMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_EFFICIENCY_SAVE_ID, PhaFormatString(L"&Save for %s", ProcessItem->ProcessName->Buffer)->Buffer, NULL), ULONG_MAX);
-        PhInsertEMenuItem(efficiencyMenuItem, saveForCommandLineMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_EFFICIENCY_SAVE_FOR_THIS_COMMAND_LINE_ID, L"Save &for this command line", NULL), ULONG_MAX);
+        PhInsertEMenuItem(efficiencyMenuItem, saveForCommandLineMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_EFFICIENCY_SAVE_FOR_THIS_COMMAND_LINE_ID, L"为此命令行保存", NULL), ULONG_MAX);
         PhInsertEMenuItem(MenuInfo->Menu, efficiencyMenuItem, PhIndexOfEMenuItem(MenuInfo->Menu, boostMenuItem) + 1);
 
         if (!ProcessItem->CommandLine)
@@ -2168,7 +2168,7 @@ VOID AddSavePriorityMenuItemsAndHook(
     {
         PhInsertEMenuItem(priorityMenuItem, PhCreateEMenuSeparator(), ULONG_MAX);
         PhInsertEMenuItem(priorityMenuItem, saveMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_PRIORITY_SAVE_ID, PhaFormatString(L"&Save for %s", ProcessItem->ProcessName->Buffer)->Buffer, NULL), ULONG_MAX);
-        PhInsertEMenuItem(priorityMenuItem, saveForCommandLineMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_PRIORITY_SAVE_FOR_THIS_COMMAND_LINE_ID, L"Save &for this command line", NULL), ULONG_MAX);
+        PhInsertEMenuItem(priorityMenuItem, saveForCommandLineMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_PRIORITY_SAVE_FOR_THIS_COMMAND_LINE_ID, L"为此命令行保存", NULL), ULONG_MAX);
         PhInsertEMenuItem(priorityMenuItem, saveIfeoMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_PRIORITY_SAVE_IFEO, PhaFormatString(L"&Save for %s (IFEO)", ProcessItem->ProcessName->Buffer)->Buffer, NULL), ULONG_MAX);
 
         if (!ProcessItem->CommandLine)
@@ -2194,7 +2194,7 @@ VOID AddSavePriorityMenuItemsAndHook(
     {
         PhInsertEMenuItem(ioPriorityMenuItem, PhCreateEMenuSeparator(), ULONG_MAX);
         PhInsertEMenuItem(ioPriorityMenuItem, saveMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_IO_PRIORITY_SAVE_ID, PhaFormatString(L"&Save for %s", ProcessItem->ProcessName->Buffer)->Buffer, NULL), ULONG_MAX);
-        PhInsertEMenuItem(ioPriorityMenuItem, saveForCommandLineMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_IO_PRIORITY_SAVE_FOR_THIS_COMMAND_LINE_ID, L"Save &for this command line", NULL), ULONG_MAX);
+        PhInsertEMenuItem(ioPriorityMenuItem, saveForCommandLineMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_IO_PRIORITY_SAVE_FOR_THIS_COMMAND_LINE_ID, L"为此命令行保存", NULL), ULONG_MAX);
         PhInsertEMenuItem(ioPriorityMenuItem, saveIfeoMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_IO_PRIORITY_SAVE_IFEO, PhaFormatString(L"&Save for %s (IFEO)", ProcessItem->ProcessName->Buffer)->Buffer, NULL), ULONG_MAX);
 
         if (!ProcessItem->CommandLine)
@@ -2220,7 +2220,7 @@ VOID AddSavePriorityMenuItemsAndHook(
     {
         PhInsertEMenuItem(pagePriorityMenuItem, PhCreateEMenuSeparator(), ULONG_MAX);
         PhInsertEMenuItem(pagePriorityMenuItem, saveMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_PAGE_PRIORITY_SAVE_ID, PhaFormatString(L"&Save for %s", ProcessItem->ProcessName->Buffer)->Buffer, NULL), ULONG_MAX);
-        PhInsertEMenuItem(pagePriorityMenuItem, saveForCommandLineMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_PAGE_PRIORITY_SAVE_FOR_THIS_COMMAND_LINE_ID, L"Save &for this command line", NULL), ULONG_MAX);
+        PhInsertEMenuItem(pagePriorityMenuItem, saveForCommandLineMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_PAGE_PRIORITY_SAVE_FOR_THIS_COMMAND_LINE_ID, L"为此命令行保存", NULL), ULONG_MAX);
         PhInsertEMenuItem(pagePriorityMenuItem, saveIfeoMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_PAGE_PRIORITY_SAVE_IFEO, PhaFormatString(L"&Save for %s (IFEO)", ProcessItem->ProcessName->Buffer)->Buffer, NULL), ULONG_MAX);
 
         if (!ProcessItem->CommandLine)
@@ -2273,8 +2273,8 @@ VOID ProcessMenuInitializingCallback(
         highlightPresent = TRUE;
     UnlockDb();
 
-    PhInsertEMenuItem(miscMenuItem, collapseMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_COLLAPSE_ID, L"Col&lapse by default", NULL), 0);
-    PhInsertEMenuItem(miscMenuItem, highlightMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_HIGHLIGHT_ID, L"Highligh&t", UlongToPtr(highlightPresent)), 1);
+    PhInsertEMenuItem(miscMenuItem, collapseMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_COLLAPSE_ID, L"默认折叠", NULL), 0);
+    PhInsertEMenuItem(miscMenuItem, highlightMenuItem = PhPluginCreateEMenuItem(PluginInstance, 0, PROCESS_HIGHLIGHT_ID, L"高亮", UlongToPtr(highlightPresent)), 1);
     PhInsertEMenuItem(miscMenuItem, PhCreateEMenuSeparator(), 2);
 
     LockDb();
