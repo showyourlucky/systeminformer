@@ -159,7 +159,7 @@ VOID ToolbarGraphsInitialize(
     ToolbarRegisterGraph(
         PluginInstance,
         3,
-        L"承诺费用历史",
+        L"已提交内存历史记录",
         0,
         &CommitHistoryGraphContext,
         CommitHistoryGraphMessageCallback

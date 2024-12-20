@@ -145,6 +145,7 @@ def replace_strings_by_onefile_multi_regex(c_file, regexs, translated_dict):
             # 写入 content
             new_content = ""
             last_end = 0
+            
             for start, end, replacement_text in replacements:
                 new_content += content[last_end:start] + replacement_text
                 last_end = end
@@ -190,14 +191,14 @@ def getTranslate(untranslatable_json, url, headers, result):
                     "messages": [
                         {
                     #     "role": "system",
-                    #     "content": "你是一位计算机软件国际化专家，你的目标是把一个软件中的英文翻译成中文，请翻译时不要带翻译腔，而是要翻译得自然、流畅和地道，保留计算机软件的专业术语。我会发生字符串给你, 每一行都是需要独立翻译的句子, 最后把每一行原文和翻译结果按key-->value的格式输出, 比如 hi-->嗨\\n, 不要有多余的说明, 直接进行输出"
+                    #     "content": "你是一位计算机软件国际化专家，你的目标是把一个软件中的英文翻译成中文，请翻译时不要带翻译腔，而是要翻译得自然、流畅和地道，保留计算机软件的专业术语。"
                     #     },
                     #     {
                     #     "role": "user",
                     #     "content": "你是一位计算机软件国际化专家，你的目标是把一个软件中的英文翻译成中文，请翻译时不要带翻译腔，而是要翻译得自然、流畅和地道，保留计算机软件的专业术语。我会发生字符串给你, 你需要把字符串按换行符分割，每一行都是需要独立翻译的句子, 最后把每一行原文和翻译结果按key-->value的格式输出, 比如 hi-->嗨\n, 不要有多余的说明, 直接进行输出, 下面是待翻译的字符串\n```\n" + "\n".join(untranslatable_json.keys())
 
                         "role": "system",
-                        "content": "你是一位计算机软件国际化专家，你的目标是把一个软件中的英文翻译成中文，请翻译时不要带翻译腔，而是要翻译得自然、流畅和地道，保留计算机软件的专业术语。我会发生一串json字符串给你, key是待翻译字段, 你需要把对应的翻译结果填入value中, 如果key不需要翻译, 把key填入value, 最后把key和value按key-->value的格式输出, 比如 hi-->嗨\n, 不要有多余的说明, 直接进行输出"
+                        "content": "你是一位计算机软件国际化专家，你的目标是把一个软件中的英文翻译成中文，请翻译时不要带翻译腔，而是要翻译得自然、流畅和地道，保留计算机软件的专业术语。"
                         },
                         {
                         "role": "user",
@@ -224,7 +225,7 @@ def getTranslate(untranslatable_json, url, headers, result):
             if match := re.search(r'\{.*\}', content, re.DOTALL):
                 translateMap = json.loads(match.group(0))
                 result.update(translateMap)
-            else:
+            else: 
                 print(f"翻译失败，请检查翻译内容是否正确, content: {content} , params: {untranslatable_json}")
     except requests.exceptions.RequestException as e:
         print(f"请求失败: {e}")
@@ -388,8 +389,12 @@ def main():
     # 防火墙翻译
     # msgRegexStrs = ['static[^\[]+\[\] =\s*\{(.*?)\};']
     # c_files = ['F:/systeminformer_zh/systeminformer_my/plugins/ExtendedServices/trigger.c']
+    # 描述文本翻译
     # msgRegexStrs = ['column\.Text =(.*?);']
-    msgRegexStrs = ['info->DisplayName =(.*?);', 'info->Description =(.*?);']
+    # msgRegexStrs = ['info->DisplayName =(.*?);', 'info->Description =(.*?);']
+    # msgRegexStrs = ['const static COLUMN_INFO columns\[\] =\s*\{(.*?)\};']
+    # msgRegexStrs = ['static PH_KEY_VALUE_PAIR GraphTypePairs\[\] =\s*\{(.*?)\};', 'static PWSTR GraphTypeStrings\[\] =\s*\{(.*?)\}', 'static PWSTR CustomizeTextOptionsStrings\[\] =\s*\{(.*?)\}', 'static PWSTR CustomizeSearchDisplayStrings\[\] =\s*\{(.*?)\}']
+    msgRegexStrs = ['ToolbarRegisterGraph\((.*?)\);', 'RegisterTrayIcon\((.*?)\);']
     translata_by_ShowMessage(c_files, base_dir, untranslatable_json, translated_dict, msgRegexStrs)
 
 if __name__ == "__main__":

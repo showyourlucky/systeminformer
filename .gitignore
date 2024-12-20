@@ -119,3 +119,6 @@ tools/GenerateZw/GenerateZw/bin/Release/*
 
 !tools/thirdparty/bin/
 !tools/thirdparty/bin/*/*.pdb
+tools/thirdparty/thirdparty.7z
+zh_cn/untranslate_text.txt/untranslated_keys.txt
+tools/CustomBuildTool/CustomBuildTool.7z
