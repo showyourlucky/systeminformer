@@ -396,7 +396,10 @@ def main():
     # msgRegexStrs = ['static PH_KEY_VALUE_PAIR GraphTypePairs\[\] =\s*\{(.*?)\};', 'static PWSTR GraphTypeStrings\[\] =\s*\{(.*?)\}', 'static PWSTR CustomizeTextOptionsStrings\[\] =\s*\{(.*?)\}', 'static PWSTR CustomizeSearchDisplayStrings\[\] =\s*\{(.*?)\}']
     msgRegexStrs = ['ToolbarRegisterGraph\((.*?)\);', 'RegisterTrayIcon\((.*?)\);']
     translata_by_ShowMessage(c_files, base_dir, untranslatable_json, translated_dict, msgRegexStrs)
-
+    # PhSetDialogItemText
+    # PhSetGroupBoxText
+    # PhSetWindowText
+    # PhpAddLimit
 if __name__ == "__main__":
     main()
     

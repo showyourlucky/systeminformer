@@ -24,7 +24,7 @@ static PWSTR CustomizeSearchDisplayStrings[] =
     L"始终显示",
     L"不活动时隐藏 (Ctrl+K)",
     // L"自动隐藏"
-}
+};
 
 BOOLEAN CustomizeToolbarItemExists(
     _In_ PCUSTOMIZE_CONTEXT Context,
