@@ -141,7 +141,7 @@ VOID ToolbarGraphsInitialize(
     ToolbarRegisterGraph(
         PluginInstance,
         1,
-        L"CPU history",
+        L"CPU历史",
         0,
         &CpuHistoryGraphContext,
         CpuHistoryGraphMessageCallback
@@ -150,7 +150,7 @@ VOID ToolbarGraphsInitialize(
     ToolbarRegisterGraph(
         PluginInstance,
         2,
-        L"Physical memory history",
+        L"物理内存历史",
         0,
         &PhysicalHistoryGraphContext,
         PhysicalHistoryGraphMessageCallback
@@ -159,7 +159,7 @@ VOID ToolbarGraphsInitialize(
     ToolbarRegisterGraph(
         PluginInstance,
         3,
-        L"Commit charge history",
+        L"承诺费用历史",
         0,
         &CommitHistoryGraphContext,
         CommitHistoryGraphMessageCallback
@@ -168,7 +168,7 @@ VOID ToolbarGraphsInitialize(
     ToolbarRegisterGraph(
         PluginInstance,
         4,
-        L"I/O history",
+        L"I/O历史",
         0,
         &IoHistoryGraphContext,
         IoHistoryGraphMessageCallback

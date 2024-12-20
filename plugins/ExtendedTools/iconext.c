@@ -256,7 +256,7 @@ VOID EtRegisterNotifyIcons(
         ETP_TRAY_ICON_ID_GPU,
         EtpTrayIconGuids[ETP_TRAY_ICON_GUID_GPU],
         NULL,
-        L"&GPU history",
+        L"GPU历史",
         EtGpuEnabled ? 0 : PH_NF_ICON_UNAVAILABLE,
         &data
         );
@@ -268,7 +268,7 @@ VOID EtRegisterNotifyIcons(
         ETP_TRAY_ICON_ID_NPU,
         EtpTrayIconGuids[ETP_TRAY_ICON_GUID_NPU],
         NULL,
-        L"&NPU history",
+        L"NPU历史",
         EtNpuEnabled ? 0 : PH_NF_ICON_UNAVAILABLE,
         &data
         );
@@ -280,7 +280,7 @@ VOID EtRegisterNotifyIcons(
         ETP_TRAY_ICON_ID_DISK,
         EtpTrayIconGuids[ETP_TRAY_ICON_GUID_DISK],
         NULL,
-        L"&Disk history",
+        L"磁盘历史",
         EtEtwEnabled ? 0 : PH_NF_ICON_UNAVAILABLE,
         &data
         );
@@ -292,7 +292,7 @@ VOID EtRegisterNotifyIcons(
         ETP_TRAY_ICON_ID_NETWORK,
         EtpTrayIconGuids[ETP_TRAY_ICON_GUID_NETWORK],
         NULL,
-        L"&Network history",
+        L"网络历史",
         EtEtwEnabled ? 0 : PH_NF_ICON_UNAVAILABLE,
         &data
         );
@@ -304,7 +304,7 @@ VOID EtRegisterNotifyIcons(
         ETP_TRAY_ICON_ID_GPUTEXT,
         EtpTrayIconGuids[ETP_TRAY_ICON_GUID_GPUTEXT],
         NULL,
-        L"&GPU usage (text)",
+        L"GPU使用情况（文本）",
         EtGpuEnabled ? 0 : PH_NF_ICON_UNAVAILABLE,
         &data
         );
@@ -316,7 +316,7 @@ VOID EtRegisterNotifyIcons(
         ETP_TRAY_ICON_ID_DISKTEXT,
         EtpTrayIconGuids[ETP_TRAY_ICON_GUID_DISKTEXT],
         NULL,
-        L"&Disk usage (text)",
+        L"磁盘使用情况（文本）",
         EtEtwEnabled ? 0 : PH_NF_ICON_UNAVAILABLE,
         &data
         );
@@ -328,7 +328,7 @@ VOID EtRegisterNotifyIcons(
         ETP_TRAY_ICON_ID_NETWORKTEXT,
         EtpTrayIconGuids[ETP_TRAY_ICON_GUID_NETWORKTEXT],
         NULL,
-        L"&Network usage (text)",
+        L"网络使用情况（文本）",
         EtEtwEnabled ? 0 : PH_NF_ICON_UNAVAILABLE,
         &data
         );
@@ -340,7 +340,7 @@ VOID EtRegisterNotifyIcons(
         ETP_TRAY_ICON_ID_GPUMEM,
         EtpTrayIconGuids[ETP_TRAY_ICON_GUID_GPUMEM],
         NULL,
-        L"&GPU memory history",
+        L"GPU内存历史",
         EtGpuEnabled ? 0 : PH_NF_ICON_UNAVAILABLE,
         &data
         );
@@ -352,7 +352,7 @@ VOID EtRegisterNotifyIcons(
         ETP_TRAY_ICON_ID_GPUMEMTEXT,
         EtpTrayIconGuids[ETP_TRAY_ICON_GUID_GPUMEMTEXT],
         NULL,
-        L"&GPU memory usage (text)",
+        L"GPU内存使用情况（文本）",
         EtGpuEnabled ? 0 : PH_NF_ICON_UNAVAILABLE,
         &data
         );
@@ -366,7 +366,7 @@ VOID EtRegisterNotifyIcons(
             ETP_TRAY_ICON_ID_GPUTEMP,
             EtpTrayIconGuids[ETP_TRAY_ICON_GUID_GPUTEMP],
             NULL,
-            L"&GPU temperature history",
+            L"GPU温度历史",
             EtGpuEnabled ? 0 : PH_NF_ICON_UNAVAILABLE,
             &data
             );
@@ -378,7 +378,7 @@ VOID EtRegisterNotifyIcons(
             ETP_TRAY_ICON_ID_GPUTEMPTEXT,
             EtpTrayIconGuids[ETP_TRAY_ICON_GUID_GPUTEMPTEXT],
             NULL,
-            L"&GPU temperature (text)",
+            L"GPU温度（文本）",
             EtGpuEnabled ? 0 : PH_NF_ICON_UNAVAILABLE,
             &data
             );
