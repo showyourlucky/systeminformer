@@ -1,0 +1,152 @@
+[
+  {
+    "Key": "I18N-C-PHLIB-NATIVETOKEN-TEXT",
+    "Value": "PHLIB-NATIVETOKEN",
+    "Name": "I18N-C-PHLIB-NATIVETOKEN-TEXT"
+  },
+  {
+    "Key": "I18N-C-PHLIB-SVC-TEXT",
+    "Value": "PHLIB-SVC",
+    "Name": "I18N-C-PHLIB-SVC-TEXT"
+  },
+  {
+    "Key": "I18N-C-PROCPRP-STATUS-TEXT",
+    "Value": "PROCPRP-STATUS",
+    "Name": "I18N-C-PROCPRP-STATUS-TEXT"
+  },
+  {
+    "Key": "I18N-C-PHLIB-SECDATA-TEXT",
+    "Value": "PHLIB-SECDATA",
+    "Name": "I18N-C-PHLIB-SECDATA-TEXT"
+  },
+  {
+    "Key": "I18N-C-SERVICE-SVCPRP-TEXT",
+    "Value": "SERVICE-SVCPRP",
+    "Name": "I18N-C-SERVICE-SVCPRP-TEXT"
+  },
+  {
+    "Key": "I18N-C-PHLIB-FORMAT-TEXT",
+    "Value": "PHLIB-FORMAT",
+    "Name": "I18N-C-PHLIB-FORMAT-TEXT"
+  },
+  {
+    "Key": "I18N-C-SYSSCMEM-TEXT",
+    "Value": "SYSSCMEM",
+    "Name": "I18N-C-SYSSCMEM-TEXT"
+  },
+  {
+    "Key": "I18N-C-PHLIB-EMENU-TEXT",
+    "Value": "PHLIB-EMENU",
+    "Name": "I18N-C-PHLIB-EMENU-TEXT"
+  },
+  {
+    "Key": "I18N-C-RESPRP-UI-TEXT",
+    "Value": "RESPRP-UI",
+    "Name": "I18N-C-RESPRP-UI-TEXT"
+  },
+  {
+    "Key": "I18N-C-PEVIEW-PEHEADERPRP-TEXT",
+    "Value": "PEVIEW-PEHEADERPRP",
+    "Name": "I18N-C-PEVIEW-PEHEADERPRP-TEXT"
+  },
+  {
+    "Key": "I18N-C-MEMORY-PROPERTY-TEXT",
+    "Value": "MEMORY-PROPERTY",
+    "Name": "I18N-C-MEMORY-PROPERTY-TEXT"
+  },
+  {
+    "Key": "I18N-C-PEVIEW-CFGPRP-TEXT",
+    "Value": "PEVIEW-CFGPRP",
+    "Name": "I18N-C-PEVIEW-CFGPRP-TEXT"
+  },
+  {
+    "Key": "I18N-C-EXTENDEDTOOLS-NPUSYS-TEXT",
+    "Value": "EXTENDEDTOOLS-NPUSYS",
+    "Name": "I18N-C-EXTENDEDTOOLS-NPUSYS-TEXT"
+  },
+  {
+    "Key": "I18N-C-WINDOW-EXPLORER-UI-TEXT",
+    "Value": "WINDOW-EXPLORER-UI",
+    "Name": "I18N-C-WINDOW-EXPLORER-UI-TEXT"
+  },
+  {
+    "Key": "I18N-C-PEVIEW-PEPRP-CHECKSUM-TEXT",
+    "Value": "PEVIEW-PEPRP-CHECKSUM",
+    "Name": "I18N-C-PEVIEW-PEPRP-CHECKSUM-TEXT"
+  },
+  {
+    "Key": "I18N-C-PEVIEW-PESTRINGS-TEXT",
+    "Value": "PEVIEW-PESTRINGS",
+    "Name": "I18N-C-PEVIEW-PESTRINGS-TEXT"
+  },
+  {
+    "Key": "I18N-C-PEVIEW-EXCEPTION-TEXT",
+    "Value": "PEVIEW-EXCEPTION",
+    "Name": "I18N-C-PEVIEW-EXCEPTION-TEXT"
+  },
+  {
+    "Key": "I18N-C-PEVIEW-CLRPRP-TEXT",
+    "Value": "PEVIEW-CLRPRP",
+    "Name": "I18N-C-PEVIEW-CLRPRP-TEXT"
+  },
+  {
+    "Key": "I18N-C-PEVIEW-PEMIPRP-TEXT",
+    "Value": "PEVIEW-PEMIPRP",
+    "Name": "I18N-C-PEVIEW-PEMIPRP-TEXT"
+  },
+  {
+    "Key": "I18N-C-ACTIONS-UI-TEXT",
+    "Value": "ACTIONS-UI",
+    "Name": "I18N-C-ACTIONS-UI-TEXT"
+  },
+  {
+    "Key": "I18N-C-PEVIEW-EXPPRT-TEXT",
+    "Value": "PEVIEW-EXPPRT",
+    "Name": "I18N-C-PEVIEW-EXPPRT-TEXT"
+  },
+  {
+    "Key": "I18N-C-EXTENDEDTOOLS-GPUDETAILS-TEXT",
+    "Value": "EXTENDEDTOOLS-GPUDETAILS",
+    "Name": "I18N-C-EXTENDEDTOOLS-GPUDETAILS-TEXT"
+  },
+  {
+    "Key": "I18N-C-PEVIEW-PESECTIONPRP-TEXT",
+    "Value": "PEVIEW-PESECTIONPRP",
+    "Name": "I18N-C-PEVIEW-PESECTIONPRP-TEXT"
+  },
+  {
+    "Key": "I18N-C-PEVIEW-DISASSEMBLY-TEXT",
+    "Value": "PEVIEW-DISASSEMBLY",
+    "Name": "I18N-C-PEVIEW-DISASSEMBLY-TEXT"
+  },
+  {
+    "Key": "I18N-C-PEVIEW-LDPRP-TEXT",
+    "Value": "PEVIEW-LDPRP",
+    "Name": "I18N-C-PEVIEW-LDPRP-TEXT"
+  },
+  {
+    "Key": "I18N-C-EXTENDEDTOOLS-FWTAB-TEXT",
+    "Value": "EXTENDEDTOOLS-FWTAB",
+    "Name": "I18N-C-EXTENDEDTOOLS-FWTAB-TEXT"
+  },
+  {
+    "Key": "I18N-C-EXTENDEDTOOLS-FWSTATE-TEXT",
+    "Value": "EXTENDEDTOOLS-FWSTATE",
+    "Name": "I18N-C-EXTENDEDTOOLS-FWSTATE-TEXT"
+  },
+  {
+    "Key": "I18N-C-PHLIB-TEXT",
+    "Value": "PHLIB-TEXT",
+    "Name": "I18N-C-PHLIB-TEXT"
+  },
+  {
+    "Key": "I18N-C-EXTENDEDTOOLS-NPUDETAILS-TEXT",
+    "Value": "EXTENDEDTOOLS-NPUDETAILS",
+    "Name": "I18N-C-EXTENDEDTOOLS-NPUDETAILS-TEXT"
+  },
+  {
+    "Key": "I18N-C-DOTNET-ASMPAGE-MODULE-FLAG-TEXT",
+    "Value": "DOTNET-ASMPAGE-MODULE-FLAG",
+    "Name": "I18N-C-DOTNET-ASMPAGE-MODULE-FLAG-TEXT"
+  }
+]

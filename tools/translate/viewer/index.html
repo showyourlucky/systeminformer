@@ -1,0 +1,1179 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>System Informer 汉化分析</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --panel: #ffffff;
+      --text: #17202a;
+      --muted: #667085;
+      --line: #d8dee8;
+      --accent: #0f766e;
+      --accent-soft: #d9f2ee;
+      --warn: #b45309;
+      --danger: #b42318;
+      --ok: #157347;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.5 "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    }
+
+    header {
+      padding: 20px 28px 14px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: 22px;
+      font-weight: 650;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+      overflow-x: auto;
+    }
+
+    button,
+    select,
+    input {
+      font: inherit;
+    }
+
+    .tab {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      min-height: 34px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .tab.active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: #083f3a;
+    }
+
+    main {
+      padding: 18px 28px 28px;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .toolbar input,
+    .toolbar select {
+      min-height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 6px 10px;
+      background: #fff;
+      color: var(--text);
+    }
+
+    .toolbar .wide-filter {
+      width: min(360px, 100%);
+    }
+
+    .status-filter {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 34px;
+      flex-wrap: wrap;
+    }
+
+    .status-filter span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .status-filter label,
+    .bulkbar label {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      min-height: 30px;
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .status-filter input,
+    .bulkbar input,
+    .check-col input {
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .bulkbar {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding: 8px 10px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      flex-wrap: wrap;
+    }
+
+    .bulkbar .bulk-actions {
+      display: inline-flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .bulkbar button {
+      min-height: 32px;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 6px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .bulkbar button:hover:not(:disabled) {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .bulkbar button:disabled {
+      color: var(--muted);
+      cursor: not-allowed;
+      opacity: 0.65;
+    }
+
+    .pager {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px;
+      background: var(--panel);
+      border-top: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+
+    .pager-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pager button,
+    .pager input,
+    .pager select {
+      min-height: 32px;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 6px;
+      padding: 5px 9px;
+    }
+
+    .pager button {
+      cursor: pointer;
+    }
+
+    .pager button:hover:not(:disabled) {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .pager button:disabled {
+      color: var(--muted);
+      cursor: not-allowed;
+      opacity: 0.65;
+    }
+
+    .pager input {
+      width: 72px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .metric {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 82px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 420px;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .table-wrap,
+    .detail {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .detail {
+      position: sticky;
+      top: 12px;
+      padding: 14px;
+    }
+
+    .detail h2 {
+      margin: 0 0 10px;
+      font-size: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    th,
+    td {
+      padding: 9px 10px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      word-break: break-word;
+    }
+
+    th {
+      background: #f1f4f8;
+      font-size: 12px;
+      color: #475467;
+      font-weight: 650;
+    }
+
+    tr {
+      cursor: pointer;
+    }
+
+    tr:hover td {
+      background: #f8fbfb;
+    }
+
+    tr.active td {
+      background: #e9f6f4;
+    }
+
+    .check-col {
+      width: 42px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+      white-space: nowrap;
+    }
+
+    .status.i18n {
+      border-color: #9ed7ce;
+      background: var(--accent-soft);
+      color: #07514a;
+    }
+
+    .status.confirmed-i18n {
+      border-color: #7fb3d5;
+      background: #e8f4ff;
+      color: #174f78;
+    }
+
+    .status.exclude {
+      border-color: #c7d7eb;
+      background: #edf4ff;
+      color: #1d4d7a;
+    }
+
+    .status.review {
+      border-color: #f3c276;
+      background: #fff4df;
+      color: var(--warn);
+    }
+
+    .status.unspecified {
+      border-color: var(--line);
+      background: #f6f7f9;
+      color: var(--muted);
+    }
+
+    pre {
+      margin: 0;
+      padding: 12px;
+      background: #101828;
+      color: #e5eefb;
+      overflow: auto;
+      border-radius: 6px;
+      max-height: 360px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .kv {
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 6px 10px;
+      margin-bottom: 12px;
+    }
+
+    .kv div:nth-child(odd) {
+      color: var(--muted);
+    }
+
+    .empty {
+      padding: 28px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .actions button {
+      min-height: 34px;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .actions button:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .rule-options {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 10px 0 12px;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .rule-options label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 30px;
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .rule-options input {
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .rule-match-summary {
+      display: flex;
+      gap: 8px;
+      margin: 10px 0;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .rule-match-list {
+      max-height: 520px;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .rule-match-list table {
+      min-width: 620px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 66px;
+      margin-top: 8px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px;
+      resize: vertical;
+      font: inherit;
+    }
+
+    @media (max-width: 980px) {
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+
+      .detail {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>System Informer 汉化分析</h1>
+    <p class="subtitle">查看 Codex 分析进度、字符串状态、规则覆盖和待复核内容。</p>
+  </header>
+  <nav>
+    <button class="tab active" data-tab="overview">概览</button>
+    <button class="tab" data-tab="files">文件</button>
+    <button class="tab" data-tab="strings">字符串</button>
+    <button class="tab" data-tab="rules">规则</button>
+    <button class="tab" data-tab="review">待复核</button>
+  </nav>
+  <main id="app">
+    <div class="empty">正在加载数据...</div>
+  </main>
+
+  <script>
+    const state = {
+      tab: "overview",
+      overview: null,
+      records: [],
+      rules: null,
+      certainI18nIds: new Set(),
+      selected: null,
+      selectedRule: null,
+      ruleMatches: null,
+      ruleLoading: false,
+      ruleUseExcludes: true,
+      selectedIds: new Set(),
+      filters: {
+        q: "",
+        file: "",
+        fileType: "",
+        rule: "",
+        statuses: []
+      },
+      pages: {
+        strings: 1,
+        review: 1
+      },
+      pageSize: 50
+    };
+
+    const PAGE_SIZE_OPTIONS = [25, 50, 100, 200];
+
+    function pageKeyForRecords() {
+      return state.tab === "review" ? "review" : "strings";
+    }
+
+    function resetCurrentPage() {
+      state.pages[pageKeyForRecords()] = 1;
+    }
+
+    function ruleId(item) {
+      // 页面筛选只关心“实际归因规则”，空规则统一归入待人工复核。
+      return item.i18n_rule_id || item.exclude_rule_id || "待人工复核";
+    }
+
+    function uniqueSorted(values) {
+      return [...new Set(values.filter(Boolean))].sort((left, right) => left.localeCompare(right));
+    }
+
+    function clampPage(page, totalPages) {
+      return Math.min(Math.max(Number(page) || 1, 1), totalPages);
+    }
+
+    const STATUS_FILTERS = ["未指定", "待复核", "待汉化", "确认待汉化", "已排除"];
+
+    const app = document.querySelector("#app");
+
+    function statusClass(status) {
+      if (status === "确认待汉化") return "confirmed-i18n";
+      if (status === "待汉化") return "i18n";
+      if (status === "已排除") return "exclude";
+      if (status === "待复核") return "review";
+      if (!status || status === "未指定") return "unspecified";
+      return "";
+    }
+
+    function isConfirmedI18n(item) {
+      // “确认待汉化”只认 output/certain_i18n.json，避免把普通人工标记误显示为高置信确认记录。
+      return state.certainI18nIds.has(String(item?.id ?? ""));
+    }
+
+    function displayStatus(item) {
+      const status = String(item?.status ?? "").trim();
+      if (isConfirmedI18n(item)) return "确认待汉化";
+      return status || "未指定";
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;");
+    }
+
+    function metric(label, value) {
+      return `<div class="metric"><strong>${escapeHtml(value)}</strong><span>${escapeHtml(label)}</span></div>`;
+    }
+
+    function renderOverview() {
+      const report = state.overview?.analysis_report || {};
+      const summary = report.summary || {};
+      const fileProgress = state.overview?.file_progress?.files || [];
+      const coverage = summary.coverage === undefined ? "-" : `${(summary.coverage * 100).toFixed(2)}%`;
+
+      app.innerHTML = `
+        <section class="metrics">
+          ${metric("总文件数", summary.total_files ?? fileProgress.length)}
+          ${metric("已分析文件数", summary.analyzed_files ?? 0)}
+          ${metric("字符串总数", summary.total_strings ?? 0)}
+          ${metric("待汉化数量", summary.i18n_count ?? 0)}
+          ${metric("排除数量", summary.excluded_count ?? 0)}
+          ${metric("待复核数量", summary.review_count ?? 0)}
+          ${metric("总覆盖率", coverage)}
+        </section>
+        ${renderSimpleTable(Object.entries(report.by_file_type || {}).map(([type, item]) => ({
+          file_type: type,
+          total: item.total,
+          i18n: item.i18n,
+          excluded: item.excluded,
+          review: item.review,
+          coverage: `${(item.coverage * 100).toFixed(2)}%`
+        })), ["file_type", "total", "i18n", "excluded", "review", "coverage"])}
+      `;
+    }
+
+    function renderToolbar(records = state.records, showStatus = true) {
+      const fileTypes = uniqueSorted(records.map(item => item.file_type));
+      const files = uniqueSorted(records.map(item => item.file));
+      const rules = uniqueSorted(records.map(item => ruleId(item)));
+      return `
+        <div class="toolbar">
+          <input id="q" placeholder="搜索字符串、文件、规则或原因" value="${escapeHtml(state.filters.q)}">
+          <select id="fileFilter" class="wide-filter">
+            <option value="">全部文件</option>
+            ${files.map(file => `<option value="${escapeHtml(file)}" ${state.filters.file === file ? "selected" : ""}>${escapeHtml(file)}</option>`).join("")}
+          </select>
+          <select id="fileType">
+            <option value="">全部类型</option>
+            ${fileTypes.map(type => `<option value="${escapeHtml(type)}" ${state.filters.fileType === type ? "selected" : ""}>${escapeHtml(type)}</option>`).join("")}
+          </select>
+          <select id="ruleFilter" class="wide-filter">
+            <option value="">全部规则</option>
+            ${rules.map(rule => `<option value="${escapeHtml(rule)}" ${state.filters.rule === rule ? "selected" : ""}>${escapeHtml(rule)}</option>`).join("")}
+          </select>
+          ${showStatus ? `
+          <div class="status-filter" role="group" aria-label="状态筛选">
+            <span>状态</span>
+            ${STATUS_FILTERS.map(status => `
+              <label>
+                <input type="checkbox" data-filter-status="${escapeHtml(status)}" ${state.filters.statuses.includes(status) ? "checked" : ""}>
+                ${escapeHtml(status)}
+              </label>
+            `).join("")}
+          </div>` : ""}
+        </div>
+      `;
+    }
+
+    function bindToolbar() {
+      const controls = {
+        q: "q",
+        fileFilter: "file",
+        fileType: "fileType",
+        ruleFilter: "rule"
+      };
+      for (const [id, filterKey] of Object.entries(controls)) {
+        const node = document.querySelector(`#${id}`);
+        if (!node) continue;
+        node.addEventListener("input", () => {
+          state.filters[filterKey] = node.value;
+          resetCurrentPage();
+          render();
+        });
+      }
+      document.querySelectorAll("[data-filter-status]").forEach(node => {
+        node.addEventListener("change", () => {
+          state.filters.statuses = [...document.querySelectorAll("[data-filter-status]:checked")]
+            .map(item => item.dataset.filterStatus);
+          resetCurrentPage();
+          render();
+        });
+      });
+    }
+
+    function filteredRecords(records = state.records) {
+      const q = state.filters.q.trim().toLowerCase();
+      return records.filter(item => {
+        const text = [item.source, item.file, item.reason, item.i18n_rule_id, item.exclude_rule_id, item.context].join(" ").toLowerCase();
+        if (q && !text.includes(q)) return false;
+        if (state.filters.file && item.file !== state.filters.file) return false;
+        if (state.filters.fileType && item.file_type !== state.filters.fileType) return false;
+        if (state.filters.rule && ruleId(item) !== state.filters.rule) return false;
+        if (state.filters.statuses.length && !state.filters.statuses.includes(displayStatus(item))) return false;
+        return true;
+      });
+    }
+
+    function renderBulkBar(visible, filteredTotal, page, totalPages) {
+      const visibleIds = visible.map(item => item.id);
+      const selectedVisibleCount = visibleIds.filter(id => state.selectedIds.has(id)).length;
+      const allVisibleSelected = visibleIds.length > 0 && selectedVisibleCount === visibleIds.length;
+      const hasSelection = state.selectedIds.size > 0;
+
+      return `
+        <div class="bulkbar">
+          <label>
+            <input id="selectVisible" type="checkbox" ${allVisibleSelected ? "checked" : ""} ${visibleIds.length ? "" : "disabled"}>
+            选择当前页
+          </label>
+          <span class="subtitle">已选择 ${state.selectedIds.size} 条，筛选结果 ${filteredTotal} 条，第 ${page} / ${totalPages} 页。</span>
+          <div class="bulk-actions">
+            <button data-bulk-action="review" ${hasSelection ? "" : "disabled"}>标记待复核</button>
+            <button data-bulk-action="i18n" ${hasSelection ? "" : "disabled"}>确认需汉化</button>
+            <button data-bulk-action="exclude" ${hasSelection ? "" : "disabled"}>确认排除</button>
+            <button data-bulk-action="clear" ${hasSelection ? "" : "disabled"}>清空选择</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSimpleTable(rows, columns) {
+      if (!rows.length) return `<div class="table-wrap"><div class="empty">暂无数据</div></div>`;
+      return `
+        <div class="table-wrap">
+          <table>
+            <thead><tr>${columns.map(column => `<th>${escapeHtml(column)}</th>`).join("")}</tr></thead>
+            <tbody>
+              ${rows.map(row => `<tr>${columns.map(column => `<td>${escapeHtml(row[column] ?? "")}</td>`).join("")}</tr>`).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function allRuleRows() {
+      const i18n = state.rules?.i18n_rules?.rules || [];
+      const exclude = state.rules?.exclude_rules?.rules || [];
+      const countByRuleId = state.records.reduce((counts, record) => {
+        // 规则页展示的是分析结果里的实际归因数量，分别统计待汉化规则和排除规则 ID。
+        const i18nRuleId = record.i18n_rule_id;
+        const excludeRuleId = record.exclude_rule_id;
+        if (i18nRuleId) counts.set(i18nRuleId, (counts.get(i18nRuleId) || 0) + 1);
+        if (excludeRuleId) counts.set(excludeRuleId, (counts.get(excludeRuleId) || 0) + 1);
+        return counts;
+      }, new Map());
+      return [
+        ...i18n.map(rule => ({ ...rule, kind: "i18n", kindLabel: "待汉化规则", count: countByRuleId.get(rule.id) || 0 })),
+        ...exclude.map(rule => ({ ...rule, kind: "exclude", kindLabel: "排除规则", count: countByRuleId.get(rule.id) || 0 }))
+      ];
+    }
+
+    function renderFiles() {
+      const rows = state.overview?.file_progress?.files || [];
+      app.innerHTML = renderSimpleTable(rows, ["file", "file_type", "module", "analysis_status", "string_count", "i18n_count", "excluded_count", "review_count", "uncovered_count"]);
+    }
+
+    function renderPager(filteredTotal, page, totalPages) {
+      const start = filteredTotal ? (page - 1) * state.pageSize + 1 : 0;
+      const end = Math.min(page * state.pageSize, filteredTotal);
+      return `
+        <div class="pager">
+          <span class="subtitle">显示 ${start}-${end} / ${filteredTotal} 条</span>
+          <div class="pager-controls">
+            <button id="prevPage" ${page <= 1 ? "disabled" : ""}>上一页</button>
+            <span>第</span>
+            <input id="pageNumber" type="number" min="1" max="${totalPages}" value="${page}" aria-label="页码">
+            <span>/ ${totalPages} 页</span>
+            <button id="nextPage" ${page >= totalPages ? "disabled" : ""}>下一页</button>
+            <select id="pageSize" aria-label="每页数量">
+              ${PAGE_SIZE_OPTIONS.map(size => `<option value="${size}" ${state.pageSize === size ? "selected" : ""}>每页 ${size} 条</option>`).join("")}
+            </select>
+          </div>
+        </div>
+      `;
+    }
+
+    function buildCertainI18nIds(output) {
+      const records = Array.isArray(output?.certain_i18n)
+        ? output.certain_i18n
+        : (output?.certain_i18n?.records || []);
+      return new Set(records.map(item => String(item?.id ?? "")).filter(Boolean));
+    }
+
+    function mergeConfirmedIds(ids) {
+      // 后端确认成功后会返回确认 ID，前端即时合并，避免用户操作后还要手动刷新。
+      (ids || []).forEach(id => {
+        if (id) state.certainI18nIds.add(String(id));
+      });
+    }
+
+    function renderRecordTable(records) {
+      const filtered = filteredRecords(records);
+      const pageKey = pageKeyForRecords();
+      const totalPages = Math.max(1, Math.ceil(filtered.length / state.pageSize));
+      const page = clampPage(state.pages[pageKey], totalPages);
+      state.pages[pageKey] = page;
+      const startIndex = (page - 1) * state.pageSize;
+      const visible = filtered.slice(startIndex, startIndex + state.pageSize);
+      const detailItem = visible.some(item => item.id === state.selected?.id) ? state.selected : visible[0];
+      return `
+        ${renderToolbar(records, true)}
+        ${renderBulkBar(visible, filtered.length, page, totalPages)}
+        <div class="workspace">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th class="check-col">选择</th>
+                  <th style="width: 25%">原始字符串</th>
+                  <th style="width: 27%">文件</th>
+                  <th style="width: 7%">行号</th>
+                  <th style="width: 15%">来源</th>
+                  <th style="width: 10%">状态</th>
+                  <th>规则</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${visible.map((item, index) => `
+                  <tr data-index="${index}">
+                    <td class="check-col">
+                      <input class="record-check" type="checkbox" data-id="${escapeHtml(item.id)}" ${state.selectedIds.has(item.id) ? "checked" : ""} aria-label="选择记录">
+                    </td>
+                    <td>${escapeHtml(item.source)}</td>
+                    <td>${escapeHtml(item.file)}</td>
+                    <td>${escapeHtml(item.line)}</td>
+                    <td>${escapeHtml(item.source_type)}</td>
+                    <td><span class="status ${statusClass(displayStatus(item))}">${escapeHtml(displayStatus(item))}</span></td>
+                    <td>${escapeHtml(item.i18n_rule_id || item.exclude_rule_id || "待人工复核")}</td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+            ${renderPager(filtered.length, page, totalPages)}
+          </div>
+          ${renderDetail(detailItem)}
+        </div>
+      `;
+    }
+
+    function renderDetail(item) {
+      if (!item) return `<aside class="detail"><h2>详情</h2><p class="subtitle">暂无记录。</p></aside>`;
+      return `
+        <aside class="detail">
+          <h2>字符串详情</h2>
+          <div class="kv">
+            <div>ID</div><div>${escapeHtml(item.id)}</div>
+            <div>文件</div><div>${escapeHtml(item.file)}:${escapeHtml(item.line)}</div>
+            <div>状态</div><div><span class="status ${statusClass(displayStatus(item))}">${escapeHtml(displayStatus(item))}</span></div>
+            <div>规则</div><div>${escapeHtml(item.i18n_rule_id || item.exclude_rule_id || "待复核")}</div>
+            <div>资源/API</div><div>${escapeHtml(item.resource_id || item.api || "-")}</div>
+            <div>占位符</div><div>${escapeHtml((item.placeholders || []).join(", ") || "-")}</div>
+            <div>助记键</div><div>${item.has_mnemonic ? "是" : "否"}</div>
+            <div>原因</div><div>${escapeHtml(item.reason)}</div>
+          </div>
+          <div class="actions">
+            <button data-action="i18n" data-id="${escapeHtml(item.id)}">确认待汉化</button>
+            <button data-action="exclude" data-id="${escapeHtml(item.id)}">确认排除</button>
+            <button data-action="review" data-id="${escapeHtml(item.id)}">暂不处理</button>
+          </div>
+          <textarea id="reviewNote" placeholder="复核备注">${escapeHtml(item.note || "")}</textarea>
+          <pre>${escapeHtml(item.context || item.source_line || "")}</pre>
+        </aside>
+      `;
+    }
+
+    function bindRecordTable(records) {
+      bindToolbar();
+      const filtered = filteredRecords(records);
+      const pageKey = pageKeyForRecords();
+      const totalPages = Math.max(1, Math.ceil(filtered.length / state.pageSize));
+      const page = clampPage(state.pages[pageKey], totalPages);
+      const visible = filtered.slice((page - 1) * state.pageSize, page * state.pageSize);
+      const selectVisible = document.querySelector("#selectVisible");
+      if (selectVisible) {
+        selectVisible.addEventListener("change", () => {
+          visible.forEach(item => {
+            if (selectVisible.checked) {
+              state.selectedIds.add(item.id);
+            } else {
+              state.selectedIds.delete(item.id);
+            }
+          });
+          render();
+        });
+      }
+      const prevPage = document.querySelector("#prevPage");
+      const nextPage = document.querySelector("#nextPage");
+      const pageNumber = document.querySelector("#pageNumber");
+      const pageSize = document.querySelector("#pageSize");
+
+      if (prevPage) {
+        prevPage.addEventListener("click", () => {
+          state.pages[pageKey] = clampPage(state.pages[pageKey] - 1, totalPages);
+          render();
+        });
+      }
+      if (nextPage) {
+        nextPage.addEventListener("click", () => {
+          state.pages[pageKey] = clampPage(state.pages[pageKey] + 1, totalPages);
+          render();
+        });
+      }
+      if (pageNumber) {
+        pageNumber.addEventListener("change", () => {
+          state.pages[pageKey] = clampPage(pageNumber.value, totalPages);
+          render();
+        });
+      }
+      if (pageSize) {
+        pageSize.addEventListener("change", () => {
+          state.pageSize = Number(pageSize.value);
+          state.pages.strings = 1;
+          state.pages.review = 1;
+          render();
+        });
+      }
+      document.querySelectorAll(".record-check").forEach(checkbox => {
+        checkbox.addEventListener("click", event => event.stopPropagation());
+        checkbox.addEventListener("change", () => {
+          if (checkbox.checked) {
+            state.selectedIds.add(checkbox.dataset.id);
+          } else {
+            state.selectedIds.delete(checkbox.dataset.id);
+          }
+          render();
+        });
+      });
+      document.querySelectorAll("[data-bulk-action]").forEach(button => {
+        button.addEventListener("click", async () => {
+          const action = button.dataset.bulkAction;
+          if (action === "clear") {
+            state.selectedIds.clear();
+            render();
+            return;
+          }
+          if (!state.selectedIds.size) return;
+
+          const response = await fetch("/api/record-status", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ ids: [...state.selectedIds], action })
+          });
+          const payload = await response.json();
+          if (!response.ok) {
+            alert(payload.error || "批量复核操作失败");
+            return;
+          }
+
+          for (const record of payload.records || []) {
+            const index = state.records.findIndex(item => item.id === record.id);
+            if (index >= 0) state.records[index] = record;
+          }
+          mergeConfirmedIds(payload.confirmed_ids);
+          state.selected = (payload.records || [])[0] || state.selected;
+          state.selectedIds.clear();
+          render();
+        });
+      });
+      document.querySelectorAll("tbody tr[data-index]").forEach(row => {
+        row.addEventListener("click", event => {
+          if (event.target.closest("input, button, textarea, label")) return;
+          state.selected = visible[Number(row.dataset.index)];
+          render();
+        });
+      });
+      document.querySelectorAll(".actions button").forEach(button => {
+        button.addEventListener("click", async () => {
+          const note = document.querySelector("#reviewNote")?.value || "";
+          const response = await fetch("/api/record-status", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: button.dataset.id, action: button.dataset.action, note })
+          });
+          const payload = await response.json();
+          if (!response.ok) {
+            alert(payload.error || "复核操作失败");
+            return;
+          }
+          const index = state.records.findIndex(item => item.id === payload.record.id);
+          if (index >= 0) {
+            state.records[index] = payload.record;
+            state.selected = payload.record;
+          }
+          mergeConfirmedIds(payload.confirmed_ids);
+          render();
+        });
+      });
+    }
+
+    function renderStrings() {
+      app.innerHTML = renderRecordTable(state.records);
+      bindRecordTable(state.records);
+    }
+
+    function renderRules() {
+      const rows = allRuleRows();
+      app.innerHTML = `
+        <div class="workspace">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 16%">规则 ID</th>
+                  <th style="width: 16%">名称</th>
+                  <th style="width: 12%">类型</th>
+                  <th style="width: 12%">文件类型</th>
+                  <th style="width: 8%">数量</th>
+                  <th style="width: 8%">状态</th>
+                  <th>匹配表达式</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${rows.map((rule, index) => `
+                  <tr data-rule-index="${index}" class="${state.selectedRule?.id === rule.id ? "active" : ""}">
+                    <td>${escapeHtml(rule.id)}</td>
+                    <td>${escapeHtml(rule.name)}</td>
+                    <td>${escapeHtml(rule.kindLabel)}</td>
+                    <td>${escapeHtml((rule.file_types || []).join(", ") || "全部")}</td>
+                    <td>${escapeHtml(rule.count)}</td>
+                    <td>${escapeHtml(rule.enabled ? "启用" : "停用")}</td>
+                    <td>${escapeHtml(rule.pattern || rule.path_pattern || rule.source_line_pattern || "")}</td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
+          ${renderRuleMatchPanel()}
+        </div>
+      `;
+      bindRules(rows);
+    }
+
+    function renderRuleMatchPanel() {
+      const rule = state.selectedRule;
+      if (!rule) {
+        return `<aside class="detail"><h2>规则匹配文本</h2><p class="subtitle">点击左侧规则查看命中文本。</p></aside>`;
+      }
+
+      const records = state.ruleMatches?.records || [];
+      const visible = records.slice(0, 1000);
+      const skipped = state.ruleMatches?.skipped_by_exclude || 0;
+      const showExcludeOption = rule.kind === "i18n";
+
+      return `
+        <aside class="detail">
+          <h2>规则匹配文本</h2>
+          <div class="kv">
+            <div>规则</div><div>${escapeHtml(rule.id)}</div>
+            <div>名称</div><div>${escapeHtml(rule.name)}</div>
+            <div>类型</div><div>${escapeHtml(rule.kindLabel)}</div>
+            <div>归因数量</div><div>${escapeHtml(rule.count ?? 0)}</div>
+            <div>说明</div><div>${escapeHtml(rule.description || "-")}</div>
+          </div>
+          ${showExcludeOption ? `
+          <div class="rule-options">
+            <label>
+              <input id="useExcludeRules" type="checkbox" ${state.ruleUseExcludes ? "checked" : ""}>
+              使用排除规则
+            </label>
+          </div>` : ""}
+          ${state.ruleLoading ? `<div class="empty">正在查询匹配文本...</div>` : `
+          <div class="rule-match-summary">
+            <span>命中 ${records.length} 条</span>
+            ${showExcludeOption && state.ruleUseExcludes ? `<span>排除规则过滤 ${skipped} 条</span>` : ""}
+          </div>
+          ${renderRuleMatchTable(visible)}
+          ${records.length > visible.length ? `<div class="empty">仅显示前 ${visible.length} 条，请结合规则继续收窄。</div>` : ""}`}
+        </aside>
+      `;
+    }
+
+    function renderRuleMatchTable(records) {
+      if (!records.length) return `<div class="empty">暂无匹配文本</div>`;
+      return `
+        <div class="rule-match-list">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 34%">原始字符串</th>
+                <th style="width: 34%">文件</th>
+                <th style="width: 9%">行号</th>
+                <th style="width: 11%">状态</th>
+                <th>已归因规则</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${records.map(item => `
+                <tr>
+                  <td>${escapeHtml(item.source)}</td>
+                  <td>${escapeHtml(item.file)}</td>
+                  <td>${escapeHtml(item.line)}</td>
+                  <td><span class="status ${statusClass(displayStatus(item))}">${escapeHtml(displayStatus(item))}</span></td>
+                  <td>${escapeHtml(item.i18n_rule_id || item.exclude_rule_id || "待人工复核")}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function bindRules(rows) {
+      document.querySelectorAll("tbody tr[data-rule-index]").forEach(row => {
+        row.addEventListener("click", () => {
+          const rule = rows[Number(row.dataset.ruleIndex)];
+          state.selectedRule = rule;
+          state.ruleUseExcludes = true;
+          loadRuleMatches(rule);
+        });
+      });
+
+      const useExcludeRules = document.querySelector("#useExcludeRules");
+      if (useExcludeRules && state.selectedRule) {
+        useExcludeRules.addEventListener("change", () => {
+          state.ruleUseExcludes = useExcludeRules.checked;
+          loadRuleMatches(state.selectedRule);
+        });
+      }
+    }
+
+    async function loadRuleMatches(rule) {
+      state.ruleLoading = true;
+      state.ruleMatches = null;
+      render();
+
+      const params = new URLSearchParams({
+        id: rule.id,
+        kind: rule.kind,
+        use_exclude_rules: state.ruleUseExcludes ? "1" : "0"
+      });
+      const response = await fetch(`/api/rule-matches?${params.toString()}`);
+      const payload = await response.json();
+
+      state.ruleLoading = false;
+      if (!response.ok) {
+        alert(payload.error || "规则匹配查询失败");
+        render();
+        return;
+      }
+
+      state.ruleMatches = payload;
+      render();
+    }
+
+    function renderReview() {
+      const rows = state.records.filter(item => item.status === "待复核");
+      app.innerHTML = renderRecordTable(rows);
+      bindRecordTable(rows);
+    }
+
+    function render() {
+      document.querySelectorAll(".tab").forEach(tab => {
+        tab.classList.toggle("active", tab.dataset.tab === state.tab);
+      });
+
+      if (state.tab === "overview") renderOverview();
+      if (state.tab === "files") renderFiles();
+      if (state.tab === "strings") renderStrings();
+      if (state.tab === "rules") renderRules();
+      if (state.tab === "review") renderReview();
+    }
+
+    async function load() {
+      const [overview, records, rules, output] = await Promise.all([
+        fetch("/api/overview").then(response => response.json()),
+        fetch("/api/records").then(response => response.json()),
+        fetch("/api/rules").then(response => response.json()),
+        fetch("/api/output").then(response => response.json())
+      ]);
+      state.overview = overview;
+      state.records = records.records || [];
+      state.rules = rules;
+      state.certainI18nIds = buildCertainI18nIds(output);
+      render();
+    }
+
+    document.querySelectorAll(".tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        state.tab = tab.dataset.tab;
+        state.selected = null;
+        render();
+      });
+    });
+
+    load().catch(error => {
+      app.innerHTML = `<div class="empty">加载失败：${escapeHtml(error.message)}</div>`;
+    });
+  </script>
+</body>
+</html>
