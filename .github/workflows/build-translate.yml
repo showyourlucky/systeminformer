@@ -64,21 +64,29 @@ jobs:
       shell: cmd
       working-directory: ${{github.workspace}}
       run: python tools\translate\i18n.py analyze
+      env:
+        PYTHONIOENCODING: utf-8
 
     - name: 导出翻译文件
       shell: cmd
       working-directory: ${{github.workspace}}
       run: python tools\translate\i18n.py export
+      env:
+        PYTHONIOENCODING: utf-8
 
     - name: 同步翻译参考
       shell: cmd
       working-directory: ${{github.workspace}}
       run: python tools\translate\scripts\sync_reference.py
+      env:
+        PYTHONIOENCODING: utf-8
 
     - name: 应用翻译到源码
       shell: cmd
       working-directory: ${{github.workspace}}
       run: python tools\translate\i18n.py apply --write
+      env:
+        PYTHONIOENCODING: utf-8
 
     # --- 汉化流程结束 ---
 
