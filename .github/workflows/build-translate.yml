@@ -1,0 +1,106 @@
+name: 'build-translate'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-release:
+    permissions:
+      contents: write
+    strategy:
+      matrix:
+        os: ['windows-2025-vs2026']
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # 6.0.2
+      with:
+        ref: '0620_translate'
+
+    - name: Setup Python
+      uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # 5.6.0
+      with:
+        python-version: '3.x'
+
+    - name: NuGet Cache
+      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # 5.0.5
+      with:
+        path: |
+          packages
+          ~\.nuget\packages
+        key: nuget-${{ runner.os }}-${{ hashFiles('**/packages.config', '**/*.csproj', '**/Directory.Packages.props', '**/packages.lock.json', '**/NuGet.Config', '**/global.json') }}
+        restore-keys: nuget-${{ runner.os }}-
+
+    - name: Nuget Restore
+      shell: cmd
+      working-directory: ${{github.workspace}}
+      run: nuget restore .\packages.config -PackagesDirectory .\packages\
+
+    - name: BuildTools Cache
+      id: custombuildtool-cache
+      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # 5.0.5
+      with:
+        path: tools/CustomBuildTool/bin/Release/**
+        key: custombuildtool-${{ runner.os }}-${{ hashFiles('tools/CustomBuildTool/**', '!tools/CustomBuildTool/bin/**') }}
+        restore-keys: custombuildtool-${{ runner.os }}-
+
+    - name: BuildThirdParty Cache
+      id: thirdparty-cache
+      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # 5.0.5
+      with:
+        path: tools/thirdparty/**
+        key: thirdparty-${{ runner.os }}-${{ hashFiles('tools/thirdparty/**', '!tools/thirdparty/bin/**') }}
+        restore-keys: thirdparty-${{ runner.os }}-
+
+    - name: Build Tools
+      if: steps.custombuildtool-cache.outputs.cache-hit != 'true' || steps.thirdparty-cache.outputs.cache-hit != 'true'
+      shell: cmd
+      working-directory: ${{github.workspace}}
+      run: build\build_init.cmd
+
+    # --- 汉化流程开始 ---
+
+    - name: 分析源码字符串
+      shell: cmd
+      working-directory: ${{github.workspace}}
+      run: python tools\translate\i18n.py analyze
+      env:
+        PYTHONIOENCODING: utf-8
+
+    - name: 导出翻译文件
+      shell: cmd
+      working-directory: ${{github.workspace}}
+      run: python tools\translate\i18n.py export
+      env:
+        PYTHONIOENCODING: utf-8
+
+    - name: 同步翻译参考
+      shell: cmd
+      working-directory: ${{github.workspace}}
+      run: python tools\translate\scripts\sync_reference.py
+      env:
+        PYTHONIOENCODING: utf-8
+
+    - name: 应用翻译到源码
+      shell: cmd
+      working-directory: ${{github.workspace}}
+      run: python tools\translate\i18n.py apply --write
+      env:
+        PYTHONIOENCODING: utf-8
+
+    # --- 汉化流程结束 ---
+
+    - name: Build Solution
+      shell: cmd
+      working-directory: ${{github.workspace}}
+      run: build\build_release.cmd
+
+    - name: Upload to GitHub Release
+      uses: softprops/action-gh-release@da05d552573ad5aba039eaac05058a918a7bf631 # 2.2.2
+      with:
+        tag_name: translate-${{ github.run_id }}
+        name: System Informer 汉化构建 ${{ github.run_id }}
+        draft: false
+        files: |
+          build/output/*.zip
+          build/output/*.exe
