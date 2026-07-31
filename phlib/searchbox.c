@@ -1092,12 +1092,20 @@ LRESULT CALLBACK PhpSearchWndSubclassProc(
             context->WindowFocus = TRUE;
             context->PreviousFocusWindowHandle = (HWND)wParam;
 
+            // 关键修复:必须把焦点消息传给默认 Edit 过程,使其激活 IME/TSF
+            // 文档焦点上下文并创建 caret。否则第三方 TSF 输入法(搜狗/QQ/小狼毫)
+            // 无法进入中文组合模式,候选框不出现,只能输入英文。
+            CallWindowProc(oldWndProc, WindowHandle, WindowMessage, wParam, lParam);
+
             RedrawWindow(WindowHandle, NULL, NULL, RDW_FRAME | RDW_INVALIDATE);
         }
         break;
     case WM_KILLFOCUS:
         {
             context->WindowFocus = FALSE;
+
+            // 同样传给默认 Edit 过程,释放 IME/TSF 焦点上下文并销毁 caret。
+            CallWindowProc(oldWndProc, WindowHandle, WindowMessage, wParam, lParam);
 
             RedrawWindow(WindowHandle, NULL, NULL, RDW_FRAME | RDW_INVALIDATE);
         }
